@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Foxhue — Project Hub</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --foxhue-primary: #1A1A2E;
+      --foxhue-accent: #E94560;
+      --foxhue-accent-hover: #D63851;
+      --foxhue-bg: #F8F8FA;
+      --foxhue-surface: #FFFFFF;
+      --foxhue-text: #1A1A2E;
+      --foxhue-font-heading: 'DM Serif Display', serif;
+      --foxhue-font-body: 'Inter', sans-serif;
+    }
+
+    body {
+      font-family: var(--foxhue-font-body);
+      font-weight: 400;
+      color: var(--foxhue-text);
+      background: var(--foxhue-bg);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Header */
+    .hub-header {
+      text-align: center;
+      padding: 56px 24px 32px;
+      border-bottom: 1px solid rgba(26,26,46,0.08);
+    }
+
+    .hub-logo {
+      font-family: var(--foxhue-font-heading);
+      font-size: 2.25rem;
+      color: var(--foxhue-primary);
+      letter-spacing: 0.02em;
+    }
+
+    .hub-tagline {
+      font-size: 0.8125rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--foxhue-accent);
+      margin-top: 4px;
+    }
+
+    /* Main */
+    .hub-main {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 56px 24px 64px;
+      flex: 1;
+    }
+
+    .hub-intro {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .hub-eyebrow {
+      display: block;
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--foxhue-accent);
+      margin-bottom: 12px;
+    }
+
+    .hub-title {
+      font-family: var(--foxhue-font-heading);
+      font-size: clamp(1.5rem, 3.5vw, 2.25rem);
+      color: var(--foxhue-primary);
+      margin-bottom: 12px;
+    }
+
+    .hub-subtitle {
+      font-size: 0.9375rem;
+      color: #6b6b80;
+      max-width: 520px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    /* Link Cards */
+    .hub-links {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .hub-link {
+      display: flex;
+      flex-direction: column;
+      background: var(--foxhue-surface);
+      border-radius: 10px;
+      padding: 28px 24px;
+      text-decoration: none;
+      color: var(--foxhue-text);
+      box-shadow: 0 2px 12px rgba(26,26,46,0.06);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .hub-link:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(26,26,46,0.1);
+    }
+
+    .hub-link:focus-visible {
+      outline: 2px solid var(--foxhue-accent);
+      outline-offset: 2px;
+    }
+
+    .hub-link__number {
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--foxhue-accent);
+      margin-bottom: 8px;
+    }
+
+    .hub-link__title {
+      font-family: var(--foxhue-font-heading);
+      font-size: 1.25rem;
+      color: var(--foxhue-primary);
+      margin-bottom: 6px;
+    }
+
+    .hub-link__desc {
+      font-size: 0.8125rem;
+      color: #6b6b80;
+      line-height: 1.5;
+      flex: 1;
+    }
+
+    .hub-link__arrow {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--foxhue-accent);
+      margin-top: 16px;
+      transition: letter-spacing 0.2s ease;
+    }
+
+    .hub-link:hover .hub-link__arrow {
+      letter-spacing: 0.14em;
+    }
+
+    /* Footer */
+    .hub-footer {
+      text-align: center;
+      padding: 24px;
+      border-top: 1px solid rgba(26,26,46,0.08);
+    }
+
+    .hub-footer__text {
+      font-size: 0.75rem;
+      color: #6b6b80;
+    }
+
+    /* Responsive */
+    @media (max-width: 640px) {
+      .hub-links {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="hub-header">
+    <div class="hub-logo">Foxhue</div>
+    <p class="hub-tagline">Creative Design &amp; Marketing</p>
+  </header>
+
+  <main class="hub-main">
+    <div class="hub-intro">
+      <span class="hub-eyebrow">Internal</span>
+      <h1 class="hub-title">Project Hub</h1>
+      <p class="hub-subtitle">Central access point for all Foxhue project deliverables. Design directions, website builds, client review tools, and documentation.</p>
+    </div>
+
+    <nav class="hub-links" aria-label="Project deliverables">
+
+      <a href="designs/index.html" class="hub-link">
+        <span class="hub-link__number">01</span>
+        <h2 class="hub-link__title">Design Directions</h2>
+        <p class="hub-link__desc">Three design directions for client review: Studio Minimal, Editorial Motion, and Warm Craft.</p>
+        <span class="hub-link__arrow" aria-hidden="true">View Designs &rarr;</span>
+      </a>
+
+      <a href="website/index.html" class="hub-link">
+        <span class="hub-link__number">02</span>
+        <h2 class="hub-link__title">Website</h2>
+        <p class="hub-link__desc">Full multi-page website build. Homepage, Services, Our Work, About, Blog, and Contact.</p>
+        <span class="hub-link__arrow" aria-hidden="true">View Website &rarr;</span>
+      </a>
+
+      <a href="website/variants/index.html" class="hub-link">
+        <span class="hub-link__number">03</span>
+        <h2 class="hub-link__title">Layout Review</h2>
+        <p class="hub-link__desc">Client review hub for comparing layout variants A, B, and C across all pages.</p>
+        <span class="hub-link__arrow" aria-hidden="true">Review Layouts &rarr;</span>
+      </a>
+
+      <a href="docs/" class="hub-link">
+        <span class="hub-link__number">04</span>
+        <h2 class="hub-link__title">Documentation</h2>
+        <p class="hub-link__desc">Brand guidelines, asset briefs, SEO reports, and project planning documents.</p>
+        <span class="hub-link__arrow" aria-hidden="true">View Docs &rarr;</span>
+      </a>
+
+    </nav>
+  </main>
+
+  <footer class="hub-footer">
+    <p class="hub-footer__text">&copy; 2026 Foxhue Ltd &mdash; Internal project hub</p>
+  </footer>
+
+</body>
+</html>

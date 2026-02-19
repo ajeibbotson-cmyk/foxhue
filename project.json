@@ -6,38 +6,41 @@
     "github_org": "ajeibbotson-cmyk"
   },
   "client": {
-    "name": "Client Name",
-    "short_name": "Client",
-    "tagline": "Tagline Here",
-    "slug": "client-slug",
-    "industry": "industry-type",
-    "location": "City, Region",
-    "phone": "000 000 0000",
-    "email": "hello@client.com",
-    "website": "https://client.com"
+    "name": "Foxhue",
+    "short_name": "Foxhue",
+    "tagline": "Creative Design & Marketing",
+    "slug": "foxhue",
+    "industry": "creative-agency",
+    "location": "Bicester, Oxfordshire",
+    "phone": "TBC",
+    "email": "hello@foxhue.com",
+    "website": "https://foxhue.com"
   },
   "brand": {
     "colors": {
-      "primary": "#3C3C3B",
-      "accent": "#C6BCB3",
-      "accent_hover": "#B4A89D",
-      "background": "#F9F9F8",
-      "surface": "#ECE5E0"
+      "primary": "#1A1A2E",
+      "accent": "#E94560",
+      "accent_hover": "#D63851",
+      "background": "#F8F8FA",
+      "surface": "#FFFFFF"
     },
     "fonts": {
-      "heading": "'Cormorant Garamond', serif",
-      "body": "'Noto Sans', sans-serif",
-      "google_fonts_url": "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Noto+Sans:wght@300;400;500;600&display=swap"
+      "heading": "'DM Serif Display', serif",
+      "body": "'Inter', sans-serif",
+      "google_fonts_url": "https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap"
     }
   },
   "designs": [
-    { "key": "a", "name": "Direction A", "mood": "Mood description for direction A" },
-    { "key": "b", "name": "Direction B", "mood": "Mood description for direction B" },
-    { "key": "c", "name": "Direction C", "mood": "Mood description for direction C" }
+    { "key": "a", "name": "Studio Minimal", "mood": "Clean, architectural white space with bold typography — confidence through restraint" },
+    { "key": "b", "name": "Editorial Motion", "mood": "Magazine-inspired layouts with cinematic transitions — creative energy meets polish" },
+    { "key": "c", "name": "Warm Craft", "mood": "Approachable, textured, and human — boutique studio feel with premium finish" }
   ],
   "pages": [
     { "key": "homepage", "title": "Homepage", "slug": "index" },
+    { "key": "services", "title": "Services", "slug": "services" },
+    { "key": "work", "title": "Our Work", "slug": "work" },
     { "key": "about", "title": "About", "slug": "about" },
+    { "key": "blog", "title": "Blog", "slug": "blog" },
     { "key": "contact", "title": "Contact", "slug": "contact" }
   ]
 }

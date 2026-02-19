@@ -1,0 +1,1547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Foxhue — SEO Competitor Analysis | Bicester, Oxfordshire</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ═══════════════════════════════════════════════════
+       RESET & BASE
+       ═══════════════════════════════════════════════════ */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary: #1A1A2E;
+      --accent: #E94560;
+      --accent-hover: #D63851;
+      --bg: #F8F8FA;
+      --surface: #FFFFFF;
+      --text: #1A1A2E;
+      --text-light: #5A5A6E;
+      --text-muted: #8E8E9E;
+      --border: #E2E2EA;
+      --border-light: #F0F0F4;
+      --green: #22C55E;
+      --green-bg: #ECFDF5;
+      --amber: #F59E0B;
+      --amber-bg: #FFFBEB;
+      --red: #EF4444;
+      --red-bg: #FEF2F2;
+      --font-heading: 'DM Serif Display', serif;
+      --font-body: 'Inter', sans-serif;
+    }
+
+    html {
+      font-size: 16px;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* ═══════════════════════════════════════════════════
+       LAYOUT
+       ═══════════════════════════════════════════════════ */
+    .page-wrapper {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* ═══════════════════════════════════════════════════
+       COVER
+       ═══════════════════════════════════════════════════ */
+    .cover {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: var(--primary);
+      color: var(--surface);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cover::before {
+      content: '';
+      position: absolute;
+      top: -40%;
+      right: -20%;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(233, 69, 96, 0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .cover::after {
+      content: '';
+      position: absolute;
+      bottom: -30%;
+      left: -15%;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(233, 69, 96, 0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .cover-inner {
+      position: relative;
+      z-index: 1;
+      padding: 4rem 2rem;
+    }
+
+    .cover-logo {
+      font-family: var(--font-heading);
+      font-size: 1.125rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 3rem;
+    }
+
+    .cover h1 {
+      font-family: var(--font-heading);
+      font-size: clamp(2.25rem, 5vw, 3.5rem);
+      font-weight: 400;
+      line-height: 1.2;
+      margin-bottom: 0.75rem;
+    }
+
+    .cover h1 span {
+      display: block;
+      color: var(--accent);
+    }
+
+    .cover-subtitle {
+      font-size: 1.25rem;
+      font-weight: 300;
+      color: rgba(255, 255, 255, 0.7);
+      margin-bottom: 3rem;
+    }
+
+    .cover-meta {
+      font-size: 0.875rem;
+      color: rgba(255, 255, 255, 0.5);
+      line-height: 1.8;
+    }
+
+    .cover-divider {
+      width: 60px;
+      height: 2px;
+      background: var(--accent);
+      margin: 2rem auto;
+    }
+
+    /* ═══════════════════════════════════════════════════
+       TABLE OF CONTENTS
+       ═══════════════════════════════════════════════════ */
+    .toc {
+      background: var(--surface);
+      border-radius: 12px;
+      padding: 2.5rem;
+      margin: 3rem auto;
+      border: 1px solid var(--border);
+    }
+
+    .toc h2 {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      font-weight: 400;
+      margin-bottom: 1.5rem;
+      color: var(--primary);
+    }
+
+    .toc ol {
+      list-style: none;
+      counter-reset: toc-counter;
+    }
+
+    .toc ol li {
+      counter-increment: toc-counter;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .toc ol li:last-child {
+      border-bottom: none;
+    }
+
+    .toc ol li a {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 0.75rem 0;
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: color 0.2s ease;
+    }
+
+    .toc ol li a:hover {
+      color: var(--accent);
+    }
+
+    .toc ol li a::before {
+      content: counter(toc-counter, decimal-leading-zero);
+      font-family: var(--font-heading);
+      font-size: 1.125rem;
+      color: var(--accent);
+      min-width: 2rem;
+    }
+
+    /* ═══════════════════════════════════════════════════
+       SECTIONS
+       ═══════════════════════════════════════════════════ */
+    .report-section {
+      background: var(--surface);
+      border-radius: 12px;
+      padding: 2.5rem;
+      margin-bottom: 2rem;
+      border: 1px solid var(--border);
+    }
+
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .report-section h2 {
+      font-family: var(--font-heading);
+      font-size: 1.75rem;
+      font-weight: 400;
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+      line-height: 1.3;
+    }
+
+    .report-section h3 {
+      font-family: var(--font-heading);
+      font-size: 1.25rem;
+      font-weight: 400;
+      color: var(--primary);
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      line-height: 1.3;
+    }
+
+    .report-section h4 {
+      font-size: 0.875rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .report-section p {
+      color: var(--text-light);
+      margin-bottom: 1rem;
+    }
+
+    .report-section ul,
+    .report-section ol {
+      color: var(--text-light);
+      margin-bottom: 1rem;
+      padding-left: 1.25rem;
+    }
+
+    .report-section li {
+      margin-bottom: 0.5rem;
+    }
+
+    .report-section li strong {
+      color: var(--text);
+    }
+
+    .section-divider {
+      width: 40px;
+      height: 2px;
+      background: var(--accent);
+      margin-bottom: 1.5rem;
+    }
+
+    /* ═══════════════════════════════════════════════════
+       EXECUTIVE SUMMARY
+       ═══════════════════════════════════════════════════ */
+    .summary-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .summary-list li {
+      position: relative;
+      padding: 1rem 1rem 1rem 1.75rem;
+      margin-bottom: 0.75rem;
+      background: var(--bg);
+      border-radius: 8px;
+      border-left: 3px solid var(--accent);
+      color: var(--text-light);
+      line-height: 1.6;
+    }
+
+    /* ═══════════════════════════════════════════════════
+       COMPETITOR CARDS
+       ═══════════════════════════════════════════════════ */
+    .competitor-card {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 2rem;
+      margin-bottom: 1.5rem;
+      background: var(--surface);
+      transition: box-shadow 0.2s ease;
+    }
+
+    .competitor-card:hover {
+      box-shadow: 0 4px 20px rgba(26, 26, 46, 0.06);
+    }
+
+    .competitor-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+      flex-wrap: wrap;
+    }
+
+    .competitor-name {
+      font-family: var(--font-heading);
+      font-size: 1.35rem;
+      font-weight: 400;
+      color: var(--primary);
+    }
+
+    .competitor-number {
+      font-family: var(--font-heading);
+      font-size: 0.875rem;
+      color: var(--accent);
+      background: rgba(233, 69, 96, 0.08);
+      padding: 0.25rem 0.75rem;
+      border-radius: 100px;
+      white-space: nowrap;
+    }
+
+    .competitor-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .meta-tag {
+      font-size: 0.8rem;
+      font-weight: 500;
+      padding: 0.25rem 0.75rem;
+      border-radius: 100px;
+      background: var(--bg);
+      color: var(--text-light);
+      border: 1px solid var(--border);
+    }
+
+    .meta-tag a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .meta-tag a:hover {
+      color: var(--accent);
+    }
+
+    .competitor-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-top: 1.25rem;
+    }
+
+    .competitor-detail {
+      padding: 1rem;
+      background: var(--bg);
+      border-radius: 8px;
+    }
+
+    .competitor-detail h4 {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin: 0 0 0.5rem 0;
+    }
+
+    .competitor-detail p,
+    .competitor-detail ul {
+      font-size: 0.9rem;
+      color: var(--text-light);
+      margin: 0;
+    }
+
+    .competitor-detail ul {
+      padding-left: 1rem;
+    }
+
+    .competitor-detail li {
+      margin-bottom: 0.25rem;
+    }
+
+    .presence-bar {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 0.25rem;
+    }
+
+    .presence-dots {
+      display: flex;
+      gap: 4px;
+    }
+
+    .presence-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--border);
+    }
+
+    .presence-dot.filled {
+      background: var(--accent);
+    }
+
+    .presence-label {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* ═══════════════════════════════════════════════════
+       GAP ANALYSIS TABLE
+       ═══════════════════════════════════════════════════ */
+    .table-wrapper {
+      overflow-x: auto;
+      margin: 1.5rem 0;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+    }
+
+    .gap-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+      min-width: 800px;
+    }
+
+    .gap-table thead th {
+      background: var(--primary);
+      color: var(--surface);
+      font-weight: 600;
+      font-size: 0.75rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 0.875rem 0.75rem;
+      text-align: left;
+      white-space: nowrap;
+      position: sticky;
+      top: 0;
+    }
+
+    .gap-table thead th:first-child {
+      min-width: 160px;
+    }
+
+    .gap-table thead th.foxhue-col {
+      background: var(--accent);
+      color: var(--surface);
+    }
+
+    .gap-table tbody td {
+      padding: 0.75rem;
+      border-bottom: 1px solid var(--border-light);
+      vertical-align: top;
+      line-height: 1.5;
+      color: var(--text-light);
+    }
+
+    .gap-table tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    .gap-table tbody tr:hover td {
+      background: rgba(233, 69, 96, 0.02);
+    }
+
+    .gap-table tbody td:first-child {
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .gap-table tbody td.foxhue-cell {
+      background: rgba(233, 69, 96, 0.04);
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .indicator {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .dot-green { background: var(--green); }
+    .dot-amber { background: var(--amber); }
+    .dot-red { background: var(--red); }
+
+    /* ═══════════════════════════════════════════════════
+       KEYWORD TABLE
+       ═══════════════════════════════════════════════════ */
+    .keyword-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.875rem;
+      min-width: 600px;
+    }
+
+    .keyword-table thead th {
+      background: var(--primary);
+      color: var(--surface);
+      font-weight: 600;
+      font-size: 0.75rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 0.875rem 1rem;
+      text-align: left;
+    }
+
+    .keyword-table tbody td {
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border-light);
+      color: var(--text-light);
+    }
+
+    .keyword-table tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    .keyword-table tbody tr:hover td {
+      background: rgba(233, 69, 96, 0.02);
+    }
+
+    .keyword-table tbody td:first-child {
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 0.2rem 0.6rem;
+      border-radius: 100px;
+    }
+
+    .badge-low {
+      background: var(--green-bg);
+      color: #15803D;
+    }
+
+    .badge-moderate {
+      background: var(--amber-bg);
+      color: #B45309;
+    }
+
+    .badge-zero {
+      background: var(--green-bg);
+      color: #15803D;
+      border: 1px dashed #22C55E;
+    }
+
+    /* ═══════════════════════════════════════════════════
+       RECOMMENDATIONS LISTS
+       ═══════════════════════════════════════════════════ */
+    .rec-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin: 1rem 0;
+    }
+
+    .rec-item {
+      padding: 1rem;
+      background: var(--bg);
+      border-radius: 8px;
+      border-left: 3px solid var(--accent);
+    }
+
+    .rec-item h4 {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text);
+      margin: 0 0 0.35rem 0;
+      text-transform: none;
+      letter-spacing: 0;
+    }
+
+    .rec-item p {
+      font-size: 0.875rem;
+      color: var(--text-light);
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    /* ═══════════════════════════════════════════════════
+       CONTENT STRATEGY
+       ═══════════════════════════════════════════════════ */
+    .topic-list {
+      list-style: none;
+      padding: 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.5rem;
+    }
+
+    .topic-list li {
+      padding: 0.75rem 1rem;
+      background: var(--bg);
+      border-radius: 6px;
+      font-size: 0.9rem;
+      color: var(--text-light);
+      border: 1px solid var(--border-light);
+    }
+
+    /* ═══════════════════════════════════════════════════
+       CHECKLIST
+       ═══════════════════════════════════════════════════ */
+    .checklist {
+      list-style: none;
+      padding: 0;
+    }
+
+    .checklist li {
+      position: relative;
+      padding: 0.625rem 0 0.625rem 2rem;
+      border-bottom: 1px solid var(--border-light);
+      color: var(--text-light);
+      font-size: 0.925rem;
+    }
+
+    .checklist li:last-child {
+      border-bottom: none;
+    }
+
+    .checklist li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 18px;
+      height: 18px;
+      border: 2px solid var(--border);
+      border-radius: 4px;
+    }
+
+    /* ═══════════════════════════════════════════════════
+       TIMELINE / NEXT STEPS
+       ═══════════════════════════════════════════════════ */
+    .timeline {
+      position: relative;
+      padding-left: 2rem;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 7px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: var(--border);
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-bottom: 1.75rem;
+    }
+
+    .timeline-item:last-child {
+      padding-bottom: 0;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -2rem;
+      top: 6px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--surface);
+      border: 3px solid var(--accent);
+      z-index: 1;
+    }
+
+    .timeline-item.immediate::before {
+      background: var(--accent);
+    }
+
+    .timeline-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.25rem;
+    }
+
+    .timeline-text {
+      font-size: 0.95rem;
+      color: var(--text-light);
+      line-height: 1.5;
+    }
+
+    /* ═══════════════════════════════════════════════════
+       FOOTER
+       ═══════════════════════════════════════════════════ */
+    .report-footer {
+      text-align: center;
+      padding: 3rem 2rem;
+      margin-top: 1rem;
+    }
+
+    .footer-divider {
+      width: 60px;
+      height: 2px;
+      background: var(--accent);
+      margin: 0 auto 1.5rem;
+    }
+
+    .footer-text {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      letter-spacing: 0.05em;
+    }
+
+    /* ═══════════════════════════════════════════════════
+       RESPONSIVE
+       ═══════════════════════════════════════════════════ */
+    @media (max-width: 768px) {
+      .page-wrapper {
+        padding: 0 1rem;
+      }
+
+      .report-section {
+        padding: 1.75rem 1.25rem;
+      }
+
+      .toc {
+        padding: 1.75rem 1.25rem;
+      }
+
+      .competitor-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .rec-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .topic-list {
+        grid-template-columns: 1fr;
+      }
+
+      .cover h1 {
+        font-size: 2rem;
+      }
+
+      .cover-subtitle {
+        font-size: 1.05rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .report-section {
+        padding: 1.25rem 1rem;
+      }
+
+      .competitor-card {
+        padding: 1.25rem;
+      }
+
+      .competitor-header {
+        flex-direction: column;
+      }
+    }
+
+    /* ═══════════════════════════════════════════════════
+       PRINT STYLES
+       ═══════════════════════════════════════════════════ */
+    @media print {
+      * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        color-adjust: exact !important;
+      }
+
+      body {
+        background: white;
+        font-size: 11pt;
+        line-height: 1.5;
+      }
+
+      .cover {
+        min-height: auto;
+        padding: 3rem 2rem;
+        page-break-after: always;
+      }
+
+      .page-wrapper {
+        max-width: 100%;
+        padding: 0 1cm;
+      }
+
+      .report-section {
+        box-shadow: none;
+        border: 1px solid #ddd;
+        page-break-inside: avoid;
+        margin-bottom: 1rem;
+      }
+
+      .toc {
+        page-break-after: always;
+        box-shadow: none;
+        border: 1px solid #ddd;
+      }
+
+      .competitor-card {
+        page-break-inside: avoid;
+        box-shadow: none;
+      }
+
+      .table-wrapper {
+        overflow: visible;
+      }
+
+      .gap-table {
+        min-width: 0;
+        font-size: 8pt;
+      }
+
+      .gap-table thead th {
+        background: var(--primary) !important;
+        color: white !important;
+      }
+
+      .gap-table thead th.foxhue-col {
+        background: var(--accent) !important;
+      }
+
+      a {
+        color: var(--text) !important;
+        text-decoration: none;
+      }
+
+      .report-footer {
+        margin-top: 2rem;
+        padding: 1.5rem 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════════════
+       COVER
+       ═══════════════════════════════════════════════════ -->
+  <header class="cover">
+    <div class="cover-inner">
+      <div class="cover-logo">Foxhue</div>
+      <h1>
+        SEO Competitor<br>
+        <span>Analysis</span>
+      </h1>
+      <p class="cover-subtitle">Bicester, Oxfordshire Market Assessment</p>
+      <div class="cover-divider"></div>
+      <div class="cover-meta">
+        February 2026<br>
+        Prepared by Foxhue Ltd
+      </div>
+    </div>
+  </header>
+
+  <!-- ═══════════════════════════════════════════════════
+       TABLE OF CONTENTS
+       ═══════════════════════════════════════════════════ -->
+  <div class="page-wrapper">
+
+    <nav class="toc">
+      <h2>Contents</h2>
+      <ol>
+        <li><a href="#executive-summary">Executive Summary</a></li>
+        <li><a href="#competitor-profiles">Competitor Profiles</a></li>
+        <li><a href="#gap-analysis">SEO Gap Analysis</a></li>
+        <li><a href="#keyword-opportunities">Keyword Opportunities</a></li>
+        <li><a href="#technical-recommendations">Technical Recommendations</a></li>
+        <li><a href="#content-strategy">Content Strategy Recommendations</a></li>
+        <li><a href="#local-seo">Local SEO Checklist</a></li>
+        <li><a href="#next-steps">Next Steps</a></li>
+      </ol>
+    </nav>
+
+    <!-- ═══════════════════════════════════════════════════
+         01. EXECUTIVE SUMMARY
+         ═══════════════════════════════════════════════════ -->
+    <section id="executive-summary" class="report-section">
+      <div class="section-label">Section 01</div>
+      <h2>Executive Summary</h2>
+      <div class="section-divider"></div>
+      <ul class="summary-list">
+        <li>The Bicester/Oxfordshire creative agency market has <strong>few dedicated design agencies</strong> &mdash; most competitors are marketing-first businesses offering web design as a secondary service.</li>
+        <li>There is a <strong>strong opportunity to own &ldquo;design agency Bicester&rdquo; and &ldquo;branding agency Oxfordshire&rdquo;</strong> keywords with minimal competition from incumbents.</li>
+        <li>Competitors focus heavily on <strong>SEO, PPC, and social media services</strong> &mdash; creative design, branding, and visual identity work is genuinely underserved in the local market.</li>
+        <li><strong>Local SEO represents the single biggest opportunity</strong>: Google Business Profile, directory listings, and location-specific content pages will be key differentiators in a market where few agencies have optimised for this.</li>
+        <li>A <strong>content strategy built around design thinking, brand transformation case studies, and SME guides</strong> will fill a real gap that no current local competitor is addressing.</li>
+      </ul>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════
+         02. COMPETITOR PROFILES
+         ═══════════════════════════════════════════════════ -->
+    <section id="competitor-profiles" class="report-section">
+      <div class="section-label">Section 02</div>
+      <h2>Competitor Profiles</h2>
+      <div class="section-divider"></div>
+
+      <!-- Competitor 1: boxChilli -->
+      <div class="competitor-card">
+        <div class="competitor-header">
+          <div class="competitor-name">boxChilli</div>
+          <div class="competitor-number">Competitor 01</div>
+        </div>
+        <div class="competitor-meta">
+          <span class="meta-tag"><a href="https://boxchilli.com" target="_blank" rel="noopener">boxchilli.com</a></span>
+          <span class="meta-tag">Bicester, Oxfordshire</span>
+        </div>
+        <p style="color: var(--text-light); font-size: 0.925rem; margin-bottom: 1rem;">&ldquo;Growth starts with being found&rdquo; &mdash; results-oriented agency focused on visibility and measurable outcomes for SMEs.</p>
+        <div class="competitor-grid">
+          <div class="competitor-detail">
+            <h4>Services</h4>
+            <ul>
+              <li>SEO</li>
+              <li>Website design &amp; development</li>
+              <li>PPC advertising</li>
+              <li>Social media marketing</li>
+            </ul>
+          </div>
+          <div class="competitor-detail">
+            <h4>Online Presence</h4>
+            <div class="presence-bar">
+              <div class="presence-dots">
+                <div class="presence-dot filled"></div>
+                <div class="presence-dot filled"></div>
+                <div class="presence-dot filled"></div>
+                <div class="presence-dot filled"></div>
+                <div class="presence-dot"></div>
+              </div>
+              <span class="presence-label">Strong (4/5)</span>
+            </div>
+            <p style="margin-top: 0.5rem; font-size: 0.85rem;">Active blog (&ldquo;The Knowledge Hub&rdquo;), case studies with metrics (44:1 ROAS, 310% keyword increase), 7+ service pages, sector-specific pages</p>
+          </div>
+          <div class="competitor-detail">
+            <h4>Strengths</h4>
+            <ul>
+              <li>Data-driven case studies with real metrics</li>
+              <li>Active content marketing programme</li>
+              <li>Clear, well-structured service pages</li>
+            </ul>
+          </div>
+          <div class="competitor-detail">
+            <h4>Weaknesses</h4>
+            <ul>
+              <li>Marketing-first, not design-focused</li>
+              <li>No visible branding or creative design services</li>
+              <li>Not competing for design-specific keywords</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Competitor 2: Complete Package Marketing -->
+      <div class="competitor-card">
+        <div class="competitor-header">
+          <div class="competitor-name">Complete Package Marketing</div>
+          <div class="competitor-number">Competitor 02</div>
+        </div>
+        <div class="competitor-meta">
+          <span class="meta-tag"><a href="https://completepackagemarketing.co.uk" target="_blank" rel="noopener">completepackagemarketing.co.uk</a></span>
+          <span class="meta-tag">Bicester &amp; Aylesbury</span>
+        </div>
+        <p style="color: var(--text-light); font-size: 0.925rem; margin-bottom: 1rem;">&ldquo;CIM-Qualified Strategic Marketing Specialist&rdquo; &mdash; practical business outcomes with a broad service offering targeting startups and SMEs.</p>
+        <div class="competitor-grid">
+          <div class="competitor-detail">
+            <h4>Services</h4>
+            <ul>
+              <li>Content writing</li>
+              <li>Website design</li>
+              <li>SEO</li>
+              <li>Social media</li>
+              <li>Virtual assistant</li>
+              <li>Outsourced marketing</li>
+              <li>Startup help</li>
+            </ul>
+          </div>
+          <div class="competitor-detail">
+            <h4>Online Presence</h4>
+            <div class="presence-bar">
+              <div class="presence-dots">
+                <div class="presence-dot filled"></div>
+                <div class="presence-dot filled"></div>
+                <div class="presence-dot filled"></div>
+                <div class="presence-dot"></div>
+                <div class="presence-dot"></div>
+              </div>
+              <span class="presence-label">Moderate (3/5)</span>
+            </div>
+            <p style="margin-top: 0.5rem; font-size: 0.85rem;">Modern responsive site, service pages present, limited visible case studies or portfolio work</p>
+          </div>
+          <div class="competitor-detail">
+            <h4>Strengths</h4>
+            <ul>
+              <li>Broad service offering</li>
+              <li>Startup focus fills a niche</li>
+              <li>CIM qualification adds credibility</li>
+            </ul>
+          </div>
+          <div class="competitor-detail">
+            <h4>Weaknesses</h4>
+            <ul>
+              <li>Generic positioning, difficult to differentiate</li>
+              <li>No visible portfolio or case studies</li>
+              <li>&ldquo;Complete package&rdquo; lacks memorable differentiation</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Competitor 3: Webb Marketing Services -->
+      <div class="competitor-card">
+        <div class="competitor-header">
+          <div class="competitor-name">Webb Marketing Services</div>
+          <div class="competitor-number">Competitor 03</div>
+        </div>
+        <div class="competitor-meta">
+          <span class="meta-tag"><a href="https://webbmarketing.info" target="_blank" rel="noopener">webbmarketing.info</a></span>
+          <span class="meta-tag">Bicester, OX26 6YL</span>
+        </div>
+        <p style="color: var(--text-light); font-size: 0.925rem; margin-bottom: 1rem;">Creative development agency for SMEs with a hospitality sector focus and strong local review presence.</p>
+        <div class="competitor-grid">
+          <div class="competitor-detail">
+            <h4>Services</h4>
+            <ul>
+              <li>Digital marketing</li>
+              <li>PPC advertising</li>
+              <li>Content marketing</li>
+              <li>Hospitality focus</li>
+            </ul>
+          </div>
+          <div class="competitor-detail">
+            <h4>Online Presence</h4>
+            <div class="presence-bar">
+              <div class="presence-dots">
+                <div class="presence-dot filled"></div>
+                <div class="presence-dot filled"></div>
+                <div class="presence-dot filled"></div>
+                <div class="presence-dot"></div>
+                <div class="presence-dot"></div>
+              </div>
+              <span class="presence-label">Moderate (3/5)</span>
+            </div>
+            <p style="margin-top: 0.5rem; font-size: 0.85rem;">Google rating 4.9/5 (12 reviews) &mdash; strong review score but limited total count</p>
+          </div>
+          <div class="competitor-detail">
+            <h4>Strengths</h4>
+            <ul>
+              <li>Excellent Google review score (4.9 stars)</li>
+              <li>Clear hospitality niche positioning</li>
+              <li>Local presence established</li>
+            </ul>
+          </div>
+          <div class="competitor-detail">
+            <h4>Weaknesses</h4>
+            <ul>
+              <li>Small review count (12 reviews)</li>
+              <li>Limited overall online visibility</li>
+              <li>.info domain less authoritative for trust signals</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Competitor 4: Artemis Marketing -->
+      <div class="competitor-card">
+        <div class="competitor-header">
+          <div class="competitor-name">Artemis Marketing</div>
+          <div class="competitor-number">Competitor 04</div>
+        </div>
+        <div class="competitor-meta">
+          <span class="meta-tag"><a href="https://artemis.marketing" target="_blank" rel="noopener">artemis.marketing</a></span>
+          <span class="meta-tag">West Sussex (serves Oxfordshire)</span>
+        </div>
+        <p style="color: var(--text-light); font-size: 0.925rem; margin-bottom: 1rem;">&ldquo;Multi-award winning SEO agency&rdquo; &mdash; AI-driven search landscape experts with comprehensive digital services and strong case study evidence.</p>
+        <div class="competitor-grid">
+          <div class="competitor-detail">
+            <h4>Services</h4>
+            <ul>
+              <li>SEO</li>
+              <li>Web design</li>
+              <li>PPC &amp; conversion optimisation</li>
+              <li>Social media &amp; email</li>
+              <li>AI marketing services</li>
+              <li>Creative services</li>
+            </ul>
+          </div>
+          <div class="competitor-detail">
+            <h4>Online Presence</h4>
+            <div class="presence-bar">
+              <div class="presence-dots">
+                <div class="presence-dot filled"></div>
+                <div class="presence-dot filled"></div>
+                <div class="presence-dot filled"></div>
+                <div class="presence-dot filled"></div>
+                <div class="presence-dot"></div>
+              </div>
+              <span class="presence-label">Strong (4/5)</span>
+            </div>
+            <p style="margin-top: 0.5rem; font-size: 0.85rem;">15+ service pages, active blog, detailed case studies (121% organic conversion increase, 40% sales uplift), AI marketing content</p>
+          </div>
+          <div class="competitor-detail">
+            <h4>Strengths</h4>
+            <ul>
+              <li>Award-winning with strong credibility</li>
+              <li>Comprehensive service offering</li>
+              <li>Strong case studies with measurable outcomes</li>
+              <li>AI-forward positioning</li>
+            </ul>
+          </div>
+          <div class="competitor-detail">
+            <h4>Weaknesses</h4>
+            <ul>
+              <li>Not locally based in Oxfordshire</li>
+              <li>Primarily SEO-focused, not design-focused</li>
+              <li>Location pages are bolt-on, not authentic local presence</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Competitor 5: Lemongrass Marketing -->
+      <div class="competitor-card">
+        <div class="competitor-header">
+          <div class="competitor-name">Lemongrass Marketing</div>
+          <div class="competitor-number">Competitor 05</div>
+        </div>
+        <div class="competitor-meta">
+          <span class="meta-tag"><a href="https://lemongrassmarketing.com" target="_blank" rel="noopener">lemongrassmarketing.com</a></span>
+          <span class="meta-tag">Bicester, OX27 8BL</span>
+        </div>
+        <p style="color: var(--text-light); font-size: 0.925rem; margin-bottom: 1rem;">Certified B Corp, purpose-driven agency specialising in travel PR, digital PR, and content strategy for premium travel brands.</p>
+        <div class="competitor-grid">
+          <div class="competitor-detail">
+            <h4>Services</h4>
+            <ul>
+              <li>Travel PR</li>
+              <li>Digital PR</li>
+              <li>Content &amp; SEO strategy</li>
+            </ul>
+          </div>
+          <div class="competitor-detail">
+            <h4>Online Presence</h4>
+            <div class="presence-bar">
+              <div class="presence-dots">
+                <div class="presence-dot filled"></div>
+                <div class="presence-dot filled"></div>
+                <div class="presence-dot filled"></div>
+                <div class="presence-dot"></div>
+                <div class="presence-dot"></div>
+              </div>
+              <span class="presence-label">Moderate (3/5)</span>
+            </div>
+            <p style="margin-top: 0.5rem; font-size: 0.85rem;">Clean modern site, insights blog, premium client portfolio (Vienna Tourist Board, Cond&eacute; Nast Traveller coverage)</p>
+          </div>
+          <div class="competitor-detail">
+            <h4>Strengths</h4>
+            <ul>
+              <li>B Corp certification adds values-driven credibility</li>
+              <li>Premium travel niche is clearly differentiated</li>
+              <li>Impressive client portfolio</li>
+            </ul>
+          </div>
+          <div class="competitor-detail">
+            <h4>Weaknesses</h4>
+            <ul>
+              <li>Travel-only niche, not competing for general design</li>
+              <li>Limited service breadth beyond PR and content</li>
+              <li>No design or branding services offered</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════
+         03. SEO GAP ANALYSIS
+         ═══════════════════════════════════════════════════ -->
+    <section id="gap-analysis" class="report-section">
+      <div class="section-label">Section 03</div>
+      <h2>SEO Gap Analysis</h2>
+      <div class="section-divider"></div>
+      <p>A comparative assessment of key SEO factors across all identified competitors, with the corresponding opportunity for Foxhue highlighted in the final column.</p>
+
+      <div class="table-wrapper">
+        <table class="gap-table">
+          <thead>
+            <tr>
+              <th>Factor</th>
+              <th>boxChilli</th>
+              <th>Complete</th>
+              <th>Webb</th>
+              <th>Artemis</th>
+              <th>Lemongrass</th>
+              <th class="foxhue-col">Foxhue Opportunity</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Dedicated Service Pages</td>
+              <td><span class="indicator"><span class="dot dot-green"></span> Yes (7+)</span></td>
+              <td><span class="indicator"><span class="dot dot-amber"></span> Yes (5)</span></td>
+              <td><span class="indicator"><span class="dot dot-red"></span> Limited</span></td>
+              <td><span class="indicator"><span class="dot dot-green"></span> Yes (15+)</span></td>
+              <td><span class="indicator"><span class="dot dot-amber"></span> Yes (4)</span></td>
+              <td class="foxhue-cell">Create dedicated pages for each of 6 core services</td>
+            </tr>
+            <tr>
+              <td>Blog / Content</td>
+              <td><span class="indicator"><span class="dot dot-green"></span> Active</span></td>
+              <td><span class="indicator"><span class="dot dot-amber"></span> Some</span></td>
+              <td><span class="indicator"><span class="dot dot-red"></span> Limited</span></td>
+              <td><span class="indicator"><span class="dot dot-green"></span> Active</span></td>
+              <td><span class="indicator"><span class="dot dot-green"></span> Active</span></td>
+              <td class="foxhue-cell">Launch with 5+ articles on design thinking and brand transformation</td>
+            </tr>
+            <tr>
+              <td>Case Studies</td>
+              <td><span class="indicator"><span class="dot dot-green"></span> Yes, with metrics</span></td>
+              <td><span class="indicator"><span class="dot dot-red"></span> No</span></td>
+              <td><span class="indicator"><span class="dot dot-red"></span> No</span></td>
+              <td><span class="indicator"><span class="dot dot-green"></span> Yes, detailed</span></td>
+              <td><span class="indicator"><span class="dot dot-amber"></span> Yes</span></td>
+              <td class="foxhue-cell">MARR Laser as first case study, build pipeline quarterly</td>
+            </tr>
+            <tr>
+              <td>Google Business Profile</td>
+              <td><span class="indicator"><span class="dot dot-amber"></span> Likely</span></td>
+              <td><span class="indicator"><span class="dot dot-amber"></span> Likely</span></td>
+              <td><span class="indicator"><span class="dot dot-green"></span> Yes (4.9&#9733;)</span></td>
+              <td><span class="indicator"><span class="dot dot-green"></span> Yes</span></td>
+              <td><span class="indicator"><span class="dot dot-amber"></span> Likely</span></td>
+              <td class="foxhue-cell">Set up immediately, optimise fully with photos and posts</td>
+            </tr>
+            <tr>
+              <td>Local SEO (Location Pages)</td>
+              <td><span class="indicator"><span class="dot dot-amber"></span> Bicester page</span></td>
+              <td><span class="indicator"><span class="dot dot-amber"></span> Yes</span></td>
+              <td><span class="indicator"><span class="dot dot-red"></span> No</span></td>
+              <td><span class="indicator"><span class="dot dot-green"></span> Multiple</span></td>
+              <td><span class="indicator"><span class="dot dot-red"></span> No</span></td>
+              <td class="foxhue-cell">Create Bicester, Oxford, Banbury, Buckingham pages</td>
+            </tr>
+            <tr>
+              <td>Creative / Design Focus</td>
+              <td><span class="indicator"><span class="dot dot-red"></span> No</span></td>
+              <td><span class="indicator"><span class="dot dot-red"></span> No</span></td>
+              <td><span class="indicator"><span class="dot dot-red"></span> No</span></td>
+              <td><span class="indicator"><span class="dot dot-amber"></span> Partial</span></td>
+              <td><span class="indicator"><span class="dot dot-red"></span> No</span></td>
+              <td class="foxhue-cell"><strong>PRIMARY differentiator</strong> &mdash; own this space entirely</td>
+            </tr>
+            <tr>
+              <td>Social Media Presence</td>
+              <td><span class="indicator"><span class="dot dot-amber"></span> Moderate</span></td>
+              <td><span class="indicator"><span class="dot dot-amber"></span> Moderate</span></td>
+              <td><span class="indicator"><span class="dot dot-amber"></span> Moderate</span></td>
+              <td><span class="indicator"><span class="dot dot-amber"></span> Moderate</span></td>
+              <td><span class="indicator"><span class="dot dot-amber"></span> Moderate</span></td>
+              <td class="foxhue-cell">Build consistent presence on Instagram and LinkedIn</td>
+            </tr>
+            <tr>
+              <td>Mobile-Friendly</td>
+              <td><span class="indicator"><span class="dot dot-green"></span> Yes</span></td>
+              <td><span class="indicator"><span class="dot dot-green"></span> Yes</span></td>
+              <td><span class="indicator"><span class="dot dot-green"></span> Yes</span></td>
+              <td><span class="indicator"><span class="dot dot-green"></span> Yes</span></td>
+              <td><span class="indicator"><span class="dot dot-green"></span> Yes</span></td>
+              <td class="foxhue-cell">Ensure excellent mobile experience as table stakes</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p style="font-size: 0.825rem; color: var(--text-muted); margin-top: 0.5rem;">
+        <span class="indicator" style="margin-right: 1rem;"><span class="dot dot-green"></span> Strong</span>
+        <span class="indicator" style="margin-right: 1rem;"><span class="dot dot-amber"></span> Moderate</span>
+        <span class="indicator"><span class="dot dot-red"></span> Weak / Absent</span>
+      </p>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════
+         04. KEYWORD OPPORTUNITIES
+         ═══════════════════════════════════════════════════ -->
+    <section id="keyword-opportunities" class="report-section">
+      <div class="section-label">Section 04</div>
+      <h2>Keyword Opportunities</h2>
+      <div class="section-divider"></div>
+      <p>Target keywords ranked by competition level and strategic relevance to Foxhue's positioning as a design-first creative agency in the Bicester/Oxfordshire area.</p>
+
+      <div class="table-wrapper">
+        <table class="keyword-table">
+          <thead>
+            <tr>
+              <th>Keyword</th>
+              <th>Competition</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>&ldquo;design agency Bicester&rdquo;</td>
+              <td><span class="badge badge-low">Low</span></td>
+              <td>High relevance, no incumbents targeting this directly</td>
+            </tr>
+            <tr>
+              <td>&ldquo;branding agency Oxfordshire&rdquo;</td>
+              <td><span class="badge badge-low">Low</span></td>
+              <td>Strong commercial intent, underserved in local market</td>
+            </tr>
+            <tr>
+              <td>&ldquo;logo design Oxfordshire&rdquo;</td>
+              <td><span class="badge badge-low">Low</span></td>
+              <td>Underserved, clear service page opportunity</td>
+            </tr>
+            <tr>
+              <td>&ldquo;graphic design Bicester&rdquo;</td>
+              <td><span class="badge badge-low">Low</span></td>
+              <td>No local agencies targeting this keyword</td>
+            </tr>
+            <tr>
+              <td>&ldquo;creative agency Oxfordshire&rdquo;</td>
+              <td><span class="badge badge-low">Low</span></td>
+              <td>Broader reach, content marketing opportunity</td>
+            </tr>
+            <tr>
+              <td>&ldquo;brand refresh Bicester&rdquo;</td>
+              <td><span class="badge badge-zero">Zero</span></td>
+              <td>No competition at all &mdash; create the category</td>
+            </tr>
+            <tr>
+              <td>&ldquo;web design Bicester&rdquo;</td>
+              <td><span class="badge badge-moderate">Moderate</span></td>
+              <td>boxChilli and Complete Package compete here</td>
+            </tr>
+            <tr>
+              <td>&ldquo;marketing agency Bicester&rdquo;</td>
+              <td><span class="badge badge-moderate">Moderate</span></td>
+              <td>Several incumbents, less differentiated for Foxhue</td>
+            </tr>
+            <tr>
+              <td>&ldquo;website design Banbury&rdquo;</td>
+              <td><span class="badge badge-moderate">Moderate</span></td>
+              <td>Geographic expansion, location page strategy</td>
+            </tr>
+            <tr>
+              <td>&ldquo;web design Oxford&rdquo;</td>
+              <td><span class="badge badge-moderate">Moderate</span></td>
+              <td>Larger market, more competition, higher search volume</td>
+            </tr>
+            <tr>
+              <td>&ldquo;small business branding UK&rdquo;</td>
+              <td><span class="badge badge-moderate">Moderate</span></td>
+              <td>Broader keyword, strong content/blog opportunity</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════
+         05. TECHNICAL RECOMMENDATIONS
+         ═══════════════════════════════════════════════════ -->
+    <section id="technical-recommendations" class="report-section">
+      <div class="section-label">Section 05</div>
+      <h2>Technical Recommendations</h2>
+      <div class="section-divider"></div>
+      <p>Competitors have adequate but not exceptional technical foundations. A well-optimised Foxhue site will outperform on technical SEO signals from launch.</p>
+
+      <div class="rec-grid">
+        <div class="rec-item">
+          <h4>Mobile-First, Fast Site</h4>
+          <p>Build with a mobile-first approach. Competitors are adequate on mobile but none are exceptional. Speed is a ranking factor and a trust signal.</p>
+        </div>
+        <div class="rec-item">
+          <h4>HTTPS Throughout</h4>
+          <p>Full SSL coverage on all pages. Non-negotiable for trust, rankings, and Chrome browser warnings.</p>
+        </div>
+        <div class="rec-item">
+          <h4>Schema Markup</h4>
+          <p>Implement LocalBusiness, Organization, and Service schema types. Add Article schema for case studies and blog posts.</p>
+        </div>
+        <div class="rec-item">
+          <h4>Core Web Vitals</h4>
+          <p>Target passing scores on LCP, FID/INP, and CLS. Optimise images, defer non-critical scripts, minimise layout shifts.</p>
+        </div>
+        <div class="rec-item">
+          <h4>Image Optimisation</h4>
+          <p>Serve images in WebP/AVIF formats with lazy loading on below-fold content. Compress all portfolio images without visible quality loss.</p>
+        </div>
+        <div class="rec-item">
+          <h4>Structured Data for Case Studies</h4>
+          <p>Use Article schema with author, date, and image markup. Rich results in search will increase click-through rates.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════
+         06. CONTENT STRATEGY
+         ═══════════════════════════════════════════════════ -->
+    <section id="content-strategy" class="report-section">
+      <div class="section-label">Section 06</div>
+      <h2>Content Strategy Recommendations</h2>
+      <div class="section-divider"></div>
+
+      <h3>Publishing Cadence</h3>
+      <p>Launch blog with a minimum of <strong>2 articles per month</strong>. Consistency matters more than volume. Each article should target a specific keyword from the opportunity list above.</p>
+
+      <h3>Recommended Topics</h3>
+      <ul class="topic-list">
+        <li>&ldquo;How much does a brand refresh cost?&rdquo;</li>
+        <li>&ldquo;When does your business need rebranding?&rdquo;</li>
+        <li>&ldquo;DIY vs agency design &mdash; what to know&rdquo;</li>
+        <li>&ldquo;Brand identity checklist for startups&rdquo;</li>
+        <li>&ldquo;Web design trends for SMEs 2026&rdquo;</li>
+        <li>&ldquo;Why your logo isn&rsquo;t a brand&rdquo;</li>
+      </ul>
+
+      <h3>Pillar Pages</h3>
+      <p>Create comprehensive, long-form pillar pages for each core service. These will serve as SEO anchors and internal linking hubs. Each pillar page should be 1,500&ndash;2,500 words with internal links to related blog posts and case studies.</p>
+
+      <h3>Location Pages</h3>
+      <p>Build dedicated location pages for surrounding towns: <strong>Bicester, Oxford, Banbury, and Buckingham</strong>. Each page should include localised content, client testimonials from that area (where available), and area-specific service descriptions.</p>
+
+      <h3>Case Studies</h3>
+      <p>Publish a minimum of <strong>1 case study per quarter</strong>. Start with MARR Laser &amp; Skin Clinic. Each case study should follow a consistent structure: challenge, approach, outcome, and measurable results.</p>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════
+         07. LOCAL SEO CHECKLIST
+         ═══════════════════════════════════════════════════ -->
+    <section id="local-seo" class="report-section">
+      <div class="section-label">Section 07</div>
+      <h2>Local SEO Checklist</h2>
+      <div class="section-divider"></div>
+      <p>Local SEO is the single highest-impact, lowest-effort channel for Foxhue. Most competitors have not fully optimised for local search, creating a window of opportunity.</p>
+
+      <ul class="checklist">
+        <li>Set up Google Business Profile with full business details, service descriptions, and high-quality photos</li>
+        <li>List on Yell, Thomson Local, Yelp, Clutch, and DesignRush directories</li>
+        <li>Get listed in Oxfordshire-specific business directories and chambers of commerce</li>
+        <li>Encourage Google reviews from every client engagement (aim for 10+ reviews in first 6 months)</li>
+        <li>Add LocalBusiness schema markup to every page of the website</li>
+        <li>Create and publish Google Posts regularly (minimum weekly)</li>
+        <li>Ensure NAP (Name, Address, Phone) consistency across all directory listings and website pages</li>
+        <li>Upload geotagged images to Google Business Profile</li>
+        <li>Respond to all reviews (positive and negative) within 24 hours</li>
+        <li>Set up and optimise Apple Business Connect listing</li>
+      </ul>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════
+         08. NEXT STEPS
+         ═══════════════════════════════════════════════════ -->
+    <section id="next-steps" class="report-section">
+      <div class="section-label">Section 08</div>
+      <h2>Next Steps</h2>
+      <div class="section-divider"></div>
+      <p>A prioritised action plan ordered by impact and urgency. Earlier actions build foundations that later actions depend on.</p>
+
+      <div class="timeline">
+        <div class="timeline-item immediate">
+          <div class="timeline-label">Immediate</div>
+          <div class="timeline-text">Google Business Profile setup and full optimisation &mdash; add services, photos, business description, and opening hours. This is the single highest-impact action.</div>
+        </div>
+        <div class="timeline-item immediate">
+          <div class="timeline-label">Week 1</div>
+          <div class="timeline-text">Launch website with dedicated service pages for all 6 core services. Publish the MARR Laser &amp; Skin Clinic case study as the anchor portfolio piece.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-label">Week 2</div>
+          <div class="timeline-text">Submit Foxhue to 10+ business directories (Yell, Thomson Local, Yelp, Clutch, DesignRush, Oxfordshire directories). Ensure NAP consistency across all listings.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-label">Month 1</div>
+          <div class="timeline-text">Publish 4 blog articles targeting low-competition keywords: &ldquo;design agency Bicester&rdquo;, &ldquo;branding agency Oxfordshire&rdquo;, &ldquo;brand refresh&rdquo; topics, and one SME design guide.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-label">Month 2</div>
+          <div class="timeline-text">Create location pages for Bicester, Oxford, Banbury, and Buckingham. Each page with localised content and area-specific service descriptions.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-label">Month 3</div>
+          <div class="timeline-text">Publish second case study. Evaluate launching a targeted Google Ads campaign for &ldquo;design agency Bicester&rdquo; and &ldquo;branding Oxfordshire&rdquo; keywords.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-label">Ongoing</div>
+          <div class="timeline-text">Maintain 2 blog posts per month, 1 case study per quarter, and weekly social media activity on Instagram and LinkedIn. Review keyword rankings monthly and adjust strategy quarterly.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════
+         FOOTER
+         ═══════════════════════════════════════════════════ -->
+    <footer class="report-footer">
+      <div class="footer-divider"></div>
+      <p class="footer-text">Prepared by Foxhue Ltd &nbsp;|&nbsp; Confidential &nbsp;|&nbsp; February 2026</p>
+    </footer>
+
+  </div>
+
+</body>
+</html>
