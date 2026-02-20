@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Foxhue — Our Work (Layout B: Editorial Motion)</title>
+  <meta name="description" content="Foxhue portfolio: Brand, web, and creative projects for ambitious clients.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+  <style>
+    /* ════════════════════════════════════════════════════
+       LAYOUT B — EDITORIAL MOTION: Our Work
+       ════════════════════════════════════════════════════ */
+
+    /* ── Mobile Nav Toggle (CSS-only) ── */
+    .b-nav-toggle { display: none; }
+    .b-nav-state { display: none; }
+
+    /* ── Header / Navigation ── */
+    .b-header {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--foxhue-primary);
+      border-bottom: 3px solid var(--foxhue-accent);
+    }
+
+    .b-header__inner {
+      max-width: 1400px; margin: 0 auto; padding: 0 24px;
+      display: flex; align-items: center; justify-content: space-between; height: 64px;
+    }
+
+    .b-header__logo {
+      font-family: var(--foxhue-font-heading); font-size: 1.5rem;
+      color: var(--foxhue-light); text-decoration: none; letter-spacing: 0.04em;
+    }
+    .b-header__logo span { color: var(--foxhue-accent); }
+
+    .b-nav { display: flex; align-items: center; gap: 32px; }
+    .b-nav__link {
+      font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.14em;
+      text-transform: uppercase; color: rgba(255,255,255,0.7);
+      text-decoration: none; transition: color 0.2s ease;
+    }
+    .b-nav__link:hover, .b-nav__link:focus-visible { color: var(--foxhue-light); }
+    .b-nav__link:focus-visible { outline: 2px solid var(--foxhue-accent); outline-offset: 4px; border-radius: 2px; }
+    .b-nav__link--active { color: var(--foxhue-light); }
+    .b-nav__cta {
+      font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--foxhue-light); background: var(--foxhue-accent);
+      padding: 8px 20px; border-radius: 100px; text-decoration: none; transition: background 0.2s ease;
+    }
+    .b-nav__cta:hover { background: var(--foxhue-accent-hover); }
+    .b-nav__cta:focus-visible { outline: 2px solid var(--foxhue-light); outline-offset: 2px; }
+
+    /* ── Page Hero ── */
+    .b-page-hero {
+      background: var(--foxhue-primary); color: var(--foxhue-light);
+      padding: 80px 0 100px; position: relative; overflow: hidden;
+    }
+
+    .b-page-hero__inner {
+      max-width: 1400px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 1;
+    }
+
+    .b-page-hero__watermark {
+      position: absolute; top: 50%; right: -5%; transform: translateY(-50%);
+      font-family: var(--foxhue-font-heading); font-size: clamp(8rem, 20vw, 18rem);
+      color: rgba(233, 69, 96, 0.06); line-height: 1; user-select: none; z-index: 0;
+    }
+
+    .b-page-hero__eyebrow {
+      display: block; font-size: 0.6875rem; font-weight: 600;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--foxhue-accent); margin-bottom: 16px;
+    }
+
+    .b-page-hero__heading {
+      font-family: var(--foxhue-font-heading); font-size: clamp(2rem, 6vw, 4rem);
+      font-style: italic; color: var(--foxhue-light); line-height: 1.1;
+      max-width: 700px; margin-bottom: 20px;
+    }
+
+    .b-page-hero__sub {
+      font-size: 1.0625rem; font-weight: 300;
+      color: rgba(255,255,255,0.6); max-width: 520px; line-height: 1.7;
+    }
+
+    /* ── Project Grid ── */
+    .b-projects {
+      background: var(--foxhue-bg);
+      padding: 100px 0;
+    }
+
+    .b-projects__inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .b-projects__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+
+    .b-project {
+      position: relative;
+      transition: transform 0.2s ease;
+    }
+
+    .b-project:hover {
+      transform: translateY(-4px);
+    }
+
+    /* Stagger every other card */
+    .b-project:nth-child(even) {
+      margin-top: 64px;
+    }
+
+    .b-project__image {
+      width: 100%;
+      height: 300px;
+      margin-bottom: 24px;
+      position: relative;
+    }
+
+    .b-project__image::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: var(--foxhue-accent);
+    }
+
+    .b-project__image--1 { background: linear-gradient(135deg, #2a2a48 0%, #E94560 100%); }
+    .b-project__image--2 { background: linear-gradient(135deg, #4a3f35 0%, #c8956c 100%); }
+    .b-project__image--3 { background: linear-gradient(135deg, #1a3a2a 0%, #4ecdc4 100%); }
+    .b-project__image--4 { background: linear-gradient(135deg, #3a2a4a 0%, #b39ddb 100%); }
+    .b-project__image--5 { background: linear-gradient(135deg, #1a2a3a 0%, #4fc3f7 100%); }
+    .b-project__image--6 { background: linear-gradient(135deg, #3a2a1a 0%, #ffb74d 100%); }
+
+    .b-project__number {
+      position: absolute;
+      top: -16px;
+      left: 0;
+      font-family: var(--foxhue-font-heading);
+      font-size: 4.5rem;
+      color: rgba(26, 26, 46, 0.06);
+      line-height: 1;
+      user-select: none;
+    }
+
+    .b-project__type {
+      display: block;
+      font-size: 0.625rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--foxhue-accent);
+      margin-bottom: 8px;
+    }
+
+    .b-project__title {
+      font-family: var(--foxhue-font-heading);
+      font-size: 1.5rem;
+      color: var(--foxhue-primary);
+      margin-bottom: 10px;
+    }
+
+    .b-project__desc {
+      font-size: 0.875rem;
+      color: var(--foxhue-text-muted);
+      line-height: 1.7;
+    }
+
+    /* ── Case Study Feature ── */
+    .b-case-study {
+      background: var(--foxhue-primary);
+      color: var(--foxhue-light);
+      padding: 100px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .b-case-study__inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: grid;
+      grid-template-columns: 5fr 7fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .b-case-study__watermark {
+      position: absolute;
+      bottom: -40px;
+      right: -20px;
+      font-family: var(--foxhue-font-heading);
+      font-size: clamp(8rem, 18vw, 16rem);
+      color: rgba(233, 69, 96, 0.05);
+      line-height: 1;
+      user-select: none;
+    }
+
+    .b-case-study__image {
+      width: 100%;
+      height: 400px;
+      background: linear-gradient(135deg, #2a2a48 0%, #E94560 60%, #ff8a80 100%);
+      border-right: 4px solid var(--foxhue-accent);
+    }
+
+    .b-case-study__content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .b-case-study__eyebrow {
+      display: block;
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--foxhue-accent);
+      margin-bottom: 12px;
+    }
+
+    .b-case-study__heading {
+      font-family: var(--foxhue-font-heading);
+      font-size: clamp(1.75rem, 4vw, 2.75rem);
+      font-style: italic;
+      color: var(--foxhue-light);
+      margin-bottom: 20px;
+    }
+
+    .b-case-study__desc {
+      font-size: 0.9375rem;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.8;
+      margin-bottom: 32px;
+    }
+
+    .b-case-study__stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      border-top: 1px solid rgba(255,255,255,0.12);
+      padding-top: 28px;
+    }
+
+    .b-case-stat__number {
+      font-family: var(--foxhue-font-heading);
+      font-size: 2rem;
+      color: var(--foxhue-accent);
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .b-case-stat__label {
+      font-size: 0.6875rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+    }
+
+    /* ── CTA Section ── */
+    .b-cta {
+      background: var(--foxhue-bg);
+      padding: 100px 0;
+    }
+
+    .b-cta__inner {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 24px;
+      text-align: center;
+    }
+
+    .b-cta__heading {
+      font-family: var(--foxhue-font-heading);
+      font-size: clamp(1.75rem, 4vw, 2.75rem);
+      font-style: italic;
+      color: var(--foxhue-primary);
+      margin-bottom: 16px;
+    }
+
+    .b-cta__heading em { font-style: normal; color: var(--foxhue-accent); }
+
+    .b-cta__sub {
+      font-size: 1rem;
+      color: var(--foxhue-text-muted);
+      margin-bottom: 32px;
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* ── Footer ── */
+    .b-footer {
+      background: var(--foxhue-primary);
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding: 40px 0;
+    }
+    .b-footer__inner {
+      max-width: 1400px; margin: 0 auto; padding: 0 24px;
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;
+    }
+    .b-footer__copy { font-size: 0.75rem; color: rgba(255,255,255,0.4); }
+    .b-footer__links { display: flex; gap: 24px; }
+    .b-footer__link {
+      font-size: 0.6875rem; font-weight: 500; letter-spacing: 0.08em;
+      text-transform: uppercase; color: rgba(255,255,255,0.4);
+      text-decoration: none; transition: color 0.2s ease;
+    }
+    .b-footer__link:hover { color: var(--foxhue-light); }
+    .b-footer__variant {
+      font-size: 0.625rem; font-weight: 600; letter-spacing: 0.15em;
+      text-transform: uppercase; color: var(--foxhue-accent);
+    }
+
+    /* ── Responsive: Tablet ── */
+    @media (max-width: 992px) {
+      .b-projects__grid { gap: 32px; }
+      .b-project:nth-child(even) { margin-top: 0; }
+      .b-case-study__inner { grid-template-columns: 1fr; gap: 32px; }
+      .b-case-study__image { height: 280px; }
+    }
+
+    /* ── Responsive: Mobile Landscape ── */
+    @media (max-width: 767px) {
+      .b-nav { display: none; }
+      .b-nav-toggle { display: block; }
+      .b-nav-toggle {
+        width: 28px; height: 20px; position: relative; cursor: pointer;
+        background: none; border: none; padding: 0;
+      }
+      .b-nav-toggle span,
+      .b-nav-toggle span::before,
+      .b-nav-toggle span::after {
+        display: block; width: 100%; height: 2px; background: var(--foxhue-light);
+        position: absolute; transition: all 0.3s ease;
+      }
+      .b-nav-toggle span { top: 50%; transform: translateY(-50%); }
+      .b-nav-toggle span::before { content: ''; top: -8px; }
+      .b-nav-toggle span::after { content: ''; top: 8px; }
+      .b-nav-state:checked ~ .b-header .b-nav-toggle span { background: transparent; }
+      .b-nav-state:checked ~ .b-header .b-nav-toggle span::before { top: 0; transform: rotate(45deg); background: var(--foxhue-light); }
+      .b-nav-state:checked ~ .b-header .b-nav-toggle span::after { top: 0; transform: rotate(-45deg); background: var(--foxhue-light); }
+      .b-nav-state:checked ~ .b-header .b-nav {
+        display: flex; flex-direction: column;
+        position: absolute; top: 64px; left: 0; right: 0;
+        background: var(--foxhue-primary); padding: 24px; gap: 16px;
+        border-bottom: 3px solid var(--foxhue-accent); z-index: 99;
+      }
+
+      .b-projects__grid { grid-template-columns: 1fr; }
+      .b-project__image { height: 220px; }
+      .b-case-study__stats { grid-template-columns: 1fr; gap: 16px; }
+      .b-footer__inner { flex-direction: column; text-align: center; gap: 12px; }
+      .b-footer__links { flex-wrap: wrap; justify-content: center; gap: 16px; }
+    }
+
+    /* ── Responsive: Mobile ── */
+    @media (max-width: 477px) {
+      .b-page-hero { padding: 56px 0 72px; }
+      .b-project__image { height: 180px; }
+      .b-case-study__image { height: 200px; }
+    }
+  </style>
+</head>
+<body>
+
+  <input type="checkbox" id="navState" class="b-nav-state" aria-hidden="true">
+
+  <!-- ════════════════════════════════════════
+       HEADER
+       ════════════════════════════════════════ -->
+  <header class="b-header" role="banner">
+    <div class="b-header__inner">
+      <a href="../index.html" class="b-header__logo" aria-label="Foxhue homepage">Fox<span>hue</span></a>
+      <nav class="b-nav" aria-label="Main navigation">
+        <a href="../services.html" class="b-nav__link">Services</a>
+        <a href="../work.html" class="b-nav__link b-nav__link--active" aria-current="page">Our Work</a>
+        <a href="../about.html" class="b-nav__link">About</a>
+        <a href="../blog.html" class="b-nav__link">Blog</a>
+        <a href="../contact.html" class="b-nav__cta">Get in Touch</a>
+      </nav>
+      <label for="navState" class="b-nav-toggle" aria-label="Toggle navigation menu" role="button" tabindex="0">
+        <span></span>
+      </label>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <!-- ════════════════════════════════════════
+         PAGE HERO
+         ════════════════════════════════════════ -->
+    <section class="b-page-hero" aria-label="Page introduction">
+      <div class="b-page-hero__watermark" aria-hidden="true">Work</div>
+      <div class="b-page-hero__inner">
+        <span class="b-page-hero__eyebrow">Portfolio</span>
+        <h1 class="b-page-hero__heading">Work that speaks <em>for itself</em></h1>
+        <p class="b-page-hero__sub">A selection of projects for clients who refuse to blend in. Every brief is different. Every solution is bespoke.</p>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════
+         PROJECT GRID
+         ════════════════════════════════════════ -->
+    <section class="b-projects" aria-labelledby="projects-heading">
+      <div class="b-projects__inner">
+        <h2 id="projects-heading" class="sr-only">All Projects</h2>
+        <div class="b-projects__grid">
+
+          <article class="b-project">
+            <span class="b-project__number" aria-hidden="true">01</span>
+            <div class="b-project__image b-project__image--1" role="img" aria-label="MARR Laser and Skin project"></div>
+            <span class="b-project__type">Brand Refresh + Web Design</span>
+            <h3 class="b-project__title">MARR Laser &amp; Skin</h3>
+            <p class="b-project__desc">Complete brand transformation for Bicester-based aesthetics clinic. Modern identity, responsive website, and local SEO strategy that tripled enquiries.</p>
+          </article>
+
+          <article class="b-project">
+            <span class="b-project__number" aria-hidden="true">02</span>
+            <div class="b-project__image b-project__image--2" role="img" aria-label="The Rustic Fork project"></div>
+            <span class="b-project__type">Brand Identity + Social Media</span>
+            <h3 class="b-project__title">The Rustic Fork</h3>
+            <p class="b-project__desc">Warm, artisan brand identity for a farm-to-table restaurant. Logo, menu design, social templates, and interior signage system.</p>
+          </article>
+
+          <article class="b-project">
+            <span class="b-project__number" aria-hidden="true">03</span>
+            <div class="b-project__image b-project__image--3" role="img" aria-label="Vertex Digital project"></div>
+            <span class="b-project__type">Web Design + Documentation</span>
+            <h3 class="b-project__title">Vertex Digital</h3>
+            <p class="b-project__desc">Modern tech company website with developer documentation portal. Clean, fast, conversion-focused design with integrated CMS.</p>
+          </article>
+
+          <article class="b-project">
+            <span class="b-project__number" aria-hidden="true">04</span>
+            <div class="b-project__image b-project__image--4" role="img" aria-label="Bloom and Branch project"></div>
+            <span class="b-project__type">Brand Identity + Logo Design</span>
+            <h3 class="b-project__title">Bloom &amp; Branch</h3>
+            <p class="b-project__desc">Organic skincare brand identity from scratch. Botanical-inspired logo, packaging design, and complete visual system for retail and e-commerce.</p>
+          </article>
+
+          <article class="b-project">
+            <span class="b-project__number" aria-hidden="true">05</span>
+            <div class="b-project__image b-project__image--5" role="img" aria-label="Archer and Co project"></div>
+            <span class="b-project__type">Presentations + Brand Refresh</span>
+            <h3 class="b-project__title">Archer &amp; Co</h3>
+            <p class="b-project__desc">Professional services firm repositioned for growth. New brand identity, investor pitch deck, and corporate presentation system.</p>
+          </article>
+
+          <article class="b-project">
+            <span class="b-project__number" aria-hidden="true">06</span>
+            <div class="b-project__image b-project__image--6" role="img" aria-label="PeakFit project"></div>
+            <span class="b-project__type">Web Design + Social Media</span>
+            <h3 class="b-project__title">PeakFit</h3>
+            <p class="b-project__desc">Fitness brand website and social media overhaul. High-energy visual identity, membership portal, and content strategy that doubled engagement.</p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════
+         CASE STUDY: MARR
+         ════════════════════════════════════════ -->
+    <section class="b-case-study" aria-labelledby="case-study-heading">
+      <div class="b-case-study__watermark" aria-hidden="true">MARR</div>
+      <div class="b-case-study__inner">
+        <div class="b-case-study__image" role="img" aria-label="MARR Laser and Skin case study visual"></div>
+        <div class="b-case-study__content">
+          <span class="b-case-study__eyebrow">Featured Case Study</span>
+          <h2 class="b-case-study__heading" id="case-study-heading">MARR Laser &amp; Skin Clinic</h2>
+          <p class="b-case-study__desc">MARR came to us with an outdated brand and a website that was losing them business. We rebuilt everything from the ground up: new brand strategy, visual identity, responsive website, and local SEO foundation. The result? A brand that looks as professional as their clinical expertise demands.</p>
+          <div class="b-case-study__stats">
+            <div class="b-case-stat">
+              <span class="b-case-stat__number">3x</span>
+              <span class="b-case-stat__label">Increase in Enquiries</span>
+            </div>
+            <div class="b-case-stat">
+              <span class="b-case-stat__number">150%</span>
+              <span class="b-case-stat__label">More Organic Traffic</span>
+            </div>
+            <div class="b-case-stat">
+              <span class="b-case-stat__number">8 wks</span>
+              <span class="b-case-stat__label">Concept to Launch</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════
+         CTA
+         ════════════════════════════════════════ -->
+    <section class="b-cta" aria-label="Call to action">
+      <div class="b-cta__inner">
+        <h2 class="b-cta__heading">Want results <em>like these?</em></h2>
+        <p class="b-cta__sub">Every project starts with a conversation. Tell us about your brand and we will show you what is possible.</p>
+        <a href="../contact.html" class="btn btn-accent btn--lg">Start a Project</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ════════════════════════════════════════
+       FOOTER
+       ════════════════════════════════════════ -->
+  <footer class="b-footer" role="contentinfo">
+    <div class="b-footer__inner">
+      <p class="b-footer__copy">&copy; 2026 Foxhue Ltd. All rights reserved.</p>
+      <div class="b-footer__links">
+        <a href="../services.html" class="b-footer__link">Services</a>
+        <a href="../work.html" class="b-footer__link">Work</a>
+        <a href="../about.html" class="b-footer__link">About</a>
+        <a href="../blog.html" class="b-footer__link">Blog</a>
+        <a href="../contact.html" class="b-footer__link">Contact</a>
+      </div>
+      <span class="b-footer__variant">Layout B &mdash; Editorial Motion</span>
+    </div>
+  </footer>
+
+</body>
+</html>

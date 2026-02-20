@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Foxhue — Blog (Layout B: Editorial Motion)</title>
+  <meta name="description" content="Foxhue blog: Insights on branding, web design, and marketing for small businesses.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+  <style>
+    /* ════════════════════════════════════════════════════
+       LAYOUT B — EDITORIAL MOTION: Blog
+       ════════════════════════════════════════════════════ */
+
+    /* ── Mobile Nav Toggle (CSS-only) ── */
+    .b-nav-toggle { display: none; }
+    .b-nav-state { display: none; }
+
+    /* ── Header / Navigation ── */
+    .b-header {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--foxhue-primary);
+      border-bottom: 3px solid var(--foxhue-accent);
+    }
+    .b-header__inner {
+      max-width: 1400px; margin: 0 auto; padding: 0 24px;
+      display: flex; align-items: center; justify-content: space-between; height: 64px;
+    }
+    .b-header__logo {
+      font-family: var(--foxhue-font-heading); font-size: 1.5rem;
+      color: var(--foxhue-light); text-decoration: none; letter-spacing: 0.04em;
+    }
+    .b-header__logo span { color: var(--foxhue-accent); }
+    .b-nav { display: flex; align-items: center; gap: 32px; }
+    .b-nav__link {
+      font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.14em;
+      text-transform: uppercase; color: rgba(255,255,255,0.7);
+      text-decoration: none; transition: color 0.2s ease;
+    }
+    .b-nav__link:hover, .b-nav__link:focus-visible { color: var(--foxhue-light); }
+    .b-nav__link:focus-visible { outline: 2px solid var(--foxhue-accent); outline-offset: 4px; border-radius: 2px; }
+    .b-nav__link--active { color: var(--foxhue-light); }
+    .b-nav__cta {
+      font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--foxhue-light); background: var(--foxhue-accent);
+      padding: 8px 20px; border-radius: 100px; text-decoration: none; transition: background 0.2s ease;
+    }
+    .b-nav__cta:hover { background: var(--foxhue-accent-hover); }
+    .b-nav__cta:focus-visible { outline: 2px solid var(--foxhue-light); outline-offset: 2px; }
+
+    /* ── Page Hero ── */
+    .b-page-hero {
+      background: var(--foxhue-primary); color: var(--foxhue-light);
+      padding: 80px 0 100px; position: relative; overflow: hidden;
+    }
+    .b-page-hero__inner {
+      max-width: 1400px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 1;
+    }
+    .b-page-hero__watermark {
+      position: absolute; top: 50%; right: -5%; transform: translateY(-50%);
+      font-family: var(--foxhue-font-heading); font-size: clamp(8rem, 20vw, 18rem);
+      color: rgba(233, 69, 96, 0.06); line-height: 1; user-select: none; z-index: 0;
+    }
+    .b-page-hero__eyebrow {
+      display: block; font-size: 0.6875rem; font-weight: 600;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--foxhue-accent); margin-bottom: 16px;
+    }
+    .b-page-hero__heading {
+      font-family: var(--foxhue-font-heading); font-size: clamp(2rem, 6vw, 4rem);
+      font-style: italic; color: var(--foxhue-light); line-height: 1.1;
+      max-width: 700px; margin-bottom: 20px;
+    }
+    .b-page-hero__sub {
+      font-size: 1.0625rem; font-weight: 300;
+      color: rgba(255,255,255,0.6); max-width: 520px; line-height: 1.7;
+    }
+
+    /* ── Featured Post ── */
+    .b-featured {
+      background: var(--foxhue-bg);
+      padding: 100px 0 80px;
+    }
+
+    .b-featured__inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: grid;
+      grid-template-columns: 7fr 5fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .b-featured__image {
+      width: 100%;
+      height: 380px;
+      background: linear-gradient(135deg, #2a2a48 0%, #E94560 100%);
+      border-bottom: 4px solid var(--foxhue-accent);
+    }
+
+    .b-featured__content {}
+
+    .b-featured__badge {
+      display: inline-block;
+      font-size: 0.5625rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      background: var(--foxhue-accent);
+      color: var(--foxhue-light);
+      padding: 4px 12px;
+      border-radius: 100px;
+      margin-bottom: 16px;
+    }
+
+    .b-featured__tag {
+      display: block;
+      font-size: 0.625rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--foxhue-accent);
+      margin-bottom: 12px;
+    }
+
+    .b-featured__title {
+      font-family: var(--foxhue-font-heading);
+      font-size: clamp(1.5rem, 3vw, 2.25rem);
+      color: var(--foxhue-primary);
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+
+    .b-featured__excerpt {
+      font-size: 0.9375rem;
+      color: var(--foxhue-text-muted);
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    .b-featured__meta {
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--foxhue-text-muted);
+    }
+
+    .b-featured__meta span {
+      margin: 0 8px;
+      color: rgba(26,26,46,0.25);
+    }
+
+    /* ── Blog Grid (newspaper column style) ── */
+    .b-blog-grid {
+      background: var(--foxhue-bg);
+      padding: 0 0 100px;
+    }
+
+    .b-blog-grid__inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .b-blog-grid__header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 2px solid var(--foxhue-primary);
+      padding-top: 28px;
+      margin-bottom: 40px;
+    }
+
+    .b-blog-grid__title {
+      font-family: var(--foxhue-font-heading);
+      font-size: 1.25rem;
+      color: var(--foxhue-primary);
+    }
+
+    .b-blog-grid__count {
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--foxhue-text-muted);
+    }
+
+    .b-blog-grid__posts {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0;
+    }
+
+    .b-blog-post {
+      padding: 28px;
+      border: 1px solid var(--foxhue-border);
+      border-right: none;
+      transition: background 0.2s ease;
+    }
+
+    .b-blog-post:nth-child(even) {
+      border-right: 1px solid var(--foxhue-border);
+    }
+
+    .b-blog-post:nth-child(n+3) {
+      border-top: none;
+    }
+
+    .b-blog-post:hover {
+      background: var(--foxhue-surface);
+    }
+
+    .b-blog-post__tag {
+      display: inline-block;
+      font-size: 0.5625rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--foxhue-accent);
+      border: 1px solid var(--foxhue-accent);
+      padding: 3px 10px;
+      border-radius: 100px;
+      margin-bottom: 14px;
+    }
+
+    .b-blog-post__title {
+      font-family: var(--foxhue-font-heading);
+      font-size: 1.25rem;
+      color: var(--foxhue-primary);
+      margin-bottom: 10px;
+      line-height: 1.3;
+    }
+
+    .b-blog-post__excerpt {
+      font-size: 0.8125rem;
+      color: var(--foxhue-text-muted);
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+
+    .b-blog-post__meta {
+      font-size: 0.6875rem;
+      font-weight: 500;
+      color: rgba(107, 107, 128, 0.7);
+    }
+
+    .b-blog-post__meta span {
+      margin: 0 6px;
+      color: rgba(26,26,46,0.2);
+    }
+
+    /* ── Newsletter Section ── */
+    .b-newsletter {
+      background: var(--foxhue-primary);
+      color: var(--foxhue-light);
+      padding: 80px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .b-newsletter__watermark {
+      position: absolute;
+      top: 50%;
+      right: -5%;
+      transform: translateY(-50%);
+      font-family: var(--foxhue-font-heading);
+      font-size: clamp(6rem, 14vw, 12rem);
+      color: rgba(233, 69, 96, 0.05);
+      line-height: 1;
+      user-select: none;
+    }
+
+    .b-newsletter__inner {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 0 24px;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .b-newsletter__eyebrow {
+      display: block;
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--foxhue-accent);
+      margin-bottom: 12px;
+    }
+
+    .b-newsletter__heading {
+      font-family: var(--foxhue-font-heading);
+      font-size: clamp(1.5rem, 3.5vw, 2.25rem);
+      font-style: italic;
+      color: var(--foxhue-light);
+      margin-bottom: 12px;
+    }
+
+    .b-newsletter__desc {
+      font-size: 0.9375rem;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 32px;
+      line-height: 1.7;
+    }
+
+    .b-newsletter__form {
+      display: flex;
+      gap: 12px;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    .b-newsletter__input {
+      flex: 1;
+      padding: 12px 18px;
+      font-family: var(--foxhue-font-body);
+      font-size: 0.875rem;
+      color: var(--foxhue-light);
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 100px;
+      transition: border-color 0.2s ease;
+    }
+
+    .b-newsletter__input::placeholder {
+      color: rgba(255,255,255,0.35);
+    }
+
+    .b-newsletter__input:focus {
+      outline: none;
+      border-color: var(--foxhue-accent);
+    }
+
+    .b-newsletter__btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 28px;
+      font-family: var(--foxhue-font-body);
+      font-size: 0.8125rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      color: var(--foxhue-light);
+      background: var(--foxhue-accent);
+      border: none;
+      border-radius: 100px;
+      cursor: pointer;
+      transition: background 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .b-newsletter__btn:hover { background: var(--foxhue-accent-hover); }
+    .b-newsletter__btn:focus-visible { outline: 2px solid var(--foxhue-light); outline-offset: 2px; }
+
+    /* ── Footer ── */
+    .b-footer {
+      background: var(--foxhue-primary);
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding: 40px 0;
+    }
+    .b-footer__inner {
+      max-width: 1400px; margin: 0 auto; padding: 0 24px;
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;
+    }
+    .b-footer__copy { font-size: 0.75rem; color: rgba(255,255,255,0.4); }
+    .b-footer__links { display: flex; gap: 24px; }
+    .b-footer__link {
+      font-size: 0.6875rem; font-weight: 500; letter-spacing: 0.08em;
+      text-transform: uppercase; color: rgba(255,255,255,0.4);
+      text-decoration: none; transition: color 0.2s ease;
+    }
+    .b-footer__link:hover { color: var(--foxhue-light); }
+    .b-footer__variant {
+      font-size: 0.625rem; font-weight: 600; letter-spacing: 0.15em;
+      text-transform: uppercase; color: var(--foxhue-accent);
+    }
+
+    /* ── Responsive: Tablet ── */
+    @media (max-width: 992px) {
+      .b-featured__inner { grid-template-columns: 1fr; gap: 32px; }
+      .b-featured__image { height: 280px; }
+    }
+
+    /* ── Responsive: Mobile Landscape ── */
+    @media (max-width: 767px) {
+      .b-nav { display: none; }
+      .b-nav-toggle { display: block; }
+      .b-nav-toggle {
+        width: 28px; height: 20px; position: relative; cursor: pointer;
+        background: none; border: none; padding: 0;
+      }
+      .b-nav-toggle span,
+      .b-nav-toggle span::before,
+      .b-nav-toggle span::after {
+        display: block; width: 100%; height: 2px; background: var(--foxhue-light);
+        position: absolute; transition: all 0.3s ease;
+      }
+      .b-nav-toggle span { top: 50%; transform: translateY(-50%); }
+      .b-nav-toggle span::before { content: ''; top: -8px; }
+      .b-nav-toggle span::after { content: ''; top: 8px; }
+      .b-nav-state:checked ~ .b-header .b-nav-toggle span { background: transparent; }
+      .b-nav-state:checked ~ .b-header .b-nav-toggle span::before { top: 0; transform: rotate(45deg); background: var(--foxhue-light); }
+      .b-nav-state:checked ~ .b-header .b-nav-toggle span::after { top: 0; transform: rotate(-45deg); background: var(--foxhue-light); }
+      .b-nav-state:checked ~ .b-header .b-nav {
+        display: flex; flex-direction: column;
+        position: absolute; top: 64px; left: 0; right: 0;
+        background: var(--foxhue-primary); padding: 24px; gap: 16px;
+        border-bottom: 3px solid var(--foxhue-accent); z-index: 99;
+      }
+
+      .b-blog-grid__posts { grid-template-columns: 1fr; }
+      .b-blog-post { border-right: 1px solid var(--foxhue-border); }
+      .b-blog-post:nth-child(n+2) { border-top: none; }
+
+      .b-newsletter__form { flex-direction: column; }
+
+      .b-footer__inner { flex-direction: column; text-align: center; gap: 12px; }
+      .b-footer__links { flex-wrap: wrap; justify-content: center; gap: 16px; }
+    }
+
+    /* ── Responsive: Mobile ── */
+    @media (max-width: 477px) {
+      .b-page-hero { padding: 56px 0 72px; }
+      .b-featured__image { height: 200px; }
+      .b-blog-post { padding: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <input type="checkbox" id="navState" class="b-nav-state" aria-hidden="true">
+
+  <!-- ════════════════════════════════════════
+       HEADER
+       ════════════════════════════════════════ -->
+  <header class="b-header" role="banner">
+    <div class="b-header__inner">
+      <a href="../index.html" class="b-header__logo" aria-label="Foxhue homepage">Fox<span>hue</span></a>
+      <nav class="b-nav" aria-label="Main navigation">
+        <a href="../services.html" class="b-nav__link">Services</a>
+        <a href="../work.html" class="b-nav__link">Our Work</a>
+        <a href="../about.html" class="b-nav__link">About</a>
+        <a href="../blog.html" class="b-nav__link b-nav__link--active" aria-current="page">Blog</a>
+        <a href="../contact.html" class="b-nav__cta">Get in Touch</a>
+      </nav>
+      <label for="navState" class="b-nav-toggle" aria-label="Toggle navigation menu" role="button" tabindex="0">
+        <span></span>
+      </label>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <!-- ════════════════════════════════════════
+         PAGE HERO
+         ════════════════════════════════════════ -->
+    <section class="b-page-hero" aria-label="Page introduction">
+      <div class="b-page-hero__watermark" aria-hidden="true">Blog</div>
+      <div class="b-page-hero__inner">
+        <span class="b-page-hero__eyebrow">Insights</span>
+        <h1 class="b-page-hero__heading">Thinking, writing, <em>sharing</em></h1>
+        <p class="b-page-hero__sub">Practical insights on branding, design, and marketing. No jargon, no fluff, just useful thinking for business owners.</p>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════
+         FEATURED POST
+         ════════════════════════════════════════ -->
+    <section class="b-featured" aria-labelledby="featured-heading">
+      <div class="b-featured__inner">
+        <div class="b-featured__image" role="img" aria-label="Featured article illustration"></div>
+        <div class="b-featured__content">
+          <span class="b-featured__badge">Featured</span>
+          <span class="b-featured__tag">Branding</span>
+          <h2 class="b-featured__title" id="featured-heading">Your Logo Is Not Your Brand: Why Identity Goes Deeper Than Design</h2>
+          <p class="b-featured__excerpt">Most business owners think branding starts and ends with a logo. But your brand is the sum of every interaction, every touchpoint, every impression. Here is why the distinction matters and what to do about it.</p>
+          <p class="b-featured__meta">12 Feb 2026 <span>|</span> 6 min read</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════
+         BLOG GRID
+         ════════════════════════════════════════ -->
+    <section class="b-blog-grid" aria-labelledby="articles-heading">
+      <div class="b-blog-grid__inner">
+        <div class="b-blog-grid__header">
+          <h2 class="b-blog-grid__title" id="articles-heading">Latest Articles</h2>
+          <span class="b-blog-grid__count">4 Articles</span>
+        </div>
+        <div class="b-blog-grid__posts">
+
+          <article class="b-blog-post">
+            <span class="b-blog-post__tag">Web Design</span>
+            <h3 class="b-blog-post__title">5 Signs Your Website Needs a Refresh</h3>
+            <p class="b-blog-post__excerpt">Your website is often the first impression customers have of your business. Here are five clear signals that it is time for a redesign and what to prioritise when you do.</p>
+            <p class="b-blog-post__meta">5 Feb 2026 <span>|</span> 4 min read</p>
+          </article>
+
+          <article class="b-blog-post">
+            <span class="b-blog-post__tag">Social Media</span>
+            <h3 class="b-blog-post__title">Social Media for Small Businesses: A No-Nonsense Guide</h3>
+            <p class="b-blog-post__excerpt">You do not need to be on every platform. Here is how to choose the right channels, create content that connects, and build a following without burning out.</p>
+            <p class="b-blog-post__meta">28 Jan 2026 <span>|</span> 7 min read</p>
+          </article>
+
+          <article class="b-blog-post">
+            <span class="b-blog-post__tag">Client Guide</span>
+            <h3 class="b-blog-post__title">How to Brief a Designer (and Get Better Results)</h3>
+            <p class="b-blog-post__excerpt">A great brief leads to great work. Learn how to communicate your vision, set realistic expectations, and create a productive designer-client relationship from day one.</p>
+            <p class="b-blog-post__meta">15 Jan 2026 <span>|</span> 5 min read</p>
+          </article>
+
+          <article class="b-blog-post">
+            <span class="b-blog-post__tag">SEO</span>
+            <h3 class="b-blog-post__title">Local SEO for Small Businesses: Where to Start</h3>
+            <p class="b-blog-post__excerpt">If your customers are local, your SEO strategy should be too. A practical guide to Google Business Profile, local citations, and the basics that actually move the needle.</p>
+            <p class="b-blog-post__meta">3 Jan 2026 <span>|</span> 6 min read</p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════
+         NEWSLETTER
+         ════════════════════════════════════════ -->
+    <section class="b-newsletter" aria-labelledby="newsletter-heading">
+      <div class="b-newsletter__watermark" aria-hidden="true">Subscribe</div>
+      <div class="b-newsletter__inner">
+        <span class="b-newsletter__eyebrow">Stay Updated</span>
+        <h2 class="b-newsletter__heading" id="newsletter-heading">Get our best thinking, delivered</h2>
+        <p class="b-newsletter__desc">One email per month. No spam, no sales pitches. Just practical insights on branding and design for business owners.</p>
+        <form class="b-newsletter__form" aria-label="Newsletter signup">
+          <label for="newsletter-email" class="sr-only">Email address</label>
+          <input type="email" id="newsletter-email" class="b-newsletter__input" placeholder="your@email.com" required autocomplete="email">
+          <button type="submit" class="b-newsletter__btn">Subscribe</button>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ════════════════════════════════════════
+       FOOTER
+       ════════════════════════════════════════ -->
+  <footer class="b-footer" role="contentinfo">
+    <div class="b-footer__inner">
+      <p class="b-footer__copy">&copy; 2026 Foxhue Ltd. All rights reserved.</p>
+      <div class="b-footer__links">
+        <a href="../services.html" class="b-footer__link">Services</a>
+        <a href="../work.html" class="b-footer__link">Work</a>
+        <a href="../about.html" class="b-footer__link">About</a>
+        <a href="../blog.html" class="b-footer__link">Blog</a>
+        <a href="../contact.html" class="b-footer__link">Contact</a>
+      </div>
+      <span class="b-footer__variant">Layout B &mdash; Editorial Motion</span>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Foxhue — Our Work | Layout C</title>
+  <meta name="description" content="Foxhue portfolio: brand identity, web design, and marketing projects. Layout C: Warm Craft.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+  <style>
+    /* ════════════════════════════════════════
+       Layout C — Warm Craft — Our Work
+       ════════════════════════════════════════ */
+
+    :root {
+      --c-radius-card: 20px;
+      --c-radius-section: 24px;
+      --c-radius-btn: 14px;
+      --c-shadow-warm: 0 4px 24px rgba(233, 69, 96, 0.06), 0 2px 12px rgba(26, 26, 46, 0.05);
+      --c-shadow-warm-hover: 0 8px 36px rgba(233, 69, 96, 0.1), 0 4px 16px rgba(26, 26, 46, 0.08);
+      --c-transition: 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      --c-bg-warm: #FBF9F7;
+      --c-surface-warm: #FFFDFB;
+    }
+
+    body { background: var(--c-bg-warm); }
+
+    /* ── Navigation ── */
+    .c-nav { position: sticky; top: 0; z-index: 100; background: var(--c-surface-warm); border-bottom: 1px solid rgba(26,26,46,0.06); }
+    .c-nav__inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; height: 76px; }
+    .c-nav__brand { display: flex; flex-direction: column; text-decoration: none; line-height: 1.2; }
+    .c-nav__wordmark { font-family: var(--foxhue-font-heading); font-size: 1.5rem; color: var(--foxhue-primary); }
+    .c-nav__tagline { font-size: 0.625rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--foxhue-text-muted); margin-top: 1px; }
+    .c-nav__links { display: flex; align-items: center; gap: 32px; }
+    .c-nav__link { font-size: 0.875rem; font-weight: 500; color: var(--foxhue-text); text-decoration: none; padding: 6px 12px; border-radius: 10px; transition: all var(--c-transition); }
+    .c-nav__link:hover { color: var(--foxhue-accent); background: rgba(233,69,96,0.06); }
+    .c-nav__link:focus-visible { outline: 2px solid var(--foxhue-accent); outline-offset: 2px; border-radius: 10px; }
+    .c-nav__link--active { color: var(--foxhue-accent); background: rgba(233,69,96,0.06); }
+    .c-nav__cta { display: inline-flex; align-items: center; padding: 10px 22px; font-size: 0.8125rem; font-weight: 600; color: var(--foxhue-light); background: var(--foxhue-accent); border-radius: var(--c-radius-btn); text-decoration: none; transition: all var(--c-transition); }
+    .c-nav__cta:hover { background: var(--foxhue-accent-hover); transform: translateY(-1px); }
+    .c-nav__cta:focus-visible { outline: 2px solid var(--foxhue-accent); outline-offset: 2px; }
+    .c-nav__toggle { display: none; }
+    .c-nav__hamburger { display: none; width: 28px; height: 20px; flex-direction: column; justify-content: space-between; cursor: pointer; position: relative; z-index: 110; }
+    .c-nav__hamburger span { display: block; width: 100%; height: 2px; background: var(--foxhue-primary); border-radius: 2px; transition: transform 0.35s ease, opacity 0.35s ease; }
+    .c-nav__toggle:checked ~ .c-nav__hamburger span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+    .c-nav__toggle:checked ~ .c-nav__hamburger span:nth-child(2) { opacity: 0; }
+    .c-nav__toggle:checked ~ .c-nav__hamburger span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+
+    /* ── Buttons ── */
+    .c-btn { display: inline-flex; align-items: center; justify-content: center; padding: 14px 30px; font-family: var(--foxhue-font-body); font-size: 0.9375rem; font-weight: 600; border: 2px solid transparent; border-radius: var(--c-radius-btn); cursor: pointer; text-decoration: none; transition: all var(--c-transition); line-height: 1.4; }
+    .c-btn:focus-visible { outline: 2px solid var(--foxhue-accent); outline-offset: 2px; }
+    .c-btn--primary { background: var(--foxhue-accent); color: var(--foxhue-light); border-color: var(--foxhue-accent); }
+    .c-btn--primary:hover { background: var(--foxhue-accent-hover); border-color: var(--foxhue-accent-hover); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(233,69,96,0.25); }
+
+    /* ── Page Hero ── */
+    .c-page-hero { padding: 64px 0 48px; position: relative; overflow: hidden; }
+    .c-page-hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(ellipse at 30% 50%, rgba(233,69,96,0.04) 0%, transparent 60%); pointer-events: none; }
+    .c-page-hero__inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; position: relative; }
+    .c-page-hero__card { background: var(--c-surface-warm); border-radius: var(--c-radius-section); padding: 56px; box-shadow: var(--c-shadow-warm); text-align: center; position: relative; overflow: hidden; }
+    .c-page-hero__card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23E94560' fill-opacity='0.015'%3E%3Ccircle cx='30' cy='30' r='1.5'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); pointer-events: none; }
+    .c-page-hero__greeting { display: inline-block; font-size: 0.8125rem; font-weight: 600; letter-spacing: 0.08em; color: var(--foxhue-accent); background: rgba(233,69,96,0.08); padding: 6px 16px; border-radius: 100px; margin-bottom: 20px; position: relative; }
+    .c-page-hero__title { font-family: var(--foxhue-font-heading); font-size: clamp(2rem, 5vw, 3rem); color: var(--foxhue-primary); margin-bottom: 16px; position: relative; }
+    .c-page-hero__subtitle { font-size: clamp(1rem, 2vw, 1.125rem); color: var(--foxhue-text-muted); max-width: 560px; margin: 0 auto; line-height: 1.75; position: relative; }
+
+    /* ── Category Pills ── */
+    .c-categories {
+      padding: 0 0 32px;
+    }
+
+    .c-categories__inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .c-pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 20px;
+      font-size: 0.8125rem;
+      font-weight: 500;
+      color: var(--foxhue-text);
+      background: var(--c-surface-warm);
+      border: 1px solid rgba(26, 26, 46, 0.1);
+      border-radius: 100px;
+      text-decoration: none;
+      transition: all var(--c-transition);
+    }
+
+    .c-pill:hover,
+    .c-pill--active {
+      color: var(--foxhue-accent);
+      border-color: var(--foxhue-accent);
+      background: rgba(233, 69, 96, 0.06);
+    }
+
+    /* ── Portfolio Grid ── */
+    .c-portfolio {
+      padding: 48px 0 80px;
+    }
+
+    .c-portfolio__inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .c-portfolio__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .c-project-card {
+      border-radius: var(--c-radius-card);
+      overflow: hidden;
+      background: var(--c-surface-warm);
+      box-shadow: var(--c-shadow-warm);
+      transition: all var(--c-transition);
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+
+    .c-project-card:hover {
+      transform: translateY(-6px) rotate(-0.3deg);
+      box-shadow: var(--c-shadow-warm-hover);
+    }
+
+    .c-project-card:focus-visible {
+      outline: 2px solid var(--foxhue-accent);
+      outline-offset: 2px;
+    }
+
+    .c-project-card__image {
+      aspect-ratio: 4 / 3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .c-project-card__image--marr { background: linear-gradient(135deg, #ECE5E0 0%, #C6BCB3 50%, #3C3C3B 100%); }
+    .c-project-card__image--verde { background: linear-gradient(135deg, #2D5016 0%, #6B8F3C 50%, #F5F0E8 100%); }
+    .c-project-card__image--nexus { background: linear-gradient(135deg, #0F1B2D 0%, #1E3A5F 50%, #4A90D9 100%); }
+    .c-project-card__image--bloom { background: linear-gradient(135deg, #F5E6D3 0%, #D4A574 50%, #8B6914 100%); }
+    .c-project-card__image--archer { background: linear-gradient(135deg, #1A1A2E 0%, #3D3D5C 50%, #8888AA 100%); }
+    .c-project-card__image--peakfit { background: linear-gradient(135deg, #FF6B35 0%, #F7C948 50%, #44BBA4 100%); }
+
+    .c-project-card__image-label {
+      font-family: var(--foxhue-font-heading);
+      font-size: 1.5rem;
+      color: rgba(255, 255, 255, 0.85);
+      text-shadow: 0 1px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .c-project-card__body {
+      padding: 24px;
+    }
+
+    .c-project-card__tag {
+      display: inline-block;
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--foxhue-accent);
+      background: rgba(233, 69, 96, 0.08);
+      padding: 4px 12px;
+      border-radius: 100px;
+      margin-bottom: 10px;
+    }
+
+    .c-project-card__title {
+      font-family: var(--foxhue-font-heading);
+      font-size: 1.25rem;
+      color: var(--foxhue-primary);
+      margin-bottom: 8px;
+    }
+
+    .c-project-card__excerpt {
+      font-size: 0.875rem;
+      color: var(--foxhue-text-muted);
+      line-height: 1.65;
+    }
+
+    /* ── Featured Case Study ── */
+    .c-case-study {
+      padding: 80px 0;
+      background: var(--c-surface-warm);
+    }
+
+    .c-case-study__inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .c-case-study__card {
+      background: var(--c-bg-warm);
+      border-radius: var(--c-radius-section);
+      overflow: hidden;
+      box-shadow: var(--c-shadow-warm);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .c-case-study__image {
+      background: linear-gradient(135deg, #ECE5E0 0%, #C6BCB3 50%, #3C3C3B 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 360px;
+    }
+
+    .c-case-study__image-label {
+      font-family: var(--foxhue-font-heading);
+      font-size: 3rem;
+      color: rgba(255, 255, 255, 0.8);
+      text-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .c-case-study__content {
+      padding: 56px 48px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .c-case-study__label {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--foxhue-accent);
+      margin-bottom: 16px;
+    }
+
+    .c-case-study__title {
+      font-family: var(--foxhue-font-heading);
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      color: var(--foxhue-primary);
+      margin-bottom: 16px;
+    }
+
+    .c-case-study__desc {
+      font-size: 1rem;
+      color: var(--foxhue-text-muted);
+      line-height: 1.75;
+      margin-bottom: 24px;
+    }
+
+    .c-case-study__stats {
+      display: flex;
+      gap: 32px;
+      margin-bottom: 28px;
+    }
+
+    .c-stat {
+      text-align: center;
+    }
+
+    .c-stat__number {
+      display: block;
+      font-family: var(--foxhue-font-heading);
+      font-size: 1.75rem;
+      color: var(--foxhue-accent);
+      line-height: 1.2;
+    }
+
+    .c-stat__label {
+      font-size: 0.75rem;
+      color: var(--foxhue-text-muted);
+      font-weight: 500;
+    }
+
+    /* ── CTA ── */
+    .c-cta { padding: 80px 0; }
+    .c-cta__card { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    .c-cta__inner { background: linear-gradient(135deg, var(--foxhue-primary) 0%, #252548 100%); border-radius: var(--c-radius-section); padding: 72px 56px; text-align: center; position: relative; overflow: hidden; }
+    .c-cta__inner::before { content: ''; position: absolute; top: -50%; right: -20%; width: 400px; height: 400px; background: radial-gradient(circle, rgba(233,69,96,0.12) 0%, transparent 70%); border-radius: 50%; pointer-events: none; }
+    .c-cta__headline { font-family: var(--foxhue-font-heading); font-size: clamp(1.75rem, 4vw, 2.5rem); color: var(--foxhue-light); margin-bottom: 16px; position: relative; }
+    .c-cta__text { font-size: 1.0625rem; color: rgba(255,255,255,0.7); max-width: 480px; margin: 0 auto 32px; line-height: 1.75; position: relative; }
+    .c-cta__inner .c-btn--primary { position: relative; }
+
+    /* ── Footer ── */
+    .c-footer { background: var(--foxhue-primary); color: rgba(255,255,255,0.7); padding: 56px 0 32px; border-radius: var(--c-radius-section) var(--c-radius-section) 0 0; }
+    .c-footer__inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    .c-footer__top { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+    .c-footer__wordmark { font-family: var(--foxhue-font-heading); font-size: 1.5rem; color: var(--foxhue-light); display: block; margin-bottom: 12px; }
+    .c-footer__address { font-size: 0.875rem; line-height: 1.6; font-style: normal; margin-bottom: 16px; }
+    .c-footer__email { font-size: 0.875rem; color: var(--foxhue-accent); text-decoration: none; padding: 4px 12px; border-radius: 8px; transition: all var(--c-transition); margin-left: -12px; }
+    .c-footer__email:hover { background: rgba(233,69,96,0.15); color: var(--foxhue-light); }
+    .c-footer__email:focus-visible { outline: 2px solid var(--foxhue-accent); outline-offset: 2px; border-radius: 8px; }
+    .c-footer__heading { font-family: var(--foxhue-font-body); font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 20px; }
+    .c-footer__nav-list { display: flex; flex-direction: column; gap: 12px; list-style: none; }
+    .c-footer__nav-link { font-size: 0.875rem; color: rgba(255,255,255,0.65); text-decoration: none; padding: 4px 12px; border-radius: 8px; transition: all var(--c-transition); margin-left: -12px; }
+    .c-footer__nav-link:hover { color: var(--foxhue-light); background: rgba(255,255,255,0.06); }
+    .c-footer__nav-link:focus-visible { outline: 2px solid var(--foxhue-accent); outline-offset: 2px; border-radius: 8px; }
+    .c-footer__bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; }
+    .c-footer__copy { font-size: 0.8125rem; color: rgba(255,255,255,0.35); }
+
+    /* ── Responsive ── */
+    @media (max-width: 992px) {
+      .c-portfolio__grid { grid-template-columns: repeat(2, 1fr); }
+      .c-case-study__card { grid-template-columns: 1fr; }
+      .c-case-study__image { min-height: 280px; }
+      .c-footer__top { grid-template-columns: 1fr 1fr; gap: 32px; }
+    }
+
+    @media (max-width: 767px) {
+      .c-nav__hamburger { display: flex; }
+      .c-nav__links { position: fixed; top: 0; right: 0; bottom: 0; width: 300px; background: var(--c-surface-warm); flex-direction: column; align-items: flex-start; padding: 88px 32px 32px; gap: 8px; box-shadow: -4px 0 32px rgba(26,26,46,0.15); transform: translateX(100%); transition: transform 0.35s ease; z-index: 105; border-radius: var(--c-radius-section) 0 0 var(--c-radius-section); }
+      .c-nav__toggle:checked ~ .c-nav__links { transform: translateX(0); }
+      .c-nav__link { font-size: 1rem; padding: 10px 16px; width: 100%; }
+      .c-nav__cta { margin-top: 8px; width: 100%; justify-content: center; }
+      .c-portfolio__grid { grid-template-columns: 1fr; }
+      .c-case-study__content { padding: 36px 28px; }
+      .c-case-study__stats { gap: 20px; }
+      .c-footer__top { grid-template-columns: 1fr; }
+      .c-footer__bottom { flex-direction: column; gap: 12px; text-align: center; }
+      .c-page-hero__card { padding: 40px 28px; }
+      .c-cta__inner { padding: 48px 28px; }
+    }
+
+    @media (max-width: 477px) {
+      .c-nav__inner { padding: 0 16px; height: 64px; }
+      .c-page-hero__inner, .c-portfolio__inner, .c-case-study__inner, .c-cta__card, .c-footer__inner { padding: 0 16px; }
+      .c-case-study__stats { flex-direction: column; gap: 12px; align-items: flex-start; }
+      .c-footer { border-radius: var(--c-radius-card) var(--c-radius-card) 0 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="c-nav" aria-label="Primary navigation">
+    <div class="c-nav__inner">
+      <a href="../index.html" class="c-nav__brand" aria-label="Foxhue — home">
+        <span class="c-nav__wordmark">Foxhue</span>
+        <span class="c-nav__tagline">Creative Design &amp; Marketing</span>
+      </a>
+      <input type="checkbox" id="nav-toggle" class="c-nav__toggle sr-only" aria-label="Toggle navigation menu">
+      <label for="nav-toggle" class="c-nav__hamburger" aria-hidden="true">
+        <span></span><span></span><span></span>
+      </label>
+      <div class="c-nav__links">
+        <a href="../services.html" class="c-nav__link">Services</a>
+        <a href="../work.html" class="c-nav__link c-nav__link--active">Our Work</a>
+        <a href="../about.html" class="c-nav__link">About</a>
+        <a href="../blog.html" class="c-nav__link">Blog</a>
+        <a href="../contact.html" class="c-nav__link">Contact</a>
+        <a href="../contact.html" class="c-nav__cta">Let's Chat</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main-content">
+
+    <!-- Page Hero -->
+    <section class="c-page-hero" aria-labelledby="page-heading">
+      <div class="c-page-hero__inner">
+        <div class="c-page-hero__card">
+          <span class="c-page-hero__greeting" aria-hidden="true">Take a look around</span>
+          <h1 id="page-heading" class="c-page-hero__title">Work we're proud of</h1>
+          <p class="c-page-hero__subtitle">Real projects for real businesses. Each one started with a conversation and ended with something we're genuinely proud to put our name to.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Category Pills -->
+    <div class="c-categories" aria-label="Project categories">
+      <div class="c-categories__inner">
+        <span class="c-pill c-pill--active">All Projects</span>
+        <span class="c-pill">Brand Identity</span>
+        <span class="c-pill">Web Design</span>
+        <span class="c-pill">Logo Design</span>
+        <span class="c-pill">Presentations</span>
+      </div>
+    </div>
+
+    <!-- Portfolio Grid -->
+    <section class="c-portfolio" aria-labelledby="portfolio-heading">
+      <h2 id="portfolio-heading" class="sr-only">Project Portfolio</h2>
+      <div class="c-portfolio__inner">
+        <div class="c-portfolio__grid">
+
+          <a href="../work.html" class="c-project-card" aria-label="MARR Laser and Skin Clinic — Brand Identity and Web Design">
+            <div class="c-project-card__image c-project-card__image--marr" aria-hidden="true">
+              <span class="c-project-card__image-label">MARR</span>
+            </div>
+            <div class="c-project-card__body">
+              <span class="c-project-card__tag">Brand Identity &amp; Web Design</span>
+              <h3 class="c-project-card__title">MARR Laser &amp; Skin Clinic</h3>
+              <p class="c-project-card__excerpt">Complete brand identity and multi-page website for a specialist laser and skin clinic in Oxfordshire.</p>
+            </div>
+          </a>
+
+          <a href="../work.html" class="c-project-card" aria-label="The Rustic Fork — Logo Design and Brand Refresh">
+            <div class="c-project-card__image c-project-card__image--verde" aria-hidden="true">
+              <span class="c-project-card__image-label">Rustic Fork</span>
+            </div>
+            <div class="c-project-card__body">
+              <span class="c-project-card__tag">Logo Design &amp; Brand Refresh</span>
+              <h3 class="c-project-card__title">The Rustic Fork</h3>
+              <p class="c-project-card__excerpt">Rebrand for a local restaurant bringing warmth and character to their visual identity.</p>
+            </div>
+          </a>
+
+          <a href="../work.html" class="c-project-card" aria-label="Vertex Digital — Web Design and Presentations">
+            <div class="c-project-card__image c-project-card__image--nexus" aria-hidden="true">
+              <span class="c-project-card__image-label">Vertex</span>
+            </div>
+            <div class="c-project-card__body">
+              <span class="c-project-card__tag">Web Design &amp; Presentations</span>
+              <h3 class="c-project-card__title">Vertex Digital</h3>
+              <p class="c-project-card__excerpt">Website and investor pitch deck for a tech startup, designed to build credibility and secure early-stage funding.</p>
+            </div>
+          </a>
+
+          <a href="../work.html" class="c-project-card" aria-label="Bloom and Branch — Brand Identity">
+            <div class="c-project-card__image c-project-card__image--bloom" aria-hidden="true">
+              <span class="c-project-card__image-label">Bloom</span>
+            </div>
+            <div class="c-project-card__body">
+              <span class="c-project-card__tag">Brand Identity</span>
+              <h3 class="c-project-card__title">Bloom &amp; Branch</h3>
+              <p class="c-project-card__excerpt">Nature-inspired brand identity for a boutique florist expanding into events and workshops.</p>
+            </div>
+          </a>
+
+          <a href="../work.html" class="c-project-card" aria-label="Archer and Co — Brand Refresh and Documentation">
+            <div class="c-project-card__image c-project-card__image--archer" aria-hidden="true">
+              <span class="c-project-card__image-label">Archer</span>
+            </div>
+            <div class="c-project-card__body">
+              <span class="c-project-card__tag">Brand Refresh &amp; Documentation</span>
+              <h3 class="c-project-card__title">Archer &amp; Co</h3>
+              <p class="c-project-card__excerpt">Modernised brand identity and comprehensive guidelines for a professional services firm.</p>
+            </div>
+          </a>
+
+          <a href="../work.html" class="c-project-card" aria-label="PeakFit — Web Design and Social Media">
+            <div class="c-project-card__image c-project-card__image--peakfit" aria-hidden="true">
+              <span class="c-project-card__image-label">PeakFit</span>
+            </div>
+            <div class="c-project-card__body">
+              <span class="c-project-card__tag">Web Design &amp; Social Media</span>
+              <h3 class="c-project-card__title">PeakFit</h3>
+              <p class="c-project-card__excerpt">Energetic website and social media templates for a growing fitness brand in Oxfordshire.</p>
+            </div>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Case Study -->
+    <section class="c-case-study" aria-labelledby="case-study-heading">
+      <div class="c-case-study__inner">
+        <div class="c-case-study__card">
+          <div class="c-case-study__image" aria-hidden="true">
+            <span class="c-case-study__image-label">MARR</span>
+          </div>
+          <div class="c-case-study__content">
+            <span class="c-case-study__label">Featured Case Study</span>
+            <h2 id="case-study-heading" class="c-case-study__title">MARR Laser &amp; Skin Clinic</h2>
+            <p class="c-case-study__desc">A complete brand identity and multi-page website for a specialist laser and skin clinic. We created a warm, premium feel that reflects the clinic's expertise and approachable service.</p>
+            <div class="c-case-study__stats">
+              <div class="c-stat">
+                <span class="c-stat__number">10</span>
+                <span class="c-stat__label">Page website</span>
+              </div>
+              <div class="c-stat">
+                <span class="c-stat__number">3x</span>
+                <span class="c-stat__label">Enquiry increase</span>
+              </div>
+              <div class="c-stat">
+                <span class="c-stat__number">100%</span>
+                <span class="c-stat__label">Brand guidelines</span>
+              </div>
+            </div>
+            <a href="../work.html" class="c-btn c-btn--primary">Read Case Study</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="c-cta" aria-labelledby="cta-heading">
+      <div class="c-cta__card">
+        <div class="c-cta__inner">
+          <h2 id="cta-heading" class="c-cta__headline">Like what you see?</h2>
+          <p class="c-cta__text">We'd love to do the same for you. Every project starts with a friendly conversation about your business.</p>
+          <a href="../contact.html" class="c-btn c-btn--primary">Start a Project</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="c-footer" role="contentinfo">
+    <div class="c-footer__inner">
+      <div class="c-footer__top">
+        <div>
+          <span class="c-footer__wordmark">Foxhue</span>
+          <address class="c-footer__address">Bicester, Oxfordshire</address>
+          <a href="mailto:hello@foxhue.com" class="c-footer__email">hello@foxhue.com</a>
+        </div>
+        <div>
+          <p class="c-footer__heading">Pages</p>
+          <nav aria-label="Footer navigation">
+            <ul class="c-footer__nav-list">
+              <li><a href="../services.html" class="c-footer__nav-link">Services</a></li>
+              <li><a href="../work.html" class="c-footer__nav-link">Our Work</a></li>
+              <li><a href="../about.html" class="c-footer__nav-link">About</a></li>
+            </ul>
+          </nav>
+        </div>
+        <div>
+          <p class="c-footer__heading">More</p>
+          <nav aria-label="Footer secondary navigation">
+            <ul class="c-footer__nav-list">
+              <li><a href="../blog.html" class="c-footer__nav-link">Blog</a></li>
+              <li><a href="../contact.html" class="c-footer__nav-link">Contact</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+      <div class="c-footer__bottom">
+        <p class="c-footer__copy">&copy; 2026 Foxhue Ltd. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

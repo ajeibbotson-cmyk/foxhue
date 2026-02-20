@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Foxhue — Homepage (Layout B: Editorial Motion)</title>
+  <meta name="description" content="Foxhue: Creative design and marketing studio. We design brands that people remember.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+  <style>
+    /* ════════════════════════════════════════════════════
+       LAYOUT B — EDITORIAL MOTION: Homepage
+       ════════════════════════════════════════════════════ */
+
+    /* ── Mobile Nav Toggle (CSS-only) ── */
+    .b-nav-toggle { display: none; }
+    .b-nav-state { display: none; }
+
+    /* ── Header / Navigation ── */
+    .b-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--foxhue-primary);
+      border-bottom: 3px solid var(--foxhue-accent);
+    }
+
+    .b-header__inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+
+    .b-header__logo {
+      font-family: var(--foxhue-font-heading);
+      font-size: 1.5rem;
+      color: var(--foxhue-light);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+    }
+
+    .b-header__logo span {
+      color: var(--foxhue-accent);
+    }
+
+    .b-nav { display: flex; align-items: center; gap: 32px; }
+
+    .b-nav__link {
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .b-nav__link:hover,
+    .b-nav__link:focus-visible { color: var(--foxhue-light); }
+
+    .b-nav__link:focus-visible {
+      outline: 2px solid var(--foxhue-accent);
+      outline-offset: 4px;
+      border-radius: 2px;
+    }
+
+    .b-nav__cta {
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--foxhue-light);
+      background: var(--foxhue-accent);
+      padding: 8px 20px;
+      border-radius: 100px;
+      text-decoration: none;
+      transition: background 0.2s ease;
+    }
+
+    .b-nav__cta:hover { background: var(--foxhue-accent-hover); }
+
+    .b-nav__cta:focus-visible {
+      outline: 2px solid var(--foxhue-light);
+      outline-offset: 2px;
+    }
+
+    /* ── Hero ── */
+    .b-hero {
+      background: var(--foxhue-primary);
+      color: var(--foxhue-light);
+      padding: 100px 0 120px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .b-hero__inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: grid;
+      grid-template-columns: 7fr 5fr;
+      gap: 48px;
+      align-items: end;
+    }
+
+    .b-hero__eyebrow {
+      display: block;
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--foxhue-accent);
+      margin-bottom: 24px;
+    }
+
+    .b-hero__heading {
+      font-family: var(--foxhue-font-heading);
+      font-size: clamp(2.5rem, 7vw, 5rem);
+      font-style: italic;
+      color: var(--foxhue-light);
+      line-height: 1.05;
+      margin-bottom: 32px;
+    }
+
+    .b-hero__heading em {
+      font-style: normal;
+      color: var(--foxhue-accent);
+    }
+
+    .b-hero__sub {
+      font-size: 1.0625rem;
+      font-weight: 300;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.65);
+      max-width: 460px;
+      margin-bottom: 36px;
+    }
+
+    .b-hero__buttons {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .b-hero__right {
+      text-align: right;
+    }
+
+    .b-hero__number {
+      font-family: var(--foxhue-font-heading);
+      font-size: clamp(8rem, 16vw, 14rem);
+      color: rgba(233, 69, 96, 0.08);
+      line-height: 1;
+      user-select: none;
+    }
+
+    .b-hero__tagline {
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+      margin-top: -20px;
+    }
+
+    /* ── Services Section ── */
+    .b-services {
+      background: var(--foxhue-bg);
+      padding: 100px 0;
+    }
+
+    .b-services__inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .b-services__header {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-bottom: 64px;
+      align-items: end;
+    }
+
+    .b-services__eyebrow {
+      display: block;
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--foxhue-accent);
+      margin-bottom: 12px;
+    }
+
+    .b-services__heading {
+      font-family: var(--foxhue-font-heading);
+      font-size: clamp(1.75rem, 4vw, 2.75rem);
+      color: var(--foxhue-primary);
+    }
+
+    .b-services__intro {
+      font-size: 0.9375rem;
+      color: var(--foxhue-text-muted);
+      line-height: 1.7;
+      text-align: right;
+    }
+
+    .b-services__list {
+      border-top: 2px solid var(--foxhue-primary);
+    }
+
+    .b-service-item {
+      display: grid;
+      grid-template-columns: 80px 1fr 2fr;
+      gap: 24px;
+      padding: 28px 0;
+      border-bottom: 1px solid var(--foxhue-border);
+      align-items: baseline;
+      transition: background 0.2s ease;
+    }
+
+    .b-service-item:hover {
+      background: rgba(233, 69, 96, 0.03);
+      margin: 0 -24px;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    .b-service-item__num {
+      font-family: var(--foxhue-font-heading);
+      font-size: 1.5rem;
+      color: var(--foxhue-accent);
+    }
+
+    .b-service-item__title {
+      font-family: var(--foxhue-font-heading);
+      font-size: 1.375rem;
+      color: var(--foxhue-primary);
+    }
+
+    .b-service-item__desc {
+      font-size: 0.875rem;
+      color: var(--foxhue-text-muted);
+      line-height: 1.6;
+    }
+
+    /* ── Work Section ── */
+    .b-work {
+      background: var(--foxhue-primary);
+      color: var(--foxhue-light);
+      padding: 100px 0;
+    }
+
+    .b-work__inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .b-work__header {
+      margin-bottom: 64px;
+    }
+
+    .b-work__eyebrow {
+      display: block;
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--foxhue-accent);
+      margin-bottom: 12px;
+    }
+
+    .b-work__heading {
+      font-family: var(--foxhue-font-heading);
+      font-size: clamp(1.75rem, 4vw, 2.75rem);
+      color: var(--foxhue-light);
+    }
+
+    .b-work__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+    }
+
+    .b-work-card {
+      position: relative;
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 36px;
+      transition: border-color 0.2s ease;
+    }
+
+    .b-work-card:hover {
+      border-color: var(--foxhue-accent);
+    }
+
+    .b-work-card:nth-child(2) {
+      margin-top: 48px;
+    }
+
+    .b-work-card:nth-child(3) {
+      margin-top: -24px;
+    }
+
+    .b-work-card__image {
+      width: 100%;
+      height: 200px;
+      margin-bottom: 24px;
+    }
+
+    .b-work-card__image--1 {
+      background: linear-gradient(135deg, #2a2a48 0%, #E94560 100%);
+    }
+
+    .b-work-card__image--2 {
+      background: linear-gradient(135deg, #4a3f35 0%, #c8956c 100%);
+    }
+
+    .b-work-card__image--3 {
+      background: linear-gradient(135deg, #1a3a2a 0%, #4ecdc4 100%);
+    }
+
+    .b-work-card__type {
+      display: block;
+      font-size: 0.625rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--foxhue-accent);
+      margin-bottom: 8px;
+    }
+
+    .b-work-card__title {
+      font-family: var(--foxhue-font-heading);
+      font-size: 1.5rem;
+      color: var(--foxhue-light);
+      margin-bottom: 12px;
+    }
+
+    .b-work-card__desc {
+      font-size: 0.8125rem;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.6;
+    }
+
+    /* ── Testimonials Section ── */
+    .b-testimonials {
+      background: var(--foxhue-bg);
+      padding: 100px 0;
+      position: relative;
+    }
+
+    .b-testimonials__inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: grid;
+      grid-template-columns: 5fr 7fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .b-testimonials__left {
+      position: relative;
+    }
+
+    .b-testimonials__eyebrow {
+      display: block;
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--foxhue-accent);
+      margin-bottom: 12px;
+    }
+
+    .b-testimonials__heading {
+      font-family: var(--foxhue-font-heading);
+      font-size: clamp(1.75rem, 4vw, 2.75rem);
+      color: var(--foxhue-primary);
+      margin-bottom: 16px;
+    }
+
+    .b-testimonials__note {
+      font-size: 0.875rem;
+      color: var(--foxhue-text-muted);
+      line-height: 1.7;
+    }
+
+    .b-testimonials__right {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .b-quote {
+      border-left: 4px solid var(--foxhue-accent);
+      padding: 28px 32px;
+      background: var(--foxhue-surface);
+      position: relative;
+    }
+
+    .b-quote__mark {
+      font-family: var(--foxhue-font-heading);
+      font-size: 4rem;
+      color: rgba(233, 69, 96, 0.12);
+      line-height: 1;
+      position: absolute;
+      top: 8px;
+      left: 12px;
+    }
+
+    .b-quote__text {
+      font-family: var(--foxhue-font-heading);
+      font-size: 1.25rem;
+      font-style: italic;
+      color: var(--foxhue-primary);
+      line-height: 1.5;
+      margin-bottom: 16px;
+    }
+
+    .b-quote__author {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--foxhue-text-muted);
+    }
+
+    .b-quote__author span {
+      color: var(--foxhue-accent);
+      margin-left: 8px;
+      font-weight: 400;
+    }
+
+    /* ── CTA Section ── */
+    .b-cta {
+      background: var(--foxhue-primary);
+      color: var(--foxhue-light);
+      padding: 120px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .b-cta__inner {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 24px;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .b-cta__watermark {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: var(--foxhue-font-heading);
+      font-size: clamp(6rem, 18vw, 16rem);
+      color: rgba(233, 69, 96, 0.05);
+      white-space: nowrap;
+      user-select: none;
+      z-index: 0;
+    }
+
+    .b-cta__heading {
+      font-family: var(--foxhue-font-heading);
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-style: italic;
+      color: var(--foxhue-light);
+      margin-bottom: 20px;
+      line-height: 1.15;
+    }
+
+    .b-cta__heading em {
+      font-style: normal;
+      color: var(--foxhue-accent);
+    }
+
+    .b-cta__sub {
+      font-size: 1rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 36px;
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .b-cta__buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* ── Footer ── */
+    .b-footer {
+      background: var(--foxhue-primary);
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding: 40px 0;
+    }
+
+    .b-footer__inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .b-footer__copy {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.4);
+    }
+
+    .b-footer__links {
+      display: flex;
+      gap: 24px;
+    }
+
+    .b-footer__link {
+      font-size: 0.6875rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .b-footer__link:hover { color: var(--foxhue-light); }
+
+    .b-footer__variant {
+      font-size: 0.625rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--foxhue-accent);
+    }
+
+    /* ── Responsive: Tablet (992px) ── */
+    @media (max-width: 992px) {
+      .b-hero__inner {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .b-hero__right { display: none; }
+
+      .b-services__header {
+        grid-template-columns: 1fr;
+      }
+
+      .b-services__intro { text-align: left; }
+
+      .b-service-item {
+        grid-template-columns: 60px 1fr;
+      }
+
+      .b-service-item__desc {
+        grid-column: 2;
+      }
+
+      .b-work__grid {
+        grid-template-columns: 1fr;
+      }
+
+      .b-work-card:nth-child(2),
+      .b-work-card:nth-child(3) {
+        margin-top: 0;
+      }
+
+      .b-testimonials__inner {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+    }
+
+    /* ── Responsive: Mobile Landscape (767px) ── */
+    @media (max-width: 767px) {
+      .b-nav { display: none; }
+      .b-nav-toggle { display: block; }
+
+      .b-nav-toggle {
+        width: 28px;
+        height: 20px;
+        position: relative;
+        cursor: pointer;
+        background: none;
+        border: none;
+        padding: 0;
+      }
+
+      .b-nav-toggle span,
+      .b-nav-toggle span::before,
+      .b-nav-toggle span::after {
+        display: block;
+        width: 100%;
+        height: 2px;
+        background: var(--foxhue-light);
+        position: absolute;
+        transition: all 0.3s ease;
+      }
+
+      .b-nav-toggle span { top: 50%; transform: translateY(-50%); }
+      .b-nav-toggle span::before { content: ''; top: -8px; }
+      .b-nav-toggle span::after { content: ''; top: 8px; }
+
+      .b-nav-state:checked ~ .b-header .b-nav-toggle span {
+        background: transparent;
+      }
+      .b-nav-state:checked ~ .b-header .b-nav-toggle span::before {
+        top: 0;
+        transform: rotate(45deg);
+        background: var(--foxhue-light);
+      }
+      .b-nav-state:checked ~ .b-header .b-nav-toggle span::after {
+        top: 0;
+        transform: rotate(-45deg);
+        background: var(--foxhue-light);
+      }
+
+      .b-nav-state:checked ~ .b-header .b-nav {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 64px;
+        left: 0;
+        right: 0;
+        background: var(--foxhue-primary);
+        padding: 24px;
+        gap: 16px;
+        border-bottom: 3px solid var(--foxhue-accent);
+        z-index: 99;
+      }
+
+      .b-hero { padding: 64px 0 80px; }
+
+      .b-hero__heading {
+        font-size: clamp(2rem, 8vw, 3rem);
+      }
+
+      .b-service-item {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+
+      .b-service-item__num { font-size: 1rem; }
+
+      .b-service-item__desc { grid-column: 1; }
+
+      .b-footer__inner {
+        flex-direction: column;
+        text-align: center;
+        gap: 12px;
+      }
+
+      .b-footer__links { flex-wrap: wrap; justify-content: center; gap: 16px; }
+    }
+
+    /* ── Responsive: Mobile (477px) ── */
+    @media (max-width: 477px) {
+      .b-hero { padding: 48px 0 64px; }
+      .b-hero__heading { font-size: 2rem; }
+      .b-hero__buttons { flex-direction: column; }
+      .b-hero__buttons .btn { text-align: center; }
+      .b-work-card { padding: 24px; }
+      .b-quote { padding: 20px 24px; }
+      .b-cta { padding: 80px 0; }
+      .b-cta__buttons { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <input type="checkbox" id="navState" class="b-nav-state" aria-hidden="true">
+
+  <!-- ════════════════════════════════════════
+       HEADER
+       ════════════════════════════════════════ -->
+  <header class="b-header" role="banner">
+    <div class="b-header__inner">
+      <a href="../index.html" class="b-header__logo" aria-label="Foxhue homepage">Fox<span>hue</span></a>
+      <nav class="b-nav" aria-label="Main navigation">
+        <a href="../services.html" class="b-nav__link">Services</a>
+        <a href="../work.html" class="b-nav__link">Our Work</a>
+        <a href="../about.html" class="b-nav__link">About</a>
+        <a href="../blog.html" class="b-nav__link">Blog</a>
+        <a href="../contact.html" class="b-nav__cta">Get in Touch</a>
+      </nav>
+      <label for="navState" class="b-nav-toggle" aria-label="Toggle navigation menu" role="button" tabindex="0">
+        <span></span>
+      </label>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <!-- ════════════════════════════════════════
+         HERO
+         ════════════════════════════════════════ -->
+    <section class="b-hero" aria-label="Hero">
+      <div class="b-hero__inner">
+        <div class="b-hero__left">
+          <span class="b-hero__eyebrow">Creative Design &amp; Marketing</span>
+          <h1 class="b-hero__heading">We design brands<br>that people <em>remember</em></h1>
+          <p class="b-hero__sub">Strategy-led creative for ambitious brands. Based in Bicester, working with clients everywhere.</p>
+          <div class="b-hero__buttons">
+            <a href="../work.html" class="btn btn-accent btn--lg">See Our Work</a>
+            <a href="../contact.html" class="btn btn-outline btn--lg" style="border-color: rgba(255,255,255,0.3); color: var(--foxhue-light);">Start a Project</a>
+          </div>
+        </div>
+        <div class="b-hero__right" aria-hidden="true">
+          <div class="b-hero__number">B</div>
+          <p class="b-hero__tagline">Editorial Motion</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════
+         SERVICES
+         ════════════════════════════════════════ -->
+    <section class="b-services" aria-labelledby="services-heading">
+      <div class="b-services__inner">
+        <div class="b-services__header">
+          <div>
+            <span class="b-services__eyebrow">What We Do</span>
+            <h2 class="b-services__heading" id="services-heading">Services</h2>
+          </div>
+          <p class="b-services__intro">From first concept to final delivery, we handle every stage of the creative process with precision and care.</p>
+        </div>
+        <div class="b-services__list" role="list">
+          <div class="b-service-item" role="listitem">
+            <span class="b-service-item__num">01</span>
+            <h3 class="b-service-item__title">Brand Refresh</h3>
+            <p class="b-service-item__desc">Breathe new life into tired brands. Strategy, identity, and positioning that cuts through the noise.</p>
+          </div>
+          <div class="b-service-item" role="listitem">
+            <span class="b-service-item__num">02</span>
+            <h3 class="b-service-item__title">Web Design</h3>
+            <p class="b-service-item__desc">Websites that work as hard as you do. Performance-first, conversion-focused, beautifully built.</p>
+          </div>
+          <div class="b-service-item" role="listitem">
+            <span class="b-service-item__num">03</span>
+            <h3 class="b-service-item__title">Logo Design</h3>
+            <p class="b-service-item__desc">Marks that stick. Distinctive, versatile, and built to last across every touchpoint.</p>
+          </div>
+          <div class="b-service-item" role="listitem">
+            <span class="b-service-item__num">04</span>
+            <h3 class="b-service-item__title">Social Media</h3>
+            <p class="b-service-item__desc">Content strategy and visual identity that builds communities, not just followers.</p>
+          </div>
+          <div class="b-service-item" role="listitem">
+            <span class="b-service-item__num">05</span>
+            <h3 class="b-service-item__title">Presentations</h3>
+            <p class="b-service-item__desc">Pitch decks and keynotes that command the room. Story-driven, visually compelling.</p>
+          </div>
+          <div class="b-service-item" role="listitem">
+            <span class="b-service-item__num">06</span>
+            <h3 class="b-service-item__title">Documentation</h3>
+            <p class="b-service-item__desc">Brand guides, style systems, and collateral that keep your identity consistent at scale.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════
+         WORK
+         ════════════════════════════════════════ -->
+    <section class="b-work" aria-labelledby="work-heading">
+      <div class="b-work__inner">
+        <div class="b-work__header">
+          <span class="b-work__eyebrow">Portfolio</span>
+          <h2 class="b-work__heading" id="work-heading">Selected Work</h2>
+        </div>
+        <div class="b-work__grid">
+          <article class="b-work-card">
+            <div class="b-work-card__image b-work-card__image--1" role="img" aria-label="MARR Laser and Skin project visual"></div>
+            <span class="b-work-card__type">Brand Refresh + Web Design</span>
+            <h3 class="b-work-card__title">MARR Laser &amp; Skin</h3>
+            <p class="b-work-card__desc">Complete brand transformation for Bicester-based aesthetics clinic. Modern identity, responsive website, and local SEO strategy.</p>
+          </article>
+          <article class="b-work-card">
+            <div class="b-work-card__image b-work-card__image--2" role="img" aria-label="The Rustic Fork project visual"></div>
+            <span class="b-work-card__type">Brand Identity + Social Media</span>
+            <h3 class="b-work-card__title">The Rustic Fork</h3>
+            <p class="b-work-card__desc">Warm, artisan brand identity for a farm-to-table restaurant. Logo, menu design, social templates, and interior signage.</p>
+          </article>
+          <article class="b-work-card">
+            <div class="b-work-card__image b-work-card__image--3" role="img" aria-label="Vertex Digital project visual"></div>
+            <span class="b-work-card__type">Web Design + Documentation</span>
+            <h3 class="b-work-card__title">Vertex Digital</h3>
+            <p class="b-work-card__desc">Modern tech company website with developer documentation portal. Clean, fast, conversion-focused.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════
+         TESTIMONIALS
+         ════════════════════════════════════════ -->
+    <section class="b-testimonials" aria-labelledby="testimonials-heading">
+      <div class="b-testimonials__inner">
+        <div class="b-testimonials__left">
+          <span class="b-testimonials__eyebrow">Client Feedback</span>
+          <h2 class="b-testimonials__heading" id="testimonials-heading">What They Say</h2>
+          <p class="b-testimonials__note">We let the work speak for itself. But sometimes our clients say it better.</p>
+        </div>
+        <div class="b-testimonials__right">
+          <blockquote class="b-quote">
+            <span class="b-quote__mark" aria-hidden="true">&ldquo;</span>
+            <p class="b-quote__text">Foxhue completely transformed our brand. The new identity and website tripled our enquiries within three months.</p>
+            <footer class="b-quote__author">Sarah Mitchell <span>MARR Laser &amp; Skin</span></footer>
+          </blockquote>
+          <blockquote class="b-quote">
+            <span class="b-quote__mark" aria-hidden="true">&ldquo;</span>
+            <p class="b-quote__text">They understood our vision instantly. The branding feels authentic, elevated, and completely us.</p>
+            <footer class="b-quote__author">James Thornton <span>The Rustic Fork</span></footer>
+          </blockquote>
+          <blockquote class="b-quote">
+            <span class="b-quote__mark" aria-hidden="true">&ldquo;</span>
+            <p class="b-quote__text">Professional, creative, and incredibly easy to work with. Our website finally matches our ambition.</p>
+            <footer class="b-quote__author">Priya Sharma <span>Vertex Digital</span></footer>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════
+         CTA
+         ════════════════════════════════════════ -->
+    <section class="b-cta" aria-label="Call to action">
+      <div class="b-cta__watermark" aria-hidden="true">Let's Talk</div>
+      <div class="b-cta__inner">
+        <h2 class="b-cta__heading">Ready to build something <em>remarkable?</em></h2>
+        <p class="b-cta__sub">Every great brand starts with a conversation. Tell us about your project and let's make it happen.</p>
+        <div class="b-cta__buttons">
+          <a href="../contact.html" class="btn btn-accent btn--lg">Start a Project</a>
+          <a href="../services.html" class="btn btn-outline btn--lg" style="border-color: rgba(255,255,255,0.3); color: var(--foxhue-light);">View Services</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ════════════════════════════════════════
+       FOOTER
+       ════════════════════════════════════════ -->
+  <footer class="b-footer" role="contentinfo">
+    <div class="b-footer__inner">
+      <p class="b-footer__copy">&copy; 2026 Foxhue Ltd. All rights reserved.</p>
+      <div class="b-footer__links">
+        <a href="../services.html" class="b-footer__link">Services</a>
+        <a href="../work.html" class="b-footer__link">Work</a>
+        <a href="../about.html" class="b-footer__link">About</a>
+        <a href="../blog.html" class="b-footer__link">Blog</a>
+        <a href="../contact.html" class="b-footer__link">Contact</a>
+      </div>
+      <span class="b-footer__variant">Layout B &mdash; Editorial Motion</span>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services — Foxhue | Creative Design &amp; Marketing</title>
+  <meta name="description" content="Brand refresh, web design, logo design, social media, presentations, and documentation. Foxhue offers focused creative services for small and medium-sized businesses in Oxfordshire.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* ── Navigation ── */
+    .site-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--foxhue-surface);
+      border-bottom: 1px solid var(--foxhue-border);
+    }
+
+    .site-nav__inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+
+    .site-nav__brand {
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+      line-height: 1.2;
+    }
+
+    .site-nav__wordmark {
+      font-family: var(--foxhue-font-heading);
+      font-size: 1.5rem;
+      color: var(--foxhue-primary);
+    }
+
+    .site-nav__tagline {
+      font-size: 0.625rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--foxhue-text-muted);
+      margin-top: 1px;
+    }
+
+    .site-nav__links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .site-nav__link {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--foxhue-text);
+      text-decoration: none;
+      position: relative;
+      padding: 4px 0;
+      transition: color 0.2s ease;
+    }
+
+    .site-nav__link::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--foxhue-accent);
+      transition: width 0.25s ease;
+    }
+
+    .site-nav__link:hover {
+      color: var(--foxhue-accent);
+    }
+
+    .site-nav__link:hover::after {
+      width: 100%;
+    }
+
+    .site-nav__link:focus-visible {
+      outline: 2px solid var(--foxhue-accent);
+      outline-offset: 4px;
+      border-radius: 2px;
+    }
+
+    .site-nav__link--active {
+      color: var(--foxhue-accent);
+    }
+
+    .site-nav__link--active::after {
+      width: 100%;
+    }
+
+    /* Hamburger toggle (CSS-only) */
+    .site-nav__toggle {
+      display: none;
+    }
+
+    .site-nav__hamburger {
+      display: none;
+      width: 28px;
+      height: 20px;
+      flex-direction: column;
+      justify-content: space-between;
+      cursor: pointer;
+      position: relative;
+      z-index: 110;
+    }
+
+    .site-nav__hamburger span {
+      display: block;
+      width: 100%;
+      height: 2px;
+      background: var(--foxhue-primary);
+      border-radius: 2px;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    .site-nav__toggle:checked ~ .site-nav__hamburger span:nth-child(1) {
+      transform: translateY(9px) rotate(45deg);
+    }
+
+    .site-nav__toggle:checked ~ .site-nav__hamburger span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .site-nav__toggle:checked ~ .site-nav__hamburger span:nth-child(3) {
+      transform: translateY(-9px) rotate(-45deg);
+    }
+
+    /* ── Page Header ── */
+    .page-header {
+      padding: 80px 0 48px;
+      background: var(--foxhue-surface);
+    }
+
+    .page-header__inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .page-header__rule {
+      width: 48px;
+      height: 2px;
+      background: var(--foxhue-accent);
+      margin-bottom: 28px;
+    }
+
+    .page-header__title {
+      font-size: clamp(2rem, 5vw, 3.25rem);
+      color: var(--foxhue-primary);
+      margin-bottom: 16px;
+      max-width: 600px;
+    }
+
+    .page-header__intro {
+      font-size: clamp(1rem, 2vw, 1.125rem);
+      color: var(--foxhue-text-muted);
+      max-width: 600px;
+      line-height: 1.7;
+    }
+
+    /* ── Service Blocks ── */
+    .service-block {
+      padding: 80px 0;
+    }
+
+    .service-block:nth-child(even) {
+      background: var(--foxhue-surface);
+    }
+
+    .service-block__inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .service-block:nth-child(even) .service-block__inner {
+      direction: rtl;
+    }
+
+    .service-block:nth-child(even) .service-block__content,
+    .service-block:nth-child(even) .service-block__visual {
+      direction: ltr;
+    }
+
+    .service-block__content {}
+
+    .service-block__number {
+      display: inline-block;
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      color: var(--foxhue-accent);
+      margin-bottom: 12px;
+    }
+
+    .service-block__title {
+      font-family: var(--foxhue-font-heading);
+      font-size: clamp(1.5rem, 3vw, 2.25rem);
+      color: var(--foxhue-primary);
+      margin-bottom: 8px;
+    }
+
+    .service-block__tagline {
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--foxhue-text-muted);
+      margin-bottom: 20px;
+    }
+
+    .service-block__desc {
+      font-size: 0.9375rem;
+      color: var(--foxhue-text);
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+
+    .service-block__list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .service-block__tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      padding: 6px 14px;
+      background: var(--foxhue-bg);
+      color: var(--foxhue-text);
+      border-radius: 100px;
+      border: 1px solid var(--foxhue-border);
+    }
+
+    /* Visual placeholder */
+    .service-block__visual {
+      aspect-ratio: 4 / 3;
+      border-radius: var(--foxhue-radius-lg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-block__visual-label {
+      font-family: var(--foxhue-font-heading);
+      font-size: 1.25rem;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .service-visual--brand {
+      background: linear-gradient(135deg, #1A1A2E 0%, #2D2D4A 40%, #E94560 100%);
+    }
+
+    .service-visual--web {
+      background: linear-gradient(135deg, #0F1B2D 0%, #1E3A5F 50%, #4A90D9 100%);
+    }
+
+    .service-visual--logo {
+      background: linear-gradient(135deg, #1A1A2E 0%, #3C3C5A 50%, #C6BCB3 100%);
+    }
+
+    .service-visual--social {
+      background: linear-gradient(135deg, #E94560 0%, #FF7B54 50%, #FFD56B 100%);
+    }
+
+    .service-visual--presentations {
+      background: linear-gradient(135deg, #1A1A2E 0%, #2D2D4A 40%, #6B8F3C 100%);
+    }
+
+    .service-visual--docs {
+      background: linear-gradient(135deg, #ECE5E0 0%, #C6BCB3 50%, #3C3C3B 100%);
+    }
+
+    /* Decorative pattern overlay */
+    .service-block__visual::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 20% 30%, rgba(255,255,255,0.08) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(255,255,255,0.05) 0%, transparent 40%);
+    }
+
+    /* ── Process Section ── */
+    .process {
+      padding: 80px 0;
+      background: var(--foxhue-surface);
+    }
+
+    .process__inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .process__header {
+      margin-bottom: 56px;
+    }
+
+    .process__grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+      position: relative;
+    }
+
+    /* Connecting line between steps */
+    .process__grid::before {
+      content: '';
+      position: absolute;
+      top: 28px;
+      left: calc(12.5% + 16px);
+      right: calc(12.5% + 16px);
+      height: 2px;
+      background: var(--foxhue-border);
+      z-index: 0;
+    }
+
+    .process-step {
+      text-align: center;
+      position: relative;
+    }
+
+    .process-step__number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: var(--foxhue-primary);
+      color: var(--foxhue-light);
+      font-family: var(--foxhue-font-heading);
+      font-size: 1.25rem;
+      margin-bottom: 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .process-step__title {
+      font-family: var(--foxhue-font-heading);
+      font-size: 1.25rem;
+      color: var(--foxhue-primary);
+      margin-bottom: 8px;
+    }
+
+    .process-step__desc {
+      font-size: 0.875rem;
+      color: var(--foxhue-text-muted);
+      line-height: 1.6;
+    }
+
+    /* ── CTA Section ── */
+    .cta-section {
+      padding: 80px 0;
+      background: var(--foxhue-primary);
+      color: var(--foxhue-light);
+    }
+
+    .cta-section__inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+      text-align: center;
+    }
+
+    .cta-section__headline {
+      font-family: var(--foxhue-font-heading);
+      font-size: clamp(1.75rem, 4vw, 2.75rem);
+      color: var(--foxhue-light);
+      margin-bottom: 16px;
+    }
+
+    .cta-section__text {
+      font-size: 1.0625rem;
+      color: rgba(255, 255, 255, 0.75);
+      max-width: 520px;
+      margin: 0 auto 32px;
+      line-height: 1.7;
+    }
+
+    .cta-section .btn-accent {
+      background: var(--foxhue-accent);
+      color: var(--foxhue-light);
+      border-color: var(--foxhue-accent);
+    }
+
+    .cta-section .btn-accent:hover {
+      background: var(--foxhue-accent-hover);
+      border-color: var(--foxhue-accent-hover);
+    }
+
+    /* ── Footer ── */
+    .site-footer {
+      background: var(--foxhue-primary);
+      color: rgba(255, 255, 255, 0.7);
+      padding: 56px 0 32px;
+    }
+
+    .site-footer__inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .site-footer__top {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 48px;
+    }
+
+    .site-footer__wordmark {
+      font-family: var(--foxhue-font-heading);
+      font-size: 1.5rem;
+      color: var(--foxhue-light);
+      display: block;
+      margin-bottom: 12px;
+    }
+
+    .site-footer__address {
+      font-size: 0.875rem;
+      line-height: 1.6;
+      font-style: normal;
+      margin-bottom: 16px;
+    }
+
+    .site-footer__email {
+      font-size: 0.875rem;
+      color: var(--foxhue-accent);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .site-footer__email:hover {
+      color: var(--foxhue-light);
+    }
+
+    .site-footer__email:focus-visible {
+      outline: 2px solid var(--foxhue-accent);
+      outline-offset: 2px;
+      border-radius: 2px;
+    }
+
+    .site-footer__heading {
+      font-family: var(--foxhue-font-body);
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.5);
+      margin-bottom: 20px;
+    }
+
+    .site-footer__nav-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .site-footer__nav-link {
+      font-size: 0.875rem;
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .site-footer__nav-link:hover {
+      color: var(--foxhue-light);
+    }
+
+    .site-footer__nav-link:focus-visible {
+      outline: 2px solid var(--foxhue-accent);
+      outline-offset: 2px;
+      border-radius: 2px;
+    }
+
+    .site-footer__bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .site-footer__copy {
+      font-size: 0.8125rem;
+      color: rgba(255, 255, 255, 0.4);
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 992px) {
+      .service-block__inner {
+        gap: 40px;
+      }
+
+      .process__grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px 32px;
+      }
+
+      .process__grid::before {
+        display: none;
+      }
+
+      .site-footer__top {
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+      }
+
+      .page-header {
+        padding: 64px 0 40px;
+      }
+    }
+
+    @media (max-width: 767px) {
+      .site-nav__hamburger {
+        display: flex;
+      }
+
+      .site-nav__links {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 280px;
+        background: var(--foxhue-surface);
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 80px 32px 32px;
+        gap: 24px;
+        box-shadow: -4px 0 24px rgba(26, 26, 46, 0.15);
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
+        z-index: 105;
+      }
+
+      .site-nav__toggle:checked ~ .site-nav__links {
+        transform: translateX(0);
+      }
+
+      .site-nav__link {
+        font-size: 1rem;
+      }
+
+      .service-block__inner {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .service-block:nth-child(even) .service-block__inner {
+        direction: ltr;
+      }
+
+      .service-block__visual {
+        aspect-ratio: 16 / 9;
+        order: -1;
+      }
+
+      .service-block:nth-child(even) .service-block__visual {
+        order: -1;
+      }
+
+      .process__grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .site-footer__top {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .site-footer__bottom {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+      }
+
+      .page-header {
+        padding: 48px 0 32px;
+      }
+    }
+
+    @media (max-width: 477px) {
+      .site-nav__inner {
+        padding: 0 16px;
+        height: 64px;
+      }
+
+      .page-header__inner {
+        padding: 0 16px;
+      }
+
+      .service-block__inner {
+        padding: 0 16px;
+      }
+
+      .process__inner {
+        padding: 0 16px;
+      }
+
+      .process__grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .cta-section__inner {
+        padding: 0 16px;
+      }
+
+      .site-footer__inner {
+        padding: 0 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="site-nav" aria-label="Primary navigation">
+    <div class="site-nav__inner">
+      <a href="index.html" class="site-nav__brand" aria-label="Foxhue — home">
+        <span class="site-nav__wordmark">Foxhue</span>
+        <span class="site-nav__tagline">Creative Design &amp; Marketing</span>
+      </a>
+      <input type="checkbox" id="nav-toggle" class="site-nav__toggle sr-only" aria-label="Toggle navigation menu">
+      <label for="nav-toggle" class="site-nav__hamburger" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+      <div class="site-nav__links">
+        <a href="services.html" class="site-nav__link site-nav__link--active" aria-current="page">Services</a>
+        <a href="work.html" class="site-nav__link">Our Work</a>
+        <a href="about.html" class="site-nav__link">About</a>
+        <a href="blog.html" class="site-nav__link">Blog</a>
+        <a href="contact.html" class="site-nav__link">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main-content">
+
+    <!-- Page Header -->
+    <header class="page-header" aria-labelledby="page-title">
+      <div class="page-header__inner">
+        <span class="eyebrow">Services</span>
+        <div class="page-header__rule" aria-hidden="true"></div>
+        <h1 id="page-title" class="page-header__title">Here's how we help</h1>
+        <p class="page-header__intro">We keep our service offering focused so we can do fewer things better. Every project starts with understanding your business, your audience, and what success looks like for you.</p>
+      </div>
+    </header>
+
+    <!-- Service Blocks -->
+    <div class="service-blocks">
+
+      <!-- 01: Brand Refresh -->
+      <section class="service-block" aria-labelledby="service-brand">
+        <div class="service-block__inner">
+          <div class="service-block__content">
+            <span class="service-block__number">01</span>
+            <h2 id="service-brand" class="service-block__title">Brand Refresh</h2>
+            <p class="service-block__tagline">Evolving established identities.</p>
+            <p class="service-block__desc">Your business has moved on but your brand hasn't. A brand refresh updates your visual identity to match where you are now, without losing the equity you've built. We work with what's already strong and evolve the rest, giving you a cohesive identity that feels current and considered.</p>
+            <div class="service-block__list">
+              <span class="service-block__tag">Brand Strategy</span>
+              <span class="service-block__tag">Visual Identity</span>
+              <span class="service-block__tag">Brand Guidelines</span>
+              <span class="service-block__tag">Rollout Support</span>
+            </div>
+          </div>
+          <div class="service-block__visual service-visual--brand" aria-hidden="true">
+            <span class="service-block__visual-label">Brand</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- 02: Web Design -->
+      <section class="service-block" aria-labelledby="service-web">
+        <div class="service-block__inner">
+          <div class="service-block__content">
+            <span class="service-block__number">02</span>
+            <h2 id="service-web" class="service-block__title">Web Design</h2>
+            <p class="service-block__tagline">Performance-first websites.</p>
+            <p class="service-block__desc">A good website loads fast, looks right on every device, and makes it easy for visitors to do whatever you want them to do. We build responsive, accessible, SEO-ready sites that work as hard as your business does. Webflow, WordPress, or static builds depending on what makes sense for you.</p>
+            <div class="service-block__list">
+              <span class="service-block__tag">Responsive Design</span>
+              <span class="service-block__tag">Accessibility</span>
+              <span class="service-block__tag">SEO Foundations</span>
+              <span class="service-block__tag">CMS Integration</span>
+            </div>
+          </div>
+          <div class="service-block__visual service-visual--web" aria-hidden="true">
+            <span class="service-block__visual-label">Web</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- 03: Logo Design -->
+      <section class="service-block" aria-labelledby="service-logo">
+        <div class="service-block__inner">
+          <div class="service-block__content">
+            <span class="service-block__number">03</span>
+            <h2 id="service-logo" class="service-block__title">Logo Design</h2>
+            <p class="service-block__tagline">Distinctive marks rooted in strategy.</p>
+            <p class="service-block__desc">A logo needs to work on a business card, a billboard, and a favicon. We start with research, develop concepts rooted in your brand strategy, and refine until it's right. You get final files for all applications and clear guidance on how to use them.</p>
+            <div class="service-block__list">
+              <span class="service-block__tag">Research</span>
+              <span class="service-block__tag">Concept Development</span>
+              <span class="service-block__tag">Refinement</span>
+              <span class="service-block__tag">Final Artwork</span>
+            </div>
+          </div>
+          <div class="service-block__visual service-visual--logo" aria-hidden="true">
+            <span class="service-block__visual-label">Logo</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- 04: Social Media -->
+      <section class="service-block" aria-labelledby="service-social">
+        <div class="service-block__inner">
+          <div class="service-block__content">
+            <span class="service-block__number">04</span>
+            <h2 id="service-social" class="service-block__title">Social Media</h2>
+            <p class="service-block__tagline">Content strategy and visual templates.</p>
+            <p class="service-block__desc">Consistent brand presence doesn't happen by accident. We develop content strategies and design visual templates that keep your social media looking professional and on-brand, even when different team members are posting. Brand consistency across every platform, every time.</p>
+            <div class="service-block__list">
+              <span class="service-block__tag">Content Strategy</span>
+              <span class="service-block__tag">Visual Templates</span>
+              <span class="service-block__tag">Platform Optimisation</span>
+              <span class="service-block__tag">Brand Consistency</span>
+            </div>
+          </div>
+          <div class="service-block__visual service-visual--social" aria-hidden="true">
+            <span class="service-block__visual-label">Social</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- 05: Presentations -->
+      <section class="service-block" aria-labelledby="service-presentations">
+        <div class="service-block__inner">
+          <div class="service-block__content">
+            <span class="service-block__number">05</span>
+            <h2 id="service-presentations" class="service-block__title">Presentations</h2>
+            <p class="service-block__tagline">Designed to persuade.</p>
+            <p class="service-block__desc">Whether you're pitching to investors, presenting to a board, or selling to a client, your slides need to do more than display information. We design pitch decks, investor decks, and sales presentations that tell a clear story and keep your audience's attention where it matters.</p>
+            <div class="service-block__list">
+              <span class="service-block__tag">Pitch Decks</span>
+              <span class="service-block__tag">Investor Decks</span>
+              <span class="service-block__tag">Sales Presentations</span>
+              <span class="service-block__tag">Speaker Support</span>
+            </div>
+          </div>
+          <div class="service-block__visual service-visual--presentations" aria-hidden="true">
+            <span class="service-block__visual-label">Decks</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- 06: Documentation -->
+      <section class="service-block" aria-labelledby="service-docs">
+        <div class="service-block__inner">
+          <div class="service-block__content">
+            <span class="service-block__number">06</span>
+            <h2 id="service-docs" class="service-block__title">Documentation</h2>
+            <p class="service-block__tagline">Clear, well-structured, on-brand.</p>
+            <p class="service-block__desc">Brand guidelines, style guides, internal documentation, client-facing reports. When your documents look as considered as the rest of your brand, people pay more attention. We design documentation that's easy to navigate, pleasant to read, and properly represents your business.</p>
+            <div class="service-block__list">
+              <span class="service-block__tag">Brand Guidelines</span>
+              <span class="service-block__tag">Style Guides</span>
+              <span class="service-block__tag">Internal Docs</span>
+              <span class="service-block__tag">Report Design</span>
+            </div>
+          </div>
+          <div class="service-block__visual service-visual--docs" aria-hidden="true">
+            <span class="service-block__visual-label">Docs</span>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- Process Section -->
+    <section class="process" aria-labelledby="process-heading">
+      <div class="process__inner">
+        <div class="process__header">
+          <span class="eyebrow">Our approach</span>
+          <h2 id="process-heading">How we work</h2>
+          <p class="text-muted" style="max-width: 540px; margin-top: 8px;">Every project follows the same disciplined process. It keeps things moving, avoids scope creep, and makes sure you get what you actually need.</p>
+        </div>
+        <div class="process__grid" role="list">
+          <div class="process-step" role="listitem">
+            <div class="process-step__number" aria-hidden="true">1</div>
+            <h3 class="process-step__title">Discovery</h3>
+            <p class="process-step__desc">We learn about your business, your audience, and your goals. This is where we ask the questions that shape everything that follows.</p>
+          </div>
+          <div class="process-step" role="listitem">
+            <div class="process-step__number" aria-hidden="true">2</div>
+            <h3 class="process-step__title">Strategy</h3>
+            <p class="process-step__desc">We define the approach, positioning, and creative direction. No guesswork, just informed decisions based on what we learned.</p>
+          </div>
+          <div class="process-step" role="listitem">
+            <div class="process-step__number" aria-hidden="true">3</div>
+            <h3 class="process-step__title">Design</h3>
+            <p class="process-step__desc">Concepts, iterations, and refinement. We share work early and often so you're involved in the process, not just the reveal.</p>
+          </div>
+          <div class="process-step" role="listitem">
+            <div class="process-step__number" aria-hidden="true">4</div>
+            <h3 class="process-step__title">Deliver</h3>
+            <p class="process-step__desc">Final assets, documentation, and handover. Everything you need to launch confidently and maintain quality going forward.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" aria-labelledby="cta-heading">
+      <div class="cta-section__inner">
+        <h2 id="cta-heading" class="cta-section__headline">Ready to stand out?</h2>
+        <p class="cta-section__text">Whether you need a full rebrand or a single project, we'd love to hear what you're working on. Let's have a conversation.</p>
+        <a href="contact.html" class="btn btn-accent btn--lg">Start a Project</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="site-footer__inner">
+      <div class="site-footer__top">
+        <div class="site-footer__brand-col">
+          <span class="site-footer__wordmark">Foxhue</span>
+          <address class="site-footer__address">
+            Bicester, Oxfordshire
+          </address>
+          <a href="mailto:hello@foxhue.com" class="site-footer__email">hello@foxhue.com</a>
+        </div>
+        <div class="site-footer__nav-col">
+          <p class="site-footer__heading">Pages</p>
+          <nav aria-label="Footer navigation">
+            <ul class="site-footer__nav-list">
+              <li><a href="services.html" class="site-footer__nav-link">Services</a></li>
+              <li><a href="work.html" class="site-footer__nav-link">Our Work</a></li>
+              <li><a href="about.html" class="site-footer__nav-link">About</a></li>
+            </ul>
+          </nav>
+        </div>
+        <div class="site-footer__nav-col">
+          <p class="site-footer__heading">More</p>
+          <nav aria-label="Footer secondary navigation">
+            <ul class="site-footer__nav-list">
+              <li><a href="blog.html" class="site-footer__nav-link">Blog</a></li>
+              <li><a href="contact.html" class="site-footer__nav-link">Contact</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+      <div class="site-footer__bottom">
+        <p class="site-footer__copy">&copy; 2026 Foxhue Ltd. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,1137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Foxhue — Homepage | Layout C</title>
+  <meta name="description" content="Foxhue is a creative design and marketing studio in Bicester, Oxfordshire. Layout C: Warm Craft — approachable, textured, human.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+  <style>
+    /* ════════════════════════════════════════
+       Layout C — Warm Craft
+       Approachable, textured, human.
+       Boutique studio feel with premium finish.
+       ════════════════════════════════════════ */
+
+    /* ── Layout C Overrides ── */
+    :root {
+      --c-radius-card: 20px;
+      --c-radius-section: 24px;
+      --c-radius-btn: 14px;
+      --c-shadow-warm: 0 4px 24px rgba(233, 69, 96, 0.06), 0 2px 12px rgba(26, 26, 46, 0.05);
+      --c-shadow-warm-hover: 0 8px 36px rgba(233, 69, 96, 0.1), 0 4px 16px rgba(26, 26, 46, 0.08);
+      --c-transition: 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      --c-bg-warm: #FBF9F7;
+      --c-surface-warm: #FFFDFB;
+    }
+
+    body {
+      background: var(--c-bg-warm);
+    }
+
+    /* ── Navigation ── */
+    .c-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--c-surface-warm);
+      border-bottom: 1px solid rgba(26, 26, 46, 0.06);
+      backdrop-filter: blur(8px);
+    }
+
+    .c-nav__inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 76px;
+    }
+
+    .c-nav__brand {
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+      line-height: 1.2;
+    }
+
+    .c-nav__wordmark {
+      font-family: var(--foxhue-font-heading);
+      font-size: 1.5rem;
+      color: var(--foxhue-primary);
+    }
+
+    .c-nav__tagline {
+      font-size: 0.625rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--foxhue-text-muted);
+      margin-top: 1px;
+    }
+
+    .c-nav__links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .c-nav__link {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--foxhue-text);
+      text-decoration: none;
+      padding: 6px 12px;
+      border-radius: 10px;
+      transition: all var(--c-transition);
+    }
+
+    .c-nav__link:hover {
+      color: var(--foxhue-accent);
+      background: rgba(233, 69, 96, 0.06);
+    }
+
+    .c-nav__link:focus-visible {
+      outline: 2px solid var(--foxhue-accent);
+      outline-offset: 2px;
+      border-radius: 10px;
+    }
+
+    .c-nav__link--active {
+      color: var(--foxhue-accent);
+      background: rgba(233, 69, 96, 0.06);
+    }
+
+    .c-nav__cta {
+      display: inline-flex;
+      align-items: center;
+      padding: 10px 22px;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--foxhue-light);
+      background: var(--foxhue-accent);
+      border-radius: var(--c-radius-btn);
+      text-decoration: none;
+      transition: all var(--c-transition);
+    }
+
+    .c-nav__cta:hover {
+      background: var(--foxhue-accent-hover);
+      transform: translateY(-1px);
+    }
+
+    .c-nav__cta:focus-visible {
+      outline: 2px solid var(--foxhue-accent);
+      outline-offset: 2px;
+    }
+
+    /* CSS-only hamburger */
+    .c-nav__toggle {
+      display: none;
+    }
+
+    .c-nav__hamburger {
+      display: none;
+      width: 28px;
+      height: 20px;
+      flex-direction: column;
+      justify-content: space-between;
+      cursor: pointer;
+      position: relative;
+      z-index: 110;
+    }
+
+    .c-nav__hamburger span {
+      display: block;
+      width: 100%;
+      height: 2px;
+      background: var(--foxhue-primary);
+      border-radius: 2px;
+      transition: transform 0.35s ease, opacity 0.35s ease;
+    }
+
+    .c-nav__toggle:checked ~ .c-nav__hamburger span:nth-child(1) {
+      transform: translateY(9px) rotate(45deg);
+    }
+
+    .c-nav__toggle:checked ~ .c-nav__hamburger span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .c-nav__toggle:checked ~ .c-nav__hamburger span:nth-child(3) {
+      transform: translateY(-9px) rotate(-45deg);
+    }
+
+    /* ── Hero ── */
+    .c-hero {
+      padding: 80px 0 64px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .c-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background:
+        radial-gradient(ellipse at 20% 50%, rgba(233, 69, 96, 0.04) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 20%, rgba(26, 26, 46, 0.03) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .c-hero__inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+      position: relative;
+    }
+
+    .c-hero__card {
+      background: var(--c-surface-warm);
+      border-radius: var(--c-radius-section);
+      padding: 64px 56px;
+      box-shadow: var(--c-shadow-warm);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .c-hero__card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23E94560' fill-opacity='0.015'%3E%3Ccircle cx='30' cy='30' r='1.5'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+
+    .c-hero__greeting {
+      display: inline-block;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      color: var(--foxhue-accent);
+      background: rgba(233, 69, 96, 0.08);
+      padding: 6px 16px;
+      border-radius: 100px;
+      margin-bottom: 28px;
+      position: relative;
+    }
+
+    .c-hero__headline {
+      font-family: var(--foxhue-font-heading);
+      font-size: clamp(2.25rem, 5.5vw, 3.75rem);
+      line-height: 1.12;
+      color: var(--foxhue-primary);
+      max-width: 680px;
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    .c-hero__subtitle {
+      font-size: clamp(1rem, 2vw, 1.125rem);
+      color: var(--foxhue-text-muted);
+      max-width: 520px;
+      line-height: 1.75;
+      margin-bottom: 36px;
+      position: relative;
+    }
+
+    .c-hero__actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      position: relative;
+    }
+
+    .c-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 30px;
+      font-family: var(--foxhue-font-body);
+      font-size: 0.9375rem;
+      font-weight: 600;
+      border: 2px solid transparent;
+      border-radius: var(--c-radius-btn);
+      cursor: pointer;
+      text-decoration: none;
+      transition: all var(--c-transition);
+      line-height: 1.4;
+    }
+
+    .c-btn:focus-visible {
+      outline: 2px solid var(--foxhue-accent);
+      outline-offset: 2px;
+    }
+
+    .c-btn--primary {
+      background: var(--foxhue-accent);
+      color: var(--foxhue-light);
+      border-color: var(--foxhue-accent);
+    }
+
+    .c-btn--primary:hover {
+      background: var(--foxhue-accent-hover);
+      border-color: var(--foxhue-accent-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(233, 69, 96, 0.25);
+    }
+
+    .c-btn--secondary {
+      background: transparent;
+      color: var(--foxhue-primary);
+      border-color: rgba(26, 26, 46, 0.2);
+    }
+
+    .c-btn--secondary:hover {
+      border-color: var(--foxhue-primary);
+      background: rgba(26, 26, 46, 0.04);
+      transform: translateY(-2px);
+    }
+
+    /* ── Services Section ── */
+    .c-services {
+      padding: 80px 0;
+    }
+
+    .c-services__header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .c-services__label {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--foxhue-accent);
+      margin-bottom: 12px;
+    }
+
+    .c-services__title {
+      font-family: var(--foxhue-font-heading);
+      font-size: clamp(1.5rem, 3.5vw, 2.25rem);
+      color: var(--foxhue-primary);
+    }
+
+    .c-services__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .c-service-card {
+      background: var(--c-surface-warm);
+      border-radius: var(--c-radius-card);
+      padding: 36px 28px;
+      box-shadow: var(--c-shadow-warm);
+      transition: all var(--c-transition);
+      text-align: center;
+    }
+
+    .c-service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--c-shadow-warm-hover);
+    }
+
+    .c-service-card__icon {
+      font-size: 2rem;
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .c-service-card__title {
+      font-family: var(--foxhue-font-heading);
+      font-size: 1.25rem;
+      color: var(--foxhue-primary);
+      margin-bottom: 10px;
+    }
+
+    .c-service-card__desc {
+      font-size: 0.9375rem;
+      color: var(--foxhue-text-muted);
+      line-height: 1.65;
+    }
+
+    .c-services__link {
+      display: block;
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .c-services__link a {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.9375rem;
+      font-weight: 600;
+      color: var(--foxhue-accent);
+      text-decoration: none;
+      padding: 8px 20px;
+      border-radius: var(--c-radius-btn);
+      transition: all var(--c-transition);
+    }
+
+    .c-services__link a:hover {
+      background: rgba(233, 69, 96, 0.06);
+      gap: 12px;
+    }
+
+    .c-services__link a:focus-visible {
+      outline: 2px solid var(--foxhue-accent);
+      outline-offset: 2px;
+    }
+
+    /* ── Recent Work ── */
+    .c-work {
+      padding: 80px 0;
+      background: var(--c-surface-warm);
+    }
+
+    .c-work__header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .c-work__label {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--foxhue-accent);
+      margin-bottom: 12px;
+    }
+
+    .c-work__title {
+      font-family: var(--foxhue-font-heading);
+      font-size: clamp(1.5rem, 3.5vw, 2.25rem);
+      color: var(--foxhue-primary);
+    }
+
+    .c-work__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .c-work-card {
+      border-radius: var(--c-radius-card);
+      overflow: hidden;
+      background: var(--c-bg-warm);
+      box-shadow: var(--c-shadow-warm);
+      transition: all var(--c-transition);
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+
+    .c-work-card:hover {
+      transform: translateY(-6px) rotate(-0.5deg);
+      box-shadow: var(--c-shadow-warm-hover);
+    }
+
+    .c-work-card:focus-visible {
+      outline: 2px solid var(--foxhue-accent);
+      outline-offset: 2px;
+    }
+
+    .c-work-card__image {
+      aspect-ratio: 4 / 3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--c-radius-card) var(--c-radius-card) 0 0;
+    }
+
+    .c-work-card__image--marr {
+      background: linear-gradient(135deg, #ECE5E0 0%, #C6BCB3 50%, #3C3C3B 100%);
+    }
+
+    .c-work-card__image--verde {
+      background: linear-gradient(135deg, #2D5016 0%, #6B8F3C 50%, #F5F0E8 100%);
+    }
+
+    .c-work-card__image--nexus {
+      background: linear-gradient(135deg, #0F1B2D 0%, #1E3A5F 50%, #4A90D9 100%);
+    }
+
+    .c-work-card__image-label {
+      font-family: var(--foxhue-font-heading);
+      font-size: 1.5rem;
+      color: rgba(255, 255, 255, 0.85);
+      text-shadow: 0 1px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .c-work-card__body {
+      padding: 24px 24px 28px;
+    }
+
+    .c-work-card__tag {
+      display: inline-block;
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--foxhue-accent);
+      background: rgba(233, 69, 96, 0.08);
+      padding: 4px 12px;
+      border-radius: 100px;
+      margin-bottom: 10px;
+    }
+
+    .c-work-card__title {
+      font-family: var(--foxhue-font-heading);
+      font-size: 1.25rem;
+      color: var(--foxhue-primary);
+      margin-bottom: 8px;
+    }
+
+    .c-work-card__excerpt {
+      font-size: 0.875rem;
+      color: var(--foxhue-text-muted);
+      line-height: 1.65;
+    }
+
+    /* ── Testimonials ── */
+    .c-testimonials {
+      padding: 80px 0;
+    }
+
+    .c-testimonials__header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .c-testimonials__label {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--foxhue-accent);
+      margin-bottom: 12px;
+    }
+
+    .c-testimonials__title {
+      font-family: var(--foxhue-font-heading);
+      font-size: clamp(1.5rem, 3.5vw, 2.25rem);
+      color: var(--foxhue-primary);
+    }
+
+    .c-testimonials__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .c-testimonial {
+      background: var(--c-surface-warm);
+      border-radius: var(--c-radius-card);
+      padding: 36px 28px 32px;
+      box-shadow: var(--c-shadow-warm);
+      position: relative;
+      transition: all var(--c-transition);
+    }
+
+    .c-testimonial:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--c-shadow-warm-hover);
+    }
+
+    /* Speech bubble tail */
+    .c-testimonial::after {
+      content: '';
+      position: absolute;
+      bottom: -12px;
+      left: 36px;
+      width: 24px;
+      height: 24px;
+      background: var(--c-surface-warm);
+      border-radius: 0 0 0 8px;
+      clip-path: polygon(0 0, 100% 0, 0 100%);
+    }
+
+    .c-testimonial__text {
+      font-size: 1rem;
+      line-height: 1.75;
+      color: var(--foxhue-text);
+      font-style: italic;
+      margin-bottom: 24px;
+    }
+
+    .c-testimonial__text::before {
+      content: '\201C';
+      font-family: var(--foxhue-font-heading);
+      font-size: 2.5rem;
+      line-height: 0;
+      color: var(--foxhue-accent);
+      opacity: 0.3;
+      vertical-align: -0.3em;
+      margin-right: 4px;
+    }
+
+    .c-testimonial__author {
+      font-size: 0.9375rem;
+      font-weight: 600;
+      color: var(--foxhue-primary);
+    }
+
+    .c-testimonial__role {
+      font-size: 0.8125rem;
+      color: var(--foxhue-text-muted);
+      margin-top: 2px;
+    }
+
+    /* ── CTA Section ── */
+    .c-cta {
+      padding: 80px 0;
+    }
+
+    .c-cta__card {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .c-cta__inner {
+      background: linear-gradient(135deg, var(--foxhue-primary) 0%, #252548 100%);
+      border-radius: var(--c-radius-section);
+      padding: 72px 56px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .c-cta__inner::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(233, 69, 96, 0.12) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .c-cta__headline {
+      font-family: var(--foxhue-font-heading);
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      color: var(--foxhue-light);
+      margin-bottom: 16px;
+      position: relative;
+    }
+
+    .c-cta__text {
+      font-size: 1.0625rem;
+      color: rgba(255, 255, 255, 0.7);
+      max-width: 480px;
+      margin: 0 auto 32px;
+      line-height: 1.75;
+      position: relative;
+    }
+
+    .c-cta__inner .c-btn--primary {
+      position: relative;
+    }
+
+    /* ── Footer ── */
+    .c-footer {
+      background: var(--foxhue-primary);
+      color: rgba(255, 255, 255, 0.7);
+      padding: 56px 0 32px;
+      border-radius: var(--c-radius-section) var(--c-radius-section) 0 0;
+    }
+
+    .c-footer__inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .c-footer__top {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 48px;
+    }
+
+    .c-footer__wordmark {
+      font-family: var(--foxhue-font-heading);
+      font-size: 1.5rem;
+      color: var(--foxhue-light);
+      display: block;
+      margin-bottom: 12px;
+    }
+
+    .c-footer__address {
+      font-size: 0.875rem;
+      line-height: 1.6;
+      font-style: normal;
+      margin-bottom: 16px;
+    }
+
+    .c-footer__email {
+      font-size: 0.875rem;
+      color: var(--foxhue-accent);
+      text-decoration: none;
+      padding: 4px 12px;
+      border-radius: 8px;
+      transition: all var(--c-transition);
+      margin-left: -12px;
+    }
+
+    .c-footer__email:hover {
+      background: rgba(233, 69, 96, 0.15);
+      color: var(--foxhue-light);
+    }
+
+    .c-footer__email:focus-visible {
+      outline: 2px solid var(--foxhue-accent);
+      outline-offset: 2px;
+      border-radius: 8px;
+    }
+
+    .c-footer__heading {
+      font-family: var(--foxhue-font-body);
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.4);
+      margin-bottom: 20px;
+    }
+
+    .c-footer__nav-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      list-style: none;
+    }
+
+    .c-footer__nav-link {
+      font-size: 0.875rem;
+      color: rgba(255, 255, 255, 0.65);
+      text-decoration: none;
+      padding: 4px 12px;
+      border-radius: 8px;
+      transition: all var(--c-transition);
+      margin-left: -12px;
+    }
+
+    .c-footer__nav-link:hover {
+      color: var(--foxhue-light);
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .c-footer__nav-link:focus-visible {
+      outline: 2px solid var(--foxhue-accent);
+      outline-offset: 2px;
+      border-radius: 8px;
+    }
+
+    .c-footer__bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .c-footer__copy {
+      font-size: 0.8125rem;
+      color: rgba(255, 255, 255, 0.35);
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 992px) {
+      .c-services__grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .c-work__grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .c-work__grid .c-work-card:last-child {
+        grid-column: 1 / -1;
+        max-width: 50%;
+        justify-self: center;
+      }
+
+      .c-testimonials__grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .c-testimonials__grid .c-testimonial:last-child {
+        grid-column: 1 / -1;
+        max-width: 50%;
+        justify-self: center;
+      }
+
+      .c-footer__top {
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+      }
+
+      .c-hero__card {
+        padding: 48px 36px;
+      }
+    }
+
+    @media (max-width: 767px) {
+      .c-nav__hamburger {
+        display: flex;
+      }
+
+      .c-nav__links {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 300px;
+        background: var(--c-surface-warm);
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 88px 32px 32px;
+        gap: 8px;
+        box-shadow: -4px 0 32px rgba(26, 26, 46, 0.15);
+        transform: translateX(100%);
+        transition: transform 0.35s ease;
+        z-index: 105;
+        border-radius: var(--c-radius-section) 0 0 var(--c-radius-section);
+      }
+
+      .c-nav__toggle:checked ~ .c-nav__links {
+        transform: translateX(0);
+      }
+
+      .c-nav__link {
+        font-size: 1rem;
+        padding: 10px 16px;
+        width: 100%;
+      }
+
+      .c-nav__cta {
+        margin-top: 8px;
+        width: 100%;
+        justify-content: center;
+      }
+
+      .c-services__grid {
+        grid-template-columns: 1fr;
+        padding: 0 24px;
+      }
+
+      .c-work__grid {
+        grid-template-columns: 1fr;
+        padding: 0 24px;
+      }
+
+      .c-work__grid .c-work-card:last-child {
+        grid-column: auto;
+        max-width: 100%;
+      }
+
+      .c-testimonials__grid {
+        grid-template-columns: 1fr;
+        padding: 0 24px;
+      }
+
+      .c-testimonials__grid .c-testimonial:last-child {
+        grid-column: auto;
+        max-width: 100%;
+      }
+
+      .c-footer__top {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .c-footer__bottom {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+      }
+
+      .c-hero__card {
+        padding: 40px 28px;
+      }
+
+      .c-cta__inner {
+        padding: 48px 28px;
+      }
+    }
+
+    @media (max-width: 477px) {
+      .c-nav__inner {
+        padding: 0 16px;
+        height: 64px;
+      }
+
+      .c-hero__inner {
+        padding: 0 16px;
+      }
+
+      .c-hero {
+        padding: 48px 0;
+      }
+
+      .c-hero__actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .c-hero__actions .c-btn {
+        text-align: center;
+      }
+
+      .c-services__grid,
+      .c-work__grid,
+      .c-testimonials__grid {
+        padding: 0 16px;
+      }
+
+      .c-cta__card {
+        padding: 0 16px;
+      }
+
+      .c-footer__inner {
+        padding: 0 16px;
+      }
+
+      .c-footer {
+        border-radius: var(--c-radius-card) var(--c-radius-card) 0 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="c-nav" aria-label="Primary navigation">
+    <div class="c-nav__inner">
+      <a href="../index.html" class="c-nav__brand" aria-label="Foxhue — home">
+        <span class="c-nav__wordmark">Foxhue</span>
+        <span class="c-nav__tagline">Creative Design &amp; Marketing</span>
+      </a>
+      <input type="checkbox" id="nav-toggle" class="c-nav__toggle sr-only" aria-label="Toggle navigation menu">
+      <label for="nav-toggle" class="c-nav__hamburger" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+      <div class="c-nav__links">
+        <a href="../services.html" class="c-nav__link">Services</a>
+        <a href="../work.html" class="c-nav__link">Our Work</a>
+        <a href="../about.html" class="c-nav__link">About</a>
+        <a href="../blog.html" class="c-nav__link">Blog</a>
+        <a href="../contact.html" class="c-nav__link">Contact</a>
+        <a href="../contact.html" class="c-nav__cta">Let's Chat</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main-content">
+
+    <!-- Hero -->
+    <section class="c-hero" aria-labelledby="hero-heading">
+      <div class="c-hero__inner">
+        <div class="c-hero__card">
+          <span class="c-hero__greeting" aria-hidden="true">Hello. We're Foxhue.</span>
+          <h1 id="hero-heading" class="c-hero__headline">We design brands<br> that people remember.</h1>
+          <p class="c-hero__subtitle">A friendly creative studio in Bicester, Oxfordshire. We help small and medium-sized businesses stand out with clear, considered branding and marketing that actually works.</p>
+          <div class="c-hero__actions">
+            <a href="../work.html" class="c-btn c-btn--primary">See Our Work</a>
+            <a href="../contact.html" class="c-btn c-btn--secondary">Get in Touch</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Overview -->
+    <section class="c-services" aria-labelledby="services-heading">
+      <div class="c-services__header">
+        <span class="c-services__label">What we do</span>
+        <h2 id="services-heading" class="c-services__title">Services built around what you actually need</h2>
+      </div>
+      <div class="c-services__grid">
+        <div class="c-service-card">
+          <span class="c-service-card__icon" aria-hidden="true">&#10024;</span>
+          <h3 class="c-service-card__title">Brand Refresh</h3>
+          <p class="c-service-card__desc">Evolving established identities to meet where your business is now. Strategy, visual identity, and rollout support.</p>
+        </div>
+        <div class="c-service-card">
+          <span class="c-service-card__icon" aria-hidden="true">&#127760;</span>
+          <h3 class="c-service-card__title">Web Design</h3>
+          <p class="c-service-card__desc">Performance-first websites that are clear, fast, and built to convert visitors into customers.</p>
+        </div>
+        <div class="c-service-card">
+          <span class="c-service-card__icon" aria-hidden="true">&#9997;&#65039;</span>
+          <h3 class="c-service-card__title">Logo Design</h3>
+          <p class="c-service-card__desc">Distinctive marks rooted in strategy, not decoration. Research, concepts, and refinement.</p>
+        </div>
+        <div class="c-service-card">
+          <span class="c-service-card__icon" aria-hidden="true">&#128241;</span>
+          <h3 class="c-service-card__title">Social Media</h3>
+          <p class="c-service-card__desc">Content strategy and visual templates that keep your brand consistent across every platform.</p>
+        </div>
+        <div class="c-service-card">
+          <span class="c-service-card__icon" aria-hidden="true">&#128202;</span>
+          <h3 class="c-service-card__title">Presentations</h3>
+          <p class="c-service-card__desc">Pitch decks, investor decks, and sales presentations designed to persuade and win rooms.</p>
+        </div>
+        <div class="c-service-card">
+          <span class="c-service-card__icon" aria-hidden="true">&#128196;</span>
+          <h3 class="c-service-card__title">Documentation</h3>
+          <p class="c-service-card__desc">Brand guidelines, style guides, and internal docs. Clear, well-structured, and on-brand.</p>
+        </div>
+      </div>
+      <div class="c-services__link">
+        <a href="../services.html">View all services <span aria-hidden="true">&rarr;</span></a>
+      </div>
+    </section>
+
+    <!-- Recent Work -->
+    <section class="c-work" aria-labelledby="work-heading">
+      <div class="c-work__header">
+        <span class="c-work__label">Selected work</span>
+        <h2 id="work-heading" class="c-work__title">Projects we're proud of</h2>
+      </div>
+      <div class="c-work__grid">
+        <a href="../work.html" class="c-work-card" aria-label="MARR Laser and Skin Clinic case study — Brand Identity and Web Design">
+          <div class="c-work-card__image c-work-card__image--marr" aria-hidden="true">
+            <span class="c-work-card__image-label">MARR</span>
+          </div>
+          <div class="c-work-card__body">
+            <span class="c-work-card__tag">Brand Identity &amp; Web Design</span>
+            <h3 class="c-work-card__title">MARR Laser &amp; Skin Clinic</h3>
+            <p class="c-work-card__excerpt">Complete brand identity and multi-page website for a specialist laser and skin clinic in Oxfordshire.</p>
+          </div>
+        </a>
+        <a href="../work.html" class="c-work-card" aria-label="Verde Kitchen case study — Logo Design and Brand Refresh">
+          <div class="c-work-card__image c-work-card__image--verde" aria-hidden="true">
+            <span class="c-work-card__image-label">Verde</span>
+          </div>
+          <div class="c-work-card__body">
+            <span class="c-work-card__tag">Logo Design &amp; Brand Refresh</span>
+            <h3 class="c-work-card__title">Verde Kitchen</h3>
+            <p class="c-work-card__excerpt">Rebrand for a local Bicester restaurant, refreshing their visual identity to match a new seasonal menu concept.</p>
+          </div>
+        </a>
+        <a href="../work.html" class="c-work-card" aria-label="Nexus Labs case study — Web Design and Presentations">
+          <div class="c-work-card__image c-work-card__image--nexus" aria-hidden="true">
+            <span class="c-work-card__image-label">Nexus</span>
+          </div>
+          <div class="c-work-card__body">
+            <span class="c-work-card__tag">Web Design &amp; Presentations</span>
+            <h3 class="c-work-card__title">Nexus Labs</h3>
+            <p class="c-work-card__excerpt">Website and investor pitch deck for a tech startup, designed to build credibility and secure early-stage funding.</p>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="c-testimonials" aria-labelledby="testimonials-heading">
+      <div class="c-testimonials__header">
+        <span class="c-testimonials__label">Kind words</span>
+        <h2 id="testimonials-heading" class="c-testimonials__title">What our clients have to say</h2>
+      </div>
+      <div class="c-testimonials__grid">
+        <blockquote class="c-testimonial">
+          <p class="c-testimonial__text">Foxhue completely transformed how our clinic presents itself. The new branding and website feel premium, approachable, and genuinely us. We've had more enquiries in three months than the previous year.</p>
+          <footer>
+            <cite class="c-testimonial__author">Dr. Sarah Mitchell</cite>
+            <p class="c-testimonial__role">Director, MARR Laser &amp; Skin Clinic</p>
+          </footer>
+        </blockquote>
+        <blockquote class="c-testimonial">
+          <p class="c-testimonial__text">They took the time to understand what we actually needed, not what they wanted to sell us. The rebrand has given us a real sense of identity and our regulars love the new look.</p>
+          <footer>
+            <cite class="c-testimonial__author">James Harding</cite>
+            <p class="c-testimonial__role">Owner, Verde Kitchen</p>
+          </footer>
+        </blockquote>
+        <blockquote class="c-testimonial">
+          <p class="c-testimonial__text">The pitch deck Foxhue designed helped us close our seed round on the first attempt. Investors commented on how polished and clear our story was. Worth every penny.</p>
+          <footer>
+            <cite class="c-testimonial__author">Priya Kapoor</cite>
+            <p class="c-testimonial__role">Co-founder, Nexus Labs</p>
+          </footer>
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="c-cta" aria-labelledby="cta-heading">
+      <div class="c-cta__card">
+        <div class="c-cta__inner">
+          <h2 id="cta-heading" class="c-cta__headline">Ready to stand out?</h2>
+          <p class="c-cta__text">Whether you need a full rebrand or a single project, we'd love to hear what you're working on. Let's have a conversation.</p>
+          <a href="../contact.html" class="c-btn c-btn--primary">Start a Project</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="c-footer" role="contentinfo">
+    <div class="c-footer__inner">
+      <div class="c-footer__top">
+        <div>
+          <span class="c-footer__wordmark">Foxhue</span>
+          <address class="c-footer__address">Bicester, Oxfordshire</address>
+          <a href="mailto:hello@foxhue.com" class="c-footer__email">hello@foxhue.com</a>
+        </div>
+        <div>
+          <p class="c-footer__heading">Pages</p>
+          <nav aria-label="Footer navigation">
+            <ul class="c-footer__nav-list">
+              <li><a href="../services.html" class="c-footer__nav-link">Services</a></li>
+              <li><a href="../work.html" class="c-footer__nav-link">Our Work</a></li>
+              <li><a href="../about.html" class="c-footer__nav-link">About</a></li>
+            </ul>
+          </nav>
+        </div>
+        <div>
+          <p class="c-footer__heading">More</p>
+          <nav aria-label="Footer secondary navigation">
+            <ul class="c-footer__nav-list">
+              <li><a href="../blog.html" class="c-footer__nav-link">Blog</a></li>
+              <li><a href="../contact.html" class="c-footer__nav-link">Contact</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+      <div class="c-footer__bottom">
+        <p class="c-footer__copy">&copy; 2026 Foxhue Ltd. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Foxhue — Contact (Layout B: Editorial Motion)</title>
+  <meta name="description" content="Get in touch with Foxhue. Start a project, ask a question, or just say hello.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+  <style>
+    /* ════════════════════════════════════════════════════
+       LAYOUT B — EDITORIAL MOTION: Contact
+       ════════════════════════════════════════════════════ */
+
+    /* ── Mobile Nav Toggle (CSS-only) ── */
+    .b-nav-toggle { display: none; }
+    .b-nav-state { display: none; }
+
+    /* ── Header / Navigation ── */
+    .b-header {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--foxhue-primary);
+      border-bottom: 3px solid var(--foxhue-accent);
+    }
+    .b-header__inner {
+      max-width: 1400px; margin: 0 auto; padding: 0 24px;
+      display: flex; align-items: center; justify-content: space-between; height: 64px;
+    }
+    .b-header__logo {
+      font-family: var(--foxhue-font-heading); font-size: 1.5rem;
+      color: var(--foxhue-light); text-decoration: none; letter-spacing: 0.04em;
+    }
+    .b-header__logo span { color: var(--foxhue-accent); }
+    .b-nav { display: flex; align-items: center; gap: 32px; }
+    .b-nav__link {
+      font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.14em;
+      text-transform: uppercase; color: rgba(255,255,255,0.7);
+      text-decoration: none; transition: color 0.2s ease;
+    }
+    .b-nav__link:hover, .b-nav__link:focus-visible { color: var(--foxhue-light); }
+    .b-nav__link:focus-visible { outline: 2px solid var(--foxhue-accent); outline-offset: 4px; border-radius: 2px; }
+    .b-nav__link--active { color: var(--foxhue-light); }
+    .b-nav__cta {
+      font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--foxhue-light); background: var(--foxhue-accent);
+      padding: 8px 20px; border-radius: 100px; text-decoration: none; transition: background 0.2s ease;
+    }
+    .b-nav__cta:hover { background: var(--foxhue-accent-hover); }
+    .b-nav__cta:focus-visible { outline: 2px solid var(--foxhue-light); outline-offset: 2px; }
+
+    /* ── Contact Split Layout ── */
+    .b-contact-split {
+      display: grid;
+      grid-template-columns: 5fr 7fr;
+      min-height: calc(100vh - 64px);
+    }
+
+    /* Left Panel: Dark */
+    .b-contact-info {
+      background: var(--foxhue-primary);
+      color: var(--foxhue-light);
+      padding: 80px 48px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .b-contact-info__watermark {
+      position: absolute;
+      bottom: -40px;
+      left: -20px;
+      font-family: var(--foxhue-font-heading);
+      font-size: clamp(6rem, 14vw, 12rem);
+      color: rgba(233, 69, 96, 0.05);
+      line-height: 1;
+      user-select: none;
+    }
+
+    .b-contact-info__content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .b-contact-info__eyebrow {
+      display: block;
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--foxhue-accent);
+      margin-bottom: 16px;
+    }
+
+    .b-contact-info__heading {
+      font-family: var(--foxhue-font-heading);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-style: italic;
+      color: var(--foxhue-light);
+      line-height: 1.15;
+      margin-bottom: 24px;
+    }
+
+    .b-contact-info__desc {
+      font-size: 0.9375rem;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.7;
+      margin-bottom: 48px;
+      max-width: 360px;
+    }
+
+    .b-contact-details {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    .b-contact-detail {
+      border-left: 3px solid var(--foxhue-accent);
+      padding-left: 20px;
+    }
+
+    .b-contact-detail__label {
+      display: block;
+      font-size: 0.625rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 6px;
+    }
+
+    .b-contact-detail__value {
+      font-size: 1rem;
+      color: var(--foxhue-light);
+    }
+
+    .b-contact-detail__value a {
+      color: var(--foxhue-light);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .b-contact-detail__value a:hover {
+      color: var(--foxhue-accent);
+    }
+
+    .b-contact-detail__value a:focus-visible {
+      outline: 2px solid var(--foxhue-accent);
+      outline-offset: 2px;
+      border-radius: 2px;
+    }
+
+    /* Right Panel: Light with Form */
+    .b-contact-form-panel {
+      background: var(--foxhue-bg);
+      padding: 80px 48px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .b-contact-form-panel__eyebrow {
+      display: block;
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--foxhue-accent);
+      margin-bottom: 12px;
+    }
+
+    .b-contact-form-panel__heading {
+      font-family: var(--foxhue-font-heading);
+      font-size: clamp(1.5rem, 3vw, 2.25rem);
+      color: var(--foxhue-primary);
+      margin-bottom: 32px;
+    }
+
+    .b-form {
+      max-width: 560px;
+    }
+
+    .b-form__row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+
+    .b-form__field {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .b-form__field--full {
+      grid-column: 1 / -1;
+    }
+
+    .b-form__label {
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--foxhue-text-muted);
+    }
+
+    .b-form__input,
+    .b-form__select,
+    .b-form__textarea {
+      padding: 12px 16px;
+      font-family: var(--foxhue-font-body);
+      font-size: 0.875rem;
+      color: var(--foxhue-text);
+      background: var(--foxhue-surface);
+      border: 1px solid var(--foxhue-border);
+      border-radius: 0;
+      transition: border-color 0.2s ease;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    .b-form__input:focus,
+    .b-form__select:focus,
+    .b-form__textarea:focus {
+      outline: none;
+      border-color: var(--foxhue-accent);
+    }
+
+    .b-form__input::placeholder,
+    .b-form__textarea::placeholder {
+      color: rgba(107, 107, 128, 0.5);
+    }
+
+    .b-form__select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236b6b80' fill='none' stroke-width='1.5'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 16px center;
+      padding-right: 40px;
+    }
+
+    .b-form__textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .b-form__submit {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 36px;
+      font-family: var(--foxhue-font-body);
+      font-size: 0.8125rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--foxhue-light);
+      background: var(--foxhue-accent);
+      border: 2px solid var(--foxhue-accent);
+      border-radius: 0;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      margin-top: 8px;
+    }
+
+    .b-form__submit:hover {
+      background: var(--foxhue-accent-hover);
+      border-color: var(--foxhue-accent-hover);
+    }
+
+    .b-form__submit:focus-visible {
+      outline: 2px solid var(--foxhue-primary);
+      outline-offset: 2px;
+    }
+
+    /* ── FAQ Section ── */
+    .b-faq {
+      background: var(--foxhue-surface);
+      padding: 100px 0;
+    }
+
+    .b-faq__inner {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .b-faq__header {
+      margin-bottom: 48px;
+    }
+
+    .b-faq__eyebrow {
+      display: block;
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--foxhue-accent);
+      margin-bottom: 12px;
+    }
+
+    .b-faq__heading {
+      font-family: var(--foxhue-font-heading);
+      font-size: clamp(1.5rem, 3vw, 2.25rem);
+      color: var(--foxhue-primary);
+    }
+
+    .b-faq__list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .b-faq-item {
+      border-bottom: 1px solid var(--foxhue-border);
+    }
+
+    .b-faq-item:first-child {
+      border-top: 2px solid var(--foxhue-primary);
+    }
+
+    .b-faq-item summary {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 0;
+      font-family: var(--foxhue-font-heading);
+      font-size: 1.125rem;
+      color: var(--foxhue-primary);
+      cursor: pointer;
+      list-style: none;
+      transition: color 0.2s ease;
+    }
+
+    .b-faq-item summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .b-faq-item summary::after {
+      content: '+';
+      font-family: var(--foxhue-font-body);
+      font-size: 1.25rem;
+      font-weight: 300;
+      color: var(--foxhue-accent);
+      flex-shrink: 0;
+      margin-left: 16px;
+      transition: transform 0.2s ease;
+    }
+
+    .b-faq-item[open] summary::after {
+      transform: rotate(45deg);
+    }
+
+    .b-faq-item summary:hover {
+      color: var(--foxhue-accent);
+    }
+
+    .b-faq-item summary:focus-visible {
+      outline: 2px solid var(--foxhue-accent);
+      outline-offset: 2px;
+      border-radius: 2px;
+    }
+
+    .b-faq-item__answer {
+      padding: 0 0 24px;
+      font-size: 0.9375rem;
+      color: var(--foxhue-text-muted);
+      line-height: 1.7;
+      max-width: 640px;
+    }
+
+    /* ── Footer ── */
+    .b-footer {
+      background: var(--foxhue-primary);
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding: 40px 0;
+    }
+    .b-footer__inner {
+      max-width: 1400px; margin: 0 auto; padding: 0 24px;
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;
+    }
+    .b-footer__copy { font-size: 0.75rem; color: rgba(255,255,255,0.4); }
+    .b-footer__links { display: flex; gap: 24px; }
+    .b-footer__link {
+      font-size: 0.6875rem; font-weight: 500; letter-spacing: 0.08em;
+      text-transform: uppercase; color: rgba(255,255,255,0.4);
+      text-decoration: none; transition: color 0.2s ease;
+    }
+    .b-footer__link:hover { color: var(--foxhue-light); }
+    .b-footer__variant {
+      font-size: 0.625rem; font-weight: 600; letter-spacing: 0.15em;
+      text-transform: uppercase; color: var(--foxhue-accent);
+    }
+
+    /* ── Responsive: Tablet ── */
+    @media (max-width: 992px) {
+      .b-contact-split { grid-template-columns: 1fr; }
+      .b-contact-info { padding: 64px 24px; }
+      .b-contact-form-panel { padding: 64px 24px; }
+    }
+
+    /* ── Responsive: Mobile Landscape ── */
+    @media (max-width: 767px) {
+      .b-nav { display: none; }
+      .b-nav-toggle { display: block; }
+      .b-nav-toggle {
+        width: 28px; height: 20px; position: relative; cursor: pointer;
+        background: none; border: none; padding: 0;
+      }
+      .b-nav-toggle span,
+      .b-nav-toggle span::before,
+      .b-nav-toggle span::after {
+        display: block; width: 100%; height: 2px; background: var(--foxhue-light);
+        position: absolute; transition: all 0.3s ease;
+      }
+      .b-nav-toggle span { top: 50%; transform: translateY(-50%); }
+      .b-nav-toggle span::before { content: ''; top: -8px; }
+      .b-nav-toggle span::after { content: ''; top: 8px; }
+      .b-nav-state:checked ~ .b-header .b-nav-toggle span { background: transparent; }
+      .b-nav-state:checked ~ .b-header .b-nav-toggle span::before { top: 0; transform: rotate(45deg); background: var(--foxhue-light); }
+      .b-nav-state:checked ~ .b-header .b-nav-toggle span::after { top: 0; transform: rotate(-45deg); background: var(--foxhue-light); }
+      .b-nav-state:checked ~ .b-header .b-nav {
+        display: flex; flex-direction: column;
+        position: absolute; top: 64px; left: 0; right: 0;
+        background: var(--foxhue-primary); padding: 24px; gap: 16px;
+        border-bottom: 3px solid var(--foxhue-accent); z-index: 99;
+      }
+
+      .b-form__row { grid-template-columns: 1fr; }
+
+      .b-footer__inner { flex-direction: column; text-align: center; gap: 12px; }
+      .b-footer__links { flex-wrap: wrap; justify-content: center; gap: 16px; }
+    }
+
+    /* ── Responsive: Mobile ── */
+    @media (max-width: 477px) {
+      .b-contact-info { padding: 48px 16px; }
+      .b-contact-form-panel { padding: 48px 16px; }
+      .b-faq__inner { padding: 0 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <input type="checkbox" id="navState" class="b-nav-state" aria-hidden="true">
+
+  <!-- ════════════════════════════════════════
+       HEADER
+       ════════════════════════════════════════ -->
+  <header class="b-header" role="banner">
+    <div class="b-header__inner">
+      <a href="../index.html" class="b-header__logo" aria-label="Foxhue homepage">Fox<span>hue</span></a>
+      <nav class="b-nav" aria-label="Main navigation">
+        <a href="../services.html" class="b-nav__link">Services</a>
+        <a href="../work.html" class="b-nav__link">Our Work</a>
+        <a href="../about.html" class="b-nav__link">About</a>
+        <a href="../blog.html" class="b-nav__link">Blog</a>
+        <a href="../contact.html" class="b-nav__cta b-nav__link--active" aria-current="page">Get in Touch</a>
+      </nav>
+      <label for="navState" class="b-nav-toggle" aria-label="Toggle navigation menu" role="button" tabindex="0">
+        <span></span>
+      </label>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <!-- ════════════════════════════════════════
+         CONTACT SPLIT LAYOUT
+         ════════════════════════════════════════ -->
+    <div class="b-contact-split">
+
+      <!-- Left: Contact Info (Dark) -->
+      <div class="b-contact-info">
+        <div class="b-contact-info__watermark" aria-hidden="true">Hello</div>
+        <div class="b-contact-info__content">
+          <span class="b-contact-info__eyebrow">Get in Touch</span>
+          <h1 class="b-contact-info__heading">Let&rsquo;s start something <em>great</em></h1>
+          <p class="b-contact-info__desc">Whether you have a clear brief or just an idea, we would love to hear about it. No obligation, no pressure. Just a conversation.</p>
+
+          <div class="b-contact-details">
+            <div class="b-contact-detail">
+              <span class="b-contact-detail__label">Email</span>
+              <p class="b-contact-detail__value"><a href="mailto:hello@foxhue.com">hello@foxhue.com</a></p>
+            </div>
+            <div class="b-contact-detail">
+              <span class="b-contact-detail__label">Location</span>
+              <p class="b-contact-detail__value">Bicester, Oxfordshire</p>
+            </div>
+            <div class="b-contact-detail">
+              <span class="b-contact-detail__label">Response Time</span>
+              <p class="b-contact-detail__value">Within 24 hours</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Contact Form (Light) -->
+      <div class="b-contact-form-panel">
+        <span class="b-contact-form-panel__eyebrow">Your Project</span>
+        <h2 class="b-contact-form-panel__heading">Tell us about your project</h2>
+        <form class="b-form" aria-label="Contact form">
+          <div class="b-form__row">
+            <div class="b-form__field">
+              <label for="contact-name" class="b-form__label">Name <span aria-hidden="true">*</span></label>
+              <input type="text" id="contact-name" class="b-form__input" placeholder="Your name" required autocomplete="name">
+            </div>
+            <div class="b-form__field">
+              <label for="contact-email" class="b-form__label">Email <span aria-hidden="true">*</span></label>
+              <input type="email" id="contact-email" class="b-form__input" placeholder="your@email.com" required autocomplete="email">
+            </div>
+          </div>
+          <div class="b-form__row">
+            <div class="b-form__field">
+              <label for="contact-phone" class="b-form__label">Phone</label>
+              <input type="tel" id="contact-phone" class="b-form__input" placeholder="07xxx xxx xxx" autocomplete="tel">
+            </div>
+            <div class="b-form__field">
+              <label for="contact-service" class="b-form__label">Service</label>
+              <select id="contact-service" class="b-form__select">
+                <option value="">Select a service</option>
+                <option value="brand-refresh">Brand Refresh</option>
+                <option value="web-design">Web Design</option>
+                <option value="logo-design">Logo Design</option>
+                <option value="social-media">Social Media</option>
+                <option value="presentations">Presentations</option>
+                <option value="documentation">Documentation</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+          </div>
+          <div class="b-form__row">
+            <div class="b-form__field">
+              <label for="contact-budget" class="b-form__label">Budget Range</label>
+              <select id="contact-budget" class="b-form__select">
+                <option value="">Select a range</option>
+                <option value="under-2k">Under 2,000</option>
+                <option value="2k-5k">2,000 - 5,000</option>
+                <option value="5k-10k">5,000 - 10,000</option>
+                <option value="10k-plus">10,000+</option>
+                <option value="not-sure">Not sure yet</option>
+              </select>
+            </div>
+            <div class="b-form__field">
+              <!-- Spacer for layout alignment -->
+            </div>
+          </div>
+          <div class="b-form__row">
+            <div class="b-form__field b-form__field--full">
+              <label for="contact-message" class="b-form__label">Message <span aria-hidden="true">*</span></label>
+              <textarea id="contact-message" class="b-form__textarea" placeholder="Tell us about your project, goals, and timeline..." required></textarea>
+            </div>
+          </div>
+          <button type="submit" class="b-form__submit">Send Message</button>
+        </form>
+      </div>
+
+    </div>
+
+    <!-- ════════════════════════════════════════
+         FAQ
+         ════════════════════════════════════════ -->
+    <section class="b-faq" aria-labelledby="faq-heading">
+      <div class="b-faq__inner">
+        <div class="b-faq__header">
+          <span class="b-faq__eyebrow">Common Questions</span>
+          <h2 class="b-faq__heading" id="faq-heading">Frequently Asked Questions</h2>
+        </div>
+        <div class="b-faq__list">
+
+          <details class="b-faq-item">
+            <summary>How much does a typical project cost?</summary>
+            <div class="b-faq-item__answer">
+              <p>It depends on scope, but most of our projects fall between 2,000 and 10,000. We always provide a detailed quote before any work begins, so there are no surprises. A logo design starts from around 1,500, a full brand refresh from 3,000, and a website from 3,500.</p>
+            </div>
+          </details>
+
+          <details class="b-faq-item">
+            <summary>How long does a project take?</summary>
+            <div class="b-faq-item__answer">
+              <p>Most projects take between 4 and 8 weeks from kickoff to delivery. A logo or brand refresh is typically 4 to 6 weeks. A website is 6 to 8 weeks. We will give you a clear timeline at the start and keep you updated throughout.</p>
+            </div>
+          </details>
+
+          <details class="b-faq-item">
+            <summary>What is your design process?</summary>
+            <div class="b-faq-item__answer">
+              <p>We follow a four-stage process: Discover, Design, Deliver, and Evolve. We start by understanding your business, audience, and goals. Then we explore creative directions, refine the chosen approach, and deliver production-ready assets. After launch, we stay on to help your brand grow.</p>
+            </div>
+          </details>
+
+          <details class="b-faq-item">
+            <summary>Do you work with clients outside Bicester?</summary>
+            <div class="b-faq-item__answer">
+              <p>Absolutely. While we are based in Bicester, Oxfordshire, we work with clients across the UK and beyond. Most of our communication happens over video calls, email, and shared project tools, so location is never a barrier.</p>
+            </div>
+          </details>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ════════════════════════════════════════
+       FOOTER
+       ════════════════════════════════════════ -->
+  <footer class="b-footer" role="contentinfo">
+    <div class="b-footer__inner">
+      <p class="b-footer__copy">&copy; 2026 Foxhue Ltd. All rights reserved.</p>
+      <div class="b-footer__links">
+        <a href="../services.html" class="b-footer__link">Services</a>
+        <a href="../work.html" class="b-footer__link">Work</a>
+        <a href="../about.html" class="b-footer__link">About</a>
+        <a href="../blog.html" class="b-footer__link">Blog</a>
+        <a href="../contact.html" class="b-footer__link">Contact</a>
+      </div>
+      <span class="b-footer__variant">Layout B &mdash; Editorial Motion</span>
+    </div>
+  </footer>
+
+</body>
+</html>

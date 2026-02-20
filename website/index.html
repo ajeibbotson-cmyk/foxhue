@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Foxhue — Creative Design &amp; Marketing in Bicester, Oxfordshire</title>
+  <meta name="description" content="Foxhue is a creative design and marketing studio in Bicester, Oxfordshire. We help small and medium-sized businesses stand out with brand design, web design, and marketing that works.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* ── Navigation ── */
+    .site-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--foxhue-surface);
+      border-bottom: 1px solid var(--foxhue-border);
+    }
+
+    .site-nav__inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+
+    .site-nav__brand {
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+      line-height: 1.2;
+    }
+
+    .site-nav__wordmark {
+      font-family: var(--foxhue-font-heading);
+      font-size: 1.5rem;
+      color: var(--foxhue-primary);
+    }
+
+    .site-nav__tagline {
+      font-size: 0.625rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--foxhue-text-muted);
+      margin-top: 1px;
+    }
+
+    .site-nav__links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .site-nav__link {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--foxhue-text);
+      text-decoration: none;
+      position: relative;
+      padding: 4px 0;
+      transition: color 0.2s ease;
+    }
+
+    .site-nav__link::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--foxhue-accent);
+      transition: width 0.25s ease;
+    }
+
+    .site-nav__link:hover {
+      color: var(--foxhue-accent);
+    }
+
+    .site-nav__link:hover::after {
+      width: 100%;
+    }
+
+    .site-nav__link:focus-visible {
+      outline: 2px solid var(--foxhue-accent);
+      outline-offset: 4px;
+      border-radius: 2px;
+    }
+
+    .site-nav__link--active {
+      color: var(--foxhue-accent);
+    }
+
+    .site-nav__link--active::after {
+      width: 100%;
+    }
+
+    /* Hamburger toggle (CSS-only) */
+    .site-nav__toggle {
+      display: none;
+    }
+
+    .site-nav__hamburger {
+      display: none;
+      width: 28px;
+      height: 20px;
+      flex-direction: column;
+      justify-content: space-between;
+      cursor: pointer;
+      position: relative;
+      z-index: 110;
+    }
+
+    .site-nav__hamburger span {
+      display: block;
+      width: 100%;
+      height: 2px;
+      background: var(--foxhue-primary);
+      border-radius: 2px;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    .site-nav__toggle:checked ~ .site-nav__hamburger span:nth-child(1) {
+      transform: translateY(9px) rotate(45deg);
+    }
+
+    .site-nav__toggle:checked ~ .site-nav__hamburger span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .site-nav__toggle:checked ~ .site-nav__hamburger span:nth-child(3) {
+      transform: translateY(-9px) rotate(-45deg);
+    }
+
+    /* ── Hero ── */
+    .hero {
+      padding: 100px 0 80px;
+      background: var(--foxhue-surface);
+    }
+
+    .hero__inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .hero__headline {
+      font-size: clamp(2.25rem, 6vw, 4rem);
+      line-height: 1.1;
+      color: var(--foxhue-primary);
+      max-width: 720px;
+      margin-bottom: 24px;
+    }
+
+    .hero__subtitle {
+      font-size: clamp(1rem, 2vw, 1.125rem);
+      color: var(--foxhue-text-muted);
+      max-width: 540px;
+      line-height: 1.7;
+      margin-bottom: 36px;
+    }
+
+    .hero__actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .hero__rule {
+      width: 48px;
+      height: 2px;
+      background: var(--foxhue-accent);
+      margin-bottom: 32px;
+    }
+
+    /* ── Services Overview ── */
+    .services-overview {
+      padding: 80px 0;
+    }
+
+    .services-overview__header {
+      margin-bottom: 48px;
+    }
+
+    .services-overview__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .service-card {
+      background: var(--foxhue-surface);
+      border-radius: var(--foxhue-radius-md);
+      padding: 32px 28px;
+      box-shadow: var(--foxhue-shadow-sm);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .service-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--foxhue-shadow-md);
+    }
+
+    .service-card__number {
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      color: var(--foxhue-accent);
+      margin-bottom: 16px;
+    }
+
+    .service-card__title {
+      font-family: var(--foxhue-font-heading);
+      font-size: 1.25rem;
+      color: var(--foxhue-primary);
+      margin-bottom: 10px;
+    }
+
+    .service-card__desc {
+      font-size: 0.9375rem;
+      color: var(--foxhue-text-muted);
+      line-height: 1.6;
+      flex: 1;
+    }
+
+    .services-overview__link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--foxhue-accent);
+      text-decoration: none;
+      margin-top: 40px;
+      transition: gap 0.2s ease;
+    }
+
+    .services-overview__link:hover {
+      gap: 10px;
+    }
+
+    .services-overview__link:focus-visible {
+      outline: 2px solid var(--foxhue-accent);
+      outline-offset: 4px;
+      border-radius: 2px;
+    }
+
+    /* ── Recent Work ── */
+    .recent-work {
+      padding: 80px 0;
+      background: var(--foxhue-surface);
+    }
+
+    .recent-work__header {
+      margin-bottom: 48px;
+    }
+
+    .recent-work__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .work-card {
+      border-radius: var(--foxhue-radius-lg);
+      overflow: hidden;
+      background: var(--foxhue-bg);
+      box-shadow: var(--foxhue-shadow-sm);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+
+    .work-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--foxhue-shadow-lg);
+    }
+
+    .work-card:focus-visible {
+      outline: 2px solid var(--foxhue-accent);
+      outline-offset: 2px;
+    }
+
+    .work-card__image {
+      aspect-ratio: 4 / 3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .work-card__image--marr {
+      background: linear-gradient(135deg, #ECE5E0 0%, #C6BCB3 50%, #3C3C3B 100%);
+    }
+
+    .work-card__image--verde {
+      background: linear-gradient(135deg, #2D5016 0%, #6B8F3C 50%, #F5F0E8 100%);
+    }
+
+    .work-card__image--nexus {
+      background: linear-gradient(135deg, #0F1B2D 0%, #1E3A5F 50%, #4A90D9 100%);
+    }
+
+    .work-card__image-label {
+      font-family: var(--foxhue-font-heading);
+      font-size: 1.5rem;
+      color: rgba(255, 255, 255, 0.85);
+      text-shadow: 0 1px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .work-card__body {
+      padding: 24px;
+    }
+
+    .work-card__tag {
+      display: inline-block;
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--foxhue-accent);
+      margin-bottom: 8px;
+    }
+
+    .work-card__title {
+      font-family: var(--foxhue-font-heading);
+      font-size: 1.25rem;
+      color: var(--foxhue-primary);
+      margin-bottom: 8px;
+    }
+
+    .work-card__excerpt {
+      font-size: 0.875rem;
+      color: var(--foxhue-text-muted);
+      line-height: 1.6;
+    }
+
+    /* ── Testimonials ── */
+    .testimonials {
+      padding: 80px 0;
+    }
+
+    .testimonials__header {
+      margin-bottom: 48px;
+    }
+
+    .testimonials__grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+    }
+
+    .testimonial {
+      background: var(--foxhue-surface);
+      border-radius: var(--foxhue-radius-md);
+      padding: 36px 32px;
+      box-shadow: var(--foxhue-shadow-sm);
+      position: relative;
+    }
+
+    .testimonial__quote-mark {
+      font-family: var(--foxhue-font-heading);
+      font-size: 4rem;
+      line-height: 1;
+      color: var(--foxhue-accent);
+      opacity: 0.2;
+      position: absolute;
+      top: 20px;
+      left: 28px;
+    }
+
+    .testimonial__text {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: var(--foxhue-text);
+      font-style: italic;
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    .testimonial__author {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--foxhue-primary);
+    }
+
+    .testimonial__role {
+      font-size: 0.8125rem;
+      color: var(--foxhue-text-muted);
+      margin-top: 2px;
+    }
+
+    /* ── CTA Section ── */
+    .cta-section {
+      padding: 80px 0;
+      background: var(--foxhue-primary);
+      color: var(--foxhue-light);
+    }
+
+    .cta-section__inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+      text-align: center;
+    }
+
+    .cta-section__headline {
+      font-family: var(--foxhue-font-heading);
+      font-size: clamp(1.75rem, 4vw, 2.75rem);
+      color: var(--foxhue-light);
+      margin-bottom: 16px;
+    }
+
+    .cta-section__text {
+      font-size: 1.0625rem;
+      color: rgba(255, 255, 255, 0.75);
+      max-width: 520px;
+      margin: 0 auto 32px;
+      line-height: 1.7;
+    }
+
+    .cta-section .btn-accent {
+      background: var(--foxhue-accent);
+      color: var(--foxhue-light);
+      border-color: var(--foxhue-accent);
+    }
+
+    .cta-section .btn-accent:hover {
+      background: var(--foxhue-accent-hover);
+      border-color: var(--foxhue-accent-hover);
+    }
+
+    /* ── Footer ── */
+    .site-footer {
+      background: var(--foxhue-primary);
+      color: rgba(255, 255, 255, 0.7);
+      padding: 56px 0 32px;
+    }
+
+    .site-footer__inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .site-footer__top {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 48px;
+    }
+
+    .site-footer__brand-col {}
+
+    .site-footer__wordmark {
+      font-family: var(--foxhue-font-heading);
+      font-size: 1.5rem;
+      color: var(--foxhue-light);
+      display: block;
+      margin-bottom: 12px;
+    }
+
+    .site-footer__address {
+      font-size: 0.875rem;
+      line-height: 1.6;
+      font-style: normal;
+      margin-bottom: 16px;
+    }
+
+    .site-footer__email {
+      font-size: 0.875rem;
+      color: var(--foxhue-accent);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .site-footer__email:hover {
+      color: var(--foxhue-light);
+    }
+
+    .site-footer__email:focus-visible {
+      outline: 2px solid var(--foxhue-accent);
+      outline-offset: 2px;
+      border-radius: 2px;
+    }
+
+    .site-footer__heading {
+      font-family: var(--foxhue-font-body);
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.5);
+      margin-bottom: 20px;
+    }
+
+    .site-footer__nav-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .site-footer__nav-link {
+      font-size: 0.875rem;
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .site-footer__nav-link:hover {
+      color: var(--foxhue-light);
+    }
+
+    .site-footer__nav-link:focus-visible {
+      outline: 2px solid var(--foxhue-accent);
+      outline-offset: 2px;
+      border-radius: 2px;
+    }
+
+    .site-footer__bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .site-footer__copy {
+      font-size: 0.8125rem;
+      color: rgba(255, 255, 255, 0.4);
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 992px) {
+      .services-overview__grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .recent-work__grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .recent-work__grid .work-card:last-child {
+        grid-column: 1 / -1;
+        max-width: 50%;
+      }
+
+      .site-footer__top {
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+      }
+
+      .hero {
+        padding: 80px 0 64px;
+      }
+    }
+
+    @media (max-width: 767px) {
+      .site-nav__hamburger {
+        display: flex;
+      }
+
+      .site-nav__links {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 280px;
+        background: var(--foxhue-surface);
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 80px 32px 32px;
+        gap: 24px;
+        box-shadow: -4px 0 24px rgba(26, 26, 46, 0.15);
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
+        z-index: 105;
+      }
+
+      .site-nav__toggle:checked ~ .site-nav__links {
+        transform: translateX(0);
+      }
+
+      .site-nav__link {
+        font-size: 1rem;
+      }
+
+      .services-overview__grid {
+        grid-template-columns: 1fr;
+      }
+
+      .recent-work__grid {
+        grid-template-columns: 1fr;
+      }
+
+      .recent-work__grid .work-card:last-child {
+        grid-column: auto;
+        max-width: 100%;
+      }
+
+      .testimonials__grid {
+        grid-template-columns: 1fr;
+      }
+
+      .site-footer__top {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .site-footer__bottom {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+      }
+
+      .hero {
+        padding: 64px 0 48px;
+      }
+
+      .hero__headline {
+        font-size: clamp(2rem, 8vw, 3rem);
+      }
+    }
+
+    @media (max-width: 477px) {
+      .site-nav__inner {
+        padding: 0 16px;
+        height: 64px;
+      }
+
+      .hero__inner {
+        padding: 0 16px;
+      }
+
+      .hero__actions {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .hero__actions .btn {
+        width: 100%;
+        text-align: center;
+      }
+
+      .cta-section__inner {
+        padding: 0 16px;
+      }
+
+      .site-footer__inner {
+        padding: 0 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="site-nav" aria-label="Primary navigation">
+    <div class="site-nav__inner">
+      <a href="index.html" class="site-nav__brand" aria-label="Foxhue — home">
+        <span class="site-nav__wordmark">Foxhue</span>
+        <span class="site-nav__tagline">Creative Design &amp; Marketing</span>
+      </a>
+      <input type="checkbox" id="nav-toggle" class="site-nav__toggle sr-only" aria-label="Toggle navigation menu">
+      <label for="nav-toggle" class="site-nav__hamburger" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+      <div class="site-nav__links">
+        <a href="services.html" class="site-nav__link">Services</a>
+        <a href="work.html" class="site-nav__link">Our Work</a>
+        <a href="about.html" class="site-nav__link">About</a>
+        <a href="blog.html" class="site-nav__link">Blog</a>
+        <a href="contact.html" class="site-nav__link">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main-content">
+
+    <!-- Hero -->
+    <section class="hero" aria-labelledby="hero-heading">
+      <div class="hero__inner">
+        <div class="hero__rule" aria-hidden="true"></div>
+        <h1 id="hero-heading" class="hero__headline">We design brands<br> that people remember.</h1>
+        <p class="hero__subtitle">A creative design and marketing studio in Bicester, Oxfordshire. We help small and medium-sized businesses stand out with clear, considered branding and marketing that works.</p>
+        <div class="hero__actions">
+          <a href="work.html" class="btn btn-accent btn--lg">See Our Work</a>
+          <a href="contact.html" class="btn btn-outline btn--lg">Get in Touch</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Overview -->
+    <section class="services-overview section" aria-labelledby="services-heading">
+      <div class="container">
+        <div class="services-overview__header">
+          <span class="eyebrow">What we do</span>
+          <h2 id="services-heading">Services built around what you actually need</h2>
+        </div>
+        <div class="services-overview__grid">
+          <div class="service-card">
+            <span class="service-card__number" aria-hidden="true">01</span>
+            <h3 class="service-card__title">Brand Refresh</h3>
+            <p class="service-card__desc">Evolving established identities to meet where your business is now. Strategy, visual identity, and rollout support.</p>
+          </div>
+          <div class="service-card">
+            <span class="service-card__number" aria-hidden="true">02</span>
+            <h3 class="service-card__title">Web Design</h3>
+            <p class="service-card__desc">Performance-first websites that are clear, fast, and built to convert visitors into customers.</p>
+          </div>
+          <div class="service-card">
+            <span class="service-card__number" aria-hidden="true">03</span>
+            <h3 class="service-card__title">Logo Design</h3>
+            <p class="service-card__desc">Distinctive marks rooted in strategy, not decoration. Research, concepts, and refinement.</p>
+          </div>
+          <div class="service-card">
+            <span class="service-card__number" aria-hidden="true">04</span>
+            <h3 class="service-card__title">Social Media</h3>
+            <p class="service-card__desc">Content strategy and visual templates that keep your brand consistent across every platform.</p>
+          </div>
+          <div class="service-card">
+            <span class="service-card__number" aria-hidden="true">05</span>
+            <h3 class="service-card__title">Presentations</h3>
+            <p class="service-card__desc">Pitch decks, investor decks, and sales presentations designed to persuade and win rooms.</p>
+          </div>
+          <div class="service-card">
+            <span class="service-card__number" aria-hidden="true">06</span>
+            <h3 class="service-card__title">Documentation</h3>
+            <p class="service-card__desc">Brand guidelines, style guides, and internal docs. Clear, well-structured, and on-brand.</p>
+          </div>
+        </div>
+        <a href="services.html" class="services-overview__link">
+          View all services <span aria-hidden="true">&rarr;</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- Recent Work -->
+    <section class="recent-work" aria-labelledby="work-heading">
+      <div class="container">
+        <div class="recent-work__header">
+          <span class="eyebrow">Selected work</span>
+          <h2 id="work-heading">Projects we're proud of</h2>
+        </div>
+        <div class="recent-work__grid">
+          <a href="work.html" class="work-card" aria-label="MARR Laser and Skin Clinic case study — Brand Identity and Web Design">
+            <div class="work-card__image work-card__image--marr" aria-hidden="true">
+              <span class="work-card__image-label">MARR</span>
+            </div>
+            <div class="work-card__body">
+              <span class="work-card__tag">Brand Identity &amp; Web Design</span>
+              <h3 class="work-card__title">MARR Laser &amp; Skin Clinic</h3>
+              <p class="work-card__excerpt">Complete brand identity and multi-page website for a specialist laser and skin clinic in Oxfordshire.</p>
+            </div>
+          </a>
+          <a href="work.html" class="work-card" aria-label="Verde Kitchen case study — Logo Design and Brand Refresh">
+            <div class="work-card__image work-card__image--verde" aria-hidden="true">
+              <span class="work-card__image-label">Verde</span>
+            </div>
+            <div class="work-card__body">
+              <span class="work-card__tag">Logo Design &amp; Brand Refresh</span>
+              <h3 class="work-card__title">Verde Kitchen</h3>
+              <p class="work-card__excerpt">Rebrand for a local Bicester restaurant, refreshing their visual identity to match a new seasonal menu concept.</p>
+            </div>
+          </a>
+          <a href="work.html" class="work-card" aria-label="Nexus Labs case study — Web Design and Presentations">
+            <div class="work-card__image work-card__image--nexus" aria-hidden="true">
+              <span class="work-card__image-label">Nexus</span>
+            </div>
+            <div class="work-card__body">
+              <span class="work-card__tag">Web Design &amp; Presentations</span>
+              <h3 class="work-card__title">Nexus Labs</h3>
+              <p class="work-card__excerpt">Website and investor pitch deck for a tech startup, designed to build credibility and secure early-stage funding.</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials section" aria-labelledby="testimonials-heading">
+      <div class="container">
+        <div class="testimonials__header">
+          <span class="eyebrow">What clients say</span>
+          <h2 id="testimonials-heading">Kind words from people we've worked with</h2>
+        </div>
+        <div class="testimonials__grid">
+          <blockquote class="testimonial">
+            <span class="testimonial__quote-mark" aria-hidden="true">&ldquo;</span>
+            <p class="testimonial__text">Foxhue completely transformed how our clinic presents itself. The new branding and website feel premium, approachable, and genuinely us. We've had more enquiries in three months than the previous year.</p>
+            <footer>
+              <cite class="testimonial__author">Dr. Sarah Mitchell</cite>
+              <p class="testimonial__role">Director, MARR Laser &amp; Skin Clinic</p>
+            </footer>
+          </blockquote>
+          <blockquote class="testimonial">
+            <span class="testimonial__quote-mark" aria-hidden="true">&ldquo;</span>
+            <p class="testimonial__text">They took the time to understand what we actually needed, not what they wanted to sell us. The rebrand has given us a real sense of identity and our regulars love the new look.</p>
+            <footer>
+              <cite class="testimonial__author">James Harding</cite>
+              <p class="testimonial__role">Owner, Verde Kitchen</p>
+            </footer>
+          </blockquote>
+          <blockquote class="testimonial">
+            <span class="testimonial__quote-mark" aria-hidden="true">&ldquo;</span>
+            <p class="testimonial__text">The pitch deck Foxhue designed helped us close our seed round on the first attempt. Investors commented on how polished and clear our story was. Worth every penny.</p>
+            <footer>
+              <cite class="testimonial__author">Priya Kapoor</cite>
+              <p class="testimonial__role">Co-founder, Nexus Labs</p>
+            </footer>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" aria-labelledby="cta-heading">
+      <div class="cta-section__inner">
+        <h2 id="cta-heading" class="cta-section__headline">Ready to stand out?</h2>
+        <p class="cta-section__text">Whether you need a full rebrand or a single project, we'd love to hear what you're working on. Let's have a conversation.</p>
+        <a href="contact.html" class="btn btn-accent btn--lg">Start a Project</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="site-footer__inner">
+      <div class="site-footer__top">
+        <div class="site-footer__brand-col">
+          <span class="site-footer__wordmark">Foxhue</span>
+          <address class="site-footer__address">
+            Bicester, Oxfordshire
+          </address>
+          <a href="mailto:hello@foxhue.com" class="site-footer__email">hello@foxhue.com</a>
+        </div>
+        <div class="site-footer__nav-col">
+          <p class="site-footer__heading">Pages</p>
+          <nav aria-label="Footer navigation">
+            <ul class="site-footer__nav-list">
+              <li><a href="services.html" class="site-footer__nav-link">Services</a></li>
+              <li><a href="work.html" class="site-footer__nav-link">Our Work</a></li>
+              <li><a href="about.html" class="site-footer__nav-link">About</a></li>
+            </ul>
+          </nav>
+        </div>
+        <div class="site-footer__nav-col">
+          <p class="site-footer__heading">More</p>
+          <nav aria-label="Footer secondary navigation">
+            <ul class="site-footer__nav-list">
+              <li><a href="blog.html" class="site-footer__nav-link">Blog</a></li>
+              <li><a href="contact.html" class="site-footer__nav-link">Contact</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+      <div class="site-footer__bottom">
+        <p class="site-footer__copy">&copy; 2026 Foxhue Ltd. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

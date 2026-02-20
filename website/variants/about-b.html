@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Foxhue — About (Layout B: Editorial Motion)</title>
+  <meta name="description" content="About Foxhue: A creative design and marketing studio based in Bicester, Oxfordshire.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+  <style>
+    /* ════════════════════════════════════════════════════
+       LAYOUT B — EDITORIAL MOTION: About
+       ════════════════════════════════════════════════════ */
+
+    /* ── Mobile Nav Toggle (CSS-only) ── */
+    .b-nav-toggle { display: none; }
+    .b-nav-state { display: none; }
+
+    /* ── Header / Navigation ── */
+    .b-header {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--foxhue-primary);
+      border-bottom: 3px solid var(--foxhue-accent);
+    }
+    .b-header__inner {
+      max-width: 1400px; margin: 0 auto; padding: 0 24px;
+      display: flex; align-items: center; justify-content: space-between; height: 64px;
+    }
+    .b-header__logo {
+      font-family: var(--foxhue-font-heading); font-size: 1.5rem;
+      color: var(--foxhue-light); text-decoration: none; letter-spacing: 0.04em;
+    }
+    .b-header__logo span { color: var(--foxhue-accent); }
+    .b-nav { display: flex; align-items: center; gap: 32px; }
+    .b-nav__link {
+      font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.14em;
+      text-transform: uppercase; color: rgba(255,255,255,0.7);
+      text-decoration: none; transition: color 0.2s ease;
+    }
+    .b-nav__link:hover, .b-nav__link:focus-visible { color: var(--foxhue-light); }
+    .b-nav__link:focus-visible { outline: 2px solid var(--foxhue-accent); outline-offset: 4px; border-radius: 2px; }
+    .b-nav__link--active { color: var(--foxhue-light); }
+    .b-nav__cta {
+      font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--foxhue-light); background: var(--foxhue-accent);
+      padding: 8px 20px; border-radius: 100px; text-decoration: none; transition: background 0.2s ease;
+    }
+    .b-nav__cta:hover { background: var(--foxhue-accent-hover); }
+    .b-nav__cta:focus-visible { outline: 2px solid var(--foxhue-light); outline-offset: 2px; }
+
+    /* ── Page Hero ── */
+    .b-page-hero {
+      background: var(--foxhue-primary); color: var(--foxhue-light);
+      padding: 80px 0 100px; position: relative; overflow: hidden;
+    }
+    .b-page-hero__inner {
+      max-width: 1400px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 1;
+    }
+    .b-page-hero__watermark {
+      position: absolute; top: 50%; right: -5%; transform: translateY(-50%);
+      font-family: var(--foxhue-font-heading); font-size: clamp(8rem, 20vw, 18rem);
+      color: rgba(233, 69, 96, 0.06); line-height: 1; user-select: none; z-index: 0;
+    }
+    .b-page-hero__eyebrow {
+      display: block; font-size: 0.6875rem; font-weight: 600;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--foxhue-accent); margin-bottom: 16px;
+    }
+    .b-page-hero__heading {
+      font-family: var(--foxhue-font-heading); font-size: clamp(2rem, 6vw, 4rem);
+      font-style: italic; color: var(--foxhue-light); line-height: 1.1;
+      max-width: 700px; margin-bottom: 20px;
+    }
+    .b-page-hero__sub {
+      font-size: 1.0625rem; font-weight: 300;
+      color: rgba(255,255,255,0.6); max-width: 520px; line-height: 1.7;
+    }
+
+    /* ── Story Section ── */
+    .b-story {
+      background: var(--foxhue-bg);
+      padding: 100px 0;
+    }
+
+    .b-story__inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: grid;
+      grid-template-columns: 7fr 5fr;
+      gap: 64px;
+      align-items: start;
+    }
+
+    .b-story__content {
+      position: relative;
+    }
+
+    .b-story__eyebrow {
+      display: block;
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--foxhue-accent);
+      margin-bottom: 12px;
+    }
+
+    .b-story__heading {
+      font-family: var(--foxhue-font-heading);
+      font-size: clamp(1.75rem, 4vw, 2.75rem);
+      color: var(--foxhue-primary);
+      margin-bottom: 28px;
+    }
+
+    .b-story__text {
+      font-size: 0.9375rem;
+      color: var(--foxhue-text-muted);
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+
+    .b-story__pullquote {
+      border-left: 4px solid var(--foxhue-accent);
+      padding: 24px 28px;
+      margin: 36px 0;
+      background: var(--foxhue-surface);
+    }
+
+    .b-story__pullquote p {
+      font-family: var(--foxhue-font-heading);
+      font-size: 1.375rem;
+      font-style: italic;
+      color: var(--foxhue-primary);
+      line-height: 1.5;
+    }
+
+    .b-story__aside {
+      position: sticky;
+      top: 100px;
+    }
+
+    .b-story__image {
+      width: 100%;
+      height: 360px;
+      background: linear-gradient(135deg, #2a2a48 0%, #E94560 100%);
+      border-bottom: 4px solid var(--foxhue-accent);
+      margin-bottom: 24px;
+    }
+
+    .b-story__caption {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--foxhue-text-muted);
+    }
+
+    /* ── Stats Band ── */
+    .b-stats {
+      background: var(--foxhue-primary);
+      color: var(--foxhue-light);
+      padding: 80px 0;
+    }
+
+    .b-stats__inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+    }
+
+    .b-stat {
+      text-align: center;
+      padding: 20px;
+      border-left: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .b-stat:first-child {
+      border-left: none;
+    }
+
+    .b-stat__number {
+      font-family: var(--foxhue-font-heading);
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      color: var(--foxhue-accent);
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .b-stat__label {
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+    }
+
+    /* ── Values Section ── */
+    .b-values {
+      background: var(--foxhue-bg);
+      padding: 100px 0;
+    }
+
+    .b-values__inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .b-values__header {
+      margin-bottom: 64px;
+    }
+
+    .b-values__eyebrow {
+      display: block;
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--foxhue-accent);
+      margin-bottom: 12px;
+    }
+
+    .b-values__heading {
+      font-family: var(--foxhue-font-heading);
+      font-size: clamp(1.75rem, 4vw, 2.75rem);
+      color: var(--foxhue-primary);
+    }
+
+    .b-values__grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+    }
+
+    .b-value {
+      padding: 36px 28px;
+      border-left: 1px solid var(--foxhue-border);
+      position: relative;
+    }
+
+    .b-value:first-child {
+      border-left: 3px solid var(--foxhue-accent);
+    }
+
+    .b-value__number {
+      font-family: var(--foxhue-font-heading);
+      font-size: 3.5rem;
+      color: rgba(26, 26, 46, 0.06);
+      line-height: 1;
+      margin-bottom: 16px;
+    }
+
+    .b-value__title {
+      font-family: var(--foxhue-font-heading);
+      font-size: 1.375rem;
+      color: var(--foxhue-primary);
+      margin-bottom: 12px;
+    }
+
+    .b-value__desc {
+      font-size: 0.8125rem;
+      color: var(--foxhue-text-muted);
+      line-height: 1.7;
+    }
+
+    /* ── Team Section ── */
+    .b-team {
+      background: var(--foxhue-primary);
+      color: var(--foxhue-light);
+      padding: 100px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .b-team__inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .b-team__header {
+      margin-bottom: 64px;
+    }
+
+    .b-team__eyebrow {
+      display: block;
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--foxhue-accent);
+      margin-bottom: 12px;
+    }
+
+    .b-team__heading {
+      font-family: var(--foxhue-font-heading);
+      font-size: clamp(1.75rem, 4vw, 2.75rem);
+      color: var(--foxhue-light);
+    }
+
+    .b-team__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+    }
+
+    .b-team-member {
+      display: grid;
+      grid-template-columns: 5fr 7fr;
+      gap: 28px;
+      align-items: start;
+    }
+
+    .b-team-member__photo {
+      width: 100%;
+      height: 280px;
+      border-left: 4px solid var(--foxhue-accent);
+    }
+
+    .b-team-member__photo--1 {
+      background: linear-gradient(135deg, #3a3a5a 0%, #6a5acd 100%);
+    }
+
+    .b-team-member__photo--2 {
+      background: linear-gradient(135deg, #3a4a5a 0%, #5a9acd 100%);
+    }
+
+    .b-team-member__eyebrow {
+      display: block;
+      font-size: 0.625rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--foxhue-accent);
+      margin-bottom: 8px;
+    }
+
+    .b-team-member__name {
+      font-family: var(--foxhue-font-heading);
+      font-size: 1.5rem;
+      color: var(--foxhue-light);
+      margin-bottom: 4px;
+    }
+
+    .b-team-member__role {
+      font-size: 0.8125rem;
+      font-weight: 500;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 16px;
+    }
+
+    .b-team-member__bio {
+      font-size: 0.8125rem;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.7;
+    }
+
+    /* ── CTA Section ── */
+    .b-cta {
+      background: var(--foxhue-bg);
+      padding: 100px 0;
+    }
+    .b-cta__inner {
+      max-width: 800px; margin: 0 auto; padding: 0 24px; text-align: center;
+    }
+    .b-cta__heading {
+      font-family: var(--foxhue-font-heading); font-size: clamp(1.75rem, 4vw, 2.75rem);
+      font-style: italic; color: var(--foxhue-primary); margin-bottom: 16px;
+    }
+    .b-cta__heading em { font-style: normal; color: var(--foxhue-accent); }
+    .b-cta__sub {
+      font-size: 1rem; color: var(--foxhue-text-muted); margin-bottom: 32px;
+      max-width: 480px; margin-left: auto; margin-right: auto;
+    }
+
+    /* ── Footer ── */
+    .b-footer {
+      background: var(--foxhue-primary);
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding: 40px 0;
+    }
+    .b-footer__inner {
+      max-width: 1400px; margin: 0 auto; padding: 0 24px;
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;
+    }
+    .b-footer__copy { font-size: 0.75rem; color: rgba(255,255,255,0.4); }
+    .b-footer__links { display: flex; gap: 24px; }
+    .b-footer__link {
+      font-size: 0.6875rem; font-weight: 500; letter-spacing: 0.08em;
+      text-transform: uppercase; color: rgba(255,255,255,0.4);
+      text-decoration: none; transition: color 0.2s ease;
+    }
+    .b-footer__link:hover { color: var(--foxhue-light); }
+    .b-footer__variant {
+      font-size: 0.625rem; font-weight: 600; letter-spacing: 0.15em;
+      text-transform: uppercase; color: var(--foxhue-accent);
+    }
+
+    /* ── Responsive: Tablet ── */
+    @media (max-width: 992px) {
+      .b-story__inner { grid-template-columns: 1fr; gap: 40px; }
+      .b-story__aside { position: static; }
+      .b-stats__inner { grid-template-columns: 1fr 1fr; }
+      .b-values__grid { grid-template-columns: 1fr 1fr; }
+      .b-value { border-bottom: 1px solid var(--foxhue-border); }
+      .b-team__grid { grid-template-columns: 1fr; gap: 40px; }
+    }
+
+    /* ── Responsive: Mobile Landscape ── */
+    @media (max-width: 767px) {
+      .b-nav { display: none; }
+      .b-nav-toggle { display: block; }
+      .b-nav-toggle {
+        width: 28px; height: 20px; position: relative; cursor: pointer;
+        background: none; border: none; padding: 0;
+      }
+      .b-nav-toggle span,
+      .b-nav-toggle span::before,
+      .b-nav-toggle span::after {
+        display: block; width: 100%; height: 2px; background: var(--foxhue-light);
+        position: absolute; transition: all 0.3s ease;
+      }
+      .b-nav-toggle span { top: 50%; transform: translateY(-50%); }
+      .b-nav-toggle span::before { content: ''; top: -8px; }
+      .b-nav-toggle span::after { content: ''; top: 8px; }
+      .b-nav-state:checked ~ .b-header .b-nav-toggle span { background: transparent; }
+      .b-nav-state:checked ~ .b-header .b-nav-toggle span::before { top: 0; transform: rotate(45deg); background: var(--foxhue-light); }
+      .b-nav-state:checked ~ .b-header .b-nav-toggle span::after { top: 0; transform: rotate(-45deg); background: var(--foxhue-light); }
+      .b-nav-state:checked ~ .b-header .b-nav {
+        display: flex; flex-direction: column;
+        position: absolute; top: 64px; left: 0; right: 0;
+        background: var(--foxhue-primary); padding: 24px; gap: 16px;
+        border-bottom: 3px solid var(--foxhue-accent); z-index: 99;
+      }
+
+      .b-stats__inner { grid-template-columns: 1fr 1fr; }
+      .b-stat { border-left: none; border-bottom: 1px solid rgba(255,255,255,0.1); padding: 16px 12px; }
+      .b-values__grid { grid-template-columns: 1fr; }
+      .b-value { border-left: none; border-bottom: 1px solid var(--foxhue-border); padding: 28px 0; }
+      .b-value:first-child { border-left: none; border-top: 3px solid var(--foxhue-accent); }
+      .b-team-member { grid-template-columns: 1fr; }
+      .b-team-member__photo { height: 200px; }
+
+      .b-footer__inner { flex-direction: column; text-align: center; gap: 12px; }
+      .b-footer__links { flex-wrap: wrap; justify-content: center; gap: 16px; }
+    }
+
+    /* ── Responsive: Mobile ── */
+    @media (max-width: 477px) {
+      .b-page-hero { padding: 56px 0 72px; }
+      .b-story__image { height: 240px; }
+      .b-stats__inner { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <input type="checkbox" id="navState" class="b-nav-state" aria-hidden="true">
+
+  <!-- ════════════════════════════════════════
+       HEADER
+       ════════════════════════════════════════ -->
+  <header class="b-header" role="banner">
+    <div class="b-header__inner">
+      <a href="../index.html" class="b-header__logo" aria-label="Foxhue homepage">Fox<span>hue</span></a>
+      <nav class="b-nav" aria-label="Main navigation">
+        <a href="../services.html" class="b-nav__link">Services</a>
+        <a href="../work.html" class="b-nav__link">Our Work</a>
+        <a href="../about.html" class="b-nav__link b-nav__link--active" aria-current="page">About</a>
+        <a href="../blog.html" class="b-nav__link">Blog</a>
+        <a href="../contact.html" class="b-nav__cta">Get in Touch</a>
+      </nav>
+      <label for="navState" class="b-nav-toggle" aria-label="Toggle navigation menu" role="button" tabindex="0">
+        <span></span>
+      </label>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <!-- ════════════════════════════════════════
+         PAGE HERO
+         ════════════════════════════════════════ -->
+    <section class="b-page-hero" aria-label="Page introduction">
+      <div class="b-page-hero__watermark" aria-hidden="true">About</div>
+      <div class="b-page-hero__inner">
+        <span class="b-page-hero__eyebrow">Who We Are</span>
+        <h1 class="b-page-hero__heading">Small studio, <em>big thinking</em></h1>
+        <p class="b-page-hero__sub">We are a creative design and marketing studio based in Bicester. Small by choice, so you always work directly with the people who do the work.</p>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════
+         OUR STORY
+         ════════════════════════════════════════ -->
+    <section class="b-story" aria-labelledby="story-heading">
+      <div class="b-story__inner">
+        <div class="b-story__content">
+          <span class="b-story__eyebrow">Our Story</span>
+          <h2 class="b-story__heading" id="story-heading">Why We Started Foxhue</h2>
+          <p class="b-story__text">After years working inside agencies and in-house teams, we saw the same problem everywhere: small businesses getting overlooked. They had great products, loyal customers, and real ambition, but their brands did not reflect any of it.</p>
+          <p class="b-story__text">So we built Foxhue to fix that. A studio that gives SMEs the same quality of creative thinking that big brands take for granted, but without the overheads, the layers, and the ego.</p>
+
+          <blockquote class="b-story__pullquote">
+            <p>&ldquo;We believe every business deserves a brand that matches its ambition. No exceptions, no excuses.&rdquo;</p>
+          </blockquote>
+
+          <p class="b-story__text">With over 30 years of combined experience across brand, digital, and print, we bring depth and discipline to every project. We are not trying to be the biggest studio. We are trying to be the most useful one.</p>
+          <p class="b-story__text">We work with businesses across Oxfordshire and beyond. Every project starts with listening and ends with results you can measure.</p>
+        </div>
+        <div class="b-story__aside">
+          <div class="b-story__image" role="img" aria-label="Foxhue studio"></div>
+          <p class="b-story__caption">Bicester, Oxfordshire</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════
+         STATS
+         ════════════════════════════════════════ -->
+    <section class="b-stats" aria-label="Company statistics">
+      <div class="b-stats__inner">
+        <div class="b-stat">
+          <span class="b-stat__number">30+</span>
+          <span class="b-stat__label">Years Combined Experience</span>
+        </div>
+        <div class="b-stat">
+          <span class="b-stat__number">50+</span>
+          <span class="b-stat__label">Brands Transformed</span>
+        </div>
+        <div class="b-stat">
+          <span class="b-stat__number">100%</span>
+          <span class="b-stat__label">Owner-Led Projects</span>
+        </div>
+        <div class="b-stat">
+          <span class="b-stat__number">0</span>
+          <span class="b-stat__label">Account Managers</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════
+         VALUES
+         ════════════════════════════════════════ -->
+    <section class="b-values" aria-labelledby="values-heading">
+      <div class="b-values__inner">
+        <div class="b-values__header">
+          <span class="b-values__eyebrow">What We Believe</span>
+          <h2 class="b-values__heading" id="values-heading">Our Values</h2>
+        </div>
+        <div class="b-values__grid">
+          <div class="b-value">
+            <span class="b-value__number" aria-hidden="true">01</span>
+            <h3 class="b-value__title">Clarity</h3>
+            <p class="b-value__desc">We cut through the noise. Every decision has a reason, every element earns its place, and we explain our thinking in plain English.</p>
+          </div>
+          <div class="b-value">
+            <span class="b-value__number" aria-hidden="true">02</span>
+            <h3 class="b-value__title">Craft</h3>
+            <p class="b-value__desc">Details matter. We obsess over typography, spacing, colour, and consistency because the small things are what make brands feel professional.</p>
+          </div>
+          <div class="b-value">
+            <span class="b-value__number" aria-hidden="true">03</span>
+            <h3 class="b-value__title">Results</h3>
+            <p class="b-value__desc">Beautiful design means nothing if it does not work. We measure success by enquiries, conversions, and growth, not just aesthetics.</p>
+          </div>
+          <div class="b-value">
+            <span class="b-value__number" aria-hidden="true">04</span>
+            <h3 class="b-value__title">Honesty</h3>
+            <p class="b-value__desc">We will tell you what you need to hear, not what you want to hear. No upselling, no fluff, no hidden agendas. Just straight talk and honest work.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════
+         TEAM
+         ════════════════════════════════════════ -->
+    <section class="b-team" aria-labelledby="team-heading">
+      <div class="b-team__inner">
+        <div class="b-team__header">
+          <span class="b-team__eyebrow">The Team</span>
+          <h2 class="b-team__heading" id="team-heading">Meet the People Behind the Work</h2>
+        </div>
+        <div class="b-team__grid">
+          <article class="b-team-member">
+            <div class="b-team-member__photo b-team-member__photo--1" role="img" aria-label="Andrew Ibbotson"></div>
+            <div class="b-team-member__info">
+              <span class="b-team-member__eyebrow">Co-Founder</span>
+              <h3 class="b-team-member__name">Andrew Ibbotson</h3>
+              <p class="b-team-member__role">Creative Director</p>
+              <p class="b-team-member__bio">15+ years in brand and digital design. Andrew leads creative direction, handles design production, and manages client relationships. Previously worked with agencies across London and Oxford before founding Foxhue.</p>
+            </div>
+          </article>
+          <article class="b-team-member">
+            <div class="b-team-member__photo b-team-member__photo--2" role="img" aria-label="Ashley Ibbotson"></div>
+            <div class="b-team-member__info">
+              <span class="b-team-member__eyebrow">Co-Founder</span>
+              <h3 class="b-team-member__name">Ashley Ibbotson</h3>
+              <p class="b-team-member__role">Marketing Director</p>
+              <p class="b-team-member__bio">15+ years in marketing strategy and communications. Ashley leads brand strategy, content planning, and marketing execution. Her background spans healthcare, hospitality, and professional services.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════
+         CTA
+         ════════════════════════════════════════ -->
+    <section class="b-cta" aria-label="Call to action">
+      <div class="b-cta__inner">
+        <h2 class="b-cta__heading">Want to work <em>with us?</em></h2>
+        <p class="b-cta__sub">We are always interested in new projects and new challenges. Get in touch and tell us about yours.</p>
+        <a href="../contact.html" class="btn btn-accent btn--lg">Get in Touch</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ════════════════════════════════════════
+       FOOTER
+       ════════════════════════════════════════ -->
+  <footer class="b-footer" role="contentinfo">
+    <div class="b-footer__inner">
+      <p class="b-footer__copy">&copy; 2026 Foxhue Ltd. All rights reserved.</p>
+      <div class="b-footer__links">
+        <a href="../services.html" class="b-footer__link">Services</a>
+        <a href="../work.html" class="b-footer__link">Work</a>
+        <a href="../about.html" class="b-footer__link">About</a>
+        <a href="../blog.html" class="b-footer__link">Blog</a>
+        <a href="../contact.html" class="b-footer__link">Contact</a>
+      </div>
+      <span class="b-footer__variant">Layout B &mdash; Editorial Motion</span>
+    </div>
+  </footer>
+
+</body>
+</html>
