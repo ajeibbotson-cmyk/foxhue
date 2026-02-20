@@ -118,7 +118,12 @@ SEO competitor report (`seo-competitor-report.html`) and client asset brief.
 ## Architecture Notes
 - All generated files read from `project.json` — CSS prefix is `--foxhue-`
 - Review hub uses AJAX form submission via Formsubmit.co (stays on page)
-- Images stored locally in `website/images/`, shared across website, designs, and landing
+- Contact form submits to Formsubmit.co/hello@foxhue.com
+- No external images — all visual placeholders use CSS gradients and decorative elements
+- `website/images/` reserved for client-provided assets (currently empty)
 - All HTML self-contained with Google Fonts loaded via `<link>`
+- Website pages link to shared `styles.css`; variant pages link to `../styles.css`
+- Variant pages use inline `<style>` blocks for layout-specific overrides
 - Website breakpoints: 992px, 767px, 477px
-- No JavaScript except the review hub (inline JS for form handling and localStorage)
+- CSS-only mobile hamburger (checkbox toggle pattern) — no JavaScript on any page
+- JavaScript only in review hub (`variants/index.html`) for form handling and localStorage
