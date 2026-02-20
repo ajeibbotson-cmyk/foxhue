@@ -1,0 +1,364 @@
+<!-- Section: FAQ | Foxhue Landing Page -->
+<style>
+  /* ══════════════════════════════════════════════════
+     Foxhue Landing — FAQ Section (Pure CSS Accordion)
+     Uses <details>/<summary> for native, no-JS toggle
+     ══════════════════════════════════════════════════ */
+
+  :root {
+    --foxhue-primary: #1A1A2E;
+    --foxhue-accent: #E94560;
+    --foxhue-accent-hover: #D63851;
+    --foxhue-bg: #F8F8FA;
+    --foxhue-surface: #FFFFFF;
+    --foxhue-text: #1A1A2E;
+    --foxhue-text-muted: #6b6b80;
+    --foxhue-border: rgba(26, 26, 46, 0.1);
+    --foxhue-shadow-sm: 0 1px 4px rgba(26, 26, 46, 0.06);
+    --foxhue-shadow-md: 0 4px 16px rgba(26, 26, 46, 0.08);
+    --foxhue-radius-md: 10px;
+    --foxhue-radius-lg: 16px;
+    --foxhue-font-heading: 'DM Serif Display', serif;
+    --foxhue-font-body: 'Inter', sans-serif;
+  }
+
+  .foxhue-faq {
+    background-color: var(--foxhue-bg);
+    padding: 6rem 2rem;
+    font-family: var(--foxhue-font-body);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .foxhue-faq__inner {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .foxhue-faq__header {
+    text-align: center;
+    margin-bottom: 3.5rem;
+  }
+
+  .foxhue-faq__eyebrow {
+    display: inline-block;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--foxhue-accent);
+    margin-bottom: 1rem;
+  }
+
+  .foxhue-faq__heading {
+    font-family: var(--foxhue-font-heading);
+    font-size: clamp(1.75rem, 3.5vw, 2.625rem);
+    font-weight: 400;
+    color: var(--foxhue-primary);
+    line-height: 1.2;
+    margin: 0 0 1rem;
+  }
+
+  .foxhue-faq__subheading {
+    font-size: 1rem;
+    color: var(--foxhue-text-muted);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  /* ── FAQ List ── */
+  .foxhue-faq__list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  /* ── Individual FAQ item using <details>/<summary> ── */
+  .foxhue-faq__item {
+    background-color: var(--foxhue-surface);
+    border: 1px solid var(--foxhue-border);
+    border-radius: var(--foxhue-radius-md);
+    overflow: hidden;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .foxhue-faq__item:hover {
+    border-color: rgba(26, 26, 46, 0.2);
+    box-shadow: var(--foxhue-shadow-sm);
+  }
+
+  .foxhue-faq__item[open] {
+    border-color: var(--foxhue-accent);
+    box-shadow: 0 0 0 3px rgba(233, 69, 96, 0.08);
+  }
+
+  /* ── Summary (the question / toggle trigger) ── */
+  .foxhue-faq__question {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.375rem 1.75rem;
+    cursor: pointer;
+    list-style: none; /* removes default marker */
+    user-select: none;
+    -webkit-user-select: none;
+  }
+
+  /* Remove the default disclosure triangle across browsers */
+  .foxhue-faq__question::-webkit-details-marker {
+    display: none;
+  }
+
+  .foxhue-faq__question::marker {
+    display: none;
+  }
+
+  .foxhue-faq__question-text {
+    font-family: var(--foxhue-font-heading);
+    font-size: 1.125rem;
+    font-weight: 400;
+    color: var(--foxhue-primary);
+    line-height: 1.35;
+    flex: 1;
+  }
+
+  .foxhue-faq__item[open] .foxhue-faq__question-text {
+    color: var(--foxhue-accent);
+  }
+
+  /* Custom icon — rotates on open */
+  .foxhue-faq__icon {
+    flex-shrink: 0;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    border: 1.5px solid var(--foxhue-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    font-weight: 300;
+    color: var(--foxhue-text-muted);
+    background-color: var(--foxhue-bg);
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+    line-height: 1;
+  }
+
+  .foxhue-faq__icon::before {
+    content: '+';
+    display: block;
+    transition: transform 0.25s ease;
+  }
+
+  .foxhue-faq__item[open] .foxhue-faq__icon {
+    background-color: var(--foxhue-accent);
+    border-color: var(--foxhue-accent);
+    color: #ffffff;
+  }
+
+  .foxhue-faq__item[open] .foxhue-faq__icon::before {
+    content: '−';
+    transform: rotate(0deg);
+  }
+
+  /* ── Answer panel ── */
+  .foxhue-faq__answer {
+    padding: 0 1.75rem 1.5rem;
+    border-top: 1px solid var(--foxhue-border);
+    margin: 0 1.75rem;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .foxhue-faq__answer p {
+    font-size: 0.9375rem;
+    color: var(--foxhue-text-muted);
+    line-height: 1.75;
+    margin: 1.125rem 0 0;
+  }
+
+  .foxhue-faq__answer p:first-child {
+    margin-top: 1.125rem;
+  }
+
+  .foxhue-faq__answer p + p {
+    margin-top: 0.75rem;
+  }
+
+  .foxhue-faq__answer strong {
+    color: var(--foxhue-primary);
+    font-weight: 600;
+  }
+
+  /* ── Footer note ── */
+  .foxhue-faq__footer {
+    text-align: center;
+    margin-top: 2.5rem;
+    padding: 1.75rem 2rem;
+    background-color: var(--foxhue-surface);
+    border-radius: var(--foxhue-radius-lg);
+    border: 1px solid var(--foxhue-border);
+  }
+
+  .foxhue-faq__footer p {
+    font-size: 0.9375rem;
+    color: var(--foxhue-text-muted);
+    margin: 0 0 0.75rem;
+    line-height: 1.6;
+  }
+
+  .foxhue-faq__footer a {
+    color: var(--foxhue-accent);
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(233, 69, 96, 0.3);
+    transition: border-color 0.2s ease;
+  }
+
+  .foxhue-faq__footer a:hover {
+    border-bottom-color: var(--foxhue-accent);
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 991px) {
+    .foxhue-faq {
+      padding: 5rem 1.5rem;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .foxhue-faq {
+      padding: 4rem 1.25rem;
+    }
+
+    .foxhue-faq__question {
+      padding: 1.25rem 1.375rem;
+    }
+
+    .foxhue-faq__answer {
+      margin: 0 1.375rem;
+    }
+
+    .foxhue-faq__question-text {
+      font-size: 1rem;
+    }
+  }
+
+  @media (max-width: 478px) {
+    .foxhue-faq {
+      padding: 3rem 1rem;
+    }
+
+    .foxhue-faq__question {
+      padding: 1.125rem 1.25rem;
+      gap: 0.75rem;
+    }
+
+    .foxhue-faq__answer {
+      margin: 0 1.25rem;
+    }
+
+    .foxhue-faq__icon {
+      width: 1.75rem;
+      height: 1.75rem;
+      font-size: 0.875rem;
+    }
+  }
+</style>
+
+<section class="foxhue-faq" aria-labelledby="faq-heading">
+  <div class="foxhue-faq__inner">
+
+    <header class="foxhue-faq__header">
+      <span class="foxhue-faq__eyebrow">Common Questions</span>
+      <h2 class="foxhue-faq__heading" id="faq-heading">
+        Everything you need to know
+      </h2>
+      <p class="foxhue-faq__subheading">
+        Straight answers to the questions we hear most often.
+      </p>
+    </header>
+
+    <div class="foxhue-faq__list" role="list">
+
+      <!-- FAQ 1 -->
+      <details class="foxhue-faq__item" role="listitem">
+        <summary class="foxhue-faq__question">
+          <span class="foxhue-faq__question-text">What's included in the free audit?</span>
+          <span class="foxhue-faq__icon" aria-hidden="true"></span>
+        </summary>
+        <div class="foxhue-faq__answer">
+          <p>The free audit covers the fundamentals that make the biggest difference for most businesses. You'll receive an <strong>SEO health score</strong> with the most critical issues flagged, a <strong>page speed performance snapshot</strong> showing how quickly your site loads on mobile and desktop, and a <strong>mobile usability check</strong> to identify any experience problems for smartphone users.</p>
+          <p>We'll also outline your <strong>top 5 quick-win recommendations</strong> — the changes most likely to move the needle fastest — alongside a <strong>competitor snapshot</strong> showing how one of your main rivals is positioned in search.</p>
+        </div>
+      </details>
+
+      <!-- FAQ 2 -->
+      <details class="foxhue-faq__item" role="listitem">
+        <summary class="foxhue-faq__question">
+          <span class="foxhue-faq__question-text">How long does the audit take?</span>
+          <span class="foxhue-faq__icon" aria-hidden="true"></span>
+        </summary>
+        <div class="foxhue-faq__answer">
+          <p>The <strong>free audit is typically delivered within 48 hours</strong> of your initial call — often sooner. We don't use automated tools and fire a PDF at you; every audit is reviewed and written by a human who understands your specific context.</p>
+          <p>The <strong>full audit takes up to 5 business days</strong> because it's a thorough piece of work — in-depth competitor analysis, keyword research, technical crawls, and a 30-page written report all take time to do properly.</p>
+        </div>
+      </details>
+
+      <!-- FAQ 3 -->
+      <details class="foxhue-faq__item" role="listitem">
+        <summary class="foxhue-faq__question">
+          <span class="foxhue-faq__question-text">Do I need to give you access to anything?</span>
+          <span class="foxhue-faq__icon" aria-hidden="true"></span>
+        </summary>
+        <div class="foxhue-faq__answer">
+          <p>For the <strong>free audit, all we need is your website URL.</strong> Everything we assess at that level is publicly accessible — the same data Google uses to evaluate your site.</p>
+          <p>For the <strong>full audit</strong>, sharing read-only access to your <strong>Google Analytics and Google Search Console</strong> accounts gives us significantly richer insight into your real traffic patterns, which pages are underperforming, and which search terms you're almost ranking for. It's not required, but it makes the recommendations more precise and actionable.</p>
+        </div>
+      </details>
+
+      <!-- FAQ 4 -->
+      <details class="foxhue-faq__item" role="listitem">
+        <summary class="foxhue-faq__question">
+          <span class="foxhue-faq__question-text">What happens after the audit?</span>
+          <span class="foxhue-faq__icon" aria-hidden="true"></span>
+        </summary>
+        <div class="foxhue-faq__answer">
+          <p>We'll walk you through every finding on a <strong>dedicated review call</strong> — in plain English, without the jargon. You'll come away with a clear understanding of what's holding your website back, and a prioritised list of actions ranked by their likely impact.</p>
+          <p><strong>There's no obligation whatsoever.</strong> If you want to take the report and implement everything yourself, that's absolutely fine. If you'd like Foxhue to handle some or all of the work, we'll put together a proposal. No pressure, no hard sell.</p>
+        </div>
+      </details>
+
+      <!-- FAQ 5 -->
+      <details class="foxhue-faq__item" role="listitem">
+        <summary class="foxhue-faq__question">
+          <span class="foxhue-faq__question-text">Is this really free? What's the catch?</span>
+          <span class="foxhue-faq__icon" aria-hidden="true"></span>
+        </summary>
+        <div class="foxhue-faq__answer">
+          <p><strong>Yes, it's genuinely free.</strong> No credit card, no commitment, no strings attached. You won't be signed up to a mailing list or chased with daily calls.</p>
+          <p>We offer the free audit because we've found it's the most honest way to demonstrate what we do. If the report is useful and you want to work with us, that's great. If not, you still walk away with a useful document. We're confident enough in the quality of our work that we're happy to let it speak for itself.</p>
+        </div>
+      </details>
+
+      <!-- FAQ 6 -->
+      <details class="foxhue-faq__item" role="listitem">
+        <summary class="foxhue-faq__question">
+          <span class="foxhue-faq__question-text">Do you work with businesses outside Oxfordshire?</span>
+          <span class="foxhue-faq__icon" aria-hidden="true"></span>
+        </summary>
+        <div class="foxhue-faq__answer">
+          <p>Absolutely. We're based in Bicester, Oxfordshire, but <strong>SEO and website work is entirely location-independent.</strong> We work with clients right across the UK — from London to Edinburgh — and our process works just as well over video call as it does in person.</p>
+          <p>If you're a local Oxfordshire or Buckinghamshire business, we're always happy to meet in person. If you're further afield, everything we do translates seamlessly online.</p>
+        </div>
+      </details>
+
+    </div>
+
+    <div class="foxhue-faq__footer">
+      <p>Still got a question we haven't answered? We're happy to help.</p>
+      <a href="mailto:hello@foxhue.com">hello@foxhue.com</a>
+    </div>
+
+  </div>
+</section>

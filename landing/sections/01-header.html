@@ -1,0 +1,226 @@
+<!-- Section: Header | Foxhue Landing Page -->
+
+<style>
+  /* -----------------------------------------------------------------------
+     Foxhue Header — Sticky Navigation
+     BEM: foxhue-header, foxhue-header__inner, foxhue-header__logo,
+          foxhue-header__logo-mark, foxhue-header__logo-text,
+          foxhue-header__nav, foxhue-header__nav-label, foxhue-header__cta
+  ----------------------------------------------------------------------- */
+
+  .foxhue-header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 900;
+    background-color: var(--foxhue-surface);
+    border-bottom: 1px solid var(--foxhue-border);
+    box-shadow: 0 1px 8px rgba(26, 26, 46, 0.06);
+  }
+
+  .foxhue-header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 68px;
+    max-width: var(--foxhue-container-max, 1200px);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: clamp(1.25rem, 4vw, 2rem);
+    padding-right: clamp(1.25rem, 4vw, 2rem);
+  }
+
+  /* Logo */
+  .foxhue-header__logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+
+  .foxhue-header__logo-mark {
+    width: 36px;
+    height: 36px;
+    background-color: var(--foxhue-primary, #1A1A2E);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .foxhue-header__logo-mark svg {
+    width: 20px;
+    height: 20px;
+    fill: none;
+    stroke: #ffffff;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .foxhue-header__logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+  }
+
+  .foxhue-header__logo-name {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.125rem;
+    font-weight: 400;
+    color: var(--foxhue-primary, #1A1A2E);
+    letter-spacing: -0.01em;
+  }
+
+  .foxhue-header__logo-tagline {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.6875rem;
+    font-weight: 500;
+    color: var(--foxhue-text-muted, #6B7280);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  /* Nav label (centre) */
+  .foxhue-header__nav {
+    display: flex;
+    align-items: center;
+  }
+
+  .foxhue-header__nav-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: var(--foxhue-text-muted, #6B7280);
+    letter-spacing: 0.01em;
+    /* Decorative flanking rules */
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .foxhue-header__nav-label::before,
+  .foxhue-header__nav-label::after {
+    content: '';
+    display: block;
+    width: 32px;
+    height: 1px;
+    background-color: var(--foxhue-border, #E5E7EB);
+  }
+
+  /* CTA */
+  .foxhue-header__cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.625rem 1.375rem;
+    background-color: var(--foxhue-accent, #E94560);
+    color: #ffffff;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 600;
+    line-height: 1;
+    border-radius: 4px;
+    text-decoration: none;
+    white-space: nowrap;
+    border: 2px solid var(--foxhue-accent, #E94560);
+    transition: background-color 150ms ease, border-color 150ms ease, transform 150ms ease;
+    flex-shrink: 0;
+  }
+
+  .foxhue-header__cta:hover {
+    background-color: var(--foxhue-accent-hover, #D63851);
+    border-color: var(--foxhue-accent-hover, #D63851);
+    transform: translateY(-1px);
+  }
+
+  .foxhue-header__cta:focus-visible {
+    outline: 3px solid var(--foxhue-accent, #E94560);
+    outline-offset: 3px;
+  }
+
+  .foxhue-header__cta:active {
+    transform: translateY(0);
+  }
+
+  /* Badge on CTA */
+  .foxhue-header__cta-badge {
+    display: inline-block;
+    background-color: rgba(255, 255, 255, 0.22);
+    color: #ffffff;
+    font-size: 0.625rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 2px 6px;
+    border-radius: 100px;
+    margin-left: 6px;
+    vertical-align: middle;
+  }
+
+  /* Responsive */
+  @media (max-width: 767px) {
+    .foxhue-header__inner {
+      height: 60px;
+    }
+
+    .foxhue-header__nav {
+      display: none;
+    }
+
+    .foxhue-header__logo-tagline {
+      display: none;
+    }
+
+    .foxhue-header__cta-badge {
+      display: none;
+    }
+
+    .foxhue-header__cta {
+      padding: 0.5rem 1rem;
+      font-size: 0.8125rem;
+    }
+  }
+
+  @media (max-width: 478px) {
+    .foxhue-header__logo-name {
+      font-size: 1rem;
+    }
+  }
+</style>
+
+<a href="#main-content" class="foxhue-skip-link">Skip to main content</a>
+
+<header class="foxhue-header" role="banner">
+  <div class="foxhue-header__inner">
+
+    <!-- Logo -->
+    <a href="https://foxhue.com" class="foxhue-header__logo" aria-label="Foxhue — Creative Design & Marketing, return to homepage">
+      <div class="foxhue-header__logo-mark" aria-hidden="true">
+        <!-- Stylised 'F' lettermark placeholder -->
+        <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false">
+          <path d="M4 4h12M4 10h8M4 16v-12" />
+        </svg>
+      </div>
+      <div class="foxhue-header__logo-text">
+        <span class="foxhue-header__logo-name">Foxhue</span>
+        <span class="foxhue-header__logo-tagline">Creative Design &amp; Marketing</span>
+      </div>
+    </a>
+
+    <!-- Page label -->
+    <nav class="foxhue-header__nav" aria-label="Page context">
+      <span class="foxhue-header__nav-label">SEO &amp; Website Audit</span>
+    </nav>
+
+    <!-- Primary CTA -->
+    <a href="#audit-form" class="foxhue-header__cta" aria-label="Book your free SEO and website audit">
+      Book Free Audit
+      <span class="foxhue-header__cta-badge" aria-label="No cost, no obligation">Free</span>
+    </a>
+
+  </div>
+</header>

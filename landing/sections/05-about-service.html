@@ -1,0 +1,570 @@
+<!-- Section: About Service | Foxhue Landing Page -->
+
+<style>
+  /* -----------------------------------------------------------------------
+     Foxhue About Service — What the audit includes, methodology
+     BEM: foxhue-service, foxhue-service__inner, foxhue-service__grid,
+          foxhue-service__content, foxhue-service__image,
+          foxhue-service__steps, foxhue-service__step,
+          foxhue-service__step-number, foxhue-service__step-body
+  ----------------------------------------------------------------------- */
+
+  .foxhue-service {
+    background-color: var(--foxhue-surface, #FFFFFF);
+    padding-top: clamp(4rem, 7vw, 7rem);
+    padding-bottom: clamp(4rem, 7vw, 7rem);
+  }
+
+  .foxhue-service__inner {
+    max-width: var(--foxhue-container-max, 1200px);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: clamp(1.25rem, 4vw, 2rem);
+    padding-right: clamp(1.25rem, 4vw, 2rem);
+  }
+
+  /* Two-column grid */
+  .foxhue-service__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(2.5rem, 5vw, 5rem);
+    align-items: center;
+  }
+
+  /* Text content column */
+  .foxhue-service__eyebrow {
+    display: inline-block;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--foxhue-accent, #E94560);
+    margin-bottom: 1rem;
+  }
+
+  .foxhue-service__title {
+    font-family: 'DM Serif Display', serif;
+    font-weight: 400;
+    font-size: clamp(1.75rem, 3vw, 2.625rem);
+    line-height: 1.15;
+    color: var(--foxhue-primary, #1A1A2E);
+    letter-spacing: -0.02em;
+    margin-bottom: 1.25rem;
+  }
+
+  .foxhue-service__body {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--foxhue-text-muted, #6B7280);
+    margin-bottom: 2rem;
+  }
+
+  .foxhue-service__body + .foxhue-service__body {
+    margin-top: -1rem;
+  }
+
+  /* Process steps */
+  .foxhue-service__steps {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .foxhue-service__step {
+    display: flex;
+    gap: 1.125rem;
+    position: relative;
+    padding-bottom: 1.75rem;
+  }
+
+  /* Vertical connecting line between steps */
+  .foxhue-service__step:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    left: 19px;
+    top: 40px;
+    width: 2px;
+    height: calc(100% - 40px);
+    background: linear-gradient(
+      180deg,
+      var(--foxhue-border, #E5E7EB) 0%,
+      transparent 100%
+    );
+  }
+
+  .foxhue-service__step:last-child {
+    padding-bottom: 0;
+  }
+
+  .foxhue-service__step-number {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--foxhue-primary, #1A1A2E);
+    color: #ffffff;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8125rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+    line-height: 1;
+  }
+
+  /* Accent step number for highlighted step */
+  .foxhue-service__step--accent .foxhue-service__step-number {
+    background-color: var(--foxhue-accent, #E94560);
+  }
+
+  .foxhue-service__step-body {
+    padding-top: 0.5rem;
+  }
+
+  .foxhue-service__step-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--foxhue-primary, #1A1A2E);
+    margin-bottom: 0.3125rem;
+    line-height: 1.3;
+  }
+
+  .foxhue-service__step-desc {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.875rem;
+    line-height: 1.6;
+    color: var(--foxhue-text-muted, #6B7280);
+  }
+
+  /* CTA beneath steps */
+  .foxhue-service__cta-wrap {
+    margin-top: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+  }
+
+  .foxhue-service__cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 0.875rem 1.75rem;
+    background-color: var(--foxhue-accent, #E94560);
+    color: #ffffff;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    line-height: 1;
+    border-radius: 4px;
+    text-decoration: none;
+    border: 2px solid var(--foxhue-accent, #E94560);
+    transition: background-color 150ms ease, transform 150ms ease, box-shadow 150ms ease;
+  }
+
+  .foxhue-service__cta:hover {
+    background-color: var(--foxhue-accent-hover, #D63851);
+    border-color: var(--foxhue-accent-hover, #D63851);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(233, 69, 96, 0.3);
+  }
+
+  .foxhue-service__cta:focus-visible {
+    outline: 3px solid var(--foxhue-accent, #E94560);
+    outline-offset: 3px;
+  }
+
+  .foxhue-service__cta svg {
+    width: 16px;
+    height: 16px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .foxhue-service__cta-reassurance {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8125rem;
+    color: var(--foxhue-text-muted, #6B7280);
+  }
+
+  /* Image column */
+  .foxhue-service__image {
+    position: relative;
+  }
+
+  .foxhue-service__image-placeholder {
+    width: 100%;
+    aspect-ratio: 5 / 6;
+    border-radius: 16px;
+    background: linear-gradient(
+      145deg,
+      rgba(26, 26, 46, 0.06) 0%,
+      rgba(233, 69, 96, 0.04) 100%
+    );
+    border: 1px solid var(--foxhue-border, #E5E7EB);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Decorative audit report mockup */
+  .foxhue-service__mockup-doc {
+    width: 72%;
+    background: var(--foxhue-surface, #FFFFFF);
+    border-radius: 8px;
+    box-shadow: 0 8px 32px rgba(26, 26, 46, 0.12);
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .foxhue-service__mockup-doc-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(229, 231, 235, 0.8);
+  }
+
+  .foxhue-service__mockup-doc-logo {
+    width: 24px;
+    height: 24px;
+    background: var(--foxhue-primary, #1A1A2E);
+    border-radius: 4px;
+    flex-shrink: 0;
+  }
+
+  .foxhue-service__mockup-doc-title {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .foxhue-service__mockup-doc-title-bar {
+    height: 6px;
+    border-radius: 3px;
+    background: var(--foxhue-primary, #1A1A2E);
+    width: 70%;
+    opacity: 0.15;
+  }
+
+  .foxhue-service__mockup-doc-title-bar--sub {
+    width: 45%;
+    opacity: 0.08;
+  }
+
+  .foxhue-service__mockup-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .foxhue-service__mockup-label {
+    height: 5px;
+    border-radius: 3px;
+    background: rgba(26, 26, 46, 0.1);
+    flex: 1;
+  }
+
+  .foxhue-service__mockup-score {
+    font-family: 'DM Serif Display', serif;
+    font-size: 0.875rem;
+    font-weight: 400;
+    color: var(--foxhue-accent, #E94560);
+    flex-shrink: 0;
+    min-width: 24px;
+    text-align: right;
+  }
+
+  .foxhue-service__mockup-bar-fill {
+    height: 6px;
+    border-radius: 3px;
+    flex: 1;
+    background: var(--foxhue-border, #E5E7EB);
+    overflow: hidden;
+    position: relative;
+  }
+
+  .foxhue-service__mockup-bar-fill::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    border-radius: 3px;
+    background: var(--foxhue-accent, #E94560);
+  }
+
+  .foxhue-service__mockup-bar-fill--30::after  { width: 30%; }
+  .foxhue-service__mockup-bar-fill--55::after  { width: 55%; }
+  .foxhue-service__mockup-bar-fill--72::after  { width: 72%; background: #F59E0B; }
+  .foxhue-service__mockup-bar-fill--88::after  { width: 88%; background: #10B981; }
+
+  /* Floating annotation chip */
+  .foxhue-service__image-chip {
+    position: absolute;
+    bottom: 28px;
+    right: -16px;
+    background: var(--foxhue-surface, #FFFFFF);
+    border: 1px solid var(--foxhue-border, #E5E7EB);
+    border-radius: 10px;
+    padding: 0.75rem 1rem;
+    box-shadow: 0 4px 16px rgba(26, 26, 46, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    max-width: 200px;
+  }
+
+  .foxhue-service__image-chip-icon {
+    width: 36px;
+    height: 36px;
+    background: rgba(16, 185, 129, 0.1);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: #10B981;
+  }
+
+  .foxhue-service__image-chip-icon svg {
+    width: 18px;
+    height: 18px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .foxhue-service__image-chip-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .foxhue-service__image-chip-value {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: var(--foxhue-primary, #1A1A2E);
+    line-height: 1;
+  }
+
+  .foxhue-service__image-chip-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.6875rem;
+    font-weight: 500;
+    color: var(--foxhue-text-muted, #6B7280);
+    white-space: nowrap;
+  }
+
+  /* Responsive */
+  @media (max-width: 991px) {
+    .foxhue-service__grid {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+
+    /* Image goes below content on tablet/mobile */
+    .foxhue-service__image {
+      order: -1;
+      max-width: 480px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .foxhue-service__image-chip {
+      right: 0;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .foxhue-service__image {
+      max-width: 100%;
+    }
+
+    .foxhue-service__image-placeholder {
+      aspect-ratio: 4 / 3;
+    }
+
+    .foxhue-service__image-chip {
+      right: 12px;
+      bottom: 16px;
+    }
+  }
+
+  @media (max-width: 478px) {
+    .foxhue-service__cta-wrap {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .foxhue-service__cta {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+</style>
+
+<section class="foxhue-service" aria-labelledby="foxhue-service-heading">
+  <div class="foxhue-service__inner">
+    <div class="foxhue-service__grid">
+
+      <!-- Text content -->
+      <div class="foxhue-service__content">
+
+        <p class="foxhue-service__eyebrow">Our Methodology</p>
+        <h2 class="foxhue-service__title" id="foxhue-service-heading">
+          A Proper Audit, Not a Ticked-Box Template
+        </h2>
+        <p class="foxhue-service__body">
+          Most free audits are automated tools that spit out a PDF and call it a
+          day. Ours is different. A real person at Foxhue reviews your site,
+          cross-references your data, and produces findings you can actually act on.
+        </p>
+        <p class="foxhue-service__body">
+          We combine specialist SEO tools with hands-on analysis to give you the
+          full picture — covering technical SEO, content quality, user experience,
+          and how you compare to your closest competitors in Oxfordshire and beyond.
+        </p>
+
+        <!-- Process steps -->
+        <ol class="foxhue-service__steps" aria-label="How the audit process works">
+
+          <li class="foxhue-service__step">
+            <span class="foxhue-service__step-number" aria-hidden="true">1</span>
+            <div class="foxhue-service__step-body">
+              <p class="foxhue-service__step-title">You submit the form</p>
+              <p class="foxhue-service__step-desc">
+                Takes 2 minutes. We collect your website URL and the basics about
+                your business goals — no personal data beyond your name and email.
+              </p>
+            </div>
+          </li>
+
+          <li class="foxhue-service__step">
+            <span class="foxhue-service__step-number" aria-hidden="true">2</span>
+            <div class="foxhue-service__step-body">
+              <p class="foxhue-service__step-title">We carry out the audit</p>
+              <p class="foxhue-service__step-desc">
+                Our team analyses your site across SEO, performance, mobile
+                experience, and competitor positioning using professional-grade tools.
+              </p>
+            </div>
+          </li>
+
+          <li class="foxhue-service__step foxhue-service__step--accent">
+            <span class="foxhue-service__step-number" aria-hidden="true">3</span>
+            <div class="foxhue-service__step-body">
+              <p class="foxhue-service__step-title">You receive your report within 48 hours</p>
+              <p class="foxhue-service__step-desc">
+                A clear, jargon-free report with prioritised recommendations lands
+                in your inbox. We then offer a free 20-minute call to walk through
+                the findings if you'd like.
+              </p>
+            </div>
+          </li>
+
+          <li class="foxhue-service__step">
+            <span class="foxhue-service__step-number" aria-hidden="true">4</span>
+            <div class="foxhue-service__step-body">
+              <p class="foxhue-service__step-title">You decide what to do next</p>
+              <p class="foxhue-service__step-desc">
+                The audit is yours to keep, whether you work with us or not. There's
+                no sales pressure and no catch.
+              </p>
+            </div>
+          </li>
+
+        </ol>
+
+        <div class="foxhue-service__cta-wrap">
+          <a href="#audit-form" class="foxhue-service__cta" aria-label="Get your free website audit from Foxhue">
+            Get My Free Audit
+            <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+              <path d="M3.5 8h9M8.5 4.5L12 8l-3.5 3.5"/>
+            </svg>
+          </a>
+          <p class="foxhue-service__cta-reassurance">No cost. No obligation. No hard sell.</p>
+        </div>
+
+      </div>
+
+      <!-- Image / mockup -->
+      <div class="foxhue-service__image">
+        <div class="foxhue-service__image-placeholder" role="img" aria-label="Sample audit report illustration — placeholder for client photography">
+
+          <!-- Document mockup -->
+          <div class="foxhue-service__mockup-doc" aria-hidden="true">
+
+            <div class="foxhue-service__mockup-doc-header">
+              <div class="foxhue-service__mockup-doc-logo"></div>
+              <div class="foxhue-service__mockup-doc-title">
+                <div class="foxhue-service__mockup-doc-title-bar"></div>
+                <div class="foxhue-service__mockup-doc-title-bar foxhue-service__mockup-doc-title-bar--sub"></div>
+              </div>
+            </div>
+
+            <div class="foxhue-service__mockup-row">
+              <div class="foxhue-service__mockup-label" style="width: 40%; flex: none;"></div>
+              <div class="foxhue-service__mockup-bar-fill foxhue-service__mockup-bar-fill--30"></div>
+              <span class="foxhue-service__mockup-score">30</span>
+            </div>
+
+            <div class="foxhue-service__mockup-row">
+              <div class="foxhue-service__mockup-label" style="width: 40%; flex: none;"></div>
+              <div class="foxhue-service__mockup-bar-fill foxhue-service__mockup-bar-fill--55"></div>
+              <span class="foxhue-service__mockup-score">55</span>
+            </div>
+
+            <div class="foxhue-service__mockup-row">
+              <div class="foxhue-service__mockup-label" style="width: 40%; flex: none;"></div>
+              <div class="foxhue-service__mockup-bar-fill foxhue-service__mockup-bar-fill--72"></div>
+              <span class="foxhue-service__mockup-score" style="color: #F59E0B;">72</span>
+            </div>
+
+            <div class="foxhue-service__mockup-row">
+              <div class="foxhue-service__mockup-label" style="width: 40%; flex: none;"></div>
+              <div class="foxhue-service__mockup-bar-fill foxhue-service__mockup-bar-fill--88"></div>
+              <span class="foxhue-service__mockup-score" style="color: #10B981;">88</span>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- Floating chip annotation -->
+        <div class="foxhue-service__image-chip" aria-hidden="true">
+          <div class="foxhue-service__image-chip-icon">
+            <svg viewBox="0 0 18 18">
+              <path d="M4 9.5l3.5 3.5 6.5-7"/>
+            </svg>
+          </div>
+          <div class="foxhue-service__image-chip-text">
+            <span class="foxhue-service__image-chip-value">+47%</span>
+            <span class="foxhue-service__image-chip-label">Avg. traffic lift</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>

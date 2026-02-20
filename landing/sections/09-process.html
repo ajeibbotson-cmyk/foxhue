@@ -1,0 +1,391 @@
+<!-- Section: Process | Foxhue Landing Page -->
+<style>
+  /* ══════════════════════════════════════════════════
+     Foxhue Landing — Process Section
+     ══════════════════════════════════════════════════ */
+
+  :root {
+    --foxhue-primary: #1A1A2E;
+    --foxhue-accent: #E94560;
+    --foxhue-accent-hover: #D63851;
+    --foxhue-bg: #F8F8FA;
+    --foxhue-surface: #FFFFFF;
+    --foxhue-text: #1A1A2E;
+    --foxhue-text-muted: #6b6b80;
+    --foxhue-border: rgba(26, 26, 46, 0.1);
+    --foxhue-shadow-sm: 0 1px 4px rgba(26, 26, 46, 0.06);
+    --foxhue-shadow-md: 0 4px 16px rgba(26, 26, 46, 0.08);
+    --foxhue-radius-md: 10px;
+    --foxhue-radius-lg: 16px;
+    --foxhue-font-heading: 'DM Serif Display', serif;
+    --foxhue-font-body: 'Inter', sans-serif;
+  }
+
+  .foxhue-process {
+    background-color: var(--foxhue-surface);
+    padding: 6rem 2rem;
+    font-family: var(--foxhue-font-body);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .foxhue-process__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .foxhue-process__header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  .foxhue-process__eyebrow {
+    display: inline-block;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--foxhue-accent);
+    margin-bottom: 1rem;
+  }
+
+  .foxhue-process__heading {
+    font-family: var(--foxhue-font-heading);
+    font-size: clamp(1.75rem, 3.5vw, 2.625rem);
+    font-weight: 400;
+    color: var(--foxhue-primary);
+    line-height: 1.2;
+    margin: 0 0 1rem;
+  }
+
+  .foxhue-process__subheading {
+    font-size: 1.0625rem;
+    color: var(--foxhue-text-muted);
+    line-height: 1.65;
+    max-width: 540px;
+    margin: 0 auto;
+  }
+
+  /* ── Steps grid ── */
+  .foxhue-process__steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    position: relative;
+  }
+
+  /* Connecting line between steps */
+  .foxhue-process__steps::before {
+    content: '';
+    position: absolute;
+    top: 2.25rem;
+    left: calc(25% / 2 + 1rem);
+    right: calc(25% / 2 + 1rem);
+    height: 1px;
+    background: linear-gradient(to right, var(--foxhue-accent), rgba(233, 69, 96, 0.2));
+    z-index: 0;
+  }
+
+  .foxhue-process__step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0 1.5rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .foxhue-process__step-number-wrapper {
+    width: 4.5rem;
+    height: 4.5rem;
+    border-radius: 50%;
+    background-color: var(--foxhue-surface);
+    border: 2px solid var(--foxhue-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.75rem;
+    position: relative;
+    flex-shrink: 0;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+    box-shadow: var(--foxhue-shadow-sm);
+  }
+
+  .foxhue-process__step:hover .foxhue-process__step-number-wrapper {
+    border-color: var(--foxhue-accent);
+    box-shadow: 0 0 0 4px rgba(233, 69, 96, 0.1);
+  }
+
+  .foxhue-process__step--active .foxhue-process__step-number-wrapper {
+    background-color: var(--foxhue-accent);
+    border-color: var(--foxhue-accent);
+    box-shadow: 0 4px 16px rgba(233, 69, 96, 0.35);
+  }
+
+  .foxhue-process__step-number {
+    font-family: var(--foxhue-font-heading);
+    font-size: 1.375rem;
+    font-weight: 400;
+    color: var(--foxhue-accent);
+    line-height: 1;
+  }
+
+  .foxhue-process__step--active .foxhue-process__step-number {
+    color: #ffffff;
+  }
+
+  .foxhue-process__step-icon {
+    position: absolute;
+    top: -0.375rem;
+    right: -0.375rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    background-color: var(--foxhue-bg);
+    border: 1.5px solid var(--foxhue-border);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    line-height: 1;
+  }
+
+  .foxhue-process__step-title {
+    font-family: var(--foxhue-font-heading);
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: var(--foxhue-primary);
+    line-height: 1.25;
+    margin: 0 0 0.875rem;
+  }
+
+  .foxhue-process__step-description {
+    font-size: 0.9375rem;
+    color: var(--foxhue-text-muted);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  /* ── Bottom CTA strip ── */
+  .foxhue-process__footer {
+    text-align: center;
+    margin-top: 4rem;
+    padding-top: 3rem;
+    border-top: 1px solid var(--foxhue-border);
+  }
+
+  .foxhue-process__footer-text {
+    font-size: 1rem;
+    color: var(--foxhue-text-muted);
+    margin: 0 0 1.5rem;
+  }
+
+  .foxhue-process__footer-text strong {
+    color: var(--foxhue-primary);
+    font-weight: 600;
+  }
+
+  .foxhue-process__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.875rem 2rem;
+    background-color: var(--foxhue-accent);
+    color: #ffffff;
+    border-radius: var(--foxhue-radius-md);
+    font-family: var(--foxhue-font-body);
+    font-size: 0.9375rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    text-decoration: none;
+    box-shadow: 0 4px 14px rgba(233, 69, 96, 0.3);
+    transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease;
+  }
+
+  .foxhue-process__cta:hover {
+    background-color: var(--foxhue-accent-hover);
+    box-shadow: 0 6px 20px rgba(233, 69, 96, 0.4);
+    transform: translateY(-1px);
+  }
+
+  .foxhue-process__cta-arrow {
+    font-size: 1rem;
+    transition: transform 0.2s ease;
+  }
+
+  .foxhue-process__cta:hover .foxhue-process__cta-arrow {
+    transform: translateX(3px);
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 1200px) {
+    .foxhue-process__step {
+      padding: 0 1rem;
+    }
+  }
+
+  @media (max-width: 991px) {
+    .foxhue-process {
+      padding: 5rem 1.5rem;
+    }
+
+    .foxhue-process__steps {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 3rem 2rem;
+    }
+
+    .foxhue-process__steps::before {
+      display: none;
+    }
+
+    /* Vertical connectors for 2-col layout */
+    .foxhue-process__step:nth-child(1)::after,
+    .foxhue-process__step:nth-child(2)::after {
+      content: '';
+      position: absolute;
+      bottom: -1.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 1px;
+      height: 1.5rem;
+      background-color: rgba(233, 69, 96, 0.25);
+    }
+  }
+
+  @media (max-width: 767px) {
+    .foxhue-process {
+      padding: 4rem 1.25rem;
+    }
+
+    .foxhue-process__steps {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+      max-width: 420px;
+      margin: 0 auto;
+    }
+
+    .foxhue-process__step:nth-child(1)::after,
+    .foxhue-process__step:nth-child(2)::after {
+      display: none;
+    }
+
+    /* Horizontal layout for each step on mobile */
+    .foxhue-process__step {
+      flex-direction: row;
+      text-align: left;
+      align-items: flex-start;
+      gap: 1.5rem;
+      padding: 0;
+    }
+
+    .foxhue-process__step-number-wrapper {
+      margin-bottom: 0;
+      flex-shrink: 0;
+    }
+
+    .foxhue-process__step-content {
+      flex: 1;
+    }
+  }
+
+  @media (max-width: 478px) {
+    .foxhue-process {
+      padding: 3rem 1rem;
+    }
+
+    .foxhue-process__step-number-wrapper {
+      width: 3.5rem;
+      height: 3.5rem;
+    }
+
+    .foxhue-process__step-number {
+      font-size: 1.125rem;
+    }
+  }
+</style>
+
+<section class="foxhue-process" aria-labelledby="process-heading">
+  <div class="foxhue-process__inner">
+
+    <header class="foxhue-process__header">
+      <span class="foxhue-process__eyebrow">How It Works</span>
+      <h2 class="foxhue-process__heading" id="process-heading">
+        From enquiry to insight in four steps
+      </h2>
+      <p class="foxhue-process__subheading">
+        No lengthy onboarding. No jargon-filled kick-off calls. Just a straightforward process that gets you answers fast.
+      </p>
+    </header>
+
+    <ol class="foxhue-process__steps" aria-label="Audit process steps">
+
+      <!-- Step 1 -->
+      <li class="foxhue-process__step foxhue-process__step--active">
+        <div class="foxhue-process__step-number-wrapper" aria-hidden="true">
+          <span class="foxhue-process__step-number">1</span>
+          <span class="foxhue-process__step-icon">📞</span>
+        </div>
+        <div class="foxhue-process__step-content">
+          <h3 class="foxhue-process__step-title">Book Your Call</h3>
+          <p class="foxhue-process__step-description">
+            A quick 15-minute conversation to understand your business, your goals, and what you most want to improve. No preparation needed on your end.
+          </p>
+        </div>
+      </li>
+
+      <!-- Step 2 -->
+      <li class="foxhue-process__step">
+        <div class="foxhue-process__step-number-wrapper" aria-hidden="true">
+          <span class="foxhue-process__step-number">2</span>
+          <span class="foxhue-process__step-icon">🔍</span>
+        </div>
+        <div class="foxhue-process__step-content">
+          <h3 class="foxhue-process__step-title">We Audit Everything</h3>
+          <p class="foxhue-process__step-description">
+            A comprehensive review of your SEO health, page speed, mobile experience, content quality, and competitors — with every issue documented and ranked by impact.
+          </p>
+        </div>
+      </li>
+
+      <!-- Step 3 -->
+      <li class="foxhue-process__step">
+        <div class="foxhue-process__step-number-wrapper" aria-hidden="true">
+          <span class="foxhue-process__step-number">3</span>
+          <span class="foxhue-process__step-icon">📋</span>
+        </div>
+        <div class="foxhue-process__step-content">
+          <h3 class="foxhue-process__step-title">Review Your Report</h3>
+          <p class="foxhue-process__step-description">
+            We walk you through every finding on a call — in plain English. You'll leave knowing exactly what's wrong, why it matters, and what to do about it, in the right order.
+          </p>
+        </div>
+      </li>
+
+      <!-- Step 4 -->
+      <li class="foxhue-process__step">
+        <div class="foxhue-process__step-number-wrapper" aria-hidden="true">
+          <span class="foxhue-process__step-number">4</span>
+          <span class="foxhue-process__step-icon">📈</span>
+        </div>
+        <div class="foxhue-process__step-content">
+          <h3 class="foxhue-process__step-title">Watch It Grow</h3>
+          <p class="foxhue-process__step-description">
+            Implement the changes yourself or let us handle it. Either way, we track your rankings, traffic, and conversions monthly so you can see the results in black and white.
+          </p>
+        </div>
+      </li>
+
+    </ol>
+
+    <div class="foxhue-process__footer">
+      <p class="foxhue-process__footer-text">
+        The whole process starts with a <strong>free, no-obligation call.</strong> Book yours today.
+      </p>
+      <a href="#book" class="foxhue-process__cta">
+        Book My Free Audit
+        <span class="foxhue-process__cta-arrow" aria-hidden="true">→</span>
+      </a>
+    </div>
+
+  </div>
+</section>

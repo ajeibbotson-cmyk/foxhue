@@ -1,0 +1,480 @@
+<!-- Section: Footer CTA | Foxhue Landing Page -->
+<style>
+  /* ══════════════════════════════════════════════════
+     Foxhue Landing — Footer CTA Section
+     ══════════════════════════════════════════════════ */
+
+  :root {
+    --foxhue-primary: #1A1A2E;
+    --foxhue-accent: #E94560;
+    --foxhue-accent-hover: #D63851;
+    --foxhue-bg: #F8F8FA;
+    --foxhue-surface: #FFFFFF;
+    --foxhue-text: #1A1A2E;
+    --foxhue-text-muted: #6b6b80;
+    --foxhue-border: rgba(26, 26, 46, 0.1);
+    --foxhue-shadow-md: 0 4px 16px rgba(26, 26, 46, 0.08);
+    --foxhue-radius-md: 10px;
+    --foxhue-radius-lg: 16px;
+    --foxhue-font-heading: 'DM Serif Display', serif;
+    --foxhue-font-body: 'Inter', sans-serif;
+  }
+
+  .foxhue-footer {
+    background-color: var(--foxhue-primary);
+    font-family: var(--foxhue-font-body);
+    -webkit-font-smoothing: antialiased;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* ── Final CTA strip at top of footer ── */
+  .foxhue-footer__cta-strip {
+    padding: 5rem 2rem;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  /* Subtle radial glow */
+  .foxhue-footer__cta-strip::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 700px;
+    height: 400px;
+    background: radial-gradient(ellipse, rgba(233, 69, 96, 0.12) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .foxhue-footer__cta-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 680px;
+    margin: 0 auto;
+  }
+
+  .foxhue-footer__cta-eyebrow {
+    display: inline-block;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(233, 69, 96, 0.9);
+    margin-bottom: 1.25rem;
+  }
+
+  .foxhue-footer__cta-heading {
+    font-family: var(--foxhue-font-heading);
+    font-size: clamp(1.625rem, 3.5vw, 2.75rem);
+    font-weight: 400;
+    color: #ffffff;
+    line-height: 1.2;
+    margin: 0 0 1rem;
+  }
+
+  .foxhue-footer__cta-body {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.65);
+    line-height: 1.65;
+    margin: 0 auto 2.25rem;
+    max-width: 520px;
+  }
+
+  .foxhue-footer__cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 2.25rem;
+    background-color: var(--foxhue-accent);
+    color: #ffffff;
+    border-radius: var(--foxhue-radius-md);
+    font-family: var(--foxhue-font-body);
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    text-decoration: none;
+    box-shadow: 0 6px 24px rgba(233, 69, 96, 0.4);
+    transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease;
+  }
+
+  .foxhue-footer__cta-btn:hover {
+    background-color: var(--foxhue-accent-hover);
+    box-shadow: 0 8px 32px rgba(233, 69, 96, 0.5);
+    transform: translateY(-2px);
+  }
+
+  .foxhue-footer__cta-btn-arrow {
+    font-size: 1.125rem;
+    transition: transform 0.2s ease;
+  }
+
+  .foxhue-footer__cta-btn:hover .foxhue-footer__cta-btn-arrow {
+    transform: translateX(3px);
+  }
+
+  /* ── Main footer content ── */
+  .foxhue-footer__main {
+    padding: 3.5rem 2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .foxhue-footer__main-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.75fr 1fr 1fr;
+    gap: 3rem;
+  }
+
+  /* Brand column */
+  .foxhue-footer__brand {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .foxhue-footer__wordmark {
+    font-family: var(--foxhue-font-heading);
+    font-size: 1.75rem;
+    font-weight: 400;
+    color: #ffffff;
+    line-height: 1;
+    text-decoration: none;
+  }
+
+  .foxhue-footer__tagline {
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.4);
+  }
+
+  .foxhue-footer__brand-desc {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.5);
+    line-height: 1.7;
+    margin: 0;
+    max-width: 300px;
+  }
+
+  .foxhue-footer__brand-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 0.25rem;
+  }
+
+  .foxhue-footer__brand-contact-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.55);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .foxhue-footer__brand-contact-item:hover {
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  .foxhue-footer__brand-contact-icon {
+    font-size: 0.875rem;
+    flex-shrink: 0;
+  }
+
+  /* Nav columns */
+  .foxhue-footer__nav-col {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .foxhue-footer__nav-heading {
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.4);
+    margin: 0 0 1.125rem;
+  }
+
+  .foxhue-footer__nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .foxhue-footer__nav-link {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.55);
+    text-decoration: none;
+    transition: color 0.2s ease;
+    line-height: 1.45;
+  }
+
+  .foxhue-footer__nav-link:hover {
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .foxhue-footer__nav-link--accent {
+    color: rgba(233, 69, 96, 0.85);
+    font-weight: 600;
+  }
+
+  .foxhue-footer__nav-link--accent:hover {
+    color: var(--foxhue-accent);
+  }
+
+  /* ── Bottom bar ── */
+  .foxhue-footer__bottom {
+    padding: 1.625rem 2rem;
+  }
+
+  .foxhue-footer__bottom-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .foxhue-footer__copyright {
+    font-size: 0.8125rem;
+    color: rgba(255, 255, 255, 0.35);
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  .foxhue-footer__copyright a {
+    color: rgba(255, 255, 255, 0.5);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: color 0.2s ease, border-color 0.2s ease;
+  }
+
+  .foxhue-footer__copyright a:hover {
+    color: rgba(255, 255, 255, 0.8);
+    border-bottom-color: rgba(255, 255, 255, 0.3);
+  }
+
+  .foxhue-footer__legal-links {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .foxhue-footer__legal-link {
+    font-size: 0.8125rem;
+    color: rgba(255, 255, 255, 0.35);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .foxhue-footer__legal-link:hover {
+    color: rgba(255, 255, 255, 0.65);
+  }
+
+  /* Decorative elements */
+  .foxhue-footer__deco {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 480px;
+    height: 480px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    transform: translate(30%, 30%);
+    pointer-events: none;
+  }
+
+  .foxhue-footer__deco-inner {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    transform: translate(30%, 30%);
+    pointer-events: none;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 991px) {
+    .foxhue-footer__cta-strip {
+      padding: 4rem 1.5rem;
+    }
+
+    .foxhue-footer__main {
+      padding: 3rem 1.5rem;
+    }
+
+    .foxhue-footer__main-inner {
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+    }
+
+    .foxhue-footer__brand {
+      grid-column: span 2;
+    }
+
+    .foxhue-footer__bottom {
+      padding: 1.5rem;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .foxhue-footer__cta-strip {
+      padding: 3.5rem 1.25rem;
+    }
+
+    .foxhue-footer__main {
+      padding: 2.5rem 1.25rem;
+    }
+
+    .foxhue-footer__main-inner {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .foxhue-footer__brand {
+      grid-column: span 1;
+    }
+
+    .foxhue-footer__bottom {
+      padding: 1.25rem;
+    }
+
+    .foxhue-footer__bottom-inner {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.875rem;
+    }
+  }
+
+  @media (max-width: 478px) {
+    .foxhue-footer__cta-strip {
+      padding: 3rem 1rem;
+    }
+
+    .foxhue-footer__main {
+      padding: 2rem 1rem;
+    }
+
+    .foxhue-footer__cta-btn {
+      width: 100%;
+      justify-content: center;
+    }
+
+    .foxhue-footer__legal-links {
+      gap: 1rem;
+    }
+  }
+</style>
+
+<footer class="foxhue-footer" role="contentinfo">
+
+  <!-- Decorative circles -->
+  <div class="foxhue-footer__deco" aria-hidden="true"></div>
+  <div class="foxhue-footer__deco-inner" aria-hidden="true"></div>
+
+  <!-- Final CTA strip -->
+  <div class="foxhue-footer__cta-strip">
+    <div class="foxhue-footer__cta-inner">
+      <span class="foxhue-footer__cta-eyebrow">Free. No Obligation.</span>
+      <h2 class="foxhue-footer__cta-heading">
+        Your free audit is one click away
+      </h2>
+      <p class="foxhue-footer__cta-body">
+        Join the Oxfordshire businesses that now know exactly where they stand in search — and what to do about it.
+      </p>
+      <a href="#book" class="foxhue-footer__cta-btn">
+        Book My Free Audit
+        <span class="foxhue-footer__cta-btn-arrow" aria-hidden="true">→</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Footer main grid -->
+  <div class="foxhue-footer__main">
+    <div class="foxhue-footer__main-inner">
+
+      <!-- Brand column -->
+      <div class="foxhue-footer__brand">
+        <a href="https://foxhue.com" class="foxhue-footer__wordmark" aria-label="Foxhue homepage">Foxhue</a>
+        <span class="foxhue-footer__tagline">Creative Design &amp; Marketing</span>
+        <p class="foxhue-footer__brand-desc">
+          We help UK businesses grow through honest strategy, thoughtful design, and marketing that actually works. Based in Bicester, Oxfordshire.
+        </p>
+        <div class="foxhue-footer__brand-contact">
+          <a href="mailto:hello@foxhue.com" class="foxhue-footer__brand-contact-item">
+            <span class="foxhue-footer__brand-contact-icon" aria-hidden="true">✉</span>
+            hello@foxhue.com
+          </a>
+          <a href="tel:TBC" class="foxhue-footer__brand-contact-item">
+            <span class="foxhue-footer__brand-contact-icon" aria-hidden="true">☎</span>
+            Phone TBC
+          </a>
+          <span class="foxhue-footer__brand-contact-item" aria-label="Location: Bicester, Oxfordshire">
+            <span class="foxhue-footer__brand-contact-icon" aria-hidden="true">⚲</span>
+            Bicester, Oxfordshire, OX26
+          </span>
+        </div>
+      </div>
+
+      <!-- Services column -->
+      <nav class="foxhue-footer__nav-col" aria-label="Services">
+        <h3 class="foxhue-footer__nav-heading">Services</h3>
+        <ul class="foxhue-footer__nav-list">
+          <li><a href="#book" class="foxhue-footer__nav-link foxhue-footer__nav-link--accent">Free SEO Audit</a></li>
+          <li><a href="https://foxhue.com/services" class="foxhue-footer__nav-link">Full Website Audit</a></li>
+          <li><a href="https://foxhue.com/services" class="foxhue-footer__nav-link">SEO &amp; Content Strategy</a></li>
+          <li><a href="https://foxhue.com/services" class="foxhue-footer__nav-link">Web Design</a></li>
+          <li><a href="https://foxhue.com/services" class="foxhue-footer__nav-link">Brand Identity</a></li>
+          <li><a href="https://foxhue.com/services" class="foxhue-footer__nav-link">Marketing &amp; Campaigns</a></li>
+        </ul>
+      </nav>
+
+      <!-- Company column -->
+      <nav class="foxhue-footer__nav-col" aria-label="Company">
+        <h3 class="foxhue-footer__nav-heading">Company</h3>
+        <ul class="foxhue-footer__nav-list">
+          <li><a href="https://foxhue.com/about" class="foxhue-footer__nav-link">About Foxhue</a></li>
+          <li><a href="https://foxhue.com/work" class="foxhue-footer__nav-link">Our Work</a></li>
+          <li><a href="https://foxhue.com/blog" class="foxhue-footer__nav-link">Blog &amp; Insights</a></li>
+          <li><a href="https://foxhue.com/contact" class="foxhue-footer__nav-link">Contact Us</a></li>
+        </ul>
+      </nav>
+
+    </div>
+  </div>
+
+  <!-- Bottom bar -->
+  <div class="foxhue-footer__bottom">
+    <div class="foxhue-footer__bottom-inner">
+      <p class="foxhue-footer__copyright">
+        &copy; 2026 <a href="https://foxhue.com">Foxhue Ltd</a>. All rights reserved. Registered in England &amp; Wales.
+      </p>
+      <ul class="foxhue-footer__legal-links" aria-label="Legal links">
+        <li><a href="https://foxhue.com/privacy" class="foxhue-footer__legal-link">Privacy Policy</a></li>
+        <li><a href="https://foxhue.com/cookies" class="foxhue-footer__legal-link">Cookie Policy</a></li>
+        <li><a href="https://foxhue.com/terms" class="foxhue-footer__legal-link">Terms</a></li>
+      </ul>
+    </div>
+  </div>
+
+</footer>

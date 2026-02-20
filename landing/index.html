@@ -1,0 +1,6126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free SEO &amp; Website Audit — Foxhue</title>
+  <meta name="description" content="Get a free SEO and website audit from Foxhue. Discover what's holding your website back and get actionable recommendations to grow your online presence.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- Section: Header | Foxhue Landing Page -->
+
+<style>
+  /* -----------------------------------------------------------------------
+     Foxhue Header — Sticky Navigation
+     BEM: foxhue-header, foxhue-header__inner, foxhue-header__logo,
+          foxhue-header__logo-mark, foxhue-header__logo-text,
+          foxhue-header__nav, foxhue-header__nav-label, foxhue-header__cta
+  ----------------------------------------------------------------------- */
+
+  .foxhue-header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 900;
+    background-color: var(--foxhue-surface);
+    border-bottom: 1px solid var(--foxhue-border);
+    box-shadow: 0 1px 8px rgba(26, 26, 46, 0.06);
+  }
+
+  .foxhue-header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 68px;
+    max-width: var(--foxhue-container-max, 1200px);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: clamp(1.25rem, 4vw, 2rem);
+    padding-right: clamp(1.25rem, 4vw, 2rem);
+  }
+
+  /* Logo */
+  .foxhue-header__logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+
+  .foxhue-header__logo-mark {
+    width: 36px;
+    height: 36px;
+    background-color: var(--foxhue-primary, #1A1A2E);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .foxhue-header__logo-mark svg {
+    width: 20px;
+    height: 20px;
+    fill: none;
+    stroke: #ffffff;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .foxhue-header__logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+  }
+
+  .foxhue-header__logo-name {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.125rem;
+    font-weight: 400;
+    color: var(--foxhue-primary, #1A1A2E);
+    letter-spacing: -0.01em;
+  }
+
+  .foxhue-header__logo-tagline {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.6875rem;
+    font-weight: 500;
+    color: var(--foxhue-text-muted, #6B7280);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  /* Nav label (centre) */
+  .foxhue-header__nav {
+    display: flex;
+    align-items: center;
+  }
+
+  .foxhue-header__nav-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: var(--foxhue-text-muted, #6B7280);
+    letter-spacing: 0.01em;
+    /* Decorative flanking rules */
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .foxhue-header__nav-label::before,
+  .foxhue-header__nav-label::after {
+    content: '';
+    display: block;
+    width: 32px;
+    height: 1px;
+    background-color: var(--foxhue-border, #E5E7EB);
+  }
+
+  /* CTA */
+  .foxhue-header__cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.625rem 1.375rem;
+    background-color: var(--foxhue-accent, #E94560);
+    color: #ffffff;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 600;
+    line-height: 1;
+    border-radius: 4px;
+    text-decoration: none;
+    white-space: nowrap;
+    border: 2px solid var(--foxhue-accent, #E94560);
+    transition: background-color 150ms ease, border-color 150ms ease, transform 150ms ease;
+    flex-shrink: 0;
+  }
+
+  .foxhue-header__cta:hover {
+    background-color: var(--foxhue-accent-hover, #D63851);
+    border-color: var(--foxhue-accent-hover, #D63851);
+    transform: translateY(-1px);
+  }
+
+  .foxhue-header__cta:focus-visible {
+    outline: 3px solid var(--foxhue-accent, #E94560);
+    outline-offset: 3px;
+  }
+
+  .foxhue-header__cta:active {
+    transform: translateY(0);
+  }
+
+  /* Badge on CTA */
+  .foxhue-header__cta-badge {
+    display: inline-block;
+    background-color: rgba(255, 255, 255, 0.22);
+    color: #ffffff;
+    font-size: 0.625rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 2px 6px;
+    border-radius: 100px;
+    margin-left: 6px;
+    vertical-align: middle;
+  }
+
+  /* Responsive */
+  @media (max-width: 767px) {
+    .foxhue-header__inner {
+      height: 60px;
+    }
+
+    .foxhue-header__nav {
+      display: none;
+    }
+
+    .foxhue-header__logo-tagline {
+      display: none;
+    }
+
+    .foxhue-header__cta-badge {
+      display: none;
+    }
+
+    .foxhue-header__cta {
+      padding: 0.5rem 1rem;
+      font-size: 0.8125rem;
+    }
+  }
+
+  @media (max-width: 478px) {
+    .foxhue-header__logo-name {
+      font-size: 1rem;
+    }
+  }
+</style>
+
+<a href="#main-content" class="foxhue-skip-link">Skip to main content</a>
+
+<header class="foxhue-header" role="banner">
+  <div class="foxhue-header__inner">
+
+    <!-- Logo -->
+    <a href="https://foxhue.com" class="foxhue-header__logo" aria-label="Foxhue — Creative Design & Marketing, return to homepage">
+      <div class="foxhue-header__logo-mark" aria-hidden="true">
+        <!-- Stylised 'F' lettermark placeholder -->
+        <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false">
+          <path d="M4 4h12M4 10h8M4 16v-12" />
+        </svg>
+      </div>
+      <div class="foxhue-header__logo-text">
+        <span class="foxhue-header__logo-name">Foxhue</span>
+        <span class="foxhue-header__logo-tagline">Creative Design &amp; Marketing</span>
+      </div>
+    </a>
+
+    <!-- Page label -->
+    <nav class="foxhue-header__nav" aria-label="Page context">
+      <span class="foxhue-header__nav-label">SEO &amp; Website Audit</span>
+    </nav>
+
+    <!-- Primary CTA -->
+    <a href="#audit-form" class="foxhue-header__cta" aria-label="Book your free SEO and website audit">
+      Book Free Audit
+      <span class="foxhue-header__cta-badge" aria-label="No cost, no obligation">Free</span>
+    </a>
+
+  </div>
+</header>
+
+<!-- Section: Hero | Foxhue Landing Page -->
+
+<style>
+  /* -----------------------------------------------------------------------
+     Foxhue Hero — Primary conversion section
+     BEM: foxhue-hero, foxhue-hero__inner, foxhue-hero__content,
+          foxhue-hero__eyebrow, foxhue-hero__title, foxhue-hero__subtitle,
+          foxhue-hero__cta-group, foxhue-hero__cta, foxhue-hero__cta-note,
+          foxhue-hero__image-wrap, foxhue-hero__image-placeholder,
+          foxhue-hero__badge
+  ----------------------------------------------------------------------- */
+
+  .foxhue-hero {
+    background-color: var(--foxhue-primary, #1A1A2E);
+    position: relative;
+    overflow: hidden;
+    padding-top: clamp(3.5rem, 7vw, 6rem);
+    padding-bottom: 0;
+  }
+
+  /* Subtle grid texture overlay */
+  .foxhue-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+    background-size: 48px 48px;
+    pointer-events: none;
+  }
+
+  /* Accent glow blob */
+  .foxhue-hero::after {
+    content: '';
+    position: absolute;
+    top: -120px;
+    right: -80px;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(233, 69, 96, 0.18) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .foxhue-hero__inner {
+    position: relative;
+    z-index: 1;
+    max-width: var(--foxhue-container-max, 1200px);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: clamp(1.25rem, 4vw, 2rem);
+    padding-right: clamp(1.25rem, 4vw, 2rem);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(2rem, 5vw, 4rem);
+    align-items: end;
+  }
+
+  /* Content column */
+  .foxhue-hero__content {
+    padding-bottom: clamp(3rem, 5vw, 5rem);
+  }
+
+  .foxhue-hero__eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--foxhue-accent, #E94560);
+    margin-bottom: 1.25rem;
+  }
+
+  .foxhue-hero__eyebrow-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: var(--foxhue-accent, #E94560);
+    flex-shrink: 0;
+  }
+
+  .foxhue-hero__title {
+    font-family: 'DM Serif Display', serif;
+    font-weight: 400;
+    font-size: clamp(2.25rem, 5vw, 3.75rem);
+    line-height: 1.1;
+    color: #ffffff;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.02em;
+  }
+
+  /* Accent on key phrase */
+  .foxhue-hero__title-accent {
+    color: var(--foxhue-accent, #E94560);
+    font-style: italic;
+  }
+
+  .foxhue-hero__subtitle {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(1rem, 1.5vw, 1.1875rem);
+    font-weight: 400;
+    line-height: 1.65;
+    color: rgba(255, 255, 255, 0.72);
+    margin-bottom: 2.5rem;
+    max-width: 520px;
+  }
+
+  /* CTA group */
+  .foxhue-hero__cta-group {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .foxhue-hero__cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 1rem 2rem;
+    background-color: var(--foxhue-accent, #E94560);
+    color: #ffffff;
+    font-family: 'Inter', sans-serif;
+    font-size: 1.0625rem;
+    font-weight: 700;
+    line-height: 1;
+    border-radius: 4px;
+    text-decoration: none;
+    border: 2px solid var(--foxhue-accent, #E94560);
+    transition: background-color 150ms ease, border-color 150ms ease, transform 150ms ease, box-shadow 150ms ease;
+    white-space: nowrap;
+  }
+
+  .foxhue-hero__cta:hover {
+    background-color: var(--foxhue-accent-hover, #D63851);
+    border-color: var(--foxhue-accent-hover, #D63851);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(233, 69, 96, 0.35);
+  }
+
+  .foxhue-hero__cta:focus-visible {
+    outline: 3px solid #ffffff;
+    outline-offset: 3px;
+  }
+
+  .foxhue-hero__cta:active {
+    transform: translateY(0);
+    box-shadow: none;
+  }
+
+  .foxhue-hero__cta svg {
+    width: 18px;
+    height: 18px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    flex-shrink: 0;
+  }
+
+  .foxhue-hero__cta-note {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8125rem;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.48);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .foxhue-hero__cta-note::before {
+    content: '';
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='rgba(255,255,255,0.5)' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M8 1v6l3 3'/%3E%3Ccircle cx='8' cy='8' r='7'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-size: contain;
+    flex-shrink: 0;
+  }
+
+  /* Image column */
+  .foxhue-hero__image-wrap {
+    position: relative;
+    align-self: end;
+  }
+
+  .foxhue-hero__image-placeholder {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    border-radius: 12px 12px 0 0;
+    background: linear-gradient(
+      135deg,
+      rgba(255,255,255,0.06) 0%,
+      rgba(255,255,255,0.03) 50%,
+      rgba(233, 69, 96, 0.08) 100%
+    );
+    border: 1px solid rgba(255,255,255,0.08);
+    border-bottom: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Decorative dashboard mockup lines inside placeholder */
+  .foxhue-hero__mockup {
+    width: 88%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 24px;
+  }
+
+  .foxhue-hero__mockup-bar {
+    height: 8px;
+    border-radius: 4px;
+    background: rgba(255,255,255,0.1);
+  }
+
+  .foxhue-hero__mockup-bar--short { width: 40%; }
+  .foxhue-hero__mockup-bar--medium { width: 65%; }
+  .foxhue-hero__mockup-bar--long { width: 85%; }
+  .foxhue-hero__mockup-bar--accent {
+    background: linear-gradient(90deg, rgba(233, 69, 96, 0.5) 0%, rgba(233, 69, 96, 0.2) 100%);
+    width: 55%;
+    height: 12px;
+    margin-bottom: 4px;
+  }
+
+  .foxhue-hero__mockup-graph {
+    display: flex;
+    align-items: flex-end;
+    gap: 6px;
+    height: 64px;
+    margin-top: 8px;
+  }
+
+  .foxhue-hero__mockup-col {
+    flex: 1;
+    border-radius: 3px 3px 0 0;
+    background: rgba(255,255,255,0.08);
+  }
+
+  .foxhue-hero__mockup-col--h1 { height: 30%; }
+  .foxhue-hero__mockup-col--h2 { height: 55%; }
+  .foxhue-hero__mockup-col--h3 { height: 40%; }
+  .foxhue-hero__mockup-col--h4 { height: 70%; background: rgba(233, 69, 96, 0.45); }
+  .foxhue-hero__mockup-col--h5 { height: 85%; background: rgba(233, 69, 96, 0.6); }
+  .foxhue-hero__mockup-col--h6 { height: 65%; }
+  .foxhue-hero__mockup-col--h7 { height: 90%; background: rgba(233, 69, 96, 0.5); }
+  .foxhue-hero__mockup-col--h8 { height: 75%; }
+
+  /* Score badge */
+  .foxhue-hero__badge {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    width: 80px;
+    height: 80px;
+    background: var(--foxhue-accent, #E94560);
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    box-shadow: 0 8px 24px rgba(233, 69, 96, 0.4);
+  }
+
+  .foxhue-hero__badge-number {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.75rem;
+    font-weight: 400;
+    color: #ffffff;
+    line-height: 1;
+  }
+
+  .foxhue-hero__badge-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.5625rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.8);
+    line-height: 1;
+    margin-top: 2px;
+  }
+
+  /* Responsive */
+  @media (max-width: 991px) {
+    .foxhue-hero__inner {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+      align-items: start;
+    }
+
+    .foxhue-hero__content {
+      padding-bottom: 0;
+    }
+
+    .foxhue-hero__image-wrap {
+      max-width: 560px;
+      margin-left: auto;
+      margin-right: auto;
+      width: 100%;
+    }
+
+    .foxhue-hero__subtitle {
+      max-width: 100%;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .foxhue-hero {
+      padding-top: 2.5rem;
+    }
+
+    .foxhue-hero__title {
+      font-size: clamp(1.875rem, 7vw, 2.5rem);
+    }
+
+    .foxhue-hero__cta {
+      width: 100%;
+    }
+
+    .foxhue-hero__cta-group {
+      align-items: stretch;
+    }
+
+    .foxhue-hero__badge {
+      width: 64px;
+      height: 64px;
+      top: 16px;
+      right: 16px;
+    }
+
+    .foxhue-hero__badge-number {
+      font-size: 1.375rem;
+    }
+  }
+
+  @media (max-width: 478px) {
+    .foxhue-hero__eyebrow {
+      font-size: 0.6875rem;
+    }
+
+    .foxhue-hero__mockup-graph {
+      height: 48px;
+    }
+  }
+</style>
+
+<main id="main-content">
+  <section class="foxhue-hero" aria-labelledby="foxhue-hero-heading">
+
+    <div class="foxhue-hero__inner">
+
+      <!-- Content -->
+      <div class="foxhue-hero__content">
+
+        <p class="foxhue-hero__eyebrow" aria-label="Free, no-obligation offer">
+          <span class="foxhue-hero__eyebrow-dot" aria-hidden="true"></span>
+          Free No-Obligation Audit
+        </p>
+
+        <h1 class="foxhue-hero__title" id="foxhue-hero-heading">
+          Is Your Website
+          <span class="foxhue-hero__title-accent">Costing You</span>
+          Customers?
+        </h1>
+
+        <p class="foxhue-hero__subtitle">
+          Get a free SEO &amp; website audit and discover exactly what's holding
+          your business back online — from search rankings to site speed, we'll
+          show you what needs fixing and why it matters.
+        </p>
+
+        <div class="foxhue-hero__cta-group">
+          <a href="#audit-form" class="foxhue-hero__cta" aria-label="Book your free SEO and website audit — no cost, no commitment">
+            Book Your Free Audit
+            <svg viewBox="0 0 18 18" aria-hidden="true" focusable="false">
+              <path d="M3.75 9h10.5M9.75 4.5L14.25 9l-4.5 4.5" />
+            </svg>
+          </a>
+          <p class="foxhue-hero__cta-note">Takes 2 minutes — results delivered within 48 hours</p>
+        </div>
+
+      </div>
+
+      <!-- Image / dashboard mockup -->
+      <div class="foxhue-hero__image-wrap" aria-hidden="true">
+        <div class="foxhue-hero__image-placeholder" role="img" aria-label="Website audit dashboard illustration">
+
+          <!-- Score badge -->
+          <div class="foxhue-hero__badge">
+            <span class="foxhue-hero__badge-number">47</span>
+            <span class="foxhue-hero__badge-label">SEO Score</span>
+          </div>
+
+          <!-- Dashboard mockup -->
+          <div class="foxhue-hero__mockup" aria-hidden="true">
+            <div class="foxhue-hero__mockup-bar foxhue-hero__mockup-bar--short"></div>
+            <div class="foxhue-hero__mockup-bar foxhue-hero__mockup-bar--accent"></div>
+            <div class="foxhue-hero__mockup-bar foxhue-hero__mockup-bar--long"></div>
+            <div class="foxhue-hero__mockup-bar foxhue-hero__mockup-bar--medium"></div>
+            <div class="foxhue-hero__mockup-graph">
+              <div class="foxhue-hero__mockup-col foxhue-hero__mockup-col--h1"></div>
+              <div class="foxhue-hero__mockup-col foxhue-hero__mockup-col--h2"></div>
+              <div class="foxhue-hero__mockup-col foxhue-hero__mockup-col--h3"></div>
+              <div class="foxhue-hero__mockup-col foxhue-hero__mockup-col--h4"></div>
+              <div class="foxhue-hero__mockup-col foxhue-hero__mockup-col--h5"></div>
+              <div class="foxhue-hero__mockup-col foxhue-hero__mockup-col--h6"></div>
+              <div class="foxhue-hero__mockup-col foxhue-hero__mockup-col--h7"></div>
+              <div class="foxhue-hero__mockup-col foxhue-hero__mockup-col--h8"></div>
+            </div>
+            <div class="foxhue-hero__mockup-bar foxhue-hero__mockup-bar--medium"></div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+</main>
+
+<!-- Section: Trust Bar | Foxhue Landing Page -->
+
+<style>
+  /* -----------------------------------------------------------------------
+     Foxhue Trust Bar — Social proof and credibility strip
+     BEM: foxhue-trust, foxhue-trust__inner, foxhue-trust__label,
+          foxhue-trust__logos, foxhue-trust__logo-slot,
+          foxhue-trust__stat, foxhue-trust__stat-number,
+          foxhue-trust__stat-text, foxhue-trust__divider
+  ----------------------------------------------------------------------- */
+
+  .foxhue-trust {
+    background-color: var(--foxhue-surface, #FFFFFF);
+    border-bottom: 1px solid var(--foxhue-border, #E5E7EB);
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+  }
+
+  .foxhue-trust__inner {
+    max-width: var(--foxhue-container-max, 1200px);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: clamp(1.25rem, 4vw, 2rem);
+    padding-right: clamp(1.25rem, 4vw, 2rem);
+  }
+
+  /* Stats row — prominent numbers above logo strip */
+  .foxhue-trust__stats {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(1.5rem, 4vw, 3rem);
+    margin-bottom: 2.5rem;
+    flex-wrap: wrap;
+  }
+
+  .foxhue-trust__stat {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .foxhue-trust__stat-number {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+    font-weight: 400;
+    color: var(--foxhue-primary, #1A1A2E);
+    line-height: 1;
+  }
+
+  .foxhue-trust__stat-number span {
+    color: var(--foxhue-accent, #E94560);
+  }
+
+  .foxhue-trust__stat-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: var(--foxhue-text-muted, #6B7280);
+    letter-spacing: 0.01em;
+    white-space: nowrap;
+  }
+
+  .foxhue-trust__stat-divider {
+    width: 1px;
+    height: 40px;
+    background-color: var(--foxhue-border, #E5E7EB);
+    flex-shrink: 0;
+  }
+
+  /* Label */
+  .foxhue-trust__label {
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--foxhue-text-muted, #6B7280);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .foxhue-trust__label::before,
+  .foxhue-trust__label::after {
+    content: '';
+    display: block;
+    flex: 1;
+    max-width: 80px;
+    height: 1px;
+    background-color: var(--foxhue-border, #E5E7EB);
+  }
+
+  /* Logo slots */
+  .foxhue-trust__logos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(1rem, 3vw, 2.5rem);
+    flex-wrap: wrap;
+  }
+
+  .foxhue-trust__logo-slot {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: clamp(100px, 14vw, 140px);
+    height: 44px;
+    border: 1px solid var(--foxhue-border, #E5E7EB);
+    border-radius: 6px;
+    background-color: var(--foxhue-bg, #F8F8FA);
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Placeholder shimmer line inside each logo slot */
+  .foxhue-trust__logo-slot::before {
+    content: '';
+    display: block;
+    width: 64%;
+    height: 8px;
+    border-radius: 4px;
+    background: linear-gradient(
+      90deg,
+      var(--foxhue-border, #E5E7EB) 0%,
+      rgba(229, 231, 235, 0.4) 50%,
+      var(--foxhue-border, #E5E7EB) 100%
+    );
+  }
+
+  .foxhue-trust__logo-slot-label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  /* Badges row */
+  .foxhue-trust__badges {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(0.75rem, 2vw, 1.5rem);
+    margin-top: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .foxhue-trust__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--foxhue-border, #E5E7EB);
+    border-radius: 100px;
+    background-color: var(--foxhue-bg, #F8F8FA);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: var(--foxhue-text-muted, #6B7280);
+  }
+
+  .foxhue-trust__badge-icon {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    color: var(--foxhue-accent, #E94560);
+  }
+
+  .foxhue-trust__badge-icon svg {
+    width: 16px;
+    height: 16px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    display: block;
+  }
+
+  /* Responsive */
+  @media (max-width: 767px) {
+    .foxhue-trust {
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+    }
+
+    .foxhue-trust__stat-divider {
+      display: none;
+    }
+
+    .foxhue-trust__stats {
+      gap: 1.5rem 2rem;
+    }
+
+    .foxhue-trust__logo-slot {
+      width: clamp(84px, 22vw, 120px);
+      height: 38px;
+    }
+  }
+
+  @media (max-width: 478px) {
+    .foxhue-trust__stats {
+      gap: 1rem 1.5rem;
+    }
+
+    .foxhue-trust__badge {
+      font-size: 0.75rem;
+      padding: 0.375rem 0.75rem;
+    }
+  }
+</style>
+
+<section class="foxhue-trust" aria-labelledby="foxhue-trust-heading">
+  <div class="foxhue-trust__inner">
+
+    <!-- Key stats -->
+    <div class="foxhue-trust__stats" role="list" aria-label="Foxhue key statistics">
+
+      <div class="foxhue-trust__stat" role="listitem">
+        <p class="foxhue-trust__stat-number"><span>50</span>+</p>
+        <p class="foxhue-trust__stat-text">Businesses Audited</p>
+      </div>
+
+      <div class="foxhue-trust__stat-divider" aria-hidden="true"></div>
+
+      <div class="foxhue-trust__stat" role="listitem">
+        <p class="foxhue-trust__stat-number"><span>47</span>%</p>
+        <p class="foxhue-trust__stat-text">Avg. Traffic Increase</p>
+      </div>
+
+      <div class="foxhue-trust__stat-divider" aria-hidden="true"></div>
+
+      <div class="foxhue-trust__stat" role="listitem">
+        <p class="foxhue-trust__stat-number"><span>92</span>%</p>
+        <p class="foxhue-trust__stat-text">Client Satisfaction</p>
+      </div>
+
+      <div class="foxhue-trust__stat-divider" aria-hidden="true"></div>
+
+      <div class="foxhue-trust__stat" role="listitem">
+        <p class="foxhue-trust__stat-number"><span>48</span>hrs</p>
+        <p class="foxhue-trust__stat-text">Audit Turnaround</p>
+      </div>
+
+    </div>
+
+    <!-- Logo strip label -->
+    <p class="foxhue-trust__label" id="foxhue-trust-heading">
+      Trusted by businesses across Oxfordshire
+    </p>
+
+    <!-- Client logo placeholders -->
+    <div class="foxhue-trust__logos" role="list" aria-label="Client logos — image placeholders for client assets">
+
+      <div class="foxhue-trust__logo-slot" role="listitem">
+        <span class="foxhue-trust__logo-slot-label">Client logo placeholder 1</span>
+      </div>
+
+      <div class="foxhue-trust__logo-slot" role="listitem">
+        <span class="foxhue-trust__logo-slot-label">Client logo placeholder 2</span>
+      </div>
+
+      <div class="foxhue-trust__logo-slot" role="listitem">
+        <span class="foxhue-trust__logo-slot-label">Client logo placeholder 3</span>
+      </div>
+
+      <div class="foxhue-trust__logo-slot" role="listitem">
+        <span class="foxhue-trust__logo-slot-label">Client logo placeholder 4</span>
+      </div>
+
+      <div class="foxhue-trust__logo-slot" role="listitem">
+        <span class="foxhue-trust__logo-slot-label">Client logo placeholder 5</span>
+      </div>
+
+    </div>
+
+    <!-- Trust badges -->
+    <div class="foxhue-trust__badges" role="list" aria-label="Trust indicators">
+
+      <div class="foxhue-trust__badge" role="listitem">
+        <span class="foxhue-trust__badge-icon" aria-hidden="true">
+          <svg viewBox="0 0 16 16">
+            <path d="M8 1l1.8 3.6L14 5.4l-3 2.9.7 4.1L8 10.4l-3.7 2 .7-4.1L2 5.4l4.2-.8L8 1z"/>
+          </svg>
+        </span>
+        Free — No credit card required
+      </div>
+
+      <div class="foxhue-trust__badge" role="listitem">
+        <span class="foxhue-trust__badge-icon" aria-hidden="true">
+          <svg viewBox="0 0 16 16">
+            <path d="M8 1a5 5 0 00-5 5c0 4 5 9 5 9s5-5 5-9a5 5 0 00-5-5z"/>
+            <circle cx="8" cy="6" r="1.5"/>
+          </svg>
+        </span>
+        Bicester, Oxfordshire
+      </div>
+
+      <div class="foxhue-trust__badge" role="listitem">
+        <span class="foxhue-trust__badge-icon" aria-hidden="true">
+          <svg viewBox="0 0 16 16">
+            <path d="M13 6H3M13 10H3M8 2v12"/>
+          </svg>
+        </span>
+        No obligation, ever
+      </div>
+
+      <div class="foxhue-trust__badge" role="listitem">
+        <span class="foxhue-trust__badge-icon" aria-hidden="true">
+          <svg viewBox="0 0 16 16">
+            <rect x="2" y="2" width="12" height="12" rx="2"/>
+            <path d="M5 8l2 2 4-4"/>
+          </svg>
+        </span>
+        Results in 48 hours
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- Section: Benefits | Foxhue Landing Page -->
+
+<style>
+  /* -----------------------------------------------------------------------
+     Foxhue Benefits — Four benefit cards
+     BEM: foxhue-benefits, foxhue-benefits__inner, foxhue-benefits__header,
+          foxhue-benefits__grid, foxhue-benefits__card,
+          foxhue-benefits__card-icon, foxhue-benefits__card-number,
+          foxhue-benefits__card-title, foxhue-benefits__card-body,
+          foxhue-benefits__card-detail
+  ----------------------------------------------------------------------- */
+
+  .foxhue-benefits {
+    background-color: var(--foxhue-bg, #F8F8FA);
+    padding-top: clamp(4rem, 7vw, 7rem);
+    padding-bottom: clamp(4rem, 7vw, 7rem);
+  }
+
+  .foxhue-benefits__inner {
+    max-width: var(--foxhue-container-max, 1200px);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: clamp(1.25rem, 4vw, 2rem);
+    padding-right: clamp(1.25rem, 4vw, 2rem);
+  }
+
+  /* Section header */
+  .foxhue-benefits__header {
+    text-align: center;
+    margin-bottom: clamp(2.5rem, 4vw, 4rem);
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .foxhue-benefits__eyebrow {
+    display: inline-block;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--foxhue-accent, #E94560);
+    margin-bottom: 1rem;
+  }
+
+  .foxhue-benefits__title {
+    font-family: 'DM Serif Display', serif;
+    font-weight: 400;
+    font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+    line-height: 1.15;
+    color: var(--foxhue-primary, #1A1A2E);
+    letter-spacing: -0.02em;
+    margin-bottom: 1rem;
+  }
+
+  .foxhue-benefits__subtitle {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.0625rem;
+    line-height: 1.65;
+    color: var(--foxhue-text-muted, #6B7280);
+  }
+
+  /* Cards grid */
+  .foxhue-benefits__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: clamp(1rem, 2vw, 1.5rem);
+  }
+
+  /* Individual card */
+  .foxhue-benefits__card {
+    background-color: var(--foxhue-surface, #FFFFFF);
+    border: 1px solid var(--foxhue-border, #E5E7EB);
+    border-radius: 12px;
+    padding: clamp(1.5rem, 3vw, 2.5rem);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 250ms ease, box-shadow 250ms ease;
+  }
+
+  .foxhue-benefits__card:hover {
+    border-color: rgba(233, 69, 96, 0.25);
+    box-shadow: 0 8px 32px rgba(26, 26, 46, 0.08);
+  }
+
+  /* Subtle corner accent */
+  .foxhue-benefits__card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(
+      180deg,
+      var(--foxhue-accent, #E94560) 0%,
+      rgba(233, 69, 96, 0) 100%
+    );
+    border-radius: 12px 0 0 12px;
+    opacity: 0;
+    transition: opacity 250ms ease;
+  }
+
+  .foxhue-benefits__card:hover::before {
+    opacity: 1;
+  }
+
+  /* Card header row */
+  .foxhue-benefits__card-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  /* Icon container */
+  .foxhue-benefits__card-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 10px;
+    background-color: rgba(233, 69, 96, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .foxhue-benefits__card-icon svg {
+    width: 22px;
+    height: 22px;
+    fill: none;
+    stroke: var(--foxhue-accent, #E94560);
+    stroke-width: 1.75;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  /* Card number */
+  .foxhue-benefits__card-number {
+    font-family: 'DM Serif Display', serif;
+    font-size: 0.875rem;
+    font-weight: 400;
+    color: var(--foxhue-accent, #E94560);
+    opacity: 0.6;
+    line-height: 1;
+    margin-top: 4px;
+  }
+
+  /* Card content */
+  .foxhue-benefits__card-content {
+    flex: 1;
+  }
+
+  .foxhue-benefits__card-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(1.125rem, 1.8vw, 1.375rem);
+    font-weight: 400;
+    color: var(--foxhue-primary, #1A1A2E);
+    line-height: 1.25;
+    margin-bottom: 0.625rem;
+  }
+
+  .foxhue-benefits__card-body {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: var(--foxhue-text-muted, #6B7280);
+  }
+
+  /* Detail list inside card */
+  .foxhue-benefits__card-detail {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid var(--foxhue-border-light, #F3F4F6);
+  }
+
+  .foxhue-benefits__card-detail-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: var(--foxhue-text-muted, #6B7280);
+  }
+
+  .foxhue-benefits__card-detail-item::before {
+    content: '';
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: var(--foxhue-accent, #E94560);
+    opacity: 0.6;
+    flex-shrink: 0;
+  }
+
+  /* Responsive */
+  @media (max-width: 991px) {
+    .foxhue-benefits__grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .foxhue-benefits__grid {
+      grid-template-columns: 1fr;
+    }
+
+    .foxhue-benefits__card:hover::before {
+      opacity: 1;
+    }
+  }
+
+  @media (max-width: 478px) {
+    .foxhue-benefits__card {
+      padding: 1.25rem;
+    }
+
+    .foxhue-benefits__card-icon {
+      width: 40px;
+      height: 40px;
+    }
+  }
+</style>
+
+<section class="foxhue-benefits" aria-labelledby="foxhue-benefits-heading">
+  <div class="foxhue-benefits__inner">
+
+    <!-- Section header -->
+    <header class="foxhue-benefits__header">
+      <p class="foxhue-benefits__eyebrow">What You Get</p>
+      <h2 class="foxhue-benefits__title" id="foxhue-benefits-heading">
+        A Complete Picture of Your Online Presence
+      </h2>
+      <p class="foxhue-benefits__subtitle">
+        Your free audit covers every dimension that affects how customers find
+        you — and whether they stay once they do.
+      </p>
+    </header>
+
+    <!-- Cards -->
+    <div class="foxhue-benefits__grid" role="list" aria-label="Audit benefits">
+
+      <!-- Card 1: SEO Analysis -->
+      <article class="foxhue-benefits__card" role="listitem">
+        <div class="foxhue-benefits__card-header">
+          <div class="foxhue-benefits__card-icon" aria-hidden="true">
+            <svg viewBox="0 0 22 22">
+              <!-- Search / magnifier icon -->
+              <circle cx="10" cy="10" r="6.5"/>
+              <path d="M15 15l4 4"/>
+            </svg>
+          </div>
+          <p class="foxhue-benefits__card-number" aria-hidden="true">01</p>
+        </div>
+        <div class="foxhue-benefits__card-content">
+          <h3 class="foxhue-benefits__card-title">Comprehensive SEO Analysis</h3>
+          <p class="foxhue-benefits__card-body">
+            We audit your search visibility, keyword rankings, and competitor
+            positioning so you know exactly where you stand — and what it would
+            take to move up.
+          </p>
+        </div>
+        <ul class="foxhue-benefits__card-detail" aria-label="Included in SEO analysis">
+          <li class="foxhue-benefits__card-detail-item">Keyword gap analysis vs. local competitors</li>
+          <li class="foxhue-benefits__card-detail-item">Google Search Console data review</li>
+          <li class="foxhue-benefits__card-detail-item">On-page SEO health check</li>
+        </ul>
+      </article>
+
+      <!-- Card 2: Performance Review -->
+      <article class="foxhue-benefits__card" role="listitem">
+        <div class="foxhue-benefits__card-header">
+          <div class="foxhue-benefits__card-icon" aria-hidden="true">
+            <svg viewBox="0 0 22 22">
+              <!-- Speedometer / gauge icon -->
+              <path d="M3 13a8 8 0 1116 0"/>
+              <path d="M11 13l-3-5"/>
+              <circle cx="11" cy="13" r="1.5"/>
+            </svg>
+          </div>
+          <p class="foxhue-benefits__card-number" aria-hidden="true">02</p>
+        </div>
+        <div class="foxhue-benefits__card-content">
+          <h3 class="foxhue-benefits__card-title">Website Performance Review</h3>
+          <p class="foxhue-benefits__card-body">
+            Page speed, mobile responsiveness, and user experience assessment —
+            because a slow or clunky site loses visitors in under three seconds,
+            and Google penalises it too.
+          </p>
+        </div>
+        <ul class="foxhue-benefits__card-detail" aria-label="Included in performance review">
+          <li class="foxhue-benefits__card-detail-item">Core Web Vitals score and diagnosis</li>
+          <li class="foxhue-benefits__card-detail-item">Mobile usability assessment</li>
+          <li class="foxhue-benefits__card-detail-item">Image and asset optimisation check</li>
+        </ul>
+      </article>
+
+      <!-- Card 3: Actionable Recommendations -->
+      <article class="foxhue-benefits__card" role="listitem">
+        <div class="foxhue-benefits__card-header">
+          <div class="foxhue-benefits__card-icon" aria-hidden="true">
+            <svg viewBox="0 0 22 22">
+              <!-- Checklist / action list icon -->
+              <rect x="3" y="3" width="16" height="16" rx="3"/>
+              <path d="M7 11l2.5 2.5L15 8"/>
+            </svg>
+          </div>
+          <p class="foxhue-benefits__card-number" aria-hidden="true">03</p>
+        </div>
+        <div class="foxhue-benefits__card-content">
+          <h3 class="foxhue-benefits__card-title">Actionable Recommendations</h3>
+          <p class="foxhue-benefits__card-body">
+            Not a jargon-filled report you'll file and forget. We give you a clear,
+            prioritised list of improvements with plain-English explanations and
+            the expected impact of each fix.
+          </p>
+        </div>
+        <ul class="foxhue-benefits__card-detail" aria-label="Included in recommendations">
+          <li class="foxhue-benefits__card-detail-item">Quick wins vs. longer-term priorities</li>
+          <li class="foxhue-benefits__card-detail-item">Effort vs. impact rating for each item</li>
+          <li class="foxhue-benefits__card-detail-item">Optional follow-up call to walk through findings</li>
+        </ul>
+      </article>
+
+      <!-- Card 4: Competitor Benchmarking -->
+      <article class="foxhue-benefits__card" role="listitem">
+        <div class="foxhue-benefits__card-header">
+          <div class="foxhue-benefits__card-icon" aria-hidden="true">
+            <svg viewBox="0 0 22 22">
+              <!-- Bar chart / competitor comparison icon -->
+              <rect x="3" y="12" width="4" height="7" rx="1"/>
+              <rect x="9" y="7" width="4" height="12" rx="1"/>
+              <rect x="15" y="4" width="4" height="15" rx="1"/>
+              <path d="M1 20h20"/>
+            </svg>
+          </div>
+          <p class="foxhue-benefits__card-number" aria-hidden="true">04</p>
+        </div>
+        <div class="foxhue-benefits__card-content">
+          <h3 class="foxhue-benefits__card-title">Competitor Benchmarking</h3>
+          <p class="foxhue-benefits__card-body">
+            See how you stack up against your local competitors on the metrics
+            that matter — so you know where the opportunities are and who you
+            need to outperform.
+          </p>
+        </div>
+        <ul class="foxhue-benefits__card-detail" aria-label="Included in competitor benchmarking">
+          <li class="foxhue-benefits__card-detail-item">3-competitor comparison across key metrics</li>
+          <li class="foxhue-benefits__card-detail-item">Local search ranking analysis</li>
+          <li class="foxhue-benefits__card-detail-item">Backlink and authority comparison</li>
+        </ul>
+      </article>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- Section: About Service | Foxhue Landing Page -->
+
+<style>
+  /* -----------------------------------------------------------------------
+     Foxhue About Service — What the audit includes, methodology
+     BEM: foxhue-service, foxhue-service__inner, foxhue-service__grid,
+          foxhue-service__content, foxhue-service__image,
+          foxhue-service__steps, foxhue-service__step,
+          foxhue-service__step-number, foxhue-service__step-body
+  ----------------------------------------------------------------------- */
+
+  .foxhue-service {
+    background-color: var(--foxhue-surface, #FFFFFF);
+    padding-top: clamp(4rem, 7vw, 7rem);
+    padding-bottom: clamp(4rem, 7vw, 7rem);
+  }
+
+  .foxhue-service__inner {
+    max-width: var(--foxhue-container-max, 1200px);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: clamp(1.25rem, 4vw, 2rem);
+    padding-right: clamp(1.25rem, 4vw, 2rem);
+  }
+
+  /* Two-column grid */
+  .foxhue-service__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(2.5rem, 5vw, 5rem);
+    align-items: center;
+  }
+
+  /* Text content column */
+  .foxhue-service__eyebrow {
+    display: inline-block;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--foxhue-accent, #E94560);
+    margin-bottom: 1rem;
+  }
+
+  .foxhue-service__title {
+    font-family: 'DM Serif Display', serif;
+    font-weight: 400;
+    font-size: clamp(1.75rem, 3vw, 2.625rem);
+    line-height: 1.15;
+    color: var(--foxhue-primary, #1A1A2E);
+    letter-spacing: -0.02em;
+    margin-bottom: 1.25rem;
+  }
+
+  .foxhue-service__body {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--foxhue-text-muted, #6B7280);
+    margin-bottom: 2rem;
+  }
+
+  .foxhue-service__body + .foxhue-service__body {
+    margin-top: -1rem;
+  }
+
+  /* Process steps */
+  .foxhue-service__steps {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .foxhue-service__step {
+    display: flex;
+    gap: 1.125rem;
+    position: relative;
+    padding-bottom: 1.75rem;
+  }
+
+  /* Vertical connecting line between steps */
+  .foxhue-service__step:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    left: 19px;
+    top: 40px;
+    width: 2px;
+    height: calc(100% - 40px);
+    background: linear-gradient(
+      180deg,
+      var(--foxhue-border, #E5E7EB) 0%,
+      transparent 100%
+    );
+  }
+
+  .foxhue-service__step:last-child {
+    padding-bottom: 0;
+  }
+
+  .foxhue-service__step-number {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--foxhue-primary, #1A1A2E);
+    color: #ffffff;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8125rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+    line-height: 1;
+  }
+
+  /* Accent step number for highlighted step */
+  .foxhue-service__step--accent .foxhue-service__step-number {
+    background-color: var(--foxhue-accent, #E94560);
+  }
+
+  .foxhue-service__step-body {
+    padding-top: 0.5rem;
+  }
+
+  .foxhue-service__step-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--foxhue-primary, #1A1A2E);
+    margin-bottom: 0.3125rem;
+    line-height: 1.3;
+  }
+
+  .foxhue-service__step-desc {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.875rem;
+    line-height: 1.6;
+    color: var(--foxhue-text-muted, #6B7280);
+  }
+
+  /* CTA beneath steps */
+  .foxhue-service__cta-wrap {
+    margin-top: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+  }
+
+  .foxhue-service__cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 0.875rem 1.75rem;
+    background-color: var(--foxhue-accent, #E94560);
+    color: #ffffff;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    line-height: 1;
+    border-radius: 4px;
+    text-decoration: none;
+    border: 2px solid var(--foxhue-accent, #E94560);
+    transition: background-color 150ms ease, transform 150ms ease, box-shadow 150ms ease;
+  }
+
+  .foxhue-service__cta:hover {
+    background-color: var(--foxhue-accent-hover, #D63851);
+    border-color: var(--foxhue-accent-hover, #D63851);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(233, 69, 96, 0.3);
+  }
+
+  .foxhue-service__cta:focus-visible {
+    outline: 3px solid var(--foxhue-accent, #E94560);
+    outline-offset: 3px;
+  }
+
+  .foxhue-service__cta svg {
+    width: 16px;
+    height: 16px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .foxhue-service__cta-reassurance {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8125rem;
+    color: var(--foxhue-text-muted, #6B7280);
+  }
+
+  /* Image column */
+  .foxhue-service__image {
+    position: relative;
+  }
+
+  .foxhue-service__image-placeholder {
+    width: 100%;
+    aspect-ratio: 5 / 6;
+    border-radius: 16px;
+    background: linear-gradient(
+      145deg,
+      rgba(26, 26, 46, 0.06) 0%,
+      rgba(233, 69, 96, 0.04) 100%
+    );
+    border: 1px solid var(--foxhue-border, #E5E7EB);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Decorative audit report mockup */
+  .foxhue-service__mockup-doc {
+    width: 72%;
+    background: var(--foxhue-surface, #FFFFFF);
+    border-radius: 8px;
+    box-shadow: 0 8px 32px rgba(26, 26, 46, 0.12);
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .foxhue-service__mockup-doc-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(229, 231, 235, 0.8);
+  }
+
+  .foxhue-service__mockup-doc-logo {
+    width: 24px;
+    height: 24px;
+    background: var(--foxhue-primary, #1A1A2E);
+    border-radius: 4px;
+    flex-shrink: 0;
+  }
+
+  .foxhue-service__mockup-doc-title {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .foxhue-service__mockup-doc-title-bar {
+    height: 6px;
+    border-radius: 3px;
+    background: var(--foxhue-primary, #1A1A2E);
+    width: 70%;
+    opacity: 0.15;
+  }
+
+  .foxhue-service__mockup-doc-title-bar--sub {
+    width: 45%;
+    opacity: 0.08;
+  }
+
+  .foxhue-service__mockup-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .foxhue-service__mockup-label {
+    height: 5px;
+    border-radius: 3px;
+    background: rgba(26, 26, 46, 0.1);
+    flex: 1;
+  }
+
+  .foxhue-service__mockup-score {
+    font-family: 'DM Serif Display', serif;
+    font-size: 0.875rem;
+    font-weight: 400;
+    color: var(--foxhue-accent, #E94560);
+    flex-shrink: 0;
+    min-width: 24px;
+    text-align: right;
+  }
+
+  .foxhue-service__mockup-bar-fill {
+    height: 6px;
+    border-radius: 3px;
+    flex: 1;
+    background: var(--foxhue-border, #E5E7EB);
+    overflow: hidden;
+    position: relative;
+  }
+
+  .foxhue-service__mockup-bar-fill::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    border-radius: 3px;
+    background: var(--foxhue-accent, #E94560);
+  }
+
+  .foxhue-service__mockup-bar-fill--30::after  { width: 30%; }
+  .foxhue-service__mockup-bar-fill--55::after  { width: 55%; }
+  .foxhue-service__mockup-bar-fill--72::after  { width: 72%; background: #F59E0B; }
+  .foxhue-service__mockup-bar-fill--88::after  { width: 88%; background: #10B981; }
+
+  /* Floating annotation chip */
+  .foxhue-service__image-chip {
+    position: absolute;
+    bottom: 28px;
+    right: -16px;
+    background: var(--foxhue-surface, #FFFFFF);
+    border: 1px solid var(--foxhue-border, #E5E7EB);
+    border-radius: 10px;
+    padding: 0.75rem 1rem;
+    box-shadow: 0 4px 16px rgba(26, 26, 46, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    max-width: 200px;
+  }
+
+  .foxhue-service__image-chip-icon {
+    width: 36px;
+    height: 36px;
+    background: rgba(16, 185, 129, 0.1);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: #10B981;
+  }
+
+  .foxhue-service__image-chip-icon svg {
+    width: 18px;
+    height: 18px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .foxhue-service__image-chip-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .foxhue-service__image-chip-value {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: var(--foxhue-primary, #1A1A2E);
+    line-height: 1;
+  }
+
+  .foxhue-service__image-chip-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.6875rem;
+    font-weight: 500;
+    color: var(--foxhue-text-muted, #6B7280);
+    white-space: nowrap;
+  }
+
+  /* Responsive */
+  @media (max-width: 991px) {
+    .foxhue-service__grid {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+
+    /* Image goes below content on tablet/mobile */
+    .foxhue-service__image {
+      order: -1;
+      max-width: 480px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .foxhue-service__image-chip {
+      right: 0;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .foxhue-service__image {
+      max-width: 100%;
+    }
+
+    .foxhue-service__image-placeholder {
+      aspect-ratio: 4 / 3;
+    }
+
+    .foxhue-service__image-chip {
+      right: 12px;
+      bottom: 16px;
+    }
+  }
+
+  @media (max-width: 478px) {
+    .foxhue-service__cta-wrap {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .foxhue-service__cta {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+</style>
+
+<section class="foxhue-service" aria-labelledby="foxhue-service-heading">
+  <div class="foxhue-service__inner">
+    <div class="foxhue-service__grid">
+
+      <!-- Text content -->
+      <div class="foxhue-service__content">
+
+        <p class="foxhue-service__eyebrow">Our Methodology</p>
+        <h2 class="foxhue-service__title" id="foxhue-service-heading">
+          A Proper Audit, Not a Ticked-Box Template
+        </h2>
+        <p class="foxhue-service__body">
+          Most free audits are automated tools that spit out a PDF and call it a
+          day. Ours is different. A real person at Foxhue reviews your site,
+          cross-references your data, and produces findings you can actually act on.
+        </p>
+        <p class="foxhue-service__body">
+          We combine specialist SEO tools with hands-on analysis to give you the
+          full picture — covering technical SEO, content quality, user experience,
+          and how you compare to your closest competitors in Oxfordshire and beyond.
+        </p>
+
+        <!-- Process steps -->
+        <ol class="foxhue-service__steps" aria-label="How the audit process works">
+
+          <li class="foxhue-service__step">
+            <span class="foxhue-service__step-number" aria-hidden="true">1</span>
+            <div class="foxhue-service__step-body">
+              <p class="foxhue-service__step-title">You submit the form</p>
+              <p class="foxhue-service__step-desc">
+                Takes 2 minutes. We collect your website URL and the basics about
+                your business goals — no personal data beyond your name and email.
+              </p>
+            </div>
+          </li>
+
+          <li class="foxhue-service__step">
+            <span class="foxhue-service__step-number" aria-hidden="true">2</span>
+            <div class="foxhue-service__step-body">
+              <p class="foxhue-service__step-title">We carry out the audit</p>
+              <p class="foxhue-service__step-desc">
+                Our team analyses your site across SEO, performance, mobile
+                experience, and competitor positioning using professional-grade tools.
+              </p>
+            </div>
+          </li>
+
+          <li class="foxhue-service__step foxhue-service__step--accent">
+            <span class="foxhue-service__step-number" aria-hidden="true">3</span>
+            <div class="foxhue-service__step-body">
+              <p class="foxhue-service__step-title">You receive your report within 48 hours</p>
+              <p class="foxhue-service__step-desc">
+                A clear, jargon-free report with prioritised recommendations lands
+                in your inbox. We then offer a free 20-minute call to walk through
+                the findings if you'd like.
+              </p>
+            </div>
+          </li>
+
+          <li class="foxhue-service__step">
+            <span class="foxhue-service__step-number" aria-hidden="true">4</span>
+            <div class="foxhue-service__step-body">
+              <p class="foxhue-service__step-title">You decide what to do next</p>
+              <p class="foxhue-service__step-desc">
+                The audit is yours to keep, whether you work with us or not. There's
+                no sales pressure and no catch.
+              </p>
+            </div>
+          </li>
+
+        </ol>
+
+        <div class="foxhue-service__cta-wrap">
+          <a href="#audit-form" class="foxhue-service__cta" aria-label="Get your free website audit from Foxhue">
+            Get My Free Audit
+            <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+              <path d="M3.5 8h9M8.5 4.5L12 8l-3.5 3.5"/>
+            </svg>
+          </a>
+          <p class="foxhue-service__cta-reassurance">No cost. No obligation. No hard sell.</p>
+        </div>
+
+      </div>
+
+      <!-- Image / mockup -->
+      <div class="foxhue-service__image">
+        <div class="foxhue-service__image-placeholder" role="img" aria-label="Sample audit report illustration — placeholder for client photography">
+
+          <!-- Document mockup -->
+          <div class="foxhue-service__mockup-doc" aria-hidden="true">
+
+            <div class="foxhue-service__mockup-doc-header">
+              <div class="foxhue-service__mockup-doc-logo"></div>
+              <div class="foxhue-service__mockup-doc-title">
+                <div class="foxhue-service__mockup-doc-title-bar"></div>
+                <div class="foxhue-service__mockup-doc-title-bar foxhue-service__mockup-doc-title-bar--sub"></div>
+              </div>
+            </div>
+
+            <div class="foxhue-service__mockup-row">
+              <div class="foxhue-service__mockup-label" style="width: 40%; flex: none;"></div>
+              <div class="foxhue-service__mockup-bar-fill foxhue-service__mockup-bar-fill--30"></div>
+              <span class="foxhue-service__mockup-score">30</span>
+            </div>
+
+            <div class="foxhue-service__mockup-row">
+              <div class="foxhue-service__mockup-label" style="width: 40%; flex: none;"></div>
+              <div class="foxhue-service__mockup-bar-fill foxhue-service__mockup-bar-fill--55"></div>
+              <span class="foxhue-service__mockup-score">55</span>
+            </div>
+
+            <div class="foxhue-service__mockup-row">
+              <div class="foxhue-service__mockup-label" style="width: 40%; flex: none;"></div>
+              <div class="foxhue-service__mockup-bar-fill foxhue-service__mockup-bar-fill--72"></div>
+              <span class="foxhue-service__mockup-score" style="color: #F59E0B;">72</span>
+            </div>
+
+            <div class="foxhue-service__mockup-row">
+              <div class="foxhue-service__mockup-label" style="width: 40%; flex: none;"></div>
+              <div class="foxhue-service__mockup-bar-fill foxhue-service__mockup-bar-fill--88"></div>
+              <span class="foxhue-service__mockup-score" style="color: #10B981;">88</span>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- Floating chip annotation -->
+        <div class="foxhue-service__image-chip" aria-hidden="true">
+          <div class="foxhue-service__image-chip-icon">
+            <svg viewBox="0 0 18 18">
+              <path d="M4 9.5l3.5 3.5 6.5-7"/>
+            </svg>
+          </div>
+          <div class="foxhue-service__image-chip-text">
+            <span class="foxhue-service__image-chip-value">+47%</span>
+            <span class="foxhue-service__image-chip-label">Avg. traffic lift</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Section: Results | Foxhue Landing Page -->
+
+<style>
+  /* -----------------------------------------------------------------------
+     Foxhue Results — Outcomes, stats, and proof section
+     BEM: foxhue-results, foxhue-results__inner, foxhue-results__header,
+          foxhue-results__stats, foxhue-results__stat,
+          foxhue-results__stat-number, foxhue-results__stat-label,
+          foxhue-results__cards, foxhue-results__card,
+          foxhue-results__before-after, foxhue-results__cta-block
+  ----------------------------------------------------------------------- */
+
+  .foxhue-results {
+    background-color: var(--foxhue-primary, #1A1A2E);
+    padding-top: clamp(4rem, 7vw, 7rem);
+    padding-bottom: clamp(4rem, 7vw, 7rem);
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Background texture */
+  .foxhue-results::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+    background-size: 60px 60px;
+    pointer-events: none;
+  }
+
+  /* Accent glow bottom-left */
+  .foxhue-results::after {
+    content: '';
+    position: absolute;
+    bottom: -100px;
+    left: -100px;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(233, 69, 96, 0.14) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .foxhue-results__inner {
+    position: relative;
+    z-index: 1;
+    max-width: var(--foxhue-container-max, 1200px);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: clamp(1.25rem, 4vw, 2rem);
+    padding-right: clamp(1.25rem, 4vw, 2rem);
+  }
+
+  /* Section header */
+  .foxhue-results__header {
+    text-align: center;
+    margin-bottom: clamp(3rem, 5vw, 5rem);
+    max-width: 680px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .foxhue-results__eyebrow {
+    display: inline-block;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--foxhue-accent, #E94560);
+    margin-bottom: 1rem;
+  }
+
+  .foxhue-results__title {
+    font-family: 'DM Serif Display', serif;
+    font-weight: 400;
+    font-size: clamp(1.875rem, 4vw, 3rem);
+    line-height: 1.1;
+    color: #ffffff;
+    letter-spacing: -0.02em;
+    margin-bottom: 1rem;
+  }
+
+  .foxhue-results__subtitle {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.0625rem;
+    line-height: 1.65;
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  /* Stats bar */
+  .foxhue-results__stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background-color: rgba(255,255,255,0.08);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: clamp(3rem, 5vw, 5rem);
+  }
+
+  .foxhue-results__stat {
+    background-color: rgba(255, 255, 255, 0.04);
+    padding: clamp(1.5rem, 3vw, 2.5rem);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    position: relative;
+  }
+
+  .foxhue-results__stat--featured {
+    background-color: rgba(233, 69, 96, 0.12);
+  }
+
+  .foxhue-results__stat-number {
+    font-family: 'DM Serif Display', serif;
+    font-weight: 400;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    line-height: 1;
+    color: #ffffff;
+    letter-spacing: -0.02em;
+  }
+
+  .foxhue-results__stat-number--accent {
+    color: var(--foxhue-accent, #E94560);
+  }
+
+  .foxhue-results__stat-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.55);
+    line-height: 1.4;
+    max-width: 160px;
+  }
+
+  .foxhue-results__stat-source {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.6875rem;
+    color: rgba(255, 255, 255, 0.3);
+    letter-spacing: 0.04em;
+  }
+
+  /* Before / After showcase */
+  .foxhue-results__before-after {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(1.5rem, 3vw, 2.5rem);
+    margin-bottom: clamp(3rem, 5vw, 5rem);
+    align-items: start;
+  }
+
+  .foxhue-results__panel {
+    border-radius: 12px;
+    padding: clamp(1.5rem, 2.5vw, 2rem);
+    display: flex;
+    flex-direction: column;
+    gap: 1.125rem;
+  }
+
+  .foxhue-results__panel--before {
+    background-color: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .foxhue-results__panel--after {
+    background-color: rgba(233, 69, 96, 0.08);
+    border: 1px solid rgba(233, 69, 96, 0.2);
+  }
+
+  .foxhue-results__panel-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.4);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .foxhue-results__panel--after .foxhue-results__panel-label {
+    color: var(--foxhue-accent, #E94560);
+  }
+
+  .foxhue-results__panel-label-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.2);
+    flex-shrink: 0;
+  }
+
+  .foxhue-results__panel--after .foxhue-results__panel-label-dot {
+    background-color: var(--foxhue-accent, #E94560);
+  }
+
+  .foxhue-results__metric {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .foxhue-results__metric-name {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  .foxhue-results__metric-bar-wrap {
+    height: 8px;
+    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0.06);
+    overflow: hidden;
+    position: relative;
+  }
+
+  .foxhue-results__metric-bar {
+    height: 100%;
+    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0.2);
+    position: relative;
+  }
+
+  /* Before bars — low/poor performance */
+  .foxhue-results__metric-bar--b1 { width: 28%; }
+  .foxhue-results__metric-bar--b2 { width: 19%; }
+  .foxhue-results__metric-bar--b3 { width: 35%; }
+  .foxhue-results__metric-bar--b4 { width: 22%; }
+
+  /* After bars — improved performance, accent colour */
+  .foxhue-results__metric-bar--a1 { width: 78%; background-color: var(--foxhue-accent, #E94560); opacity: 0.8; }
+  .foxhue-results__metric-bar--a2 { width: 65%; background-color: var(--foxhue-accent, #E94560); opacity: 0.8; }
+  .foxhue-results__metric-bar--a3 { width: 82%; background-color: var(--foxhue-accent, #E94560); opacity: 0.8; }
+  .foxhue-results__metric-bar--a4 { width: 71%; background-color: var(--foxhue-accent, #E94560); opacity: 0.8; }
+
+  .foxhue-results__metric-value {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.45);
+    text-align: right;
+  }
+
+  .foxhue-results__panel--after .foxhue-results__metric-value {
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  /* Testimonial cards */
+  .foxhue-results__cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(1rem, 2vw, 1.5rem);
+    margin-bottom: clamp(3rem, 5vw, 4rem);
+  }
+
+  .foxhue-results__card {
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: clamp(1.25rem, 2vw, 1.75rem);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    transition: background-color 250ms ease, border-color 250ms ease;
+  }
+
+  .foxhue-results__card:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.14);
+  }
+
+  /* Star rating */
+  .foxhue-results__card-stars {
+    display: flex;
+    gap: 3px;
+    color: #F59E0B;
+    font-size: 0.875rem;
+  }
+
+  .foxhue-results__card-quote {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.75);
+    font-style: italic;
+    flex: 1;
+  }
+
+  .foxhue-results__card-attribution {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-top: 0.875rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .foxhue-results__card-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(233, 69, 96, 0.4) 0%, rgba(26, 26, 46, 0.6) 100%);
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .foxhue-results__card-avatar-initials {
+    font-family: 'DM Serif Display', serif;
+    font-size: 0.8125rem;
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  .foxhue-results__card-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .foxhue-results__card-name {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  .foxhue-results__card-role {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.4);
+  }
+
+  /* CTA block */
+  .foxhue-results__cta-block {
+    text-align: center;
+    padding: clamp(2rem, 4vw, 3.5rem);
+    background-color: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .foxhue-results__cta-title {
+    font-family: 'DM Serif Display', serif;
+    font-weight: 400;
+    font-size: clamp(1.5rem, 3vw, 2.25rem);
+    color: #ffffff;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+  }
+
+  .foxhue-results__cta-sub {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.55);
+    line-height: 1.6;
+    max-width: 480px;
+    margin: 0 auto;
+    margin-top: -0.5rem;
+  }
+
+  .foxhue-results__cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 1rem 2.25rem;
+    background-color: var(--foxhue-accent, #E94560);
+    color: #ffffff;
+    font-family: 'Inter', sans-serif;
+    font-size: 1.0625rem;
+    font-weight: 700;
+    line-height: 1;
+    border-radius: 4px;
+    text-decoration: none;
+    border: 2px solid var(--foxhue-accent, #E94560);
+    transition: background-color 150ms ease, border-color 150ms ease, transform 150ms ease, box-shadow 150ms ease;
+  }
+
+  .foxhue-results__cta:hover {
+    background-color: var(--foxhue-accent-hover, #D63851);
+    border-color: var(--foxhue-accent-hover, #D63851);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(233, 69, 96, 0.4);
+  }
+
+  .foxhue-results__cta:focus-visible {
+    outline: 3px solid #ffffff;
+    outline-offset: 3px;
+  }
+
+  .foxhue-results__cta svg {
+    width: 18px;
+    height: 18px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .foxhue-results__cta-note {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8125rem;
+    color: rgba(255, 255, 255, 0.35);
+    margin-top: -0.5rem;
+  }
+
+  /* Responsive */
+  @media (max-width: 991px) {
+    .foxhue-results__stats {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .foxhue-results__cards {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .foxhue-results__cards > .foxhue-results__card:last-child {
+      grid-column: 1 / -1;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .foxhue-results__stats {
+      grid-template-columns: 1fr;
+      gap: 1px;
+    }
+
+    .foxhue-results__before-after {
+      grid-template-columns: 1fr;
+    }
+
+    .foxhue-results__cards {
+      grid-template-columns: 1fr;
+    }
+
+    .foxhue-results__cards > .foxhue-results__card:last-child {
+      grid-column: auto;
+    }
+  }
+
+  @media (max-width: 478px) {
+    .foxhue-results__cta {
+      width: 100%;
+    }
+
+    .foxhue-results__cta-block {
+      padding: 1.5rem;
+    }
+
+    .foxhue-results__stat-number {
+      font-size: 2.5rem;
+    }
+  }
+</style>
+
+<section class="foxhue-results" id="audit-form" aria-labelledby="foxhue-results-heading">
+  <div class="foxhue-results__inner">
+
+    <!-- Header -->
+    <header class="foxhue-results__header">
+      <p class="foxhue-results__eyebrow">Real Results</p>
+      <h2 class="foxhue-results__title" id="foxhue-results-heading">
+        What Businesses Discover After Their Audit
+      </h2>
+      <p class="foxhue-results__subtitle">
+        The businesses that act on their audit findings consistently see
+        meaningful improvements — here's what the numbers actually look like.
+      </p>
+    </header>
+
+    <!-- Key stats -->
+    <div class="foxhue-results__stats" role="list" aria-label="Key outcome statistics">
+
+      <div class="foxhue-results__stat" role="listitem">
+        <p class="foxhue-results__stat-number">47<span style="font-size: 0.6em; opacity: 0.7;">%</span></p>
+        <p class="foxhue-results__stat-label">Average increase in organic traffic within 6 months</p>
+        <p class="foxhue-results__stat-source">Based on clients who implemented audit recommendations</p>
+      </div>
+
+      <div class="foxhue-results__stat foxhue-results__stat--featured" role="listitem">
+        <p class="foxhue-results__stat-number foxhue-results__stat-number--accent">3<span style="font-size: 0.55em; opacity: 0.8;">x</span></p>
+        <p class="foxhue-results__stat-label">More qualified leads generated per month on average</p>
+        <p class="foxhue-results__stat-source">Median across local businesses, first year post-audit</p>
+      </div>
+
+      <div class="foxhue-results__stat" role="listitem">
+        <p class="foxhue-results__stat-number">92<span style="font-size: 0.6em; opacity: 0.7;">%</span></p>
+        <p class="foxhue-results__stat-label">Of clients say the audit was worth their time</p>
+        <p class="foxhue-results__stat-source">From our post-audit client survey</p>
+      </div>
+
+    </div>
+
+    <!-- Before / After -->
+    <div class="foxhue-results__before-after" aria-label="Before and after audit comparison">
+
+      <div class="foxhue-results__panel foxhue-results__panel--before">
+        <p class="foxhue-results__panel-label">
+          <span class="foxhue-results__panel-label-dot" aria-hidden="true"></span>
+          Before audit
+        </p>
+        <div class="foxhue-results__metric" aria-label="Google rankings before">
+          <p class="foxhue-results__metric-name">Google Rankings (target keywords)</p>
+          <div class="foxhue-results__metric-bar-wrap">
+            <div class="foxhue-results__metric-bar foxhue-results__metric-bar--b1" role="meter" aria-valuenow="28" aria-valuemin="0" aria-valuemax="100" aria-label="28 out of 100"></div>
+          </div>
+          <p class="foxhue-results__metric-value">Page 3–4</p>
+        </div>
+        <div class="foxhue-results__metric" aria-label="Page speed before">
+          <p class="foxhue-results__metric-name">Page Speed Score</p>
+          <div class="foxhue-results__metric-bar-wrap">
+            <div class="foxhue-results__metric-bar foxhue-results__metric-bar--b2" role="meter" aria-valuenow="19" aria-valuemin="0" aria-valuemax="100" aria-label="19 out of 100"></div>
+          </div>
+          <p class="foxhue-results__metric-value">19 / 100</p>
+        </div>
+        <div class="foxhue-results__metric" aria-label="Organic traffic before">
+          <p class="foxhue-results__metric-name">Monthly Organic Visits</p>
+          <div class="foxhue-results__metric-bar-wrap">
+            <div class="foxhue-results__metric-bar foxhue-results__metric-bar--b3" role="meter" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100" aria-label="low"></div>
+          </div>
+          <p class="foxhue-results__metric-value">~180</p>
+        </div>
+        <div class="foxhue-results__metric" aria-label="Conversion rate before">
+          <p class="foxhue-results__metric-name">Enquiry Conversion Rate</p>
+          <div class="foxhue-results__metric-bar-wrap">
+            <div class="foxhue-results__metric-bar foxhue-results__metric-bar--b4" role="meter" aria-valuenow="22" aria-valuemin="0" aria-valuemax="100" aria-label="low"></div>
+          </div>
+          <p class="foxhue-results__metric-value">0.8%</p>
+        </div>
+      </div>
+
+      <div class="foxhue-results__panel foxhue-results__panel--after">
+        <p class="foxhue-results__panel-label">
+          <span class="foxhue-results__panel-label-dot" aria-hidden="true"></span>
+          6 months after
+        </p>
+        <div class="foxhue-results__metric" aria-label="Google rankings after">
+          <p class="foxhue-results__metric-name">Google Rankings (target keywords)</p>
+          <div class="foxhue-results__metric-bar-wrap">
+            <div class="foxhue-results__metric-bar foxhue-results__metric-bar--a1" role="meter" aria-valuenow="78" aria-valuemin="0" aria-valuemax="100" aria-label="78 out of 100"></div>
+          </div>
+          <p class="foxhue-results__metric-value" style="color: rgba(255,255,255,0.75);">Page 1</p>
+        </div>
+        <div class="foxhue-results__metric" aria-label="Page speed after">
+          <p class="foxhue-results__metric-name">Page Speed Score</p>
+          <div class="foxhue-results__metric-bar-wrap">
+            <div class="foxhue-results__metric-bar foxhue-results__metric-bar--a2" role="meter" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100" aria-label="65 out of 100"></div>
+          </div>
+          <p class="foxhue-results__metric-value" style="color: rgba(255,255,255,0.75);">65 / 100</p>
+        </div>
+        <div class="foxhue-results__metric" aria-label="Organic traffic after">
+          <p class="foxhue-results__metric-name">Monthly Organic Visits</p>
+          <div class="foxhue-results__metric-bar-wrap">
+            <div class="foxhue-results__metric-bar foxhue-results__metric-bar--a3" role="meter" aria-valuenow="82" aria-valuemin="0" aria-valuemax="100" aria-label="high"></div>
+          </div>
+          <p class="foxhue-results__metric-value" style="color: rgba(255,255,255,0.75);">~1,400</p>
+        </div>
+        <div class="foxhue-results__metric" aria-label="Conversion rate after">
+          <p class="foxhue-results__metric-name">Enquiry Conversion Rate</p>
+          <div class="foxhue-results__metric-bar-wrap">
+            <div class="foxhue-results__metric-bar foxhue-results__metric-bar--a4" role="meter" aria-valuenow="71" aria-valuemin="0" aria-valuemax="100" aria-label="improved"></div>
+          </div>
+          <p class="foxhue-results__metric-value" style="color: rgba(255,255,255,0.75);">3.2%</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Testimonial cards -->
+    <div class="foxhue-results__cards" role="list" aria-label="Client testimonials">
+
+      <article class="foxhue-results__card" role="listitem">
+        <div class="foxhue-results__card-stars" aria-label="5 star rating">
+          <span aria-hidden="true">★★★★★</span>
+        </div>
+        <blockquote class="foxhue-results__card-quote">
+          "We knew the website wasn't performing but couldn't pinpoint why.
+          The Foxhue audit gave us a clear roadmap — within three months we'd
+          doubled our enquiry volume."
+        </blockquote>
+        <footer class="foxhue-results__card-attribution">
+          <div class="foxhue-results__card-avatar" aria-hidden="true">
+            <span class="foxhue-results__card-avatar-initials">SR</span>
+          </div>
+          <div class="foxhue-results__card-info">
+            <p class="foxhue-results__card-name">Sarah R.</p>
+            <p class="foxhue-results__card-role">Director, Oxfordshire HR firm</p>
+          </div>
+        </footer>
+      </article>
+
+      <article class="foxhue-results__card" role="listitem">
+        <div class="foxhue-results__card-stars" aria-label="5 star rating">
+          <span aria-hidden="true">★★★★★</span>
+        </div>
+        <blockquote class="foxhue-results__card-quote">
+          "Completely straightforward, no jargon, no pressure. The report
+          identified six issues we'd never noticed. Our Google ranking improved
+          significantly within 8 weeks of fixing them."
+        </blockquote>
+        <footer class="foxhue-results__card-attribution">
+          <div class="foxhue-results__card-avatar" aria-hidden="true">
+            <span class="foxhue-results__card-avatar-initials">MK</span>
+          </div>
+          <div class="foxhue-results__card-info">
+            <p class="foxhue-results__card-name">Mark K.</p>
+            <p class="foxhue-results__card-role">Owner, Bicester tradespeople</p>
+          </div>
+        </footer>
+      </article>
+
+      <article class="foxhue-results__card" role="listitem">
+        <div class="foxhue-results__card-stars" aria-label="5 star rating">
+          <span aria-hidden="true">★★★★★</span>
+        </div>
+        <blockquote class="foxhue-results__card-quote">
+          "I expected a sales pitch disguised as an audit. Instead I got a
+          genuinely useful document that I've referred back to every month since.
+          Foxhue earned my trust from the very first interaction."
+        </blockquote>
+        <footer class="foxhue-results__card-attribution">
+          <div class="foxhue-results__card-avatar" aria-hidden="true">
+            <span class="foxhue-results__card-avatar-initials">JP</span>
+          </div>
+          <div class="foxhue-results__card-info">
+            <p class="foxhue-results__card-name">James P.</p>
+            <p class="foxhue-results__card-role">Founder, Banbury e-commerce brand</p>
+          </div>
+        </footer>
+      </article>
+
+    </div>
+
+    <!-- Final CTA block -->
+    <div class="foxhue-results__cta-block">
+      <h2 class="foxhue-results__cta-title">Ready to See What's Holding You Back?</h2>
+      <p class="foxhue-results__cta-sub">
+        Book your free audit today and get a clear, honest picture of your
+        website's performance — delivered within 48 hours, completely free,
+        with no obligation to work with us afterwards.
+      </p>
+      <a href="mailto:hello@foxhue.com?subject=Free%20SEO%20%26%20Website%20Audit%20Request&body=Hi%20Foxhue%2C%0A%0AI%27d%20like%20to%20request%20a%20free%20SEO%20%26%20website%20audit%20for%20my%20website%3A%0A%0AWebsite%20URL%3A%20%0ABusiness%20name%3A%20%0AWhat%20I%20want%20to%20improve%3A%20%0A%0AThanks" class="foxhue-results__cta" aria-label="Book your free SEO and website audit — opens email to hello@foxhue.com">
+        Book Your Free Audit
+        <svg viewBox="0 0 18 18" aria-hidden="true" focusable="false">
+          <path d="M3.75 9h10.5M9.75 4.5L14.25 9l-4.5 4.5"/>
+        </svg>
+      </a>
+      <p class="foxhue-results__cta-note">
+        Or email us directly at
+        <a href="mailto:hello@foxhue.com" style="color: rgba(255,255,255,0.5); text-decoration: underline; text-underline-offset: 3px;">hello@foxhue.com</a>
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- Section: Testimonials | Foxhue Landing Page -->
+<style>
+  /* ══════════════════════════════════════════════════
+     Foxhue Landing — Testimonials Section
+     ══════════════════════════════════════════════════ */
+
+  :root {
+    --foxhue-primary: #1A1A2E;
+    --foxhue-accent: #E94560;
+    --foxhue-accent-hover: #D63851;
+    --foxhue-bg: #F8F8FA;
+    --foxhue-surface: #FFFFFF;
+    --foxhue-text: #1A1A2E;
+    --foxhue-text-muted: #6b6b80;
+    --foxhue-border: rgba(26, 26, 46, 0.1);
+    --foxhue-shadow-md: 0 4px 16px rgba(26, 26, 46, 0.08);
+    --foxhue-shadow-lg: 0 8px 32px rgba(26, 26, 46, 0.12);
+    --foxhue-radius-md: 10px;
+    --foxhue-radius-lg: 16px;
+    --foxhue-font-heading: 'DM Serif Display', serif;
+    --foxhue-font-body: 'Inter', sans-serif;
+  }
+
+  .foxhue-testimonials {
+    background-color: var(--foxhue-bg);
+    padding: 6rem 2rem;
+    font-family: var(--foxhue-font-body);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .foxhue-testimonials__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .foxhue-testimonials__header {
+    text-align: center;
+    margin-bottom: 3.5rem;
+  }
+
+  .foxhue-testimonials__eyebrow {
+    display: inline-block;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--foxhue-accent);
+    margin-bottom: 1rem;
+  }
+
+  .foxhue-testimonials__heading {
+    font-family: var(--foxhue-font-heading);
+    font-size: clamp(1.75rem, 3.5vw, 2.625rem);
+    font-weight: 400;
+    color: var(--foxhue-primary);
+    line-height: 1.2;
+    margin: 0;
+  }
+
+  .foxhue-testimonials__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .foxhue-testimonials__card {
+    background-color: var(--foxhue-surface);
+    border-radius: var(--foxhue-radius-lg);
+    padding: 2.5rem;
+    box-shadow: var(--foxhue-shadow-md);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    position: relative;
+    transition: box-shadow 0.25s ease, transform 0.25s ease;
+  }
+
+  .foxhue-testimonials__card:hover {
+    box-shadow: var(--foxhue-shadow-lg);
+    transform: translateY(-3px);
+  }
+
+  .foxhue-testimonials__card-quote-mark {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    font-family: var(--foxhue-font-heading);
+    font-size: 5rem;
+    line-height: 1;
+    color: var(--foxhue-accent);
+    opacity: 0.12;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  .foxhue-testimonials__stars {
+    display: flex;
+    gap: 0.25rem;
+  }
+
+  .foxhue-testimonials__star {
+    display: inline-block;
+    width: 1.125rem;
+    height: 1.125rem;
+    color: #F5A623;
+    font-size: 1.125rem;
+    line-height: 1;
+  }
+
+  .foxhue-testimonials__quote {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--foxhue-primary);
+    flex: 1;
+    margin: 0;
+  }
+
+  .foxhue-testimonials__attribution {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--foxhue-border);
+  }
+
+  .foxhue-testimonials__avatar {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    background-color: var(--foxhue-bg);
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--foxhue-font-heading);
+    font-size: 1.125rem;
+    color: var(--foxhue-primary);
+    border: 2px solid var(--foxhue-border);
+  }
+
+  .foxhue-testimonials__name {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--foxhue-primary);
+    line-height: 1.3;
+    margin: 0 0 0.125rem;
+  }
+
+  .foxhue-testimonials__role {
+    font-size: 0.8125rem;
+    color: var(--foxhue-text-muted);
+    line-height: 1.3;
+    margin: 0;
+  }
+
+  .foxhue-testimonials__result-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--foxhue-accent);
+    background-color: rgba(233, 69, 96, 0.08);
+    padding: 0.3rem 0.75rem;
+    border-radius: 100px;
+    margin-top: 0.25rem;
+    width: fit-content;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 991px) {
+    .foxhue-testimonials {
+      padding: 5rem 1.5rem;
+    }
+
+    .foxhue-testimonials__grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+
+    .foxhue-testimonials__grid .foxhue-testimonials__card:last-child {
+      grid-column: 1 / -1;
+      max-width: 560px;
+      margin: 0 auto;
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .foxhue-testimonials {
+      padding: 4rem 1.25rem;
+    }
+
+    .foxhue-testimonials__grid {
+      grid-template-columns: 1fr;
+    }
+
+    .foxhue-testimonials__grid .foxhue-testimonials__card:last-child {
+      grid-column: auto;
+      max-width: none;
+    }
+
+    .foxhue-testimonials__card {
+      padding: 2rem;
+    }
+  }
+
+  @media (max-width: 478px) {
+    .foxhue-testimonials {
+      padding: 3rem 1rem;
+    }
+
+    .foxhue-testimonials__card {
+      padding: 1.5rem;
+    }
+  }
+</style>
+
+<section class="foxhue-testimonials" aria-labelledby="testimonials-heading">
+  <div class="foxhue-testimonials__inner">
+
+    <header class="foxhue-testimonials__header">
+      <span class="foxhue-testimonials__eyebrow">What Business Owners Say</span>
+      <h2 class="foxhue-testimonials__heading" id="testimonials-heading">
+        Real results for real businesses
+      </h2>
+    </header>
+
+    <div class="foxhue-testimonials__grid">
+
+      <!-- Card 1 -->
+      <article class="foxhue-testimonials__card">
+        <span class="foxhue-testimonials__card-quote-mark" aria-hidden="true">"</span>
+        <div class="foxhue-testimonials__stars" aria-label="5 out of 5 stars">
+          <span class="foxhue-testimonials__star" aria-hidden="true">★</span>
+          <span class="foxhue-testimonials__star" aria-hidden="true">★</span>
+          <span class="foxhue-testimonials__star" aria-hidden="true">★</span>
+          <span class="foxhue-testimonials__star" aria-hidden="true">★</span>
+          <span class="foxhue-testimonials__star" aria-hidden="true">★</span>
+        </div>
+        <p class="foxhue-testimonials__quote">
+          "I assumed our website was doing fine — we had traffic. The Foxhue audit showed us we were losing half our visitors in under 10 seconds because the site took so long to load on mobile. Within six weeks of fixing it, our enquiry rate doubled. I wish we'd done this two years ago."
+        </p>
+        <div class="foxhue-testimonials__attribution">
+          <div class="foxhue-testimonials__avatar" aria-hidden="true">SR</div>
+          <div>
+            <p class="foxhue-testimonials__name">Sarah Rawlings</p>
+            <p class="foxhue-testimonials__role">Owner, The Ironstone Kitchen, Banbury</p>
+            <span class="foxhue-testimonials__result-badge">Enquiries up 2x in 6 weeks</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 2 -->
+      <article class="foxhue-testimonials__card">
+        <span class="foxhue-testimonials__card-quote-mark" aria-hidden="true">"</span>
+        <div class="foxhue-testimonials__stars" aria-label="5 out of 5 stars">
+          <span class="foxhue-testimonials__star" aria-hidden="true">★</span>
+          <span class="foxhue-testimonials__star" aria-hidden="true">★</span>
+          <span class="foxhue-testimonials__star" aria-hidden="true">★</span>
+          <span class="foxhue-testimonials__star" aria-hidden="true">★</span>
+          <span class="foxhue-testimonials__star" aria-hidden="true">★</span>
+        </div>
+        <p class="foxhue-testimonials__quote">
+          "We've been trading for 12 years but our website looked like 2014. The audit gave us a clear list of what actually mattered — not a 40-page document full of jargon. Foxhue prioritised the quick wins, we tackled them in a weekend, and we jumped from page four to page one for our main search term."
+        </p>
+        <div class="foxhue-testimonials__attribution">
+          <div class="foxhue-testimonials__avatar" aria-hidden="true">MT</div>
+          <div>
+            <p class="foxhue-testimonials__name">Mark Thurston</p>
+            <p class="foxhue-testimonials__role">Director, Thurston Electrical, Bicester</p>
+            <span class="foxhue-testimonials__result-badge">Page 4 → Page 1 on Google</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 3 -->
+      <article class="foxhue-testimonials__card">
+        <span class="foxhue-testimonials__card-quote-mark" aria-hidden="true">"</span>
+        <div class="foxhue-testimonials__stars" aria-label="5 out of 5 stars">
+          <span class="foxhue-testimonials__star" aria-hidden="true">★</span>
+          <span class="foxhue-testimonials__star" aria-hidden="true">★</span>
+          <span class="foxhue-testimonials__star" aria-hidden="true">★</span>
+          <span class="foxhue-testimonials__star" aria-hidden="true">★</span>
+          <span class="foxhue-testimonials__star" aria-hidden="true">★</span>
+        </div>
+        <p class="foxhue-testimonials__quote">
+          "The free audit was genuinely eye-opening. We had no idea our Google Business profile was half-empty or that three of our service pages weren't even being indexed. The report was honest, practical, and had zero fluff. We've since brought Foxhue in to handle the full implementation and the results speak for themselves."
+        </p>
+        <div class="foxhue-testimonials__attribution">
+          <div class="foxhue-testimonials__avatar" aria-hidden="true">PK</div>
+          <div>
+            <p class="foxhue-testimonials__name">Priya Kohli</p>
+            <p class="foxhue-testimonials__role">Founder, Bloom Wellness Studio, Oxford</p>
+            <span class="foxhue-testimonials__result-badge">Organic traffic up 74% in 3 months</span>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- Section: Pricing | Foxhue Landing Page -->
+<style>
+  /* ══════════════════════════════════════════════════
+     Foxhue Landing — Pricing Section
+     ══════════════════════════════════════════════════ */
+
+  :root {
+    --foxhue-primary: #1A1A2E;
+    --foxhue-accent: #E94560;
+    --foxhue-accent-hover: #D63851;
+    --foxhue-bg: #F8F8FA;
+    --foxhue-surface: #FFFFFF;
+    --foxhue-text: #1A1A2E;
+    --foxhue-text-muted: #6b6b80;
+    --foxhue-border: rgba(26, 26, 46, 0.1);
+    --foxhue-shadow-sm: 0 1px 4px rgba(26, 26, 46, 0.06);
+    --foxhue-shadow-md: 0 4px 16px rgba(26, 26, 46, 0.08);
+    --foxhue-shadow-lg: 0 8px 32px rgba(26, 26, 46, 0.12);
+    --foxhue-radius-md: 10px;
+    --foxhue-radius-lg: 16px;
+    --foxhue-font-heading: 'DM Serif Display', serif;
+    --foxhue-font-body: 'Inter', sans-serif;
+  }
+
+  .foxhue-pricing {
+    background-color: var(--foxhue-primary);
+    padding: 6rem 2rem;
+    font-family: var(--foxhue-font-body);
+    -webkit-font-smoothing: antialiased;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Subtle decorative background texture */
+  .foxhue-pricing::before {
+    content: '';
+    position: absolute;
+    top: -200px;
+    right: -200px;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(233, 69, 96, 0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .foxhue-pricing::after {
+    content: '';
+    position: absolute;
+    bottom: -150px;
+    left: -150px;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(233, 69, 96, 0.05) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .foxhue-pricing__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .foxhue-pricing__header {
+    text-align: center;
+    margin-bottom: 3.5rem;
+  }
+
+  .foxhue-pricing__eyebrow {
+    display: inline-block;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--foxhue-accent);
+    margin-bottom: 1rem;
+  }
+
+  .foxhue-pricing__heading {
+    font-family: var(--foxhue-font-heading);
+    font-size: clamp(1.75rem, 3.5vw, 2.625rem);
+    font-weight: 400;
+    color: #ffffff;
+    line-height: 1.2;
+    margin: 0 0 1rem;
+  }
+
+  .foxhue-pricing__subheading {
+    font-size: 1.0625rem;
+    color: rgba(255, 255, 255, 0.65);
+    line-height: 1.6;
+    max-width: 560px;
+    margin: 0 auto;
+  }
+
+  .foxhue-pricing__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    align-items: start;
+  }
+
+  /* ── Tier Card ── */
+  .foxhue-pricing__tier {
+    background-color: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--foxhue-radius-lg);
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    transition: border-color 0.25s ease, background-color 0.25s ease;
+    position: relative;
+  }
+
+  .foxhue-pricing__tier:hover {
+    background-color: rgba(255, 255, 255, 0.09);
+    border-color: rgba(255, 255, 255, 0.18);
+  }
+
+  /* Featured tier */
+  .foxhue-pricing__tier--featured {
+    background-color: var(--foxhue-surface);
+    border-color: var(--foxhue-surface);
+    transform: translateY(-0.5rem);
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.3);
+  }
+
+  .foxhue-pricing__tier--featured:hover {
+    background-color: var(--foxhue-surface);
+    border-color: var(--foxhue-surface);
+  }
+
+  .foxhue-pricing__featured-badge {
+    position: absolute;
+    top: -0.875rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--foxhue-accent);
+    color: #ffffff;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 0.3rem 1rem;
+    border-radius: 100px;
+    white-space: nowrap;
+  }
+
+  .foxhue-pricing__tier-name {
+    font-family: var(--foxhue-font-heading);
+    font-size: 1.375rem;
+    font-weight: 400;
+    color: #ffffff;
+    margin: 0 0 0.5rem;
+    line-height: 1.2;
+  }
+
+  .foxhue-pricing__tier--featured .foxhue-pricing__tier-name {
+    color: var(--foxhue-primary);
+  }
+
+  .foxhue-pricing__tier-tagline {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.55);
+    margin: 0 0 1.75rem;
+    line-height: 1.5;
+  }
+
+  .foxhue-pricing__tier--featured .foxhue-pricing__tier-tagline {
+    color: var(--foxhue-text-muted);
+  }
+
+  .foxhue-pricing__price-block {
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .foxhue-pricing__tier--featured .foxhue-pricing__price-block {
+    border-bottom-color: var(--foxhue-border);
+  }
+
+  .foxhue-pricing__price {
+    font-family: var(--foxhue-font-heading);
+    font-size: 2.625rem;
+    font-weight: 400;
+    color: #ffffff;
+    line-height: 1;
+    margin: 0 0 0.375rem;
+  }
+
+  .foxhue-pricing__tier--featured .foxhue-pricing__price {
+    color: var(--foxhue-primary);
+  }
+
+  .foxhue-pricing__price--free {
+    color: var(--foxhue-accent);
+  }
+
+  .foxhue-pricing__price-note {
+    font-size: 0.8125rem;
+    color: rgba(255, 255, 255, 0.45);
+    margin: 0;
+  }
+
+  .foxhue-pricing__tier--featured .foxhue-pricing__price-note {
+    color: var(--foxhue-text-muted);
+  }
+
+  /* Feature list */
+  .foxhue-pricing__features {
+    list-style: none;
+    margin: 0 0 2.25rem;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.875rem;
+    flex: 1;
+  }
+
+  .foxhue-pricing__feature {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    font-size: 0.9375rem;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.5;
+  }
+
+  .foxhue-pricing__tier--featured .foxhue-pricing__feature {
+    color: var(--foxhue-text);
+  }
+
+  .foxhue-pricing__feature-icon {
+    flex-shrink: 0;
+    width: 1.125rem;
+    height: 1.125rem;
+    margin-top: 0.125rem;
+    color: var(--foxhue-accent);
+    font-size: 0.875rem;
+    line-height: 1.125rem;
+  }
+
+  /* CTA button */
+  .foxhue-pricing__cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 0.875rem 1.5rem;
+    border-radius: var(--foxhue-radius-md);
+    font-family: var(--foxhue-font-body);
+    font-size: 0.9375rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+  }
+
+  .foxhue-pricing__cta--outline {
+    background-color: transparent;
+    border: 1.5px solid rgba(255, 255, 255, 0.3);
+    color: #ffffff;
+  }
+
+  .foxhue-pricing__cta--outline:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.5);
+  }
+
+  .foxhue-pricing__cta--primary {
+    background-color: var(--foxhue-accent);
+    color: #ffffff;
+    box-shadow: 0 4px 14px rgba(233, 69, 96, 0.35);
+  }
+
+  .foxhue-pricing__cta--primary:hover {
+    background-color: var(--foxhue-accent-hover);
+    box-shadow: 0 6px 20px rgba(233, 69, 96, 0.45);
+    transform: translateY(-1px);
+  }
+
+  .foxhue-pricing__cta--ghost {
+    background-color: transparent;
+    border: 1.5px solid rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 0.75);
+  }
+
+  .foxhue-pricing__cta--ghost:hover {
+    border-color: rgba(255, 255, 255, 0.4);
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.05);
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 1200px) {
+    .foxhue-pricing__grid {
+      gap: 1.25rem;
+    }
+  }
+
+  @media (max-width: 991px) {
+    .foxhue-pricing {
+      padding: 5rem 1.5rem;
+    }
+
+    .foxhue-pricing__grid {
+      grid-template-columns: 1fr;
+      max-width: 480px;
+      margin: 0 auto;
+      gap: 1.5rem;
+    }
+
+    .foxhue-pricing__tier--featured {
+      transform: none;
+      order: -1;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .foxhue-pricing {
+      padding: 4rem 1.25rem;
+    }
+
+    .foxhue-pricing__tier {
+      padding: 2rem;
+    }
+  }
+
+  @media (max-width: 478px) {
+    .foxhue-pricing {
+      padding: 3rem 1rem;
+    }
+
+    .foxhue-pricing__tier {
+      padding: 1.75rem 1.5rem;
+    }
+
+    .foxhue-pricing__price {
+      font-size: 2.25rem;
+    }
+  }
+</style>
+
+<section class="foxhue-pricing" aria-labelledby="pricing-heading">
+  <div class="foxhue-pricing__inner">
+
+    <header class="foxhue-pricing__header">
+      <span class="foxhue-pricing__eyebrow">Audit Packages</span>
+      <h2 class="foxhue-pricing__heading" id="pricing-heading">
+        Start free. Scale when you're ready.
+      </h2>
+      <p class="foxhue-pricing__subheading">
+        No obligation. No lock-in. Begin with a complimentary audit and decide what comes next.
+      </p>
+    </header>
+
+    <div class="foxhue-pricing__grid">
+
+      <!-- Tier 1: Free Audit -->
+      <div class="foxhue-pricing__tier">
+        <h3 class="foxhue-pricing__tier-name">Free Audit</h3>
+        <p class="foxhue-pricing__tier-tagline">Find out where you stand in under 48 hours — no cost, no strings.</p>
+
+        <div class="foxhue-pricing__price-block">
+          <p class="foxhue-pricing__price foxhue-pricing__price--free">Free</p>
+          <p class="foxhue-pricing__price-note">Delivered within 48 hours</p>
+        </div>
+
+        <ul class="foxhue-pricing__features">
+          <li class="foxhue-pricing__feature">
+            <span class="foxhue-pricing__feature-icon" aria-hidden="true">✓</span>
+            SEO health score with key issues flagged
+          </li>
+          <li class="foxhue-pricing__feature">
+            <span class="foxhue-pricing__feature-icon" aria-hidden="true">✓</span>
+            Page speed performance snapshot
+          </li>
+          <li class="foxhue-pricing__feature">
+            <span class="foxhue-pricing__feature-icon" aria-hidden="true">✓</span>
+            Mobile usability check
+          </li>
+          <li class="foxhue-pricing__feature">
+            <span class="foxhue-pricing__feature-icon" aria-hidden="true">✓</span>
+            Top 5 quick-win recommendations
+          </li>
+          <li class="foxhue-pricing__feature">
+            <span class="foxhue-pricing__feature-icon" aria-hidden="true">✓</span>
+            Competitor snapshot (1 competitor)
+          </li>
+        </ul>
+
+        <a href="#book" class="foxhue-pricing__cta foxhue-pricing__cta--outline">Book Free Audit</a>
+      </div>
+
+      <!-- Tier 2: Full Audit (Featured) -->
+      <div class="foxhue-pricing__tier foxhue-pricing__tier--featured">
+        <span class="foxhue-pricing__featured-badge">Most Popular</span>
+        <h3 class="foxhue-pricing__tier-name">Full Audit</h3>
+        <p class="foxhue-pricing__tier-tagline">The complete picture — every opportunity, every obstacle, a clear roadmap.</p>
+
+        <div class="foxhue-pricing__price-block">
+          <p class="foxhue-pricing__price">From £497</p>
+          <p class="foxhue-pricing__price-note">30-page report, delivered in 5 business days</p>
+        </div>
+
+        <ul class="foxhue-pricing__features">
+          <li class="foxhue-pricing__feature">
+            <span class="foxhue-pricing__feature-icon" aria-hidden="true">✓</span>
+            Everything in Free Audit
+          </li>
+          <li class="foxhue-pricing__feature">
+            <span class="foxhue-pricing__feature-icon" aria-hidden="true">✓</span>
+            In-depth competitor analysis (up to 3)
+          </li>
+          <li class="foxhue-pricing__feature">
+            <span class="foxhue-pricing__feature-icon" aria-hidden="true">✓</span>
+            Keyword gap analysis &amp; opportunity mapping
+          </li>
+          <li class="foxhue-pricing__feature">
+            <span class="foxhue-pricing__feature-icon" aria-hidden="true">✓</span>
+            Technical SEO deep-dive (crawl errors, schema, Core Web Vitals)
+          </li>
+          <li class="foxhue-pricing__feature">
+            <span class="foxhue-pricing__feature-icon" aria-hidden="true">✓</span>
+            Content quality &amp; structure review
+          </li>
+          <li class="foxhue-pricing__feature">
+            <span class="foxhue-pricing__feature-icon" aria-hidden="true">✓</span>
+            30-page prioritised report
+          </li>
+          <li class="foxhue-pricing__feature">
+            <span class="foxhue-pricing__feature-icon" aria-hidden="true">✓</span>
+            60-minute walk-through call included
+          </li>
+        </ul>
+
+        <a href="#book" class="foxhue-pricing__cta foxhue-pricing__cta--primary">Get Full Audit</a>
+      </div>
+
+      <!-- Tier 3: Audit + Implementation -->
+      <div class="foxhue-pricing__tier">
+        <h3 class="foxhue-pricing__tier-name">Audit + Implementation</h3>
+        <p class="foxhue-pricing__tier-tagline">We find the problems and fix them — you focus on running your business.</p>
+
+        <div class="foxhue-pricing__price-block">
+          <p class="foxhue-pricing__price">From £1,497</p>
+          <p class="foxhue-pricing__price-note">3 months of support included</p>
+        </div>
+
+        <ul class="foxhue-pricing__features">
+          <li class="foxhue-pricing__feature">
+            <span class="foxhue-pricing__feature-icon" aria-hidden="true">✓</span>
+            Everything in Full Audit
+          </li>
+          <li class="foxhue-pricing__feature">
+            <span class="foxhue-pricing__feature-icon" aria-hidden="true">✓</span>
+            We implement all priority fixes for you
+          </li>
+          <li class="foxhue-pricing__feature">
+            <span class="foxhue-pricing__feature-icon" aria-hidden="true">✓</span>
+            Monthly ranking &amp; traffic tracking reports
+          </li>
+          <li class="foxhue-pricing__feature">
+            <span class="foxhue-pricing__feature-icon" aria-hidden="true">✓</span>
+            3 months of ongoing support &amp; check-ins
+          </li>
+          <li class="foxhue-pricing__feature">
+            <span class="foxhue-pricing__feature-icon" aria-hidden="true">✓</span>
+            Dedicated point of contact at Foxhue
+          </li>
+          <li class="foxhue-pricing__feature">
+            <span class="foxhue-pricing__feature-icon" aria-hidden="true">✓</span>
+            Priority turnaround on any urgent changes
+          </li>
+        </ul>
+
+        <a href="#book" class="foxhue-pricing__cta foxhue-pricing__cta--ghost">Let's Talk</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Section: Process | Foxhue Landing Page -->
+<style>
+  /* ══════════════════════════════════════════════════
+     Foxhue Landing — Process Section
+     ══════════════════════════════════════════════════ */
+
+  :root {
+    --foxhue-primary: #1A1A2E;
+    --foxhue-accent: #E94560;
+    --foxhue-accent-hover: #D63851;
+    --foxhue-bg: #F8F8FA;
+    --foxhue-surface: #FFFFFF;
+    --foxhue-text: #1A1A2E;
+    --foxhue-text-muted: #6b6b80;
+    --foxhue-border: rgba(26, 26, 46, 0.1);
+    --foxhue-shadow-sm: 0 1px 4px rgba(26, 26, 46, 0.06);
+    --foxhue-shadow-md: 0 4px 16px rgba(26, 26, 46, 0.08);
+    --foxhue-radius-md: 10px;
+    --foxhue-radius-lg: 16px;
+    --foxhue-font-heading: 'DM Serif Display', serif;
+    --foxhue-font-body: 'Inter', sans-serif;
+  }
+
+  .foxhue-process {
+    background-color: var(--foxhue-surface);
+    padding: 6rem 2rem;
+    font-family: var(--foxhue-font-body);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .foxhue-process__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .foxhue-process__header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  .foxhue-process__eyebrow {
+    display: inline-block;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--foxhue-accent);
+    margin-bottom: 1rem;
+  }
+
+  .foxhue-process__heading {
+    font-family: var(--foxhue-font-heading);
+    font-size: clamp(1.75rem, 3.5vw, 2.625rem);
+    font-weight: 400;
+    color: var(--foxhue-primary);
+    line-height: 1.2;
+    margin: 0 0 1rem;
+  }
+
+  .foxhue-process__subheading {
+    font-size: 1.0625rem;
+    color: var(--foxhue-text-muted);
+    line-height: 1.65;
+    max-width: 540px;
+    margin: 0 auto;
+  }
+
+  /* ── Steps grid ── */
+  .foxhue-process__steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    position: relative;
+  }
+
+  /* Connecting line between steps */
+  .foxhue-process__steps::before {
+    content: '';
+    position: absolute;
+    top: 2.25rem;
+    left: calc(25% / 2 + 1rem);
+    right: calc(25% / 2 + 1rem);
+    height: 1px;
+    background: linear-gradient(to right, var(--foxhue-accent), rgba(233, 69, 96, 0.2));
+    z-index: 0;
+  }
+
+  .foxhue-process__step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0 1.5rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .foxhue-process__step-number-wrapper {
+    width: 4.5rem;
+    height: 4.5rem;
+    border-radius: 50%;
+    background-color: var(--foxhue-surface);
+    border: 2px solid var(--foxhue-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.75rem;
+    position: relative;
+    flex-shrink: 0;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+    box-shadow: var(--foxhue-shadow-sm);
+  }
+
+  .foxhue-process__step:hover .foxhue-process__step-number-wrapper {
+    border-color: var(--foxhue-accent);
+    box-shadow: 0 0 0 4px rgba(233, 69, 96, 0.1);
+  }
+
+  .foxhue-process__step--active .foxhue-process__step-number-wrapper {
+    background-color: var(--foxhue-accent);
+    border-color: var(--foxhue-accent);
+    box-shadow: 0 4px 16px rgba(233, 69, 96, 0.35);
+  }
+
+  .foxhue-process__step-number {
+    font-family: var(--foxhue-font-heading);
+    font-size: 1.375rem;
+    font-weight: 400;
+    color: var(--foxhue-accent);
+    line-height: 1;
+  }
+
+  .foxhue-process__step--active .foxhue-process__step-number {
+    color: #ffffff;
+  }
+
+  .foxhue-process__step-icon {
+    position: absolute;
+    top: -0.375rem;
+    right: -0.375rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    background-color: var(--foxhue-bg);
+    border: 1.5px solid var(--foxhue-border);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    line-height: 1;
+  }
+
+  .foxhue-process__step-title {
+    font-family: var(--foxhue-font-heading);
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: var(--foxhue-primary);
+    line-height: 1.25;
+    margin: 0 0 0.875rem;
+  }
+
+  .foxhue-process__step-description {
+    font-size: 0.9375rem;
+    color: var(--foxhue-text-muted);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  /* ── Bottom CTA strip ── */
+  .foxhue-process__footer {
+    text-align: center;
+    margin-top: 4rem;
+    padding-top: 3rem;
+    border-top: 1px solid var(--foxhue-border);
+  }
+
+  .foxhue-process__footer-text {
+    font-size: 1rem;
+    color: var(--foxhue-text-muted);
+    margin: 0 0 1.5rem;
+  }
+
+  .foxhue-process__footer-text strong {
+    color: var(--foxhue-primary);
+    font-weight: 600;
+  }
+
+  .foxhue-process__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.875rem 2rem;
+    background-color: var(--foxhue-accent);
+    color: #ffffff;
+    border-radius: var(--foxhue-radius-md);
+    font-family: var(--foxhue-font-body);
+    font-size: 0.9375rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    text-decoration: none;
+    box-shadow: 0 4px 14px rgba(233, 69, 96, 0.3);
+    transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease;
+  }
+
+  .foxhue-process__cta:hover {
+    background-color: var(--foxhue-accent-hover);
+    box-shadow: 0 6px 20px rgba(233, 69, 96, 0.4);
+    transform: translateY(-1px);
+  }
+
+  .foxhue-process__cta-arrow {
+    font-size: 1rem;
+    transition: transform 0.2s ease;
+  }
+
+  .foxhue-process__cta:hover .foxhue-process__cta-arrow {
+    transform: translateX(3px);
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 1200px) {
+    .foxhue-process__step {
+      padding: 0 1rem;
+    }
+  }
+
+  @media (max-width: 991px) {
+    .foxhue-process {
+      padding: 5rem 1.5rem;
+    }
+
+    .foxhue-process__steps {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 3rem 2rem;
+    }
+
+    .foxhue-process__steps::before {
+      display: none;
+    }
+
+    /* Vertical connectors for 2-col layout */
+    .foxhue-process__step:nth-child(1)::after,
+    .foxhue-process__step:nth-child(2)::after {
+      content: '';
+      position: absolute;
+      bottom: -1.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 1px;
+      height: 1.5rem;
+      background-color: rgba(233, 69, 96, 0.25);
+    }
+  }
+
+  @media (max-width: 767px) {
+    .foxhue-process {
+      padding: 4rem 1.25rem;
+    }
+
+    .foxhue-process__steps {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+      max-width: 420px;
+      margin: 0 auto;
+    }
+
+    .foxhue-process__step:nth-child(1)::after,
+    .foxhue-process__step:nth-child(2)::after {
+      display: none;
+    }
+
+    /* Horizontal layout for each step on mobile */
+    .foxhue-process__step {
+      flex-direction: row;
+      text-align: left;
+      align-items: flex-start;
+      gap: 1.5rem;
+      padding: 0;
+    }
+
+    .foxhue-process__step-number-wrapper {
+      margin-bottom: 0;
+      flex-shrink: 0;
+    }
+
+    .foxhue-process__step-content {
+      flex: 1;
+    }
+  }
+
+  @media (max-width: 478px) {
+    .foxhue-process {
+      padding: 3rem 1rem;
+    }
+
+    .foxhue-process__step-number-wrapper {
+      width: 3.5rem;
+      height: 3.5rem;
+    }
+
+    .foxhue-process__step-number {
+      font-size: 1.125rem;
+    }
+  }
+</style>
+
+<section class="foxhue-process" aria-labelledby="process-heading">
+  <div class="foxhue-process__inner">
+
+    <header class="foxhue-process__header">
+      <span class="foxhue-process__eyebrow">How It Works</span>
+      <h2 class="foxhue-process__heading" id="process-heading">
+        From enquiry to insight in four steps
+      </h2>
+      <p class="foxhue-process__subheading">
+        No lengthy onboarding. No jargon-filled kick-off calls. Just a straightforward process that gets you answers fast.
+      </p>
+    </header>
+
+    <ol class="foxhue-process__steps" aria-label="Audit process steps">
+
+      <!-- Step 1 -->
+      <li class="foxhue-process__step foxhue-process__step--active">
+        <div class="foxhue-process__step-number-wrapper" aria-hidden="true">
+          <span class="foxhue-process__step-number">1</span>
+          <span class="foxhue-process__step-icon">📞</span>
+        </div>
+        <div class="foxhue-process__step-content">
+          <h3 class="foxhue-process__step-title">Book Your Call</h3>
+          <p class="foxhue-process__step-description">
+            A quick 15-minute conversation to understand your business, your goals, and what you most want to improve. No preparation needed on your end.
+          </p>
+        </div>
+      </li>
+
+      <!-- Step 2 -->
+      <li class="foxhue-process__step">
+        <div class="foxhue-process__step-number-wrapper" aria-hidden="true">
+          <span class="foxhue-process__step-number">2</span>
+          <span class="foxhue-process__step-icon">🔍</span>
+        </div>
+        <div class="foxhue-process__step-content">
+          <h3 class="foxhue-process__step-title">We Audit Everything</h3>
+          <p class="foxhue-process__step-description">
+            A comprehensive review of your SEO health, page speed, mobile experience, content quality, and competitors — with every issue documented and ranked by impact.
+          </p>
+        </div>
+      </li>
+
+      <!-- Step 3 -->
+      <li class="foxhue-process__step">
+        <div class="foxhue-process__step-number-wrapper" aria-hidden="true">
+          <span class="foxhue-process__step-number">3</span>
+          <span class="foxhue-process__step-icon">📋</span>
+        </div>
+        <div class="foxhue-process__step-content">
+          <h3 class="foxhue-process__step-title">Review Your Report</h3>
+          <p class="foxhue-process__step-description">
+            We walk you through every finding on a call — in plain English. You'll leave knowing exactly what's wrong, why it matters, and what to do about it, in the right order.
+          </p>
+        </div>
+      </li>
+
+      <!-- Step 4 -->
+      <li class="foxhue-process__step">
+        <div class="foxhue-process__step-number-wrapper" aria-hidden="true">
+          <span class="foxhue-process__step-number">4</span>
+          <span class="foxhue-process__step-icon">📈</span>
+        </div>
+        <div class="foxhue-process__step-content">
+          <h3 class="foxhue-process__step-title">Watch It Grow</h3>
+          <p class="foxhue-process__step-description">
+            Implement the changes yourself or let us handle it. Either way, we track your rankings, traffic, and conversions monthly so you can see the results in black and white.
+          </p>
+        </div>
+      </li>
+
+    </ol>
+
+    <div class="foxhue-process__footer">
+      <p class="foxhue-process__footer-text">
+        The whole process starts with a <strong>free, no-obligation call.</strong> Book yours today.
+      </p>
+      <a href="#book" class="foxhue-process__cta">
+        Book My Free Audit
+        <span class="foxhue-process__cta-arrow" aria-hidden="true">→</span>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- Section: FAQ | Foxhue Landing Page -->
+<style>
+  /* ══════════════════════════════════════════════════
+     Foxhue Landing — FAQ Section (Pure CSS Accordion)
+     Uses <details>/<summary> for native, no-JS toggle
+     ══════════════════════════════════════════════════ */
+
+  :root {
+    --foxhue-primary: #1A1A2E;
+    --foxhue-accent: #E94560;
+    --foxhue-accent-hover: #D63851;
+    --foxhue-bg: #F8F8FA;
+    --foxhue-surface: #FFFFFF;
+    --foxhue-text: #1A1A2E;
+    --foxhue-text-muted: #6b6b80;
+    --foxhue-border: rgba(26, 26, 46, 0.1);
+    --foxhue-shadow-sm: 0 1px 4px rgba(26, 26, 46, 0.06);
+    --foxhue-shadow-md: 0 4px 16px rgba(26, 26, 46, 0.08);
+    --foxhue-radius-md: 10px;
+    --foxhue-radius-lg: 16px;
+    --foxhue-font-heading: 'DM Serif Display', serif;
+    --foxhue-font-body: 'Inter', sans-serif;
+  }
+
+  .foxhue-faq {
+    background-color: var(--foxhue-bg);
+    padding: 6rem 2rem;
+    font-family: var(--foxhue-font-body);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .foxhue-faq__inner {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .foxhue-faq__header {
+    text-align: center;
+    margin-bottom: 3.5rem;
+  }
+
+  .foxhue-faq__eyebrow {
+    display: inline-block;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--foxhue-accent);
+    margin-bottom: 1rem;
+  }
+
+  .foxhue-faq__heading {
+    font-family: var(--foxhue-font-heading);
+    font-size: clamp(1.75rem, 3.5vw, 2.625rem);
+    font-weight: 400;
+    color: var(--foxhue-primary);
+    line-height: 1.2;
+    margin: 0 0 1rem;
+  }
+
+  .foxhue-faq__subheading {
+    font-size: 1rem;
+    color: var(--foxhue-text-muted);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  /* ── FAQ List ── */
+  .foxhue-faq__list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  /* ── Individual FAQ item using <details>/<summary> ── */
+  .foxhue-faq__item {
+    background-color: var(--foxhue-surface);
+    border: 1px solid var(--foxhue-border);
+    border-radius: var(--foxhue-radius-md);
+    overflow: hidden;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .foxhue-faq__item:hover {
+    border-color: rgba(26, 26, 46, 0.2);
+    box-shadow: var(--foxhue-shadow-sm);
+  }
+
+  .foxhue-faq__item[open] {
+    border-color: var(--foxhue-accent);
+    box-shadow: 0 0 0 3px rgba(233, 69, 96, 0.08);
+  }
+
+  /* ── Summary (the question / toggle trigger) ── */
+  .foxhue-faq__question {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.375rem 1.75rem;
+    cursor: pointer;
+    list-style: none; /* removes default marker */
+    user-select: none;
+    -webkit-user-select: none;
+  }
+
+  /* Remove the default disclosure triangle across browsers */
+  .foxhue-faq__question::-webkit-details-marker {
+    display: none;
+  }
+
+  .foxhue-faq__question::marker {
+    display: none;
+  }
+
+  .foxhue-faq__question-text {
+    font-family: var(--foxhue-font-heading);
+    font-size: 1.125rem;
+    font-weight: 400;
+    color: var(--foxhue-primary);
+    line-height: 1.35;
+    flex: 1;
+  }
+
+  .foxhue-faq__item[open] .foxhue-faq__question-text {
+    color: var(--foxhue-accent);
+  }
+
+  /* Custom icon — rotates on open */
+  .foxhue-faq__icon {
+    flex-shrink: 0;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    border: 1.5px solid var(--foxhue-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    font-weight: 300;
+    color: var(--foxhue-text-muted);
+    background-color: var(--foxhue-bg);
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+    line-height: 1;
+  }
+
+  .foxhue-faq__icon::before {
+    content: '+';
+    display: block;
+    transition: transform 0.25s ease;
+  }
+
+  .foxhue-faq__item[open] .foxhue-faq__icon {
+    background-color: var(--foxhue-accent);
+    border-color: var(--foxhue-accent);
+    color: #ffffff;
+  }
+
+  .foxhue-faq__item[open] .foxhue-faq__icon::before {
+    content: '−';
+    transform: rotate(0deg);
+  }
+
+  /* ── Answer panel ── */
+  .foxhue-faq__answer {
+    padding: 0 1.75rem 1.5rem;
+    border-top: 1px solid var(--foxhue-border);
+    margin: 0 1.75rem;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .foxhue-faq__answer p {
+    font-size: 0.9375rem;
+    color: var(--foxhue-text-muted);
+    line-height: 1.75;
+    margin: 1.125rem 0 0;
+  }
+
+  .foxhue-faq__answer p:first-child {
+    margin-top: 1.125rem;
+  }
+
+  .foxhue-faq__answer p + p {
+    margin-top: 0.75rem;
+  }
+
+  .foxhue-faq__answer strong {
+    color: var(--foxhue-primary);
+    font-weight: 600;
+  }
+
+  /* ── Footer note ── */
+  .foxhue-faq__footer {
+    text-align: center;
+    margin-top: 2.5rem;
+    padding: 1.75rem 2rem;
+    background-color: var(--foxhue-surface);
+    border-radius: var(--foxhue-radius-lg);
+    border: 1px solid var(--foxhue-border);
+  }
+
+  .foxhue-faq__footer p {
+    font-size: 0.9375rem;
+    color: var(--foxhue-text-muted);
+    margin: 0 0 0.75rem;
+    line-height: 1.6;
+  }
+
+  .foxhue-faq__footer a {
+    color: var(--foxhue-accent);
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(233, 69, 96, 0.3);
+    transition: border-color 0.2s ease;
+  }
+
+  .foxhue-faq__footer a:hover {
+    border-bottom-color: var(--foxhue-accent);
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 991px) {
+    .foxhue-faq {
+      padding: 5rem 1.5rem;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .foxhue-faq {
+      padding: 4rem 1.25rem;
+    }
+
+    .foxhue-faq__question {
+      padding: 1.25rem 1.375rem;
+    }
+
+    .foxhue-faq__answer {
+      margin: 0 1.375rem;
+    }
+
+    .foxhue-faq__question-text {
+      font-size: 1rem;
+    }
+  }
+
+  @media (max-width: 478px) {
+    .foxhue-faq {
+      padding: 3rem 1rem;
+    }
+
+    .foxhue-faq__question {
+      padding: 1.125rem 1.25rem;
+      gap: 0.75rem;
+    }
+
+    .foxhue-faq__answer {
+      margin: 0 1.25rem;
+    }
+
+    .foxhue-faq__icon {
+      width: 1.75rem;
+      height: 1.75rem;
+      font-size: 0.875rem;
+    }
+  }
+</style>
+
+<section class="foxhue-faq" aria-labelledby="faq-heading">
+  <div class="foxhue-faq__inner">
+
+    <header class="foxhue-faq__header">
+      <span class="foxhue-faq__eyebrow">Common Questions</span>
+      <h2 class="foxhue-faq__heading" id="faq-heading">
+        Everything you need to know
+      </h2>
+      <p class="foxhue-faq__subheading">
+        Straight answers to the questions we hear most often.
+      </p>
+    </header>
+
+    <div class="foxhue-faq__list" role="list">
+
+      <!-- FAQ 1 -->
+      <details class="foxhue-faq__item" role="listitem">
+        <summary class="foxhue-faq__question">
+          <span class="foxhue-faq__question-text">What's included in the free audit?</span>
+          <span class="foxhue-faq__icon" aria-hidden="true"></span>
+        </summary>
+        <div class="foxhue-faq__answer">
+          <p>The free audit covers the fundamentals that make the biggest difference for most businesses. You'll receive an <strong>SEO health score</strong> with the most critical issues flagged, a <strong>page speed performance snapshot</strong> showing how quickly your site loads on mobile and desktop, and a <strong>mobile usability check</strong> to identify any experience problems for smartphone users.</p>
+          <p>We'll also outline your <strong>top 5 quick-win recommendations</strong> — the changes most likely to move the needle fastest — alongside a <strong>competitor snapshot</strong> showing how one of your main rivals is positioned in search.</p>
+        </div>
+      </details>
+
+      <!-- FAQ 2 -->
+      <details class="foxhue-faq__item" role="listitem">
+        <summary class="foxhue-faq__question">
+          <span class="foxhue-faq__question-text">How long does the audit take?</span>
+          <span class="foxhue-faq__icon" aria-hidden="true"></span>
+        </summary>
+        <div class="foxhue-faq__answer">
+          <p>The <strong>free audit is typically delivered within 48 hours</strong> of your initial call — often sooner. We don't use automated tools and fire a PDF at you; every audit is reviewed and written by a human who understands your specific context.</p>
+          <p>The <strong>full audit takes up to 5 business days</strong> because it's a thorough piece of work — in-depth competitor analysis, keyword research, technical crawls, and a 30-page written report all take time to do properly.</p>
+        </div>
+      </details>
+
+      <!-- FAQ 3 -->
+      <details class="foxhue-faq__item" role="listitem">
+        <summary class="foxhue-faq__question">
+          <span class="foxhue-faq__question-text">Do I need to give you access to anything?</span>
+          <span class="foxhue-faq__icon" aria-hidden="true"></span>
+        </summary>
+        <div class="foxhue-faq__answer">
+          <p>For the <strong>free audit, all we need is your website URL.</strong> Everything we assess at that level is publicly accessible — the same data Google uses to evaluate your site.</p>
+          <p>For the <strong>full audit</strong>, sharing read-only access to your <strong>Google Analytics and Google Search Console</strong> accounts gives us significantly richer insight into your real traffic patterns, which pages are underperforming, and which search terms you're almost ranking for. It's not required, but it makes the recommendations more precise and actionable.</p>
+        </div>
+      </details>
+
+      <!-- FAQ 4 -->
+      <details class="foxhue-faq__item" role="listitem">
+        <summary class="foxhue-faq__question">
+          <span class="foxhue-faq__question-text">What happens after the audit?</span>
+          <span class="foxhue-faq__icon" aria-hidden="true"></span>
+        </summary>
+        <div class="foxhue-faq__answer">
+          <p>We'll walk you through every finding on a <strong>dedicated review call</strong> — in plain English, without the jargon. You'll come away with a clear understanding of what's holding your website back, and a prioritised list of actions ranked by their likely impact.</p>
+          <p><strong>There's no obligation whatsoever.</strong> If you want to take the report and implement everything yourself, that's absolutely fine. If you'd like Foxhue to handle some or all of the work, we'll put together a proposal. No pressure, no hard sell.</p>
+        </div>
+      </details>
+
+      <!-- FAQ 5 -->
+      <details class="foxhue-faq__item" role="listitem">
+        <summary class="foxhue-faq__question">
+          <span class="foxhue-faq__question-text">Is this really free? What's the catch?</span>
+          <span class="foxhue-faq__icon" aria-hidden="true"></span>
+        </summary>
+        <div class="foxhue-faq__answer">
+          <p><strong>Yes, it's genuinely free.</strong> No credit card, no commitment, no strings attached. You won't be signed up to a mailing list or chased with daily calls.</p>
+          <p>We offer the free audit because we've found it's the most honest way to demonstrate what we do. If the report is useful and you want to work with us, that's great. If not, you still walk away with a useful document. We're confident enough in the quality of our work that we're happy to let it speak for itself.</p>
+        </div>
+      </details>
+
+      <!-- FAQ 6 -->
+      <details class="foxhue-faq__item" role="listitem">
+        <summary class="foxhue-faq__question">
+          <span class="foxhue-faq__question-text">Do you work with businesses outside Oxfordshire?</span>
+          <span class="foxhue-faq__icon" aria-hidden="true"></span>
+        </summary>
+        <div class="foxhue-faq__answer">
+          <p>Absolutely. We're based in Bicester, Oxfordshire, but <strong>SEO and website work is entirely location-independent.</strong> We work with clients right across the UK — from London to Edinburgh — and our process works just as well over video call as it does in person.</p>
+          <p>If you're a local Oxfordshire or Buckinghamshire business, we're always happy to meet in person. If you're further afield, everything we do translates seamlessly online.</p>
+        </div>
+      </details>
+
+    </div>
+
+    <div class="foxhue-faq__footer">
+      <p>Still got a question we haven't answered? We're happy to help.</p>
+      <a href="mailto:hello@foxhue.com">hello@foxhue.com</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- Section: Gallery | Foxhue Landing Page -->
+<style>
+  /* ══════════════════════════════════════════════════
+     Foxhue Landing — Gallery Section
+     Audit report samples / screenshot placeholders
+     ══════════════════════════════════════════════════ */
+
+  :root {
+    --foxhue-primary: #1A1A2E;
+    --foxhue-accent: #E94560;
+    --foxhue-accent-hover: #D63851;
+    --foxhue-bg: #F8F8FA;
+    --foxhue-surface: #FFFFFF;
+    --foxhue-text: #1A1A2E;
+    --foxhue-text-muted: #6b6b80;
+    --foxhue-border: rgba(26, 26, 46, 0.1);
+    --foxhue-shadow-sm: 0 1px 4px rgba(26, 26, 46, 0.06);
+    --foxhue-shadow-md: 0 4px 16px rgba(26, 26, 46, 0.08);
+    --foxhue-shadow-lg: 0 8px 32px rgba(26, 26, 46, 0.12);
+    --foxhue-radius-md: 10px;
+    --foxhue-radius-lg: 16px;
+    --foxhue-font-heading: 'DM Serif Display', serif;
+    --foxhue-font-body: 'Inter', sans-serif;
+  }
+
+  .foxhue-gallery {
+    background-color: var(--foxhue-surface);
+    padding: 6rem 2rem;
+    font-family: var(--foxhue-font-body);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .foxhue-gallery__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .foxhue-gallery__header {
+    text-align: center;
+    margin-bottom: 3.5rem;
+  }
+
+  .foxhue-gallery__eyebrow {
+    display: inline-block;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--foxhue-accent);
+    margin-bottom: 1rem;
+  }
+
+  .foxhue-gallery__heading {
+    font-family: var(--foxhue-font-heading);
+    font-size: clamp(1.75rem, 3.5vw, 2.625rem);
+    font-weight: 400;
+    color: var(--foxhue-primary);
+    line-height: 1.2;
+    margin: 0 0 1rem;
+  }
+
+  .foxhue-gallery__subheading {
+    font-size: 1.0625rem;
+    color: var(--foxhue-text-muted);
+    line-height: 1.65;
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
+  /* ── Grid ── */
+  .foxhue-gallery__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto auto;
+    gap: 1.5rem;
+  }
+
+  /* Make first card span 2 rows for visual interest */
+  .foxhue-gallery__item:first-child {
+    grid-row: span 2;
+  }
+
+  .foxhue-gallery__item {
+    position: relative;
+    border-radius: var(--foxhue-radius-lg);
+    overflow: hidden;
+    background-color: var(--foxhue-bg);
+    border: 1px solid var(--foxhue-border);
+    box-shadow: var(--foxhue-shadow-sm);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    cursor: default;
+  }
+
+  .foxhue-gallery__item:hover {
+    box-shadow: var(--foxhue-shadow-lg);
+    transform: translateY(-3px);
+  }
+
+  /* ── Placeholder image area ── */
+  .foxhue-gallery__placeholder {
+    width: 100%;
+    aspect-ratio: 4/3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 2rem;
+    /* When real image is placed here, replace this background */
+    background-image: url('../website/images/placeholder-audit-report.jpg');
+    background-size: cover;
+    background-position: center;
+    background-color: var(--foxhue-bg);
+    min-height: 200px;
+  }
+
+  /* First item taller because it spans 2 rows */
+  .foxhue-gallery__item:first-child .foxhue-gallery__placeholder {
+    aspect-ratio: unset;
+    height: 100%;
+    min-height: 420px;
+  }
+
+  /* Fallback content shown when no image is available */
+  .foxhue-gallery__placeholder-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.875rem;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #F0EEF5 0%, #E8E4F0 50%, #EFF0F8 100%);
+    border-radius: inherit;
+    padding: 2rem;
+  }
+
+  /* Simulated report UI elements inside placeholder */
+  .foxhue-gallery__mock-report {
+    width: 100%;
+    max-width: 280px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 1.25rem;
+    box-shadow: 0 4px 20px rgba(26, 26, 46, 0.1);
+  }
+
+  .foxhue-gallery__mock-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid rgba(26, 26, 46, 0.08);
+  }
+
+  .foxhue-gallery__mock-dot {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+  }
+
+  .foxhue-gallery__mock-dot:nth-child(1) { background-color: #E94560; }
+  .foxhue-gallery__mock-dot:nth-child(2) { background-color: #F5A623; }
+  .foxhue-gallery__mock-dot:nth-child(3) { background-color: #27C47B; }
+
+  .foxhue-gallery__mock-title {
+    font-size: 0.6875rem;
+    font-weight: 600;
+    color: #9b9bb5;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-left: auto;
+  }
+
+  .foxhue-gallery__mock-score {
+    display: flex;
+    align-items: center;
+    gap: 0.875rem;
+    margin-bottom: 0.875rem;
+  }
+
+  .foxhue-gallery__mock-score-circle {
+    width: 3.25rem;
+    height: 3.25rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.875rem;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .foxhue-gallery__mock-score-label {
+    font-size: 0.75rem;
+    color: #6b6b80;
+    line-height: 1.5;
+  }
+
+  .foxhue-gallery__mock-score-label strong {
+    display: block;
+    font-size: 0.875rem;
+    color: #1A1A2E;
+    font-weight: 600;
+  }
+
+  .foxhue-gallery__mock-bars {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .foxhue-gallery__mock-bar-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .foxhue-gallery__mock-bar-label {
+    font-size: 0.625rem;
+    color: #9b9bb5;
+    width: 3rem;
+    flex-shrink: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .foxhue-gallery__mock-bar-track {
+    flex: 1;
+    height: 6px;
+    background-color: #F0EEF5;
+    border-radius: 3px;
+    overflow: hidden;
+  }
+
+  .foxhue-gallery__mock-bar-fill {
+    height: 100%;
+    border-radius: 3px;
+  }
+
+  /* ── Caption overlay ── */
+  .foxhue-gallery__caption {
+    padding: 1.125rem 1.375rem;
+    background-color: var(--foxhue-surface);
+    border-top: 1px solid var(--foxhue-border);
+  }
+
+  .foxhue-gallery__caption-label {
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--foxhue-accent);
+    margin: 0 0 0.25rem;
+  }
+
+  .foxhue-gallery__caption-title {
+    font-family: var(--foxhue-font-heading);
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--foxhue-primary);
+    margin: 0;
+    line-height: 1.35;
+  }
+
+  /* ── Asset request note ── */
+  .foxhue-gallery__asset-note {
+    margin-top: 2rem;
+    padding: 1.25rem 1.75rem;
+    background-color: rgba(233, 69, 96, 0.06);
+    border: 1px solid rgba(233, 69, 96, 0.18);
+    border-radius: var(--foxhue-radius-md);
+    display: flex;
+    align-items: flex-start;
+    gap: 0.875rem;
+  }
+
+  .foxhue-gallery__asset-note-icon {
+    font-size: 1.125rem;
+    flex-shrink: 0;
+    margin-top: 0.125rem;
+  }
+
+  .foxhue-gallery__asset-note-text {
+    font-size: 0.875rem;
+    color: var(--foxhue-text-muted);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .foxhue-gallery__asset-note-text strong {
+    color: var(--foxhue-primary);
+    font-weight: 600;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 991px) {
+    .foxhue-gallery {
+      padding: 5rem 1.5rem;
+    }
+
+    .foxhue-gallery__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .foxhue-gallery__item:first-child {
+      grid-row: span 1;
+      grid-column: span 2;
+    }
+
+    .foxhue-gallery__item:first-child .foxhue-gallery__placeholder {
+      height: auto;
+      min-height: auto;
+      aspect-ratio: 16/7;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .foxhue-gallery {
+      padding: 4rem 1.25rem;
+    }
+
+    .foxhue-gallery__grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .foxhue-gallery__item:first-child {
+      grid-column: span 2;
+    }
+  }
+
+  @media (max-width: 478px) {
+    .foxhue-gallery {
+      padding: 3rem 1rem;
+    }
+
+    .foxhue-gallery__grid {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    .foxhue-gallery__item:first-child {
+      grid-column: span 1;
+    }
+
+    .foxhue-gallery__item:first-child .foxhue-gallery__placeholder {
+      aspect-ratio: 4/3;
+    }
+  }
+</style>
+
+<section class="foxhue-gallery" aria-labelledby="gallery-heading">
+  <div class="foxhue-gallery__inner">
+
+    <header class="foxhue-gallery__header">
+      <span class="foxhue-gallery__eyebrow">Sample Report Pages</span>
+      <h2 class="foxhue-gallery__heading" id="gallery-heading">
+        See what you'll actually receive
+      </h2>
+      <p class="foxhue-gallery__subheading">
+        Not a spreadsheet. Not a wall of numbers. A clear, actionable report your whole team can understand.
+      </p>
+    </header>
+
+    <div class="foxhue-gallery__grid" role="list" aria-label="Sample audit report screenshots">
+
+      <!-- Item 1: Large — Overall Score Page -->
+      <figure class="foxhue-gallery__item" role="listitem">
+        <div class="foxhue-gallery__placeholder" aria-label="Sample audit report cover page showing overall SEO health score">
+          <div class="foxhue-gallery__placeholder-inner">
+            <div class="foxhue-gallery__mock-report">
+              <div class="foxhue-gallery__mock-header">
+                <span class="foxhue-gallery__mock-dot"></span>
+                <span class="foxhue-gallery__mock-dot"></span>
+                <span class="foxhue-gallery__mock-dot"></span>
+                <span class="foxhue-gallery__mock-title">SEO Health Report</span>
+              </div>
+              <div class="foxhue-gallery__mock-score">
+                <div class="foxhue-gallery__mock-score-circle" style="background: linear-gradient(135deg, #E94560, #D63851); color: #fff;">62</div>
+                <div class="foxhue-gallery__mock-score-label">
+                  <strong>Overall SEO Score</strong>
+                  Needs attention — 14 issues found
+                </div>
+              </div>
+              <div class="foxhue-gallery__mock-bars">
+                <div class="foxhue-gallery__mock-bar-row">
+                  <span class="foxhue-gallery__mock-bar-label">Technical</span>
+                  <div class="foxhue-gallery__mock-bar-track"><div class="foxhue-gallery__mock-bar-fill" style="width:45%; background:#E94560;"></div></div>
+                </div>
+                <div class="foxhue-gallery__mock-bar-row">
+                  <span class="foxhue-gallery__mock-bar-label">Content</span>
+                  <div class="foxhue-gallery__mock-bar-track"><div class="foxhue-gallery__mock-bar-fill" style="width:68%; background:#F5A623;"></div></div>
+                </div>
+                <div class="foxhue-gallery__mock-bar-row">
+                  <span class="foxhue-gallery__mock-bar-label">Speed</span>
+                  <div class="foxhue-gallery__mock-bar-track"><div class="foxhue-gallery__mock-bar-fill" style="width:38%; background:#E94560;"></div></div>
+                </div>
+                <div class="foxhue-gallery__mock-bar-row">
+                  <span class="foxhue-gallery__mock-bar-label">Mobile</span>
+                  <div class="foxhue-gallery__mock-bar-track"><div class="foxhue-gallery__mock-bar-fill" style="width:82%; background:#27C47B;"></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <figcaption class="foxhue-gallery__caption">
+          <p class="foxhue-gallery__caption-label">Page 1</p>
+          <p class="foxhue-gallery__caption-title">Overall SEO Health Score &amp; Summary</p>
+        </figcaption>
+      </figure>
+
+      <!-- Item 2: Page Speed Analysis -->
+      <figure class="foxhue-gallery__item" role="listitem">
+        <div class="foxhue-gallery__placeholder" aria-label="Sample page speed analysis section of audit report">
+          <div class="foxhue-gallery__placeholder-inner">
+            <div class="foxhue-gallery__mock-report">
+              <div class="foxhue-gallery__mock-header">
+                <span class="foxhue-gallery__mock-dot"></span>
+                <span class="foxhue-gallery__mock-dot"></span>
+                <span class="foxhue-gallery__mock-dot"></span>
+                <span class="foxhue-gallery__mock-title">Core Web Vitals</span>
+              </div>
+              <div class="foxhue-gallery__mock-score">
+                <div class="foxhue-gallery__mock-score-circle" style="background: linear-gradient(135deg, #F5A623, #e89b1a); color: #fff;">2.8s</div>
+                <div class="foxhue-gallery__mock-score-label">
+                  <strong>Largest Contentful Paint</strong>
+                  Target: under 2.5s
+                </div>
+              </div>
+              <div class="foxhue-gallery__mock-bars">
+                <div class="foxhue-gallery__mock-bar-row">
+                  <span class="foxhue-gallery__mock-bar-label">LCP</span>
+                  <div class="foxhue-gallery__mock-bar-track"><div class="foxhue-gallery__mock-bar-fill" style="width:72%; background:#F5A623;"></div></div>
+                </div>
+                <div class="foxhue-gallery__mock-bar-row">
+                  <span class="foxhue-gallery__mock-bar-label">FID</span>
+                  <div class="foxhue-gallery__mock-bar-track"><div class="foxhue-gallery__mock-bar-fill" style="width:91%; background:#27C47B;"></div></div>
+                </div>
+                <div class="foxhue-gallery__mock-bar-row">
+                  <span class="foxhue-gallery__mock-bar-label">CLS</span>
+                  <div class="foxhue-gallery__mock-bar-track"><div class="foxhue-gallery__mock-bar-fill" style="width:55%; background:#F5A623;"></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <figcaption class="foxhue-gallery__caption">
+          <p class="foxhue-gallery__caption-label">Page 6</p>
+          <p class="foxhue-gallery__caption-title">Page Speed &amp; Core Web Vitals</p>
+        </figcaption>
+      </figure>
+
+      <!-- Item 3: Keyword Gap Analysis -->
+      <figure class="foxhue-gallery__item" role="listitem">
+        <div class="foxhue-gallery__placeholder" aria-label="Sample keyword gap analysis page from audit report">
+          <div class="foxhue-gallery__placeholder-inner">
+            <div class="foxhue-gallery__mock-report">
+              <div class="foxhue-gallery__mock-header">
+                <span class="foxhue-gallery__mock-dot"></span>
+                <span class="foxhue-gallery__mock-dot"></span>
+                <span class="foxhue-gallery__mock-dot"></span>
+                <span class="foxhue-gallery__mock-title">Keyword Opportunities</span>
+              </div>
+              <div class="foxhue-gallery__mock-bars" style="gap: 0.625rem;">
+                <div style="font-size:0.6875rem; color:#9b9bb5; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:0.25rem;">You're ranking 11–20 for:</div>
+                <div class="foxhue-gallery__mock-bar-row">
+                  <span class="foxhue-gallery__mock-bar-label" style="width:5.5rem;">[your service] Oxford</span>
+                  <div class="foxhue-gallery__mock-bar-track"><div class="foxhue-gallery__mock-bar-fill" style="width:60%; background:#E94560;"></div></div>
+                </div>
+                <div class="foxhue-gallery__mock-bar-row">
+                  <span class="foxhue-gallery__mock-bar-label" style="width:5.5rem;">[service] near me</span>
+                  <div class="foxhue-gallery__mock-bar-track"><div class="foxhue-gallery__mock-bar-fill" style="width:48%; background:#E94560;"></div></div>
+                </div>
+                <div class="foxhue-gallery__mock-bar-row">
+                  <span class="foxhue-gallery__mock-bar-label" style="width:5.5rem;">[service] Bicester</span>
+                  <div class="foxhue-gallery__mock-bar-track"><div class="foxhue-gallery__mock-bar-fill" style="width:35%; background:#F5A623;"></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <figcaption class="foxhue-gallery__caption">
+          <p class="foxhue-gallery__caption-label">Page 14</p>
+          <p class="foxhue-gallery__caption-title">Keyword Gap &amp; Opportunity Analysis</p>
+        </figcaption>
+      </figure>
+
+      <!-- Item 4: Competitor Analysis -->
+      <figure class="foxhue-gallery__item" role="listitem">
+        <div class="foxhue-gallery__placeholder" aria-label="Sample competitor analysis page from audit report">
+          <div class="foxhue-gallery__placeholder-inner">
+            <div class="foxhue-gallery__mock-report">
+              <div class="foxhue-gallery__mock-header">
+                <span class="foxhue-gallery__mock-dot"></span>
+                <span class="foxhue-gallery__mock-dot"></span>
+                <span class="foxhue-gallery__mock-dot"></span>
+                <span class="foxhue-gallery__mock-title">Competitor Comparison</span>
+              </div>
+              <div class="foxhue-gallery__mock-bars" style="gap: 0.625rem;">
+                <div style="font-size:0.6875rem; color:#9b9bb5; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:0.25rem;">Domain Authority</div>
+                <div class="foxhue-gallery__mock-bar-row">
+                  <span class="foxhue-gallery__mock-bar-label" style="width:4.5rem; color:#E94560; font-weight:600;">You</span>
+                  <div class="foxhue-gallery__mock-bar-track"><div class="foxhue-gallery__mock-bar-fill" style="width:32%; background:#E94560;"></div></div>
+                </div>
+                <div class="foxhue-gallery__mock-bar-row">
+                  <span class="foxhue-gallery__mock-bar-label" style="width:4.5rem;">Rival A</span>
+                  <div class="foxhue-gallery__mock-bar-track"><div class="foxhue-gallery__mock-bar-fill" style="width:58%; background:#9b9bb5;"></div></div>
+                </div>
+                <div class="foxhue-gallery__mock-bar-row">
+                  <span class="foxhue-gallery__mock-bar-label" style="width:4.5rem;">Rival B</span>
+                  <div class="foxhue-gallery__mock-bar-track"><div class="foxhue-gallery__mock-bar-fill" style="width:44%; background:#9b9bb5;"></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <figcaption class="foxhue-gallery__caption">
+          <p class="foxhue-gallery__caption-label">Page 18</p>
+          <p class="foxhue-gallery__caption-title">Competitor Benchmarking</p>
+        </figcaption>
+      </figure>
+
+      <!-- Item 5: Priority Actions -->
+      <figure class="foxhue-gallery__item" role="listitem">
+        <div class="foxhue-gallery__placeholder" aria-label="Sample priority actions roadmap page from audit report">
+          <div class="foxhue-gallery__placeholder-inner">
+            <div class="foxhue-gallery__mock-report">
+              <div class="foxhue-gallery__mock-header">
+                <span class="foxhue-gallery__mock-dot"></span>
+                <span class="foxhue-gallery__mock-dot"></span>
+                <span class="foxhue-gallery__mock-dot"></span>
+                <span class="foxhue-gallery__mock-title">Action Roadmap</span>
+              </div>
+              <div style="display:flex; flex-direction:column; gap:0.5rem;">
+                <div style="display:flex; align-items:center; gap:0.5rem; font-size:0.75rem;">
+                  <span style="background:#E94560; color:#fff; border-radius:3px; padding:0.125rem 0.375rem; font-weight:700; font-size:0.625rem; flex-shrink:0;">HIGH</span>
+                  <span style="color:#1A1A2E;">Compress homepage images</span>
+                </div>
+                <div style="display:flex; align-items:center; gap:0.5rem; font-size:0.75rem;">
+                  <span style="background:#E94560; color:#fff; border-radius:3px; padding:0.125rem 0.375rem; font-weight:700; font-size:0.625rem; flex-shrink:0;">HIGH</span>
+                  <span style="color:#1A1A2E;">Add missing meta descriptions</span>
+                </div>
+                <div style="display:flex; align-items:center; gap:0.5rem; font-size:0.75rem;">
+                  <span style="background:#F5A623; color:#fff; border-radius:3px; padding:0.125rem 0.375rem; font-weight:700; font-size:0.625rem; flex-shrink:0;">MED</span>
+                  <span style="color:#1A1A2E;">Fix broken internal links (3)</span>
+                </div>
+                <div style="display:flex; align-items:center; gap:0.5rem; font-size:0.75rem;">
+                  <span style="background:#27C47B; color:#fff; border-radius:3px; padding:0.125rem 0.375rem; font-weight:700; font-size:0.625rem; flex-shrink:0;">LOW</span>
+                  <span style="color:#1A1A2E;">Add schema markup</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <figcaption class="foxhue-gallery__caption">
+          <p class="foxhue-gallery__caption-label">Page 26</p>
+          <p class="foxhue-gallery__caption-title">Prioritised Action Roadmap</p>
+        </figcaption>
+      </figure>
+
+      <!-- Item 6: Monthly Tracking -->
+      <figure class="foxhue-gallery__item" role="listitem">
+        <div class="foxhue-gallery__placeholder" aria-label="Sample monthly progress tracking page from audit report">
+          <div class="foxhue-gallery__placeholder-inner">
+            <div class="foxhue-gallery__mock-report">
+              <div class="foxhue-gallery__mock-header">
+                <span class="foxhue-gallery__mock-dot"></span>
+                <span class="foxhue-gallery__mock-dot"></span>
+                <span class="foxhue-gallery__mock-dot"></span>
+                <span class="foxhue-gallery__mock-title">Monthly Tracking</span>
+              </div>
+              <div class="foxhue-gallery__mock-score" style="margin-bottom:0.875rem;">
+                <div class="foxhue-gallery__mock-score-circle" style="background: linear-gradient(135deg, #27C47B, #1fa866); color: #fff; font-size:0.75rem;">+74%</div>
+                <div class="foxhue-gallery__mock-score-label">
+                  <strong>Organic Traffic Growth</strong>
+                  Month 3 vs baseline
+                </div>
+              </div>
+              <div class="foxhue-gallery__mock-bars">
+                <div class="foxhue-gallery__mock-bar-row">
+                  <span class="foxhue-gallery__mock-bar-label">Month 1</span>
+                  <div class="foxhue-gallery__mock-bar-track"><div class="foxhue-gallery__mock-bar-fill" style="width:40%; background:#9b9bb5;"></div></div>
+                </div>
+                <div class="foxhue-gallery__mock-bar-row">
+                  <span class="foxhue-gallery__mock-bar-label">Month 2</span>
+                  <div class="foxhue-gallery__mock-bar-track"><div class="foxhue-gallery__mock-bar-fill" style="width:62%; background:#F5A623;"></div></div>
+                </div>
+                <div class="foxhue-gallery__mock-bar-row">
+                  <span class="foxhue-gallery__mock-bar-label">Month 3</span>
+                  <div class="foxhue-gallery__mock-bar-track"><div class="foxhue-gallery__mock-bar-fill" style="width:88%; background:#27C47B;"></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <figcaption class="foxhue-gallery__caption">
+          <p class="foxhue-gallery__caption-label">Monthly Report</p>
+          <p class="foxhue-gallery__caption-title">Ongoing Progress Tracking</p>
+        </figcaption>
+      </figure>
+
+    </div>
+
+    <!-- Asset request note for client -->
+    <div class="foxhue-gallery__asset-note" role="note">
+      <span class="foxhue-gallery__asset-note-icon" aria-hidden="true">📌</span>
+      <p class="foxhue-gallery__asset-note-text">
+        <strong>Asset needed:</strong> Replace placeholder report mockups above with real screenshots from completed Foxhue audits. Recommended dimensions: 800 × 600px minimum, JPEG or WebP. See <code>client-asset-brief.md</code> for full details.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- Section: CTA Banner | Foxhue Landing Page -->
+<style>
+  /* ══════════════════════════════════════════════════
+     Foxhue Landing — CTA Banner Section
+     ══════════════════════════════════════════════════ */
+
+  :root {
+    --foxhue-primary: #1A1A2E;
+    --foxhue-accent: #E94560;
+    --foxhue-accent-hover: #D63851;
+    --foxhue-bg: #F8F8FA;
+    --foxhue-surface: #FFFFFF;
+    --foxhue-text: #1A1A2E;
+    --foxhue-text-muted: #6b6b80;
+    --foxhue-border: rgba(26, 26, 46, 0.1);
+    --foxhue-shadow-lg: 0 8px 32px rgba(26, 26, 46, 0.12);
+    --foxhue-radius-md: 10px;
+    --foxhue-radius-lg: 16px;
+    --foxhue-font-heading: 'DM Serif Display', serif;
+    --foxhue-font-body: 'Inter', sans-serif;
+  }
+
+  .foxhue-cta-banner {
+    background-color: var(--foxhue-accent);
+    padding: 5rem 2rem;
+    font-family: var(--foxhue-font-body);
+    -webkit-font-smoothing: antialiased;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Decorative geometric elements */
+  .foxhue-cta-banner::before {
+    content: '';
+    position: absolute;
+    top: -120px;
+    right: -120px;
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    border: 80px solid rgba(255, 255, 255, 0.06);
+    pointer-events: none;
+  }
+
+  .foxhue-cta-banner::after {
+    content: '';
+    position: absolute;
+    bottom: -80px;
+    left: -80px;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    border: 60px solid rgba(255, 255, 255, 0.05);
+    pointer-events: none;
+  }
+
+  .foxhue-cta-banner__inner {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .foxhue-cta-banner__eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.75);
+    margin-bottom: 1.25rem;
+  }
+
+  .foxhue-cta-banner__eyebrow::before,
+  .foxhue-cta-banner__eyebrow::after {
+    content: '';
+    display: block;
+    width: 2rem;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.4);
+  }
+
+  .foxhue-cta-banner__heading {
+    font-family: var(--foxhue-font-heading);
+    font-size: clamp(2rem, 5vw, 3.25rem);
+    font-weight: 400;
+    color: #ffffff;
+    line-height: 1.15;
+    margin: 0 0 1.25rem;
+  }
+
+  .foxhue-cta-banner__subheading {
+    font-size: 1.125rem;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.65;
+    margin: 0 auto 2.5rem;
+    max-width: 580px;
+  }
+
+  /* ── Action group ── */
+  .foxhue-cta-banner__actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+  }
+
+  .foxhue-cta-banner__btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 2.25rem;
+    background-color: #ffffff;
+    color: var(--foxhue-accent);
+    border-radius: var(--foxhue-radius-md);
+    font-family: var(--foxhue-font-body);
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    text-decoration: none;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+  }
+
+  .foxhue-cta-banner__btn-primary:hover {
+    background-color: #f5f5f5;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 32px rgba(0, 0, 0, 0.25);
+  }
+
+  .foxhue-cta-banner__btn-primary-arrow {
+    font-size: 1.125rem;
+    transition: transform 0.2s ease;
+  }
+
+  .foxhue-cta-banner__btn-primary:hover .foxhue-cta-banner__btn-primary-arrow {
+    transform: translateX(3px);
+  }
+
+  /* Phone/secondary contact */
+  .foxhue-cta-banner__contact {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.625rem;
+    padding: 1rem 1.75rem;
+    color: rgba(255, 255, 255, 0.9);
+    border: 1.5px solid rgba(255, 255, 255, 0.35);
+    border-radius: var(--foxhue-radius-md);
+    font-family: var(--foxhue-font-body);
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+  }
+
+  .foxhue-cta-banner__contact:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.6);
+    color: #ffffff;
+  }
+
+  .foxhue-cta-banner__contact-icon {
+    font-size: 1rem;
+    flex-shrink: 0;
+  }
+
+  .foxhue-cta-banner__contact-detail {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+  }
+
+  .foxhue-cta-banner__contact-label {
+    font-size: 0.6875rem;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.65);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    line-height: 1;
+    margin-bottom: 0.125rem;
+  }
+
+  .foxhue-cta-banner__contact-value {
+    font-size: 0.9375rem;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1;
+  }
+
+  /* Trust signal strip */
+  .foxhue-cta-banner__trust {
+    margin-top: 2.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .foxhue-cta-banner__trust-item {
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  .foxhue-cta-banner__trust-item::before {
+    content: '✓';
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 991px) {
+    .foxhue-cta-banner {
+      padding: 4.5rem 1.5rem;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .foxhue-cta-banner {
+      padding: 4rem 1.25rem;
+    }
+
+    .foxhue-cta-banner__actions {
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .foxhue-cta-banner__btn-primary,
+    .foxhue-cta-banner__contact {
+      width: 100%;
+      max-width: 340px;
+      justify-content: center;
+    }
+
+    .foxhue-cta-banner__trust {
+      gap: 1rem;
+    }
+  }
+
+  @media (max-width: 478px) {
+    .foxhue-cta-banner {
+      padding: 3rem 1rem;
+    }
+
+    .foxhue-cta-banner__trust {
+      flex-direction: column;
+      gap: 0.625rem;
+      align-items: flex-start;
+      margin-left: auto;
+      margin-right: auto;
+      width: fit-content;
+    }
+  }
+</style>
+
+<section class="foxhue-cta-banner" aria-labelledby="cta-banner-heading">
+  <div class="foxhue-cta-banner__inner">
+
+    <span class="foxhue-cta-banner__eyebrow">Free. No Obligation. Genuinely Useful.</span>
+
+    <h2 class="foxhue-cta-banner__heading" id="cta-banner-heading">
+      Ready to find out what's holding<br>your website back?
+    </h2>
+
+    <p class="foxhue-cta-banner__subheading">
+      Book your free SEO and website audit today. We'll deliver a clear, honest report — and walk you through it on a call. No jargon, no hard sell.
+    </p>
+
+    <div class="foxhue-cta-banner__actions">
+      <a href="#book" class="foxhue-cta-banner__btn-primary">
+        Book My Free Audit
+        <span class="foxhue-cta-banner__btn-primary-arrow" aria-hidden="true">→</span>
+      </a>
+
+      <a href="tel:TBC" class="foxhue-cta-banner__contact" aria-label="Call Foxhue to book your audit">
+        <span class="foxhue-cta-banner__contact-icon" aria-hidden="true">📞</span>
+        <span class="foxhue-cta-banner__contact-detail">
+          <span class="foxhue-cta-banner__contact-label">Prefer to call?</span>
+          <span class="foxhue-cta-banner__contact-value">Phone number TBC</span>
+        </span>
+      </a>
+    </div>
+
+    <div class="foxhue-cta-banner__trust" aria-label="Reassurances">
+      <span class="foxhue-cta-banner__trust-item">Delivered within 48 hours</span>
+      <span class="foxhue-cta-banner__trust-item">No commitment required</span>
+      <span class="foxhue-cta-banner__trust-item">UK businesses only</span>
+      <span class="foxhue-cta-banner__trust-item">Includes a walkthrough call</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- Section: Map & Contact | Foxhue Landing Page -->
+<style>
+  /* ══════════════════════════════════════════════════
+     Foxhue Landing — Map & Contact Section
+     ══════════════════════════════════════════════════ */
+
+  :root {
+    --foxhue-primary: #1A1A2E;
+    --foxhue-accent: #E94560;
+    --foxhue-accent-hover: #D63851;
+    --foxhue-bg: #F8F8FA;
+    --foxhue-surface: #FFFFFF;
+    --foxhue-text: #1A1A2E;
+    --foxhue-text-muted: #6b6b80;
+    --foxhue-border: rgba(26, 26, 46, 0.1);
+    --foxhue-shadow-sm: 0 1px 4px rgba(26, 26, 46, 0.06);
+    --foxhue-shadow-md: 0 4px 16px rgba(26, 26, 46, 0.08);
+    --foxhue-shadow-lg: 0 8px 32px rgba(26, 26, 46, 0.12);
+    --foxhue-radius-md: 10px;
+    --foxhue-radius-lg: 16px;
+    --foxhue-font-heading: 'DM Serif Display', serif;
+    --foxhue-font-body: 'Inter', sans-serif;
+  }
+
+  .foxhue-map {
+    background-color: var(--foxhue-bg);
+    padding: 6rem 2rem;
+    font-family: var(--foxhue-font-body);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .foxhue-map__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .foxhue-map__header {
+    text-align: center;
+    margin-bottom: 3.5rem;
+  }
+
+  .foxhue-map__eyebrow {
+    display: inline-block;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--foxhue-accent);
+    margin-bottom: 1rem;
+  }
+
+  .foxhue-map__heading {
+    font-family: var(--foxhue-font-heading);
+    font-size: clamp(1.75rem, 3.5vw, 2.625rem);
+    font-weight: 400;
+    color: var(--foxhue-primary);
+    line-height: 1.2;
+    margin: 0;
+  }
+
+  /* ── Two-column layout ── */
+  .foxhue-map__layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+    align-items: start;
+  }
+
+  /* ── Map column ── */
+  .foxhue-map__map-col {
+    border-radius: var(--foxhue-radius-lg);
+    overflow: hidden;
+    box-shadow: var(--foxhue-shadow-md);
+  }
+
+  /* Map placeholder — replace with Google Maps embed iframe */
+  .foxhue-map__placeholder {
+    width: 100%;
+    aspect-ratio: 4/3;
+    background-color: #d1d5db;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 2rem;
+    position: relative;
+    background-image:
+      /* Simulated map grid lines */
+      linear-gradient(rgba(255,255,255,0.4) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.4) 1px, transparent 1px),
+      /* Background tone */
+      linear-gradient(135deg, #c8d5b9 0%, #b8c9a9 40%, #d4c9a8 60%, #c8d5b9 100%);
+    background-size: 40px 40px, 40px 40px, 100% 100%;
+    min-height: 380px;
+  }
+
+  /* Road simulation lines */
+  .foxhue-map__road-h {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 8px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 4px;
+  }
+
+  .foxhue-map__road-v {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 8px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 4px;
+  }
+
+  .foxhue-map__road-h:nth-child(1) { top: 35%; }
+  .foxhue-map__road-h:nth-child(2) { top: 62%; }
+  .foxhue-map__road-v:nth-child(3) { left: 40%; }
+  .foxhue-map__road-v:nth-child(4) { left: 68%; }
+
+  /* Pin marker */
+  .foxhue-map__pin {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+  }
+
+  .foxhue-map__pin-head {
+    width: 2.75rem;
+    height: 2.75rem;
+    background-color: var(--foxhue-accent);
+    border-radius: 50% 50% 50% 0;
+    transform: rotate(-45deg);
+    box-shadow: 0 4px 12px rgba(233, 69, 96, 0.45);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid #ffffff;
+  }
+
+  .foxhue-map__pin-letter {
+    transform: rotate(45deg);
+    font-family: var(--foxhue-font-heading);
+    font-size: 0.875rem;
+    font-weight: 400;
+    color: #ffffff;
+    line-height: 1;
+  }
+
+  .foxhue-map__pin-shadow {
+    width: 0.75rem;
+    height: 0.375rem;
+    background-color: rgba(0,0,0,0.2);
+    border-radius: 50%;
+    margin-top: 0.125rem;
+  }
+
+  /* Tooltip above pin */
+  .foxhue-map__pin-tooltip {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-0.75rem);
+    background-color: var(--foxhue-primary);
+    color: #ffffff;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    padding: 0.5rem 0.875rem;
+    border-radius: var(--foxhue-radius-md);
+    white-space: nowrap;
+    box-shadow: var(--foxhue-shadow-md);
+  }
+
+  .foxhue-map__pin-tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 5px solid transparent;
+    border-top-color: var(--foxhue-primary);
+  }
+
+  .foxhue-map__placeholder-note {
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(255, 255, 255, 0.9);
+    color: var(--foxhue-text-muted);
+    font-size: 0.75rem;
+    padding: 0.375rem 0.75rem;
+    border-radius: 100px;
+    white-space: nowrap;
+    box-shadow: var(--foxhue-shadow-sm);
+  }
+
+  /* ── Contact column ── */
+  .foxhue-map__contact-col {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .foxhue-map__contact-card {
+    background-color: var(--foxhue-surface);
+    border-radius: var(--foxhue-radius-lg);
+    padding: 2rem;
+    box-shadow: var(--foxhue-shadow-sm);
+    border: 1px solid var(--foxhue-border);
+  }
+
+  .foxhue-map__contact-card-title {
+    font-family: var(--foxhue-font-heading);
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: var(--foxhue-primary);
+    margin: 0 0 1.25rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--foxhue-border);
+  }
+
+  .foxhue-map__contact-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .foxhue-map__contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.875rem;
+  }
+
+  .foxhue-map__contact-icon-wrap {
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 50%;
+    background-color: rgba(233, 69, 96, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    flex-shrink: 0;
+    margin-top: 0.0625rem;
+  }
+
+  .foxhue-map__contact-item-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--foxhue-text-muted);
+    line-height: 1;
+    margin-bottom: 0.25rem;
+  }
+
+  .foxhue-map__contact-item-value {
+    font-size: 0.9375rem;
+    color: var(--foxhue-primary);
+    line-height: 1.45;
+    margin: 0;
+    font-weight: 500;
+  }
+
+  .foxhue-map__contact-item-value a {
+    color: var(--foxhue-accent);
+    text-decoration: none;
+    font-weight: 600;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s ease;
+  }
+
+  .foxhue-map__contact-item-value a:hover {
+    border-bottom-color: var(--foxhue-accent);
+  }
+
+  /* Hours card */
+  .foxhue-map__hours-card {
+    background-color: var(--foxhue-surface);
+    border-radius: var(--foxhue-radius-lg);
+    padding: 2rem;
+    box-shadow: var(--foxhue-shadow-sm);
+    border: 1px solid var(--foxhue-border);
+  }
+
+  .foxhue-map__hours-title {
+    font-family: var(--foxhue-font-heading);
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: var(--foxhue-primary);
+    margin: 0 0 1.25rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--foxhue-border);
+  }
+
+  .foxhue-map__hours-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .foxhue-map__hours-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.9375rem;
+  }
+
+  .foxhue-map__hours-day {
+    color: var(--foxhue-text-muted);
+  }
+
+  .foxhue-map__hours-time {
+    color: var(--foxhue-primary);
+    font-weight: 500;
+  }
+
+  .foxhue-map__hours-time--closed {
+    color: var(--foxhue-text-muted);
+    font-style: italic;
+  }
+
+  .foxhue-map__hours-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    margin-top: 1rem;
+    padding: 0.375rem 0.875rem;
+    background-color: rgba(39, 196, 123, 0.1);
+    border: 1px solid rgba(39, 196, 123, 0.25);
+    border-radius: 100px;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: #1fa866;
+  }
+
+  .foxhue-map__hours-badge-dot {
+    width: 0.5rem;
+    height: 0.5rem;
+    background-color: #27C47B;
+    border-radius: 50%;
+    animation: foxhue-pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes foxhue-pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.6; transform: scale(0.85); }
+  }
+
+  /* Remote work note */
+  .foxhue-map__remote-note {
+    background-color: rgba(26, 26, 46, 0.03);
+    border: 1px solid var(--foxhue-border);
+    border-radius: var(--foxhue-radius-md);
+    padding: 1rem 1.25rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .foxhue-map__remote-note-icon {
+    font-size: 1.125rem;
+    flex-shrink: 0;
+    margin-top: 0.0625rem;
+  }
+
+  .foxhue-map__remote-note-text {
+    font-size: 0.875rem;
+    color: var(--foxhue-text-muted);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 991px) {
+    .foxhue-map {
+      padding: 5rem 1.5rem;
+    }
+
+    .foxhue-map__layout {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .foxhue-map__placeholder {
+      aspect-ratio: 16/7;
+      min-height: 280px;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .foxhue-map {
+      padding: 4rem 1.25rem;
+    }
+
+    .foxhue-map__placeholder {
+      aspect-ratio: 4/3;
+      min-height: 260px;
+    }
+
+    .foxhue-map__contact-card,
+    .foxhue-map__hours-card {
+      padding: 1.5rem;
+    }
+  }
+
+  @media (max-width: 478px) {
+    .foxhue-map {
+      padding: 3rem 1rem;
+    }
+
+    .foxhue-map__placeholder {
+      min-height: 220px;
+    }
+  }
+</style>
+
+<section class="foxhue-map" aria-labelledby="contact-heading">
+  <div class="foxhue-map__inner">
+
+    <header class="foxhue-map__header">
+      <span class="foxhue-map__eyebrow">Find Us</span>
+      <h2 class="foxhue-map__heading" id="contact-heading">
+        Based in Bicester, working across the UK
+      </h2>
+    </header>
+
+    <div class="foxhue-map__layout">
+
+      <!-- Map column -->
+      <div class="foxhue-map__map-col">
+        <!--
+          ASSET NEEDED: Replace the placeholder below with a Google Maps embed.
+          Example:
+          <iframe
+            src="https://www.google.com/maps/embed?pb=..."
+            width="100%" height="450" style="border:0;" allowfullscreen loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Foxhue office location — Bicester, Oxfordshire"
+          ></iframe>
+        -->
+        <div class="foxhue-map__placeholder" role="img" aria-label="Map showing Foxhue location in Bicester, Oxfordshire. Placeholder — replace with Google Maps embed.">
+          <!-- Simulated road lines -->
+          <div class="foxhue-map__road-h"></div>
+          <div class="foxhue-map__road-h"></div>
+          <div class="foxhue-map__road-v"></div>
+          <div class="foxhue-map__road-v"></div>
+
+          <!-- Location pin -->
+          <div class="foxhue-map__pin" role="presentation">
+            <div class="foxhue-map__pin-tooltip">Foxhue — Bicester, OX26</div>
+            <div class="foxhue-map__pin-head">
+              <span class="foxhue-map__pin-letter" aria-hidden="true">F</span>
+            </div>
+            <div class="foxhue-map__pin-shadow" aria-hidden="true"></div>
+          </div>
+
+          <p class="foxhue-map__placeholder-note">Bicester, Oxfordshire, OX26</p>
+        </div>
+      </div>
+
+      <!-- Contact + hours column -->
+      <div class="foxhue-map__contact-col">
+
+        <div class="foxhue-map__contact-card">
+          <h3 class="foxhue-map__contact-card-title">Get in Touch</h3>
+          <ul class="foxhue-map__contact-list">
+
+            <li class="foxhue-map__contact-item">
+              <div class="foxhue-map__contact-icon-wrap" aria-hidden="true">📍</div>
+              <div>
+                <p class="foxhue-map__contact-item-label">Location</p>
+                <p class="foxhue-map__contact-item-value">Bicester, Oxfordshire, OX26</p>
+              </div>
+            </li>
+
+            <li class="foxhue-map__contact-item">
+              <div class="foxhue-map__contact-icon-wrap" aria-hidden="true">✉️</div>
+              <div>
+                <p class="foxhue-map__contact-item-label">Email</p>
+                <p class="foxhue-map__contact-item-value">
+                  <a href="mailto:hello@foxhue.com">hello@foxhue.com</a>
+                </p>
+              </div>
+            </li>
+
+            <li class="foxhue-map__contact-item">
+              <div class="foxhue-map__contact-icon-wrap" aria-hidden="true">📞</div>
+              <div>
+                <p class="foxhue-map__contact-item-label">Phone</p>
+                <p class="foxhue-map__contact-item-value">TBC — please email to book</p>
+              </div>
+            </li>
+
+            <li class="foxhue-map__contact-item">
+              <div class="foxhue-map__contact-icon-wrap" aria-hidden="true">🌐</div>
+              <div>
+                <p class="foxhue-map__contact-item-label">Website</p>
+                <p class="foxhue-map__contact-item-value">
+                  <a href="https://foxhue.com" target="_blank" rel="noopener noreferrer">foxhue.com</a>
+                </p>
+              </div>
+            </li>
+
+          </ul>
+        </div>
+
+        <div class="foxhue-map__hours-card">
+          <h3 class="foxhue-map__hours-title">Opening Hours</h3>
+          <ul class="foxhue-map__hours-list" aria-label="Opening hours">
+            <li class="foxhue-map__hours-row">
+              <span class="foxhue-map__hours-day">Monday</span>
+              <span class="foxhue-map__hours-time">9:00am – 5:00pm</span>
+            </li>
+            <li class="foxhue-map__hours-row">
+              <span class="foxhue-map__hours-day">Tuesday</span>
+              <span class="foxhue-map__hours-time">9:00am – 5:00pm</span>
+            </li>
+            <li class="foxhue-map__hours-row">
+              <span class="foxhue-map__hours-day">Wednesday</span>
+              <span class="foxhue-map__hours-time">9:00am – 5:00pm</span>
+            </li>
+            <li class="foxhue-map__hours-row">
+              <span class="foxhue-map__hours-day">Thursday</span>
+              <span class="foxhue-map__hours-time">9:00am – 5:00pm</span>
+            </li>
+            <li class="foxhue-map__hours-row">
+              <span class="foxhue-map__hours-day">Friday</span>
+              <span class="foxhue-map__hours-time">9:00am – 5:00pm</span>
+            </li>
+            <li class="foxhue-map__hours-row">
+              <span class="foxhue-map__hours-day">Saturday</span>
+              <span class="foxhue-map__hours-time--closed">Closed</span>
+            </li>
+            <li class="foxhue-map__hours-row">
+              <span class="foxhue-map__hours-day">Sunday</span>
+              <span class="foxhue-map__hours-time--closed">Closed</span>
+            </li>
+          </ul>
+          <div class="foxhue-map__hours-badge" aria-label="Currently open">
+            <span class="foxhue-map__hours-badge-dot" aria-hidden="true"></span>
+            Open Mon–Fri, 9am–5pm
+          </div>
+        </div>
+
+        <div class="foxhue-map__remote-note">
+          <span class="foxhue-map__remote-note-icon" aria-hidden="true">💻</span>
+          <p class="foxhue-map__remote-note-text">
+            We work with clients across the UK. All audit calls and reviews are conducted via Google Meet or Zoom — no travel required.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Section: Footer CTA | Foxhue Landing Page -->
+<style>
+  /* ══════════════════════════════════════════════════
+     Foxhue Landing — Footer CTA Section
+     ══════════════════════════════════════════════════ */
+
+  :root {
+    --foxhue-primary: #1A1A2E;
+    --foxhue-accent: #E94560;
+    --foxhue-accent-hover: #D63851;
+    --foxhue-bg: #F8F8FA;
+    --foxhue-surface: #FFFFFF;
+    --foxhue-text: #1A1A2E;
+    --foxhue-text-muted: #6b6b80;
+    --foxhue-border: rgba(26, 26, 46, 0.1);
+    --foxhue-shadow-md: 0 4px 16px rgba(26, 26, 46, 0.08);
+    --foxhue-radius-md: 10px;
+    --foxhue-radius-lg: 16px;
+    --foxhue-font-heading: 'DM Serif Display', serif;
+    --foxhue-font-body: 'Inter', sans-serif;
+  }
+
+  .foxhue-footer {
+    background-color: var(--foxhue-primary);
+    font-family: var(--foxhue-font-body);
+    -webkit-font-smoothing: antialiased;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* ── Final CTA strip at top of footer ── */
+  .foxhue-footer__cta-strip {
+    padding: 5rem 2rem;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  /* Subtle radial glow */
+  .foxhue-footer__cta-strip::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 700px;
+    height: 400px;
+    background: radial-gradient(ellipse, rgba(233, 69, 96, 0.12) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .foxhue-footer__cta-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 680px;
+    margin: 0 auto;
+  }
+
+  .foxhue-footer__cta-eyebrow {
+    display: inline-block;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(233, 69, 96, 0.9);
+    margin-bottom: 1.25rem;
+  }
+
+  .foxhue-footer__cta-heading {
+    font-family: var(--foxhue-font-heading);
+    font-size: clamp(1.625rem, 3.5vw, 2.75rem);
+    font-weight: 400;
+    color: #ffffff;
+    line-height: 1.2;
+    margin: 0 0 1rem;
+  }
+
+  .foxhue-footer__cta-body {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.65);
+    line-height: 1.65;
+    margin: 0 auto 2.25rem;
+    max-width: 520px;
+  }
+
+  .foxhue-footer__cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 2.25rem;
+    background-color: var(--foxhue-accent);
+    color: #ffffff;
+    border-radius: var(--foxhue-radius-md);
+    font-family: var(--foxhue-font-body);
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    text-decoration: none;
+    box-shadow: 0 6px 24px rgba(233, 69, 96, 0.4);
+    transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease;
+  }
+
+  .foxhue-footer__cta-btn:hover {
+    background-color: var(--foxhue-accent-hover);
+    box-shadow: 0 8px 32px rgba(233, 69, 96, 0.5);
+    transform: translateY(-2px);
+  }
+
+  .foxhue-footer__cta-btn-arrow {
+    font-size: 1.125rem;
+    transition: transform 0.2s ease;
+  }
+
+  .foxhue-footer__cta-btn:hover .foxhue-footer__cta-btn-arrow {
+    transform: translateX(3px);
+  }
+
+  /* ── Main footer content ── */
+  .foxhue-footer__main {
+    padding: 3.5rem 2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .foxhue-footer__main-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.75fr 1fr 1fr;
+    gap: 3rem;
+  }
+
+  /* Brand column */
+  .foxhue-footer__brand {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .foxhue-footer__wordmark {
+    font-family: var(--foxhue-font-heading);
+    font-size: 1.75rem;
+    font-weight: 400;
+    color: #ffffff;
+    line-height: 1;
+    text-decoration: none;
+  }
+
+  .foxhue-footer__tagline {
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.4);
+  }
+
+  .foxhue-footer__brand-desc {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.5);
+    line-height: 1.7;
+    margin: 0;
+    max-width: 300px;
+  }
+
+  .foxhue-footer__brand-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 0.25rem;
+  }
+
+  .foxhue-footer__brand-contact-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.55);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .foxhue-footer__brand-contact-item:hover {
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  .foxhue-footer__brand-contact-icon {
+    font-size: 0.875rem;
+    flex-shrink: 0;
+  }
+
+  /* Nav columns */
+  .foxhue-footer__nav-col {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .foxhue-footer__nav-heading {
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.4);
+    margin: 0 0 1.125rem;
+  }
+
+  .foxhue-footer__nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .foxhue-footer__nav-link {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.55);
+    text-decoration: none;
+    transition: color 0.2s ease;
+    line-height: 1.45;
+  }
+
+  .foxhue-footer__nav-link:hover {
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .foxhue-footer__nav-link--accent {
+    color: rgba(233, 69, 96, 0.85);
+    font-weight: 600;
+  }
+
+  .foxhue-footer__nav-link--accent:hover {
+    color: var(--foxhue-accent);
+  }
+
+  /* ── Bottom bar ── */
+  .foxhue-footer__bottom {
+    padding: 1.625rem 2rem;
+  }
+
+  .foxhue-footer__bottom-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .foxhue-footer__copyright {
+    font-size: 0.8125rem;
+    color: rgba(255, 255, 255, 0.35);
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  .foxhue-footer__copyright a {
+    color: rgba(255, 255, 255, 0.5);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: color 0.2s ease, border-color 0.2s ease;
+  }
+
+  .foxhue-footer__copyright a:hover {
+    color: rgba(255, 255, 255, 0.8);
+    border-bottom-color: rgba(255, 255, 255, 0.3);
+  }
+
+  .foxhue-footer__legal-links {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .foxhue-footer__legal-link {
+    font-size: 0.8125rem;
+    color: rgba(255, 255, 255, 0.35);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .foxhue-footer__legal-link:hover {
+    color: rgba(255, 255, 255, 0.65);
+  }
+
+  /* Decorative elements */
+  .foxhue-footer__deco {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 480px;
+    height: 480px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    transform: translate(30%, 30%);
+    pointer-events: none;
+  }
+
+  .foxhue-footer__deco-inner {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    transform: translate(30%, 30%);
+    pointer-events: none;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 991px) {
+    .foxhue-footer__cta-strip {
+      padding: 4rem 1.5rem;
+    }
+
+    .foxhue-footer__main {
+      padding: 3rem 1.5rem;
+    }
+
+    .foxhue-footer__main-inner {
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+    }
+
+    .foxhue-footer__brand {
+      grid-column: span 2;
+    }
+
+    .foxhue-footer__bottom {
+      padding: 1.5rem;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .foxhue-footer__cta-strip {
+      padding: 3.5rem 1.25rem;
+    }
+
+    .foxhue-footer__main {
+      padding: 2.5rem 1.25rem;
+    }
+
+    .foxhue-footer__main-inner {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .foxhue-footer__brand {
+      grid-column: span 1;
+    }
+
+    .foxhue-footer__bottom {
+      padding: 1.25rem;
+    }
+
+    .foxhue-footer__bottom-inner {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.875rem;
+    }
+  }
+
+  @media (max-width: 478px) {
+    .foxhue-footer__cta-strip {
+      padding: 3rem 1rem;
+    }
+
+    .foxhue-footer__main {
+      padding: 2rem 1rem;
+    }
+
+    .foxhue-footer__cta-btn {
+      width: 100%;
+      justify-content: center;
+    }
+
+    .foxhue-footer__legal-links {
+      gap: 1rem;
+    }
+  }
+</style>
+
+<footer class="foxhue-footer" role="contentinfo">
+
+  <!-- Decorative circles -->
+  <div class="foxhue-footer__deco" aria-hidden="true"></div>
+  <div class="foxhue-footer__deco-inner" aria-hidden="true"></div>
+
+  <!-- Final CTA strip -->
+  <div class="foxhue-footer__cta-strip">
+    <div class="foxhue-footer__cta-inner">
+      <span class="foxhue-footer__cta-eyebrow">Free. No Obligation.</span>
+      <h2 class="foxhue-footer__cta-heading">
+        Your free audit is one click away
+      </h2>
+      <p class="foxhue-footer__cta-body">
+        Join the Oxfordshire businesses that now know exactly where they stand in search — and what to do about it.
+      </p>
+      <a href="#book" class="foxhue-footer__cta-btn">
+        Book My Free Audit
+        <span class="foxhue-footer__cta-btn-arrow" aria-hidden="true">→</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Footer main grid -->
+  <div class="foxhue-footer__main">
+    <div class="foxhue-footer__main-inner">
+
+      <!-- Brand column -->
+      <div class="foxhue-footer__brand">
+        <a href="https://foxhue.com" class="foxhue-footer__wordmark" aria-label="Foxhue homepage">Foxhue</a>
+        <span class="foxhue-footer__tagline">Creative Design &amp; Marketing</span>
+        <p class="foxhue-footer__brand-desc">
+          We help UK businesses grow through honest strategy, thoughtful design, and marketing that actually works. Based in Bicester, Oxfordshire.
+        </p>
+        <div class="foxhue-footer__brand-contact">
+          <a href="mailto:hello@foxhue.com" class="foxhue-footer__brand-contact-item">
+            <span class="foxhue-footer__brand-contact-icon" aria-hidden="true">✉</span>
+            hello@foxhue.com
+          </a>
+          <a href="tel:TBC" class="foxhue-footer__brand-contact-item">
+            <span class="foxhue-footer__brand-contact-icon" aria-hidden="true">☎</span>
+            Phone TBC
+          </a>
+          <span class="foxhue-footer__brand-contact-item" aria-label="Location: Bicester, Oxfordshire">
+            <span class="foxhue-footer__brand-contact-icon" aria-hidden="true">⚲</span>
+            Bicester, Oxfordshire, OX26
+          </span>
+        </div>
+      </div>
+
+      <!-- Services column -->
+      <nav class="foxhue-footer__nav-col" aria-label="Services">
+        <h3 class="foxhue-footer__nav-heading">Services</h3>
+        <ul class="foxhue-footer__nav-list">
+          <li><a href="#book" class="foxhue-footer__nav-link foxhue-footer__nav-link--accent">Free SEO Audit</a></li>
+          <li><a href="https://foxhue.com/services" class="foxhue-footer__nav-link">Full Website Audit</a></li>
+          <li><a href="https://foxhue.com/services" class="foxhue-footer__nav-link">SEO &amp; Content Strategy</a></li>
+          <li><a href="https://foxhue.com/services" class="foxhue-footer__nav-link">Web Design</a></li>
+          <li><a href="https://foxhue.com/services" class="foxhue-footer__nav-link">Brand Identity</a></li>
+          <li><a href="https://foxhue.com/services" class="foxhue-footer__nav-link">Marketing &amp; Campaigns</a></li>
+        </ul>
+      </nav>
+
+      <!-- Company column -->
+      <nav class="foxhue-footer__nav-col" aria-label="Company">
+        <h3 class="foxhue-footer__nav-heading">Company</h3>
+        <ul class="foxhue-footer__nav-list">
+          <li><a href="https://foxhue.com/about" class="foxhue-footer__nav-link">About Foxhue</a></li>
+          <li><a href="https://foxhue.com/work" class="foxhue-footer__nav-link">Our Work</a></li>
+          <li><a href="https://foxhue.com/blog" class="foxhue-footer__nav-link">Blog &amp; Insights</a></li>
+          <li><a href="https://foxhue.com/contact" class="foxhue-footer__nav-link">Contact Us</a></li>
+        </ul>
+      </nav>
+
+    </div>
+  </div>
+
+  <!-- Bottom bar -->
+  <div class="foxhue-footer__bottom">
+    <div class="foxhue-footer__bottom-inner">
+      <p class="foxhue-footer__copyright">
+        &copy; 2026 <a href="https://foxhue.com">Foxhue Ltd</a>. All rights reserved. Registered in England &amp; Wales.
+      </p>
+      <ul class="foxhue-footer__legal-links" aria-label="Legal links">
+        <li><a href="https://foxhue.com/privacy" class="foxhue-footer__legal-link">Privacy Policy</a></li>
+        <li><a href="https://foxhue.com/cookies" class="foxhue-footer__legal-link">Cookie Policy</a></li>
+        <li><a href="https://foxhue.com/terms" class="foxhue-footer__legal-link">Terms</a></li>
+      </ul>
+    </div>
+  </div>
+
+</footer>
+
+</body>
+</html>

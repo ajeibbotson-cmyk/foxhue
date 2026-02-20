@@ -1,0 +1,567 @@
+<!-- Section: Map & Contact | Foxhue Landing Page -->
+<style>
+  /* ══════════════════════════════════════════════════
+     Foxhue Landing — Map & Contact Section
+     ══════════════════════════════════════════════════ */
+
+  :root {
+    --foxhue-primary: #1A1A2E;
+    --foxhue-accent: #E94560;
+    --foxhue-accent-hover: #D63851;
+    --foxhue-bg: #F8F8FA;
+    --foxhue-surface: #FFFFFF;
+    --foxhue-text: #1A1A2E;
+    --foxhue-text-muted: #6b6b80;
+    --foxhue-border: rgba(26, 26, 46, 0.1);
+    --foxhue-shadow-sm: 0 1px 4px rgba(26, 26, 46, 0.06);
+    --foxhue-shadow-md: 0 4px 16px rgba(26, 26, 46, 0.08);
+    --foxhue-shadow-lg: 0 8px 32px rgba(26, 26, 46, 0.12);
+    --foxhue-radius-md: 10px;
+    --foxhue-radius-lg: 16px;
+    --foxhue-font-heading: 'DM Serif Display', serif;
+    --foxhue-font-body: 'Inter', sans-serif;
+  }
+
+  .foxhue-map {
+    background-color: var(--foxhue-bg);
+    padding: 6rem 2rem;
+    font-family: var(--foxhue-font-body);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .foxhue-map__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .foxhue-map__header {
+    text-align: center;
+    margin-bottom: 3.5rem;
+  }
+
+  .foxhue-map__eyebrow {
+    display: inline-block;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--foxhue-accent);
+    margin-bottom: 1rem;
+  }
+
+  .foxhue-map__heading {
+    font-family: var(--foxhue-font-heading);
+    font-size: clamp(1.75rem, 3.5vw, 2.625rem);
+    font-weight: 400;
+    color: var(--foxhue-primary);
+    line-height: 1.2;
+    margin: 0;
+  }
+
+  /* ── Two-column layout ── */
+  .foxhue-map__layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+    align-items: start;
+  }
+
+  /* ── Map column ── */
+  .foxhue-map__map-col {
+    border-radius: var(--foxhue-radius-lg);
+    overflow: hidden;
+    box-shadow: var(--foxhue-shadow-md);
+  }
+
+  /* Map placeholder — replace with Google Maps embed iframe */
+  .foxhue-map__placeholder {
+    width: 100%;
+    aspect-ratio: 4/3;
+    background-color: #d1d5db;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 2rem;
+    position: relative;
+    background-image:
+      /* Simulated map grid lines */
+      linear-gradient(rgba(255,255,255,0.4) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.4) 1px, transparent 1px),
+      /* Background tone */
+      linear-gradient(135deg, #c8d5b9 0%, #b8c9a9 40%, #d4c9a8 60%, #c8d5b9 100%);
+    background-size: 40px 40px, 40px 40px, 100% 100%;
+    min-height: 380px;
+  }
+
+  /* Road simulation lines */
+  .foxhue-map__road-h {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 8px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 4px;
+  }
+
+  .foxhue-map__road-v {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 8px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 4px;
+  }
+
+  .foxhue-map__road-h:nth-child(1) { top: 35%; }
+  .foxhue-map__road-h:nth-child(2) { top: 62%; }
+  .foxhue-map__road-v:nth-child(3) { left: 40%; }
+  .foxhue-map__road-v:nth-child(4) { left: 68%; }
+
+  /* Pin marker */
+  .foxhue-map__pin {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+  }
+
+  .foxhue-map__pin-head {
+    width: 2.75rem;
+    height: 2.75rem;
+    background-color: var(--foxhue-accent);
+    border-radius: 50% 50% 50% 0;
+    transform: rotate(-45deg);
+    box-shadow: 0 4px 12px rgba(233, 69, 96, 0.45);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid #ffffff;
+  }
+
+  .foxhue-map__pin-letter {
+    transform: rotate(45deg);
+    font-family: var(--foxhue-font-heading);
+    font-size: 0.875rem;
+    font-weight: 400;
+    color: #ffffff;
+    line-height: 1;
+  }
+
+  .foxhue-map__pin-shadow {
+    width: 0.75rem;
+    height: 0.375rem;
+    background-color: rgba(0,0,0,0.2);
+    border-radius: 50%;
+    margin-top: 0.125rem;
+  }
+
+  /* Tooltip above pin */
+  .foxhue-map__pin-tooltip {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-0.75rem);
+    background-color: var(--foxhue-primary);
+    color: #ffffff;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    padding: 0.5rem 0.875rem;
+    border-radius: var(--foxhue-radius-md);
+    white-space: nowrap;
+    box-shadow: var(--foxhue-shadow-md);
+  }
+
+  .foxhue-map__pin-tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 5px solid transparent;
+    border-top-color: var(--foxhue-primary);
+  }
+
+  .foxhue-map__placeholder-note {
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(255, 255, 255, 0.9);
+    color: var(--foxhue-text-muted);
+    font-size: 0.75rem;
+    padding: 0.375rem 0.75rem;
+    border-radius: 100px;
+    white-space: nowrap;
+    box-shadow: var(--foxhue-shadow-sm);
+  }
+
+  /* ── Contact column ── */
+  .foxhue-map__contact-col {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .foxhue-map__contact-card {
+    background-color: var(--foxhue-surface);
+    border-radius: var(--foxhue-radius-lg);
+    padding: 2rem;
+    box-shadow: var(--foxhue-shadow-sm);
+    border: 1px solid var(--foxhue-border);
+  }
+
+  .foxhue-map__contact-card-title {
+    font-family: var(--foxhue-font-heading);
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: var(--foxhue-primary);
+    margin: 0 0 1.25rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--foxhue-border);
+  }
+
+  .foxhue-map__contact-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .foxhue-map__contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.875rem;
+  }
+
+  .foxhue-map__contact-icon-wrap {
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 50%;
+    background-color: rgba(233, 69, 96, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    flex-shrink: 0;
+    margin-top: 0.0625rem;
+  }
+
+  .foxhue-map__contact-item-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--foxhue-text-muted);
+    line-height: 1;
+    margin-bottom: 0.25rem;
+  }
+
+  .foxhue-map__contact-item-value {
+    font-size: 0.9375rem;
+    color: var(--foxhue-primary);
+    line-height: 1.45;
+    margin: 0;
+    font-weight: 500;
+  }
+
+  .foxhue-map__contact-item-value a {
+    color: var(--foxhue-accent);
+    text-decoration: none;
+    font-weight: 600;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s ease;
+  }
+
+  .foxhue-map__contact-item-value a:hover {
+    border-bottom-color: var(--foxhue-accent);
+  }
+
+  /* Hours card */
+  .foxhue-map__hours-card {
+    background-color: var(--foxhue-surface);
+    border-radius: var(--foxhue-radius-lg);
+    padding: 2rem;
+    box-shadow: var(--foxhue-shadow-sm);
+    border: 1px solid var(--foxhue-border);
+  }
+
+  .foxhue-map__hours-title {
+    font-family: var(--foxhue-font-heading);
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: var(--foxhue-primary);
+    margin: 0 0 1.25rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--foxhue-border);
+  }
+
+  .foxhue-map__hours-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .foxhue-map__hours-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.9375rem;
+  }
+
+  .foxhue-map__hours-day {
+    color: var(--foxhue-text-muted);
+  }
+
+  .foxhue-map__hours-time {
+    color: var(--foxhue-primary);
+    font-weight: 500;
+  }
+
+  .foxhue-map__hours-time--closed {
+    color: var(--foxhue-text-muted);
+    font-style: italic;
+  }
+
+  .foxhue-map__hours-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    margin-top: 1rem;
+    padding: 0.375rem 0.875rem;
+    background-color: rgba(39, 196, 123, 0.1);
+    border: 1px solid rgba(39, 196, 123, 0.25);
+    border-radius: 100px;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: #1fa866;
+  }
+
+  .foxhue-map__hours-badge-dot {
+    width: 0.5rem;
+    height: 0.5rem;
+    background-color: #27C47B;
+    border-radius: 50%;
+    animation: foxhue-pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes foxhue-pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.6; transform: scale(0.85); }
+  }
+
+  /* Remote work note */
+  .foxhue-map__remote-note {
+    background-color: rgba(26, 26, 46, 0.03);
+    border: 1px solid var(--foxhue-border);
+    border-radius: var(--foxhue-radius-md);
+    padding: 1rem 1.25rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .foxhue-map__remote-note-icon {
+    font-size: 1.125rem;
+    flex-shrink: 0;
+    margin-top: 0.0625rem;
+  }
+
+  .foxhue-map__remote-note-text {
+    font-size: 0.875rem;
+    color: var(--foxhue-text-muted);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 991px) {
+    .foxhue-map {
+      padding: 5rem 1.5rem;
+    }
+
+    .foxhue-map__layout {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .foxhue-map__placeholder {
+      aspect-ratio: 16/7;
+      min-height: 280px;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .foxhue-map {
+      padding: 4rem 1.25rem;
+    }
+
+    .foxhue-map__placeholder {
+      aspect-ratio: 4/3;
+      min-height: 260px;
+    }
+
+    .foxhue-map__contact-card,
+    .foxhue-map__hours-card {
+      padding: 1.5rem;
+    }
+  }
+
+  @media (max-width: 478px) {
+    .foxhue-map {
+      padding: 3rem 1rem;
+    }
+
+    .foxhue-map__placeholder {
+      min-height: 220px;
+    }
+  }
+</style>
+
+<section class="foxhue-map" aria-labelledby="contact-heading">
+  <div class="foxhue-map__inner">
+
+    <header class="foxhue-map__header">
+      <span class="foxhue-map__eyebrow">Find Us</span>
+      <h2 class="foxhue-map__heading" id="contact-heading">
+        Based in Bicester, working across the UK
+      </h2>
+    </header>
+
+    <div class="foxhue-map__layout">
+
+      <!-- Map column -->
+      <div class="foxhue-map__map-col">
+        <!--
+          ASSET NEEDED: Replace the placeholder below with a Google Maps embed.
+          Example:
+          <iframe
+            src="https://www.google.com/maps/embed?pb=..."
+            width="100%" height="450" style="border:0;" allowfullscreen loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Foxhue office location — Bicester, Oxfordshire"
+          ></iframe>
+        -->
+        <div class="foxhue-map__placeholder" role="img" aria-label="Map showing Foxhue location in Bicester, Oxfordshire. Placeholder — replace with Google Maps embed.">
+          <!-- Simulated road lines -->
+          <div class="foxhue-map__road-h"></div>
+          <div class="foxhue-map__road-h"></div>
+          <div class="foxhue-map__road-v"></div>
+          <div class="foxhue-map__road-v"></div>
+
+          <!-- Location pin -->
+          <div class="foxhue-map__pin" role="presentation">
+            <div class="foxhue-map__pin-tooltip">Foxhue — Bicester, OX26</div>
+            <div class="foxhue-map__pin-head">
+              <span class="foxhue-map__pin-letter" aria-hidden="true">F</span>
+            </div>
+            <div class="foxhue-map__pin-shadow" aria-hidden="true"></div>
+          </div>
+
+          <p class="foxhue-map__placeholder-note">Bicester, Oxfordshire, OX26</p>
+        </div>
+      </div>
+
+      <!-- Contact + hours column -->
+      <div class="foxhue-map__contact-col">
+
+        <div class="foxhue-map__contact-card">
+          <h3 class="foxhue-map__contact-card-title">Get in Touch</h3>
+          <ul class="foxhue-map__contact-list">
+
+            <li class="foxhue-map__contact-item">
+              <div class="foxhue-map__contact-icon-wrap" aria-hidden="true">📍</div>
+              <div>
+                <p class="foxhue-map__contact-item-label">Location</p>
+                <p class="foxhue-map__contact-item-value">Bicester, Oxfordshire, OX26</p>
+              </div>
+            </li>
+
+            <li class="foxhue-map__contact-item">
+              <div class="foxhue-map__contact-icon-wrap" aria-hidden="true">✉️</div>
+              <div>
+                <p class="foxhue-map__contact-item-label">Email</p>
+                <p class="foxhue-map__contact-item-value">
+                  <a href="mailto:hello@foxhue.com">hello@foxhue.com</a>
+                </p>
+              </div>
+            </li>
+
+            <li class="foxhue-map__contact-item">
+              <div class="foxhue-map__contact-icon-wrap" aria-hidden="true">📞</div>
+              <div>
+                <p class="foxhue-map__contact-item-label">Phone</p>
+                <p class="foxhue-map__contact-item-value">TBC — please email to book</p>
+              </div>
+            </li>
+
+            <li class="foxhue-map__contact-item">
+              <div class="foxhue-map__contact-icon-wrap" aria-hidden="true">🌐</div>
+              <div>
+                <p class="foxhue-map__contact-item-label">Website</p>
+                <p class="foxhue-map__contact-item-value">
+                  <a href="https://foxhue.com" target="_blank" rel="noopener noreferrer">foxhue.com</a>
+                </p>
+              </div>
+            </li>
+
+          </ul>
+        </div>
+
+        <div class="foxhue-map__hours-card">
+          <h3 class="foxhue-map__hours-title">Opening Hours</h3>
+          <ul class="foxhue-map__hours-list" aria-label="Opening hours">
+            <li class="foxhue-map__hours-row">
+              <span class="foxhue-map__hours-day">Monday</span>
+              <span class="foxhue-map__hours-time">9:00am – 5:00pm</span>
+            </li>
+            <li class="foxhue-map__hours-row">
+              <span class="foxhue-map__hours-day">Tuesday</span>
+              <span class="foxhue-map__hours-time">9:00am – 5:00pm</span>
+            </li>
+            <li class="foxhue-map__hours-row">
+              <span class="foxhue-map__hours-day">Wednesday</span>
+              <span class="foxhue-map__hours-time">9:00am – 5:00pm</span>
+            </li>
+            <li class="foxhue-map__hours-row">
+              <span class="foxhue-map__hours-day">Thursday</span>
+              <span class="foxhue-map__hours-time">9:00am – 5:00pm</span>
+            </li>
+            <li class="foxhue-map__hours-row">
+              <span class="foxhue-map__hours-day">Friday</span>
+              <span class="foxhue-map__hours-time">9:00am – 5:00pm</span>
+            </li>
+            <li class="foxhue-map__hours-row">
+              <span class="foxhue-map__hours-day">Saturday</span>
+              <span class="foxhue-map__hours-time--closed">Closed</span>
+            </li>
+            <li class="foxhue-map__hours-row">
+              <span class="foxhue-map__hours-day">Sunday</span>
+              <span class="foxhue-map__hours-time--closed">Closed</span>
+            </li>
+          </ul>
+          <div class="foxhue-map__hours-badge" aria-label="Currently open">
+            <span class="foxhue-map__hours-badge-dot" aria-hidden="true"></span>
+            Open Mon–Fri, 9am–5pm
+          </div>
+        </div>
+
+        <div class="foxhue-map__remote-note">
+          <span class="foxhue-map__remote-note-icon" aria-hidden="true">💻</span>
+          <p class="foxhue-map__remote-note-text">
+            We work with clients across the UK. All audit calls and reviews are conducted via Google Meet or Zoom — no travel required.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>

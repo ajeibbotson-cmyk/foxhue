@@ -1,0 +1,303 @@
+<!-- Section: Testimonials | Foxhue Landing Page -->
+<style>
+  /* ══════════════════════════════════════════════════
+     Foxhue Landing — Testimonials Section
+     ══════════════════════════════════════════════════ */
+
+  :root {
+    --foxhue-primary: #1A1A2E;
+    --foxhue-accent: #E94560;
+    --foxhue-accent-hover: #D63851;
+    --foxhue-bg: #F8F8FA;
+    --foxhue-surface: #FFFFFF;
+    --foxhue-text: #1A1A2E;
+    --foxhue-text-muted: #6b6b80;
+    --foxhue-border: rgba(26, 26, 46, 0.1);
+    --foxhue-shadow-md: 0 4px 16px rgba(26, 26, 46, 0.08);
+    --foxhue-shadow-lg: 0 8px 32px rgba(26, 26, 46, 0.12);
+    --foxhue-radius-md: 10px;
+    --foxhue-radius-lg: 16px;
+    --foxhue-font-heading: 'DM Serif Display', serif;
+    --foxhue-font-body: 'Inter', sans-serif;
+  }
+
+  .foxhue-testimonials {
+    background-color: var(--foxhue-bg);
+    padding: 6rem 2rem;
+    font-family: var(--foxhue-font-body);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .foxhue-testimonials__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .foxhue-testimonials__header {
+    text-align: center;
+    margin-bottom: 3.5rem;
+  }
+
+  .foxhue-testimonials__eyebrow {
+    display: inline-block;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--foxhue-accent);
+    margin-bottom: 1rem;
+  }
+
+  .foxhue-testimonials__heading {
+    font-family: var(--foxhue-font-heading);
+    font-size: clamp(1.75rem, 3.5vw, 2.625rem);
+    font-weight: 400;
+    color: var(--foxhue-primary);
+    line-height: 1.2;
+    margin: 0;
+  }
+
+  .foxhue-testimonials__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .foxhue-testimonials__card {
+    background-color: var(--foxhue-surface);
+    border-radius: var(--foxhue-radius-lg);
+    padding: 2.5rem;
+    box-shadow: var(--foxhue-shadow-md);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    position: relative;
+    transition: box-shadow 0.25s ease, transform 0.25s ease;
+  }
+
+  .foxhue-testimonials__card:hover {
+    box-shadow: var(--foxhue-shadow-lg);
+    transform: translateY(-3px);
+  }
+
+  .foxhue-testimonials__card-quote-mark {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    font-family: var(--foxhue-font-heading);
+    font-size: 5rem;
+    line-height: 1;
+    color: var(--foxhue-accent);
+    opacity: 0.12;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  .foxhue-testimonials__stars {
+    display: flex;
+    gap: 0.25rem;
+  }
+
+  .foxhue-testimonials__star {
+    display: inline-block;
+    width: 1.125rem;
+    height: 1.125rem;
+    color: #F5A623;
+    font-size: 1.125rem;
+    line-height: 1;
+  }
+
+  .foxhue-testimonials__quote {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--foxhue-primary);
+    flex: 1;
+    margin: 0;
+  }
+
+  .foxhue-testimonials__attribution {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--foxhue-border);
+  }
+
+  .foxhue-testimonials__avatar {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    background-color: var(--foxhue-bg);
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--foxhue-font-heading);
+    font-size: 1.125rem;
+    color: var(--foxhue-primary);
+    border: 2px solid var(--foxhue-border);
+  }
+
+  .foxhue-testimonials__name {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--foxhue-primary);
+    line-height: 1.3;
+    margin: 0 0 0.125rem;
+  }
+
+  .foxhue-testimonials__role {
+    font-size: 0.8125rem;
+    color: var(--foxhue-text-muted);
+    line-height: 1.3;
+    margin: 0;
+  }
+
+  .foxhue-testimonials__result-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--foxhue-accent);
+    background-color: rgba(233, 69, 96, 0.08);
+    padding: 0.3rem 0.75rem;
+    border-radius: 100px;
+    margin-top: 0.25rem;
+    width: fit-content;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 991px) {
+    .foxhue-testimonials {
+      padding: 5rem 1.5rem;
+    }
+
+    .foxhue-testimonials__grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+
+    .foxhue-testimonials__grid .foxhue-testimonials__card:last-child {
+      grid-column: 1 / -1;
+      max-width: 560px;
+      margin: 0 auto;
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .foxhue-testimonials {
+      padding: 4rem 1.25rem;
+    }
+
+    .foxhue-testimonials__grid {
+      grid-template-columns: 1fr;
+    }
+
+    .foxhue-testimonials__grid .foxhue-testimonials__card:last-child {
+      grid-column: auto;
+      max-width: none;
+    }
+
+    .foxhue-testimonials__card {
+      padding: 2rem;
+    }
+  }
+
+  @media (max-width: 478px) {
+    .foxhue-testimonials {
+      padding: 3rem 1rem;
+    }
+
+    .foxhue-testimonials__card {
+      padding: 1.5rem;
+    }
+  }
+</style>
+
+<section class="foxhue-testimonials" aria-labelledby="testimonials-heading">
+  <div class="foxhue-testimonials__inner">
+
+    <header class="foxhue-testimonials__header">
+      <span class="foxhue-testimonials__eyebrow">What Business Owners Say</span>
+      <h2 class="foxhue-testimonials__heading" id="testimonials-heading">
+        Real results for real businesses
+      </h2>
+    </header>
+
+    <div class="foxhue-testimonials__grid">
+
+      <!-- Card 1 -->
+      <article class="foxhue-testimonials__card">
+        <span class="foxhue-testimonials__card-quote-mark" aria-hidden="true">"</span>
+        <div class="foxhue-testimonials__stars" aria-label="5 out of 5 stars">
+          <span class="foxhue-testimonials__star" aria-hidden="true">★</span>
+          <span class="foxhue-testimonials__star" aria-hidden="true">★</span>
+          <span class="foxhue-testimonials__star" aria-hidden="true">★</span>
+          <span class="foxhue-testimonials__star" aria-hidden="true">★</span>
+          <span class="foxhue-testimonials__star" aria-hidden="true">★</span>
+        </div>
+        <p class="foxhue-testimonials__quote">
+          "I assumed our website was doing fine — we had traffic. The Foxhue audit showed us we were losing half our visitors in under 10 seconds because the site took so long to load on mobile. Within six weeks of fixing it, our enquiry rate doubled. I wish we'd done this two years ago."
+        </p>
+        <div class="foxhue-testimonials__attribution">
+          <div class="foxhue-testimonials__avatar" aria-hidden="true">SR</div>
+          <div>
+            <p class="foxhue-testimonials__name">Sarah Rawlings</p>
+            <p class="foxhue-testimonials__role">Owner, The Ironstone Kitchen, Banbury</p>
+            <span class="foxhue-testimonials__result-badge">Enquiries up 2x in 6 weeks</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 2 -->
+      <article class="foxhue-testimonials__card">
+        <span class="foxhue-testimonials__card-quote-mark" aria-hidden="true">"</span>
+        <div class="foxhue-testimonials__stars" aria-label="5 out of 5 stars">
+          <span class="foxhue-testimonials__star" aria-hidden="true">★</span>
+          <span class="foxhue-testimonials__star" aria-hidden="true">★</span>
+          <span class="foxhue-testimonials__star" aria-hidden="true">★</span>
+          <span class="foxhue-testimonials__star" aria-hidden="true">★</span>
+          <span class="foxhue-testimonials__star" aria-hidden="true">★</span>
+        </div>
+        <p class="foxhue-testimonials__quote">
+          "We've been trading for 12 years but our website looked like 2014. The audit gave us a clear list of what actually mattered — not a 40-page document full of jargon. Foxhue prioritised the quick wins, we tackled them in a weekend, and we jumped from page four to page one for our main search term."
+        </p>
+        <div class="foxhue-testimonials__attribution">
+          <div class="foxhue-testimonials__avatar" aria-hidden="true">MT</div>
+          <div>
+            <p class="foxhue-testimonials__name">Mark Thurston</p>
+            <p class="foxhue-testimonials__role">Director, Thurston Electrical, Bicester</p>
+            <span class="foxhue-testimonials__result-badge">Page 4 → Page 1 on Google</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 3 -->
+      <article class="foxhue-testimonials__card">
+        <span class="foxhue-testimonials__card-quote-mark" aria-hidden="true">"</span>
+        <div class="foxhue-testimonials__stars" aria-label="5 out of 5 stars">
+          <span class="foxhue-testimonials__star" aria-hidden="true">★</span>
+          <span class="foxhue-testimonials__star" aria-hidden="true">★</span>
+          <span class="foxhue-testimonials__star" aria-hidden="true">★</span>
+          <span class="foxhue-testimonials__star" aria-hidden="true">★</span>
+          <span class="foxhue-testimonials__star" aria-hidden="true">★</span>
+        </div>
+        <p class="foxhue-testimonials__quote">
+          "The free audit was genuinely eye-opening. We had no idea our Google Business profile was half-empty or that three of our service pages weren't even being indexed. The report was honest, practical, and had zero fluff. We've since brought Foxhue in to handle the full implementation and the results speak for themselves."
+        </p>
+        <div class="foxhue-testimonials__attribution">
+          <div class="foxhue-testimonials__avatar" aria-hidden="true">PK</div>
+          <div>
+            <p class="foxhue-testimonials__name">Priya Kohli</p>
+            <p class="foxhue-testimonials__role">Founder, Bloom Wellness Studio, Oxford</p>
+            <span class="foxhue-testimonials__result-badge">Organic traffic up 74% in 3 months</span>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>

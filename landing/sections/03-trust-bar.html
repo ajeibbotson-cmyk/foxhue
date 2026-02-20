@@ -1,0 +1,328 @@
+<!-- Section: Trust Bar | Foxhue Landing Page -->
+
+<style>
+  /* -----------------------------------------------------------------------
+     Foxhue Trust Bar — Social proof and credibility strip
+     BEM: foxhue-trust, foxhue-trust__inner, foxhue-trust__label,
+          foxhue-trust__logos, foxhue-trust__logo-slot,
+          foxhue-trust__stat, foxhue-trust__stat-number,
+          foxhue-trust__stat-text, foxhue-trust__divider
+  ----------------------------------------------------------------------- */
+
+  .foxhue-trust {
+    background-color: var(--foxhue-surface, #FFFFFF);
+    border-bottom: 1px solid var(--foxhue-border, #E5E7EB);
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+  }
+
+  .foxhue-trust__inner {
+    max-width: var(--foxhue-container-max, 1200px);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: clamp(1.25rem, 4vw, 2rem);
+    padding-right: clamp(1.25rem, 4vw, 2rem);
+  }
+
+  /* Stats row — prominent numbers above logo strip */
+  .foxhue-trust__stats {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(1.5rem, 4vw, 3rem);
+    margin-bottom: 2.5rem;
+    flex-wrap: wrap;
+  }
+
+  .foxhue-trust__stat {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .foxhue-trust__stat-number {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+    font-weight: 400;
+    color: var(--foxhue-primary, #1A1A2E);
+    line-height: 1;
+  }
+
+  .foxhue-trust__stat-number span {
+    color: var(--foxhue-accent, #E94560);
+  }
+
+  .foxhue-trust__stat-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: var(--foxhue-text-muted, #6B7280);
+    letter-spacing: 0.01em;
+    white-space: nowrap;
+  }
+
+  .foxhue-trust__stat-divider {
+    width: 1px;
+    height: 40px;
+    background-color: var(--foxhue-border, #E5E7EB);
+    flex-shrink: 0;
+  }
+
+  /* Label */
+  .foxhue-trust__label {
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--foxhue-text-muted, #6B7280);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .foxhue-trust__label::before,
+  .foxhue-trust__label::after {
+    content: '';
+    display: block;
+    flex: 1;
+    max-width: 80px;
+    height: 1px;
+    background-color: var(--foxhue-border, #E5E7EB);
+  }
+
+  /* Logo slots */
+  .foxhue-trust__logos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(1rem, 3vw, 2.5rem);
+    flex-wrap: wrap;
+  }
+
+  .foxhue-trust__logo-slot {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: clamp(100px, 14vw, 140px);
+    height: 44px;
+    border: 1px solid var(--foxhue-border, #E5E7EB);
+    border-radius: 6px;
+    background-color: var(--foxhue-bg, #F8F8FA);
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Placeholder shimmer line inside each logo slot */
+  .foxhue-trust__logo-slot::before {
+    content: '';
+    display: block;
+    width: 64%;
+    height: 8px;
+    border-radius: 4px;
+    background: linear-gradient(
+      90deg,
+      var(--foxhue-border, #E5E7EB) 0%,
+      rgba(229, 231, 235, 0.4) 50%,
+      var(--foxhue-border, #E5E7EB) 100%
+    );
+  }
+
+  .foxhue-trust__logo-slot-label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  /* Badges row */
+  .foxhue-trust__badges {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(0.75rem, 2vw, 1.5rem);
+    margin-top: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .foxhue-trust__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--foxhue-border, #E5E7EB);
+    border-radius: 100px;
+    background-color: var(--foxhue-bg, #F8F8FA);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: var(--foxhue-text-muted, #6B7280);
+  }
+
+  .foxhue-trust__badge-icon {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    color: var(--foxhue-accent, #E94560);
+  }
+
+  .foxhue-trust__badge-icon svg {
+    width: 16px;
+    height: 16px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    display: block;
+  }
+
+  /* Responsive */
+  @media (max-width: 767px) {
+    .foxhue-trust {
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+    }
+
+    .foxhue-trust__stat-divider {
+      display: none;
+    }
+
+    .foxhue-trust__stats {
+      gap: 1.5rem 2rem;
+    }
+
+    .foxhue-trust__logo-slot {
+      width: clamp(84px, 22vw, 120px);
+      height: 38px;
+    }
+  }
+
+  @media (max-width: 478px) {
+    .foxhue-trust__stats {
+      gap: 1rem 1.5rem;
+    }
+
+    .foxhue-trust__badge {
+      font-size: 0.75rem;
+      padding: 0.375rem 0.75rem;
+    }
+  }
+</style>
+
+<section class="foxhue-trust" aria-labelledby="foxhue-trust-heading">
+  <div class="foxhue-trust__inner">
+
+    <!-- Key stats -->
+    <div class="foxhue-trust__stats" role="list" aria-label="Foxhue key statistics">
+
+      <div class="foxhue-trust__stat" role="listitem">
+        <p class="foxhue-trust__stat-number"><span>50</span>+</p>
+        <p class="foxhue-trust__stat-text">Businesses Audited</p>
+      </div>
+
+      <div class="foxhue-trust__stat-divider" aria-hidden="true"></div>
+
+      <div class="foxhue-trust__stat" role="listitem">
+        <p class="foxhue-trust__stat-number"><span>47</span>%</p>
+        <p class="foxhue-trust__stat-text">Avg. Traffic Increase</p>
+      </div>
+
+      <div class="foxhue-trust__stat-divider" aria-hidden="true"></div>
+
+      <div class="foxhue-trust__stat" role="listitem">
+        <p class="foxhue-trust__stat-number"><span>92</span>%</p>
+        <p class="foxhue-trust__stat-text">Client Satisfaction</p>
+      </div>
+
+      <div class="foxhue-trust__stat-divider" aria-hidden="true"></div>
+
+      <div class="foxhue-trust__stat" role="listitem">
+        <p class="foxhue-trust__stat-number"><span>48</span>hrs</p>
+        <p class="foxhue-trust__stat-text">Audit Turnaround</p>
+      </div>
+
+    </div>
+
+    <!-- Logo strip label -->
+    <p class="foxhue-trust__label" id="foxhue-trust-heading">
+      Trusted by businesses across Oxfordshire
+    </p>
+
+    <!-- Client logo placeholders -->
+    <div class="foxhue-trust__logos" role="list" aria-label="Client logos — image placeholders for client assets">
+
+      <div class="foxhue-trust__logo-slot" role="listitem">
+        <span class="foxhue-trust__logo-slot-label">Client logo placeholder 1</span>
+      </div>
+
+      <div class="foxhue-trust__logo-slot" role="listitem">
+        <span class="foxhue-trust__logo-slot-label">Client logo placeholder 2</span>
+      </div>
+
+      <div class="foxhue-trust__logo-slot" role="listitem">
+        <span class="foxhue-trust__logo-slot-label">Client logo placeholder 3</span>
+      </div>
+
+      <div class="foxhue-trust__logo-slot" role="listitem">
+        <span class="foxhue-trust__logo-slot-label">Client logo placeholder 4</span>
+      </div>
+
+      <div class="foxhue-trust__logo-slot" role="listitem">
+        <span class="foxhue-trust__logo-slot-label">Client logo placeholder 5</span>
+      </div>
+
+    </div>
+
+    <!-- Trust badges -->
+    <div class="foxhue-trust__badges" role="list" aria-label="Trust indicators">
+
+      <div class="foxhue-trust__badge" role="listitem">
+        <span class="foxhue-trust__badge-icon" aria-hidden="true">
+          <svg viewBox="0 0 16 16">
+            <path d="M8 1l1.8 3.6L14 5.4l-3 2.9.7 4.1L8 10.4l-3.7 2 .7-4.1L2 5.4l4.2-.8L8 1z"/>
+          </svg>
+        </span>
+        Free — No credit card required
+      </div>
+
+      <div class="foxhue-trust__badge" role="listitem">
+        <span class="foxhue-trust__badge-icon" aria-hidden="true">
+          <svg viewBox="0 0 16 16">
+            <path d="M8 1a5 5 0 00-5 5c0 4 5 9 5 9s5-5 5-9a5 5 0 00-5-5z"/>
+            <circle cx="8" cy="6" r="1.5"/>
+          </svg>
+        </span>
+        Bicester, Oxfordshire
+      </div>
+
+      <div class="foxhue-trust__badge" role="listitem">
+        <span class="foxhue-trust__badge-icon" aria-hidden="true">
+          <svg viewBox="0 0 16 16">
+            <path d="M13 6H3M13 10H3M8 2v12"/>
+          </svg>
+        </span>
+        No obligation, ever
+      </div>
+
+      <div class="foxhue-trust__badge" role="listitem">
+        <span class="foxhue-trust__badge-icon" aria-hidden="true">
+          <svg viewBox="0 0 16 16">
+            <rect x="2" y="2" width="12" height="12" rx="2"/>
+            <path d="M5 8l2 2 4-4"/>
+          </svg>
+        </span>
+        Results in 48 hours
+      </div>
+
+    </div>
+
+  </div>
+</section>

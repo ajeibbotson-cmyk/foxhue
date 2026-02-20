@@ -1,0 +1,300 @@
+<!-- Section: CTA Banner | Foxhue Landing Page -->
+<style>
+  /* ══════════════════════════════════════════════════
+     Foxhue Landing — CTA Banner Section
+     ══════════════════════════════════════════════════ */
+
+  :root {
+    --foxhue-primary: #1A1A2E;
+    --foxhue-accent: #E94560;
+    --foxhue-accent-hover: #D63851;
+    --foxhue-bg: #F8F8FA;
+    --foxhue-surface: #FFFFFF;
+    --foxhue-text: #1A1A2E;
+    --foxhue-text-muted: #6b6b80;
+    --foxhue-border: rgba(26, 26, 46, 0.1);
+    --foxhue-shadow-lg: 0 8px 32px rgba(26, 26, 46, 0.12);
+    --foxhue-radius-md: 10px;
+    --foxhue-radius-lg: 16px;
+    --foxhue-font-heading: 'DM Serif Display', serif;
+    --foxhue-font-body: 'Inter', sans-serif;
+  }
+
+  .foxhue-cta-banner {
+    background-color: var(--foxhue-accent);
+    padding: 5rem 2rem;
+    font-family: var(--foxhue-font-body);
+    -webkit-font-smoothing: antialiased;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Decorative geometric elements */
+  .foxhue-cta-banner::before {
+    content: '';
+    position: absolute;
+    top: -120px;
+    right: -120px;
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    border: 80px solid rgba(255, 255, 255, 0.06);
+    pointer-events: none;
+  }
+
+  .foxhue-cta-banner::after {
+    content: '';
+    position: absolute;
+    bottom: -80px;
+    left: -80px;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    border: 60px solid rgba(255, 255, 255, 0.05);
+    pointer-events: none;
+  }
+
+  .foxhue-cta-banner__inner {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .foxhue-cta-banner__eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.75);
+    margin-bottom: 1.25rem;
+  }
+
+  .foxhue-cta-banner__eyebrow::before,
+  .foxhue-cta-banner__eyebrow::after {
+    content: '';
+    display: block;
+    width: 2rem;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.4);
+  }
+
+  .foxhue-cta-banner__heading {
+    font-family: var(--foxhue-font-heading);
+    font-size: clamp(2rem, 5vw, 3.25rem);
+    font-weight: 400;
+    color: #ffffff;
+    line-height: 1.15;
+    margin: 0 0 1.25rem;
+  }
+
+  .foxhue-cta-banner__subheading {
+    font-size: 1.125rem;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.65;
+    margin: 0 auto 2.5rem;
+    max-width: 580px;
+  }
+
+  /* ── Action group ── */
+  .foxhue-cta-banner__actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+  }
+
+  .foxhue-cta-banner__btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 2.25rem;
+    background-color: #ffffff;
+    color: var(--foxhue-accent);
+    border-radius: var(--foxhue-radius-md);
+    font-family: var(--foxhue-font-body);
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    text-decoration: none;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+  }
+
+  .foxhue-cta-banner__btn-primary:hover {
+    background-color: #f5f5f5;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 32px rgba(0, 0, 0, 0.25);
+  }
+
+  .foxhue-cta-banner__btn-primary-arrow {
+    font-size: 1.125rem;
+    transition: transform 0.2s ease;
+  }
+
+  .foxhue-cta-banner__btn-primary:hover .foxhue-cta-banner__btn-primary-arrow {
+    transform: translateX(3px);
+  }
+
+  /* Phone/secondary contact */
+  .foxhue-cta-banner__contact {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.625rem;
+    padding: 1rem 1.75rem;
+    color: rgba(255, 255, 255, 0.9);
+    border: 1.5px solid rgba(255, 255, 255, 0.35);
+    border-radius: var(--foxhue-radius-md);
+    font-family: var(--foxhue-font-body);
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+  }
+
+  .foxhue-cta-banner__contact:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.6);
+    color: #ffffff;
+  }
+
+  .foxhue-cta-banner__contact-icon {
+    font-size: 1rem;
+    flex-shrink: 0;
+  }
+
+  .foxhue-cta-banner__contact-detail {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+  }
+
+  .foxhue-cta-banner__contact-label {
+    font-size: 0.6875rem;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.65);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    line-height: 1;
+    margin-bottom: 0.125rem;
+  }
+
+  .foxhue-cta-banner__contact-value {
+    font-size: 0.9375rem;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1;
+  }
+
+  /* Trust signal strip */
+  .foxhue-cta-banner__trust {
+    margin-top: 2.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .foxhue-cta-banner__trust-item {
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  .foxhue-cta-banner__trust-item::before {
+    content: '✓';
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 991px) {
+    .foxhue-cta-banner {
+      padding: 4.5rem 1.5rem;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .foxhue-cta-banner {
+      padding: 4rem 1.25rem;
+    }
+
+    .foxhue-cta-banner__actions {
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .foxhue-cta-banner__btn-primary,
+    .foxhue-cta-banner__contact {
+      width: 100%;
+      max-width: 340px;
+      justify-content: center;
+    }
+
+    .foxhue-cta-banner__trust {
+      gap: 1rem;
+    }
+  }
+
+  @media (max-width: 478px) {
+    .foxhue-cta-banner {
+      padding: 3rem 1rem;
+    }
+
+    .foxhue-cta-banner__trust {
+      flex-direction: column;
+      gap: 0.625rem;
+      align-items: flex-start;
+      margin-left: auto;
+      margin-right: auto;
+      width: fit-content;
+    }
+  }
+</style>
+
+<section class="foxhue-cta-banner" aria-labelledby="cta-banner-heading">
+  <div class="foxhue-cta-banner__inner">
+
+    <span class="foxhue-cta-banner__eyebrow">Free. No Obligation. Genuinely Useful.</span>
+
+    <h2 class="foxhue-cta-banner__heading" id="cta-banner-heading">
+      Ready to find out what's holding<br>your website back?
+    </h2>
+
+    <p class="foxhue-cta-banner__subheading">
+      Book your free SEO and website audit today. We'll deliver a clear, honest report — and walk you through it on a call. No jargon, no hard sell.
+    </p>
+
+    <div class="foxhue-cta-banner__actions">
+      <a href="#book" class="foxhue-cta-banner__btn-primary">
+        Book My Free Audit
+        <span class="foxhue-cta-banner__btn-primary-arrow" aria-hidden="true">→</span>
+      </a>
+
+      <a href="tel:TBC" class="foxhue-cta-banner__contact" aria-label="Call Foxhue to book your audit">
+        <span class="foxhue-cta-banner__contact-icon" aria-hidden="true">📞</span>
+        <span class="foxhue-cta-banner__contact-detail">
+          <span class="foxhue-cta-banner__contact-label">Prefer to call?</span>
+          <span class="foxhue-cta-banner__contact-value">Phone number TBC</span>
+        </span>
+      </a>
+    </div>
+
+    <div class="foxhue-cta-banner__trust" aria-label="Reassurances">
+      <span class="foxhue-cta-banner__trust-item">Delivered within 48 hours</span>
+      <span class="foxhue-cta-banner__trust-item">No commitment required</span>
+      <span class="foxhue-cta-banner__trust-item">UK businesses only</span>
+      <span class="foxhue-cta-banner__trust-item">Includes a walkthrough call</span>
+    </div>
+
+  </div>
+</section>

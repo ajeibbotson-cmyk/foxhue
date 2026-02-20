@@ -1,0 +1,517 @@
+/* =============================================================================
+   Foxhue Landing Pages — Base Shared Stylesheet
+   SEO & Website Audit Campaign
+   ============================================================================= */
+
+/* =============================================================================
+   1. CSS Custom Properties (Brand Tokens)
+   ============================================================================= */
+
+:root {
+  /* Colour Palette */
+  --foxhue-primary: #1A1A2E;
+  --foxhue-accent: #E94560;
+  --foxhue-accent-hover: #D63851;
+  --foxhue-bg: #F8F8FA;
+  --foxhue-surface: #FFFFFF;
+  --foxhue-text: #1A1A2E;
+  --foxhue-text-muted: #6B7280;
+  --foxhue-text-light: #9CA3AF;
+  --foxhue-light: #FFFFFF;
+  --foxhue-border: #E5E7EB;
+  --foxhue-border-light: #F3F4F6;
+
+  /* Typography */
+  --foxhue-font-heading: 'DM Serif Display', serif;
+  --foxhue-font-body: 'Inter', sans-serif;
+
+  /* Font Sizes — fluid scale */
+  --foxhue-text-xs:   0.75rem;    /* 12px */
+  --foxhue-text-sm:   0.875rem;   /* 14px */
+  --foxhue-text-base: 1rem;       /* 16px */
+  --foxhue-text-lg:   1.125rem;   /* 18px */
+  --foxhue-text-xl:   1.25rem;    /* 20px */
+  --foxhue-text-2xl:  1.5rem;     /* 24px */
+  --foxhue-text-3xl:  1.875rem;   /* 30px */
+  --foxhue-text-4xl:  2.25rem;    /* 36px */
+  --foxhue-text-5xl:  3rem;       /* 48px */
+  --foxhue-text-6xl:  3.75rem;    /* 60px */
+
+  /* Font Weights */
+  --foxhue-weight-light:    300;
+  --foxhue-weight-regular:  400;
+  --foxhue-weight-medium:   500;
+  --foxhue-weight-semibold: 600;
+  --foxhue-weight-bold:     700;
+
+  /* Line Heights */
+  --foxhue-leading-tight:  1.2;
+  --foxhue-leading-snug:   1.375;
+  --foxhue-leading-normal: 1.5;
+  --foxhue-leading-relaxed:1.625;
+
+  /* Spacing Scale */
+  --foxhue-space-1:  0.25rem;   /* 4px */
+  --foxhue-space-2:  0.5rem;    /* 8px */
+  --foxhue-space-3:  0.75rem;   /* 12px */
+  --foxhue-space-4:  1rem;      /* 16px */
+  --foxhue-space-5:  1.25rem;   /* 20px */
+  --foxhue-space-6:  1.5rem;    /* 24px */
+  --foxhue-space-8:  2rem;      /* 32px */
+  --foxhue-space-10: 2.5rem;    /* 40px */
+  --foxhue-space-12: 3rem;      /* 48px */
+  --foxhue-space-16: 4rem;      /* 64px */
+  --foxhue-space-20: 5rem;      /* 80px */
+  --foxhue-space-24: 6rem;      /* 96px */
+  --foxhue-space-32: 8rem;      /* 128px */
+
+  /* Border Radius */
+  --foxhue-radius-sm:   4px;
+  --foxhue-radius-md:   8px;
+  --foxhue-radius-lg:   12px;
+  --foxhue-radius-xl:   16px;
+  --foxhue-radius-2xl:  24px;
+  --foxhue-radius-full: 9999px;
+
+  /* Shadows */
+  --foxhue-shadow-sm:  0 1px 2px rgba(26, 26, 46, 0.06);
+  --foxhue-shadow-md:  0 4px 12px rgba(26, 26, 46, 0.08);
+  --foxhue-shadow-lg:  0 8px 24px rgba(26, 26, 46, 0.12);
+  --foxhue-shadow-xl:  0 16px 48px rgba(26, 26, 46, 0.16);
+
+  /* Transitions */
+  --foxhue-transition-fast:   150ms ease;
+  --foxhue-transition-base:   250ms ease;
+  --foxhue-transition-slow:   400ms ease;
+
+  /* Layout */
+  --foxhue-container-max:   1200px;
+  --foxhue-container-wide:  1400px;
+  --foxhue-container-narrow: 800px;
+  --foxhue-gutter:          clamp(1.25rem, 4vw, 2rem);
+}
+
+
+/* =============================================================================
+   2. Reset & Box Model
+   ============================================================================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--foxhue-font-body);
+  font-size: var(--foxhue-text-base);
+  font-weight: var(--foxhue-weight-regular);
+  line-height: var(--foxhue-leading-relaxed);
+  color: var(--foxhue-text);
+  background-color: var(--foxhue-bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+
+/* =============================================================================
+   3. Base Typography
+   ============================================================================= */
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--foxhue-font-heading);
+  font-weight: var(--foxhue-weight-regular);
+  line-height: var(--foxhue-leading-tight);
+  color: var(--foxhue-primary);
+}
+
+h1 { font-size: clamp(2.25rem, 5vw, var(--foxhue-text-6xl)); }
+h2 { font-size: clamp(1.75rem, 3.5vw, var(--foxhue-text-5xl)); }
+h3 { font-size: clamp(1.375rem, 2.5vw, var(--foxhue-text-3xl)); }
+h4 { font-size: clamp(1.125rem, 2vw, var(--foxhue-text-2xl)); }
+h5 { font-size: var(--foxhue-text-xl); }
+h6 { font-size: var(--foxhue-text-lg); }
+
+p {
+  font-size: var(--foxhue-text-base);
+  line-height: var(--foxhue-leading-relaxed);
+  color: var(--foxhue-text-muted);
+}
+
+strong {
+  font-weight: var(--foxhue-weight-semibold);
+  color: var(--foxhue-text);
+}
+
+em {
+  font-style: italic;
+}
+
+small {
+  font-size: var(--foxhue-text-sm);
+}
+
+
+/* =============================================================================
+   4. Layout Utilities
+   ============================================================================= */
+
+.foxhue-container {
+  width: 100%;
+  max-width: var(--foxhue-container-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--foxhue-gutter);
+  padding-right: var(--foxhue-gutter);
+}
+
+.foxhue-container--wide {
+  max-width: var(--foxhue-container-wide);
+}
+
+.foxhue-container--narrow {
+  max-width: var(--foxhue-container-narrow);
+}
+
+.foxhue-section {
+  padding-top: clamp(3rem, 6vw, 6rem);
+  padding-bottom: clamp(3rem, 6vw, 6rem);
+}
+
+.foxhue-section--sm {
+  padding-top: clamp(2rem, 4vw, 3rem);
+  padding-bottom: clamp(2rem, 4vw, 3rem);
+}
+
+.foxhue-section--lg {
+  padding-top: clamp(4rem, 8vw, 8rem);
+  padding-bottom: clamp(4rem, 8vw, 8rem);
+}
+
+
+/* =============================================================================
+   5. Shared Button Styles
+   ============================================================================= */
+
+.foxhue-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--foxhue-space-2);
+  padding: var(--foxhue-space-4) var(--foxhue-space-8);
+  font-family: var(--foxhue-font-body);
+  font-size: var(--foxhue-text-base);
+  font-weight: var(--foxhue-weight-semibold);
+  line-height: 1;
+  border-radius: var(--foxhue-radius-sm);
+  transition: background-color var(--foxhue-transition-fast),
+              transform var(--foxhue-transition-fast),
+              box-shadow var(--foxhue-transition-fast);
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+
+.foxhue-btn:focus-visible {
+  outline: 3px solid var(--foxhue-accent);
+  outline-offset: 3px;
+}
+
+.foxhue-btn--primary {
+  background-color: var(--foxhue-accent);
+  color: var(--foxhue-light);
+  border-color: var(--foxhue-accent);
+}
+
+.foxhue-btn--primary:hover {
+  background-color: var(--foxhue-accent-hover);
+  border-color: var(--foxhue-accent-hover);
+  transform: translateY(-1px);
+  box-shadow: var(--foxhue-shadow-md);
+}
+
+.foxhue-btn--primary:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.foxhue-btn--outline {
+  background-color: transparent;
+  color: var(--foxhue-primary);
+  border-color: var(--foxhue-primary);
+}
+
+.foxhue-btn--outline:hover {
+  background-color: var(--foxhue-primary);
+  color: var(--foxhue-light);
+}
+
+.foxhue-btn--outline-light {
+  background-color: transparent;
+  color: var(--foxhue-light);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.foxhue-btn--outline-light:hover {
+  background-color: var(--foxhue-light);
+  color: var(--foxhue-primary);
+  border-color: var(--foxhue-light);
+}
+
+.foxhue-btn--lg {
+  padding: var(--foxhue-space-5) var(--foxhue-space-10);
+  font-size: var(--foxhue-text-lg);
+}
+
+.foxhue-btn--sm {
+  padding: var(--foxhue-space-2) var(--foxhue-space-5);
+  font-size: var(--foxhue-text-sm);
+}
+
+
+/* =============================================================================
+   6. Section Headings Utility
+   ============================================================================= */
+
+.foxhue-section-label {
+  display: inline-block;
+  font-family: var(--foxhue-font-body);
+  font-size: var(--foxhue-text-xs);
+  font-weight: var(--foxhue-weight-semibold);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--foxhue-accent);
+  margin-bottom: var(--foxhue-space-4);
+}
+
+.foxhue-section-title {
+  font-family: var(--foxhue-font-heading);
+  margin-bottom: var(--foxhue-space-6);
+}
+
+.foxhue-section-body {
+  font-size: var(--foxhue-text-lg);
+  line-height: var(--foxhue-leading-relaxed);
+  color: var(--foxhue-text-muted);
+  max-width: 640px;
+}
+
+.foxhue-text-center {
+  text-align: center;
+}
+
+.foxhue-text-center .foxhue-section-body {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+/* =============================================================================
+   7. Divider
+   ============================================================================= */
+
+.foxhue-divider {
+  border: none;
+  border-top: 1px solid var(--foxhue-border);
+  margin: 0;
+}
+
+
+/* =============================================================================
+   8. Responsive Utilities
+   ============================================================================= */
+
+/* Hide below breakpoints */
+@media (max-width: 991px) {
+  .foxhue-hide-tablet { display: none !important; }
+}
+
+@media (max-width: 767px) {
+  .foxhue-hide-mobile { display: none !important; }
+}
+
+/* Show only on mobile */
+@media (min-width: 768px) {
+  .foxhue-show-mobile-only { display: none !important; }
+}
+
+
+/* =============================================================================
+   9. Accessibility
+   ============================================================================= */
+
+/* Skip link */
+.foxhue-skip-link {
+  position: absolute;
+  top: -100%;
+  left: var(--foxhue-space-4);
+  background: var(--foxhue-primary);
+  color: var(--foxhue-light);
+  padding: var(--foxhue-space-3) var(--foxhue-space-6);
+  border-radius: 0 0 var(--foxhue-radius-md) var(--foxhue-radius-md);
+  font-size: var(--foxhue-text-sm);
+  font-weight: var(--foxhue-weight-semibold);
+  z-index: 9999;
+  text-decoration: none;
+  transition: top var(--foxhue-transition-fast);
+}
+
+.foxhue-skip-link:focus {
+  top: 0;
+}
+
+/* Visually hidden (screen-reader only) */
+.foxhue-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Focus visible styles */
+:focus-visible {
+  outline: 3px solid var(--foxhue-accent);
+  outline-offset: 3px;
+}
+
+/* High contrast mode */
+@media (forced-colors: active) {
+  .foxhue-btn--primary {
+    border: 2px solid ButtonText;
+  }
+}
+
+
+/* =============================================================================
+   10. Print Styles
+   ============================================================================= */
+
+@media print {
+  *,
+  *::before,
+  *::after {
+    background: transparent !important;
+    color: #000 !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+
+  a[href]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+    color: #555;
+  }
+
+  /* Suppress decorative link expansion */
+  a[href^="#"]::after,
+  a[href^="javascript"]::after {
+    content: "";
+  }
+
+  h2,
+  h3,
+  h4 {
+    page-break-after: avoid;
+  }
+
+  p {
+    orphans: 3;
+    widows: 3;
+  }
+
+  img {
+    page-break-inside: avoid;
+    max-width: 100% !important;
+  }
+
+  .foxhue-header,
+  .foxhue-header__cta,
+  .foxhue-trust,
+  .foxhue-hero__image-wrap {
+    display: none !important;
+  }
+
+  .foxhue-container {
+    max-width: 100%;
+    padding: 0;
+  }
+
+  body {
+    font-size: 12pt;
+    line-height: 1.4;
+  }
+}
