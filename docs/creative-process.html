@@ -1,0 +1,1131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Foxhue — Our Creative Process</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ═══════════════════════════════════════════════════
+       RESET & BASE
+       ═══════════════════════════════════════════════════ */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary: #1A1A2E;
+      --accent: #E94560;
+      --accent-hover: #D63851;
+      --bg: #F8F8FA;
+      --surface: #FFFFFF;
+      --text: #1A1A2E;
+      --text-light: #5A5A6E;
+      --text-muted: #6b6b80;
+      --border: #E2E2EA;
+      --border-light: #F0F0F4;
+      --font-heading: 'DM Serif Display', serif;
+      --font-body: 'Inter', sans-serif;
+
+      /* Direction accent colors */
+      --dir-a: #1A1A2E;
+      --dir-b: #E94560;
+      --dir-c: #C2956B;
+      --dir-cross: #5A5A6E;
+    }
+
+    html {
+      font-size: 16px;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* ═══════════════════════════════════════════════════
+       LAYOUT
+       ═══════════════════════════════════════════════════ */
+    .page-wrapper {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* ═══════════════════════════════════════════════════
+       COVER
+       ═══════════════════════════════════════════════════ */
+    .cover {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: var(--primary);
+      color: var(--surface);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cover::before {
+      content: '';
+      position: absolute;
+      top: -40%;
+      right: -20%;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(233, 69, 96, 0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .cover::after {
+      content: '';
+      position: absolute;
+      bottom: -30%;
+      left: -15%;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(233, 69, 96, 0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .cover-inner {
+      position: relative;
+      z-index: 1;
+      padding: 4rem 2rem;
+    }
+
+    .cover-logo {
+      font-family: var(--font-heading);
+      font-size: 1.125rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 3rem;
+    }
+
+    .cover h1 {
+      font-family: var(--font-heading);
+      font-size: clamp(2.25rem, 5vw, 3.5rem);
+      font-weight: 400;
+      line-height: 1.2;
+      margin-bottom: 0.75rem;
+    }
+
+    .cover h1 span {
+      display: block;
+      color: var(--accent);
+    }
+
+    .cover-subtitle {
+      font-size: 1.125rem;
+      font-weight: 300;
+      color: rgba(255, 255, 255, 0.7);
+      margin-bottom: 3rem;
+      max-width: 540px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.7;
+    }
+
+    .cover-meta {
+      font-size: 0.875rem;
+      color: rgba(255, 255, 255, 0.5);
+      line-height: 1.8;
+    }
+
+    .cover-divider {
+      width: 60px;
+      height: 2px;
+      background: var(--accent);
+      margin: 2rem auto;
+    }
+
+    .cover-confidential {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.3);
+      z-index: 1;
+    }
+
+    /* ═══════════════════════════════════════════════════
+       TABLE OF CONTENTS
+       ═══════════════════════════════════════════════════ */
+    .toc {
+      background: var(--surface);
+      border-radius: 12px;
+      padding: 2.5rem;
+      margin: 3rem auto;
+      border: 1px solid var(--border);
+    }
+
+    .toc h2 {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      font-weight: 400;
+      margin-bottom: 1.5rem;
+      color: var(--primary);
+    }
+
+    .toc ol {
+      list-style: none;
+      counter-reset: toc-counter;
+    }
+
+    .toc ol li {
+      counter-increment: toc-counter;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .toc ol li:last-child {
+      border-bottom: none;
+    }
+
+    .toc ol li a {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 0.75rem 0;
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: color 0.2s ease;
+    }
+
+    .toc ol li a:hover {
+      color: var(--accent);
+    }
+
+    .toc ol li a::before {
+      content: counter(toc-counter, decimal-leading-zero);
+      font-family: var(--font-heading);
+      font-size: 1.125rem;
+      color: var(--accent);
+      min-width: 2rem;
+    }
+
+    /* ═══════════════════════════════════════════════════
+       SECTIONS
+       ═══════════════════════════════════════════════════ */
+    .report-section {
+      background: var(--surface);
+      border-radius: 12px;
+      padding: 2.5rem;
+      margin-bottom: 2rem;
+      border: 1px solid var(--border);
+    }
+
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .report-section h2 {
+      font-family: var(--font-heading);
+      font-size: 1.75rem;
+      font-weight: 400;
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+      line-height: 1.3;
+    }
+
+    .report-section h3 {
+      font-family: var(--font-heading);
+      font-size: 1.25rem;
+      font-weight: 400;
+      color: var(--primary);
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      line-height: 1.3;
+    }
+
+    .report-section h4 {
+      font-size: 0.875rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .report-section p {
+      color: var(--text-light);
+      margin-bottom: 1rem;
+    }
+
+    .report-section ul,
+    .report-section ol {
+      color: var(--text-light);
+      margin-bottom: 1rem;
+      padding-left: 1.25rem;
+    }
+
+    .report-section li {
+      margin-bottom: 0.5rem;
+    }
+
+    .report-section li strong {
+      color: var(--text);
+    }
+
+    .section-divider {
+      width: 40px;
+      height: 2px;
+      background: var(--accent);
+      margin-bottom: 1.5rem;
+    }
+
+    /* ═══════════════════════════════════════════════════
+       BRIEF CARD
+       ═══════════════════════════════════════════════════ */
+    .brief-card {
+      background: var(--bg);
+      border-left: 4px solid var(--accent);
+      border-radius: 0 10px 10px 0;
+      padding: 2rem 2rem 2rem 2.25rem;
+      margin: 1.5rem 0;
+    }
+
+    .brief-card p {
+      font-size: 1.05rem;
+      font-style: italic;
+      color: var(--text);
+      line-height: 1.8;
+      margin-bottom: 0;
+    }
+
+    .brief-card p:not(:last-child) {
+      margin-bottom: 0.75rem;
+    }
+
+    .brief-requirements {
+      list-style: none;
+      padding: 0;
+      margin: 1.25rem 0 0 0;
+    }
+
+    .brief-requirements li {
+      position: relative;
+      padding: 0.5rem 0 0.5rem 1.5rem;
+      font-style: normal;
+      font-size: 0.95rem;
+      color: var(--text-light);
+    }
+
+    .brief-requirements li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    /* ═══════════════════════════════════════════════════
+       INSPIRATION CARDS
+       ═══════════════════════════════════════════════════ */
+    .direction-group {
+      margin-top: 2rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .direction-group:last-child {
+      margin-bottom: 0;
+    }
+
+    .direction-group-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .direction-marker {
+      width: 4px;
+      height: 28px;
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+
+    .direction-marker--a { background: var(--dir-a); }
+    .direction-marker--b { background: var(--dir-b); }
+    .direction-marker--c { background: var(--dir-c); }
+    .direction-marker--cross { background: var(--dir-cross); }
+
+    .direction-group-title {
+      font-family: var(--font-heading);
+      font-size: 1.15rem;
+      font-weight: 400;
+      color: var(--primary);
+    }
+
+    .direction-group-subtitle {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      font-weight: 500;
+      margin-left: auto;
+    }
+
+    .ref-card {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.75rem;
+      margin-bottom: 1rem;
+      background: var(--surface);
+      transition: box-shadow 0.2s ease;
+    }
+
+    .ref-card:hover {
+      box-shadow: 0 4px 20px rgba(26, 26, 46, 0.06);
+    }
+
+    .ref-card:last-child {
+      margin-bottom: 0;
+    }
+
+    .ref-card-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .ref-card-name {
+      font-family: var(--font-heading);
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: var(--primary);
+    }
+
+    .ref-card-url {
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--accent);
+      text-decoration: none;
+      padding: 0.2rem 0.75rem;
+      border-radius: 100px;
+      background: rgba(233, 69, 96, 0.08);
+      transition: background 0.2s ease;
+    }
+
+    .ref-card-url:hover {
+      background: rgba(233, 69, 96, 0.15);
+    }
+
+    .ref-card-description {
+      font-size: 0.925rem;
+      color: var(--text-light);
+      margin-bottom: 0.75rem;
+      line-height: 1.6;
+    }
+
+    .ref-card-borrowed {
+      font-size: 0.875rem;
+      color: var(--text);
+      background: var(--bg);
+      border-radius: 8px;
+      padding: 0.875rem 1rem;
+      line-height: 1.6;
+    }
+
+    .ref-card-borrowed strong {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+
+    /* Cross-cutting cards (simpler) */
+    .ref-card--simple {
+      padding: 1.25rem 1.75rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+
+    .ref-card--simple .ref-card-name {
+      font-size: 1.05rem;
+      min-width: 140px;
+      flex-shrink: 0;
+    }
+
+    .ref-card--simple .ref-card-description {
+      margin-bottom: 0;
+    }
+
+    /* ═══════════════════════════════════════════════════
+       PRINCIPLES GRID
+       ═══════════════════════════════════════════════════ */
+    .principles-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+
+    .principle-card {
+      padding: 1.5rem;
+      background: var(--bg);
+      border-radius: 10px;
+      border-top: 3px solid var(--accent);
+    }
+
+    .principle-card h4 {
+      font-family: var(--font-heading);
+      font-size: 1.05rem;
+      font-weight: 400;
+      color: var(--primary);
+      margin: 0 0 0.75rem 0;
+      text-transform: none;
+      letter-spacing: 0;
+    }
+
+    .principle-card p {
+      font-size: 0.9rem;
+      color: var(--text-light);
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    /* ═══════════════════════════════════════════════════
+       DIRECTIONS SUMMARY
+       ═══════════════════════════════════════════════════ */
+    .direction-card {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 2rem;
+      margin-bottom: 1rem;
+      background: var(--surface);
+      display: flex;
+      align-items: flex-start;
+      gap: 1.5rem;
+      transition: box-shadow 0.2s ease;
+    }
+
+    .direction-card:hover {
+      box-shadow: 0 4px 20px rgba(26, 26, 46, 0.06);
+    }
+
+    .direction-card:last-of-type {
+      margin-bottom: 1.5rem;
+    }
+
+    .direction-letter {
+      font-family: var(--font-heading);
+      font-size: 2.5rem;
+      line-height: 1;
+      color: var(--accent);
+      flex-shrink: 0;
+      width: 48px;
+      text-align: center;
+    }
+
+    .direction-content {
+      flex: 1;
+    }
+
+    .direction-name {
+      font-family: var(--font-heading);
+      font-size: 1.25rem;
+      font-weight: 400;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .direction-desc {
+      font-size: 0.925rem;
+      color: var(--text-light);
+      line-height: 1.6;
+      margin-bottom: 0.75rem;
+    }
+
+    .direction-link {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--accent);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      transition: color 0.2s ease;
+    }
+
+    .direction-link:hover {
+      color: var(--accent-hover);
+    }
+
+    .direction-link::after {
+      content: '\2192';
+      font-size: 1rem;
+    }
+
+    .view-all-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--surface);
+      background: var(--accent);
+      text-decoration: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      transition: background 0.2s ease;
+    }
+
+    .view-all-link:hover {
+      background: var(--accent-hover);
+    }
+
+    .view-all-link::after {
+      content: '\2192';
+      font-size: 1.1rem;
+    }
+
+    /* ═══════════════════════════════════════════════════
+       FOOTER
+       ═══════════════════════════════════════════════════ */
+    .report-footer {
+      text-align: center;
+      padding: 3rem 2rem;
+      margin-top: 1rem;
+    }
+
+    .footer-divider {
+      width: 60px;
+      height: 2px;
+      background: var(--accent);
+      margin: 0 auto 1.5rem;
+    }
+
+    .footer-text {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      letter-spacing: 0.05em;
+      margin-bottom: 1rem;
+    }
+
+    .footer-link {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--accent);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .footer-link:hover {
+      color: var(--accent-hover);
+    }
+
+    /* ═══════════════════════════════════════════════════
+       RESPONSIVE
+       ═══════════════════════════════════════════════════ */
+    @media (max-width: 768px) {
+      .page-wrapper {
+        padding: 0 1rem;
+      }
+
+      .report-section {
+        padding: 1.75rem 1.25rem;
+      }
+
+      .toc {
+        padding: 1.75rem 1.25rem;
+      }
+
+      .principles-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .direction-card {
+        flex-direction: column;
+        gap: 0.75rem;
+        padding: 1.5rem;
+      }
+
+      .direction-letter {
+        width: auto;
+        text-align: left;
+        font-size: 2rem;
+      }
+
+      .direction-group-header {
+        flex-wrap: wrap;
+      }
+
+      .direction-group-subtitle {
+        margin-left: 0;
+        width: 100%;
+        padding-left: 1rem;
+      }
+
+      .ref-card--simple {
+        flex-direction: column;
+        gap: 0.35rem;
+      }
+
+      .ref-card--simple .ref-card-name {
+        min-width: 0;
+      }
+
+      .cover h1 {
+        font-size: 2rem;
+      }
+
+      .cover-subtitle {
+        font-size: 1rem;
+      }
+
+      .brief-card {
+        padding: 1.5rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .report-section {
+        padding: 1.25rem 1rem;
+      }
+
+      .ref-card {
+        padding: 1.25rem;
+      }
+
+      .ref-card-header {
+        flex-direction: column;
+      }
+
+      .direction-card {
+        padding: 1.25rem;
+      }
+    }
+
+    /* ═══════════════════════════════════════════════════
+       PRINT STYLES
+       ═══════════════════════════════════════════════════ */
+    @media print {
+      * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        color-adjust: exact !important;
+      }
+
+      body {
+        background: white;
+        font-size: 11pt;
+        line-height: 1.5;
+      }
+
+      .cover {
+        min-height: auto;
+        padding: 3rem 2rem;
+        page-break-after: always;
+      }
+
+      .page-wrapper {
+        max-width: 100%;
+        padding: 0 1cm;
+      }
+
+      .report-section {
+        box-shadow: none;
+        border: 1px solid #ddd;
+        page-break-inside: avoid;
+        margin-bottom: 1rem;
+      }
+
+      .toc {
+        page-break-after: always;
+        box-shadow: none;
+        border: 1px solid #ddd;
+      }
+
+      .ref-card,
+      .direction-card {
+        page-break-inside: avoid;
+        box-shadow: none;
+      }
+
+      a {
+        color: var(--text) !important;
+        text-decoration: none;
+      }
+
+      .report-footer {
+        margin-top: 2rem;
+        padding: 1.5rem 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════════════
+       COVER
+       ═══════════════════════════════════════════════════ -->
+  <header class="cover">
+    <div class="cover-inner">
+      <div class="cover-logo">Foxhue</div>
+      <h1>
+        Our Creative<br>
+        <span>Process</span>
+      </h1>
+      <p class="cover-subtitle">How research, inspiration, and strategic thinking shaped three distinct design directions for Foxhue.</p>
+      <div class="cover-divider"></div>
+      <div class="cover-meta">
+        February 2026<br>
+        Prepared by Foxhue Studio
+      </div>
+    </div>
+    <div class="cover-confidential">Confidential &mdash; Internal Use Only</div>
+  </header>
+
+  <!-- ═══════════════════════════════════════════════════
+       TABLE OF CONTENTS
+       ═══════════════════════════════════════════════════ -->
+  <div class="page-wrapper">
+
+    <nav class="toc">
+      <h2>Contents</h2>
+      <ol>
+        <li><a href="#the-brief">The Brief</a></li>
+        <li><a href="#research-phase">Research Phase</a></li>
+        <li><a href="#inspiration-gallery">Inspiration Gallery</a></li>
+        <li><a href="#design-principles">Design Principles</a></li>
+        <li><a href="#three-directions">Three Directions</a></li>
+      </ol>
+    </nav>
+
+    <!-- ═══════════════════════════════════════════════════
+         01. THE BRIEF
+         ═══════════════════════════════════════════════════ -->
+    <section id="the-brief" class="report-section">
+      <div class="section-label">Section 01</div>
+      <h2>The Brief</h2>
+      <div class="section-divider"></div>
+
+      <p>We set out to design a website for ourselves &mdash; one that reflects who Foxhue is as a studio and positions us clearly in the market. The challenge was finding a design approach that communicates creative capability while remaining approachable to the small and medium-sized businesses we work with.</p>
+
+      <div class="brief-card">
+        <p>&ldquo;Design a website for Foxhue that establishes us as a serious creative studio without alienating the SME clients who need us most. It should feel like the work of a studio that sweats the details &mdash; because we do.&rdquo;</p>
+        <ul class="brief-requirements">
+          <li><strong>Professional but approachable</strong> &mdash; creative authority without pretension or corporate sterility</li>
+          <li><strong>SMB-focused</strong> &mdash; clear value proposition for businesses that may never have worked with a design agency before</li>
+          <li><strong>Distinctive in a crowded market</strong> &mdash; stand apart from template-driven web agencies and marketing-first competitors</li>
+          <li><strong>Portfolio-driven</strong> &mdash; let the work speak, with case studies that demonstrate process and outcomes</li>
+          <li><strong>Locally rooted</strong> &mdash; authentically positioned in Bicester, Oxfordshire, not pretending to be a London agency</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════
+         02. RESEARCH PHASE
+         ═══════════════════════════════════════════════════ -->
+    <section id="research-phase" class="report-section">
+      <div class="section-label">Section 02</div>
+      <h2>Research Phase</h2>
+      <div class="section-divider"></div>
+
+      <p>Before sketching a single layout, we studied 12 award-winning agency and studio websites across different styles and market positions. Our goal was to understand what makes a studio website genuinely effective &mdash; not just visually impressive, but commercially persuasive.</p>
+
+      <h3>Methodology</h3>
+      <p>We focused on sites that had received recognition from <strong>Awwwards</strong>, <strong>CSS Design Awards</strong>, or <strong>Lovie Awards</strong>, filtering for agencies of a similar size and ambition to Foxhue. We were not looking at the massive global agencies with 200-person teams &mdash; we were studying studios that do exceptional work at a boutique scale.</p>
+
+      <p>For each reference site, we documented:</p>
+      <ul>
+        <li>Layout approach and visual hierarchy decisions</li>
+        <li>Typography choices and how they communicate positioning</li>
+        <li>How the studio presents its work and tells client stories</li>
+        <li>The balance between aesthetic ambition and commercial clarity</li>
+        <li>Motion, interactivity, and loading patterns</li>
+      </ul>
+
+      <p>From this research, three distinct creative threads emerged &mdash; each one viable, each with a different personality. These became the foundation for our three design directions.</p>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════
+         03. INSPIRATION GALLERY
+         ═══════════════════════════════════════════════════ -->
+    <section id="inspiration-gallery" class="report-section">
+      <div class="section-label">Section 03</div>
+      <h2>Inspiration Gallery</h2>
+      <div class="section-divider"></div>
+
+      <p>The 12 reference sites grouped by the design direction they informed, with notes on what we borrowed from each and why.</p>
+
+      <!-- Direction A: Studio Minimal -->
+      <div class="direction-group">
+        <div class="direction-group-header">
+          <div class="direction-marker direction-marker--a"></div>
+          <div class="direction-group-title">Studio Minimal Inspirations</div>
+          <div class="direction-group-subtitle">Direction A</div>
+        </div>
+
+        <div class="ref-card">
+          <div class="ref-card-header">
+            <div class="ref-card-name">SHIO</div>
+            <a class="ref-card-url" href="https://shioinc.com" target="_blank" rel="noopener">shioinc.com</a>
+          </div>
+          <div class="ref-card-description">Architectural minimalism, grainy textures, typography as the primary visual driver. A site that communicates premium capability through restraint rather than ornamentation.</div>
+          <div class="ref-card-borrowed">
+            <strong>What we borrowed</strong>
+            Strategic white space as a design element, typography-driven visual hierarchy that lets content breathe.
+          </div>
+        </div>
+
+        <div class="ref-card">
+          <div class="ref-card-header">
+            <div class="ref-card-name">Jules Studio</div>
+            <a class="ref-card-url" href="https://julesstudio.co" target="_blank" rel="noopener">julesstudio.co</a>
+          </div>
+          <div class="ref-card-description">&ldquo;Results driven, budget smart&rdquo; &mdash; a studio that speaks directly to cost-conscious clients without compromising on design quality. Neutral palette with strategic pops of colour.</div>
+          <div class="ref-card-borrowed">
+            <strong>What we borrowed</strong>
+            Clear service architecture, neutral tones with strategic accent colour usage, results-driven case study format.
+          </div>
+        </div>
+
+        <div class="ref-card">
+          <div class="ref-card-header">
+            <div class="ref-card-name">Nicola Romei</div>
+            <a class="ref-card-url" href="https://nicolaromei.com" target="_blank" rel="noopener">nicolaromei.com</a>
+          </div>
+          <div class="ref-card-description">Portfolio presented as living artwork. Each project feels like a gallery exhibition rather than a corporate case study. Unconventional grid layouts with subtle animation on thumbnail hover.</div>
+          <div class="ref-card-borrowed">
+            <strong>What we borrowed</strong>
+            Unconventional portfolio presentation that treats each project as a unique composition, subtle animation on thumbnails.
+          </div>
+        </div>
+      </div>
+
+      <!-- Direction B: Editorial Motion -->
+      <div class="direction-group">
+        <div class="direction-group-header">
+          <div class="direction-marker direction-marker--b"></div>
+          <div class="direction-group-title">Editorial Motion Inspirations</div>
+          <div class="direction-group-subtitle">Direction B</div>
+        </div>
+
+        <div class="ref-card">
+          <div class="ref-card-header">
+            <div class="ref-card-name">KOTA</div>
+            <a class="ref-card-url" href="https://kota.co.uk" target="_blank" rel="noopener">kota.co.uk</a>
+          </div>
+          <div class="ref-card-description">Cinematic design with dynamic lighting effects. &ldquo;Design with Guts&rdquo; as a positioning statement. Case studies presented as multimedia narratives with video, photography, and considered typography.</div>
+          <div class="ref-card-borrowed">
+            <strong>What we borrowed</strong>
+            Motion that directs attention rather than distracting from content, case studies as multimedia narratives, bold brand positioning.
+          </div>
+        </div>
+
+        <div class="ref-card">
+          <div class="ref-card-header">
+            <div class="ref-card-name">Stokt</div>
+            <a class="ref-card-url" href="https://wearestokt.com" target="_blank" rel="noopener">wearestokt.com</a>
+          </div>
+          <div class="ref-card-description">Motion used as a communicative device, not decoration. Every animation serves a storytelling purpose. Repeatable design elements create visual rhythm across pages.</div>
+          <div class="ref-card-borrowed">
+            <strong>What we borrowed</strong>
+            Motion-driven transitions that communicate, repeatable design elements for visual consistency, collaborative storytelling approach.
+          </div>
+        </div>
+
+        <div class="ref-card">
+          <div class="ref-card-header">
+            <div class="ref-card-name">Anyflow Labs</div>
+            <a class="ref-card-url" href="https://anyflow.dev" target="_blank" rel="noopener">anyflow.dev</a>
+          </div>
+          <div class="ref-card-description">Progressive information reveal through scroll interaction. Content unfolds in a carefully choreographed sequence. Responsive hover states add depth without overwhelming the user.</div>
+          <div class="ref-card-borrowed">
+            <strong>What we borrowed</strong>
+            Scroll-based content reveals, responsive hover states that reward exploration, motion supporting content hierarchy.
+          </div>
+        </div>
+      </div>
+
+      <!-- Direction C: Warm Craft -->
+      <div class="direction-group">
+        <div class="direction-group-header">
+          <div class="direction-marker direction-marker--c"></div>
+          <div class="direction-group-title">Warm Craft Inspirations</div>
+          <div class="direction-group-subtitle">Direction C</div>
+        </div>
+
+        <div class="ref-card">
+          <div class="ref-card-header">
+            <div class="ref-card-name">Grafico</div>
+            <a class="ref-card-url" href="https://grafico.co.uk" target="_blank" rel="noopener">grafico.co.uk</a>
+          </div>
+          <div class="ref-card-description">Comprehensive brand identity work presented with genuine depth. Case studies read as educational documents rather than self-congratulatory showcases. Professional warmth in every interaction.</div>
+          <div class="ref-card-borrowed">
+            <strong>What we borrowed</strong>
+            Strategic case study format that educates while it impresses, professional warmth that builds trust.
+          </div>
+        </div>
+
+        <div class="ref-card">
+          <div class="ref-card-header">
+            <div class="ref-card-name">Jolly Good Web</div>
+            <a class="ref-card-url" href="https://jollygoodweb.com" target="_blank" rel="noopener">jollygoodweb.com</a>
+          </div>
+          <div class="ref-card-description">Clean professional design that positions the studio as a partner rather than a vendor. Service pages written for SME decision-makers who need clarity, not jargon.</div>
+          <div class="ref-card-borrowed">
+            <strong>What we borrowed</strong>
+            Clear service presentation written for SME audiences, partner-over-vendor positioning that builds long-term relationships.
+          </div>
+        </div>
+
+        <div class="ref-card">
+          <div class="ref-card-header">
+            <div class="ref-card-name">Studio81</div>
+            <a class="ref-card-url" href="https://studioeightone.com" target="_blank" rel="noopener">studioeightone.com</a>
+          </div>
+          <div class="ref-card-description">Platform specialisation with business metrics woven into case studies. A warm, approachable tone that makes creative services feel accessible rather than intimidating.</div>
+          <div class="ref-card-borrowed">
+            <strong>What we borrowed</strong>
+            Service grid layout, business outcomes presented alongside visual work, warm approachable tone throughout.
+          </div>
+        </div>
+      </div>
+
+      <!-- Additional References -->
+      <div class="direction-group">
+        <div class="direction-group-header">
+          <div class="direction-marker direction-marker--cross"></div>
+          <div class="direction-group-title">Additional References</div>
+          <div class="direction-group-subtitle">Cross-cutting</div>
+        </div>
+
+        <div class="ref-card ref-card--simple">
+          <div class="ref-card-name">JayGood Agency</div>
+          <div class="ref-card-description">Award-quality design ambition executed at boutique scale. Proof that a small team can compete visually with much larger agencies.</div>
+        </div>
+
+        <div class="ref-card ref-card--simple">
+          <div class="ref-card-name">RefractWeb</div>
+          <div class="ref-card-description">&ldquo;Defining digital identity&rdquo; &mdash; positions technical capability as a creative differentiator. A strong model for communicating depth of skill.</div>
+        </div>
+
+        <div class="ref-card ref-card--simple">
+          <div class="ref-card-name">Yellow Pebble</div>
+          <div class="ref-card-description">B2B narrative-driven strategy with a clear focus on business impact. Every page connects creative work to measurable client outcomes.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════
+         04. DESIGN PRINCIPLES
+         ═══════════════════════════════════════════════════ -->
+    <section id="design-principles" class="report-section">
+      <div class="section-label">Section 04</div>
+      <h2>Design Principles</h2>
+      <div class="section-divider"></div>
+
+      <p>Four guiding principles emerged from the research &mdash; consistent threads that appeared across the strongest reference sites regardless of their specific aesthetic. These principles informed all three design directions.</p>
+
+      <div class="principles-grid">
+        <div class="principle-card">
+          <h4>Typography Strategy</h4>
+          <p>DM Serif Display paired with Inter. The serif heading font communicates premium creative capability and editorial confidence. The sans-serif body font ensures readability and approachability for SME audiences who need clarity over style. This pairing says: we are serious about craft, and we are easy to work with.</p>
+        </div>
+        <div class="principle-card">
+          <h4>Colour Approach</h4>
+          <p>Deep navy primary for authority. Vibrant coral accent for energy and distinctiveness. Near-white background for breathing room. This palette is distinctive without being aggressive &mdash; it stands out in a market dominated by teal, royal blue, and corporate grey without alienating conservative business owners.</p>
+        </div>
+        <div class="principle-card">
+          <h4>Motion Philosophy</h4>
+          <p>Subtle, purposeful motion only. Every animation must communicate something &mdash; drawing attention to a key message, revealing content in a logical sequence, or providing feedback on interaction. Following the principle established by Stokt and Anyflow: motion as communication, never as decoration.</p>
+        </div>
+        <div class="principle-card">
+          <h4>Case Study Format</h4>
+          <p>A consistent four-part structure: client challenge, Foxhue&rsquo;s approach, design evolution, and business results. This format educates potential clients on how we work while providing the evidence that builds trust. Inspired by Grafico&rsquo;s educational case studies and boxChilli&rsquo;s metrics-driven approach.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════
+         05. THREE DIRECTIONS
+         ═══════════════════════════════════════════════════ -->
+    <section id="three-directions" class="report-section">
+      <div class="section-label">Section 05</div>
+      <h2>Three Directions</h2>
+      <div class="section-divider"></div>
+
+      <p>Each direction takes the shared design principles and expresses them through a distinct personality. All three are fully designed and ready for review.</p>
+
+      <div class="direction-card">
+        <div class="direction-letter">A</div>
+        <div class="direction-content">
+          <div class="direction-name">Studio Minimal</div>
+          <div class="direction-desc">Clean, architectural white space with bold typography. Confidence through restraint. Draws from SHIO&rsquo;s spatial discipline, Jules Studio&rsquo;s commercial clarity, and Nicola Romei&rsquo;s portfolio artistry. The design lets the work breathe and communicates mastery through what it chooses not to show.</div>
+          <a class="direction-link" href="../designs/design-a/index.html">View Direction A</a>
+        </div>
+      </div>
+
+      <div class="direction-card">
+        <div class="direction-letter">B</div>
+        <div class="direction-content">
+          <div class="direction-name">Editorial Motion</div>
+          <div class="direction-desc">Magazine-inspired layouts with cinematic transitions and dynamic visual storytelling. Draws from KOTA&rsquo;s bold positioning, Stokt&rsquo;s communicative motion, and Anyflow&rsquo;s progressive reveals. The design creates an experience that feels curated and intentional, like flipping through a design publication.</div>
+          <a class="direction-link" href="../designs/design-b/index.html">View Direction B</a>
+        </div>
+      </div>
+
+      <div class="direction-card">
+        <div class="direction-letter">C</div>
+        <div class="direction-content">
+          <div class="direction-name">Warm Craft</div>
+          <div class="direction-desc">Approachable, textured, human &mdash; the boutique studio feel. Draws from Grafico&rsquo;s educational depth, Jolly Good Web&rsquo;s partner positioning, and Studio81&rsquo;s warm accessibility. The design says: we are experts you will enjoy working with.</div>
+          <a class="direction-link" href="../designs/design-c/index.html">View Direction C</a>
+        </div>
+      </div>
+
+      <a class="view-all-link" href="../designs/index.html">View all design directions</a>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════
+         FOOTER
+         ═══════════════════════════════════════════════════ -->
+    <footer class="report-footer">
+      <div class="footer-divider"></div>
+      <p class="footer-text">Confidential &mdash; Prepared for Foxhue by Foxhue Studio, February 2026</p>
+      <a class="footer-link" href="../index.html">&larr; Back to Project Hub</a>
+    </footer>
+
+  </div>
+
+</body>
+</html>

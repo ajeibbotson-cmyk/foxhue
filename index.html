@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Foxhue — Project Hub</title>
+  <title>Foxhue Project Hub</title>
   <meta name="robots" content="noindex, nofollow">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -41,6 +41,16 @@
       border-bottom: 1px solid rgba(26,26,46,0.08);
     }
 
+    .hub-header__product {
+      font-family: var(--foxhue-font-body);
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--foxhue-accent);
+      margin-bottom: 8px;
+    }
+
     .hub-logo {
       font-family: var(--foxhue-font-heading);
       font-size: 2.25rem;
@@ -53,7 +63,7 @@
       font-weight: 500;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--foxhue-accent);
+      color: #6b6b80;
       margin-top: 4px;
     }
 
@@ -184,37 +194,38 @@
 <body>
 
   <header class="hub-header">
+    <p class="hub-header__product">Foxhue Project Hub</p>
     <div class="hub-logo">Foxhue</div>
     <p class="hub-tagline">Creative Design &amp; Marketing</p>
   </header>
 
   <main class="hub-main">
     <div class="hub-intro">
-      <span class="hub-eyebrow">Internal</span>
-      <h1 class="hub-title">Project Hub</h1>
-      <p class="hub-subtitle">Central access point for all Foxhue project deliverables. Design directions, website builds, client review tools, and documentation.</p>
+      <span class="hub-eyebrow">Client Review</span>
+      <h1 class="hub-title">Project Deliverables</h1>
+      <p class="hub-subtitle">Everything in one place. Follow the cards below to explore the creative process, review design directions, compare layouts, and read the SEO analysis.</p>
     </div>
 
     <nav class="hub-links" aria-label="Project deliverables">
 
-      <a href="designs/index.html" class="hub-link">
+      <a href="docs/creative-process.html" class="hub-link">
         <span class="hub-link__number">01</span>
-        <h2 class="hub-link__title">Design Directions</h2>
-        <p class="hub-link__desc">Three design directions for client review: Studio Minimal, Editorial Motion, and Warm Craft.</p>
-        <span class="hub-link__arrow" aria-hidden="true">View Designs &rarr;</span>
+        <h2 class="hub-link__title">Creative Process</h2>
+        <p class="hub-link__desc">How we got here &mdash; the research, inspiration, and thinking behind your design directions.</p>
+        <span class="hub-link__arrow" aria-hidden="true">View Process &rarr;</span>
       </a>
 
-      <a href="website/index.html" class="hub-link">
+      <a href="designs/index.html" class="hub-link">
         <span class="hub-link__number">02</span>
-        <h2 class="hub-link__title">Website</h2>
-        <p class="hub-link__desc">Full multi-page website build. Homepage, Services, Our Work, About, Blog, and Contact.</p>
-        <span class="hub-link__arrow" aria-hidden="true">View Website &rarr;</span>
+        <h2 class="hub-link__title">Design Directions</h2>
+        <p class="hub-link__desc">Three distinct visual styles developed for Foxhue: Studio Minimal, Editorial Motion, and Warm Craft.</p>
+        <span class="hub-link__arrow" aria-hidden="true">View Designs &rarr;</span>
       </a>
 
       <a href="website/variants/index.html" class="hub-link">
         <span class="hub-link__number">03</span>
         <h2 class="hub-link__title">Layout Review</h2>
-        <p class="hub-link__desc">Client review hub for comparing layout variants A, B, and C across all pages.</p>
+        <p class="hub-link__desc">Compare all three layouts across every page, pick your preferences, and leave notes.</p>
         <span class="hub-link__arrow" aria-hidden="true">Review Layouts &rarr;</span>
       </a>
 
