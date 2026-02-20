@@ -37,72 +37,52 @@
     /* Header */
     .hub-header {
       text-align: center;
-      padding: 56px 24px 32px;
+      padding: 56px 24px 0;
+    }
+
+    .hub-welcome {
+      font-family: var(--foxhue-font-heading);
+      font-size: clamp(1.5rem, 3.5vw, 2.25rem);
+      color: var(--foxhue-primary);
+      margin-bottom: 24px;
+    }
+
+    .hub-client-info {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      padding: 20px 0;
+      border-top: 1px solid rgba(26,26,46,0.08);
       border-bottom: 1px solid rgba(26,26,46,0.08);
     }
 
-    .hub-header__product {
-      font-family: var(--foxhue-font-body);
+    .hub-client-info__item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .hub-client-info__label {
       font-size: 0.6875rem;
       font-weight: 600;
       letter-spacing: 0.15em;
       text-transform: uppercase;
-      color: var(--foxhue-accent);
-      margin-bottom: 8px;
-    }
-
-    .hub-logo {
-      font-family: var(--foxhue-font-heading);
-      font-size: 2.25rem;
-      color: var(--foxhue-primary);
-      letter-spacing: 0.02em;
-    }
-
-    .hub-tagline {
-      font-size: 0.8125rem;
-      font-weight: 500;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
       color: #6b6b80;
-      margin-top: 4px;
+    }
+
+    .hub-client-info__value {
+      font-family: var(--foxhue-font-heading);
+      font-size: 1.05rem;
+      color: var(--foxhue-primary);
     }
 
     /* Main */
     .hub-main {
       max-width: 720px;
       margin: 0 auto;
-      padding: 56px 24px 64px;
+      padding: 48px 24px 64px;
       flex: 1;
-    }
-
-    .hub-intro {
-      text-align: center;
-      margin-bottom: 48px;
-    }
-
-    .hub-eyebrow {
-      display: block;
-      font-size: 0.6875rem;
-      font-weight: 600;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--foxhue-accent);
-      margin-bottom: 12px;
-    }
-
-    .hub-title {
-      font-family: var(--foxhue-font-heading);
-      font-size: clamp(1.5rem, 3.5vw, 2.25rem);
-      color: var(--foxhue-primary);
-      margin-bottom: 12px;
-    }
-
-    .hub-subtitle {
-      font-size: 0.9375rem;
-      color: #6b6b80;
-      max-width: 520px;
-      margin: 0 auto;
-      line-height: 1.7;
     }
 
     /* Link Cards */
@@ -188,23 +168,34 @@
       .hub-links {
         grid-template-columns: 1fr;
       }
+      .hub-client-info {
+        flex-direction: column;
+        gap: 16px;
+      }
     }
   </style>
 </head>
 <body>
 
   <header class="hub-header">
-    <p class="hub-header__product">Foxhue Project Hub</p>
-    <div class="hub-logo">Foxhue</div>
-    <p class="hub-tagline">Creative Design &amp; Marketing</p>
+    <h1 class="hub-welcome">Welcome to the Foxhue Project Hub</h1>
+    <div class="hub-client-info">
+      <div class="hub-client-info__item">
+        <span class="hub-client-info__label">Client</span>
+        <span class="hub-client-info__value">Foxhue</span>
+      </div>
+      <div class="hub-client-info__item">
+        <span class="hub-client-info__label">Industry</span>
+        <span class="hub-client-info__value">Creative Design &amp; Marketing</span>
+      </div>
+      <div class="hub-client-info__item">
+        <span class="hub-client-info__label">Location</span>
+        <span class="hub-client-info__value">Bicester, Oxfordshire</span>
+      </div>
+    </div>
   </header>
 
   <main class="hub-main">
-    <div class="hub-intro">
-      <span class="hub-eyebrow">Client Review</span>
-      <h1 class="hub-title">Project Deliverables</h1>
-      <p class="hub-subtitle">Everything in one place. Follow the cards below to explore the creative process, review design directions, compare layouts, and read the SEO analysis.</p>
-    </div>
 
     <nav class="hub-links" aria-label="Project deliverables">
 
