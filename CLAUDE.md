@@ -15,7 +15,8 @@ foxhue/
 ├── .gitignore
 ├── .claude/commands/
 │   ├── scaffold.md           ← /scaffold command
-│   └── seo-report.md        ← /seo-report command
+│   ├── seo-report.md        ← /seo-report command
+│   └── brand-palette.md     ← /brand-palette command
 ├── index.html                ← project hub (internal)
 ├── designs/
 │   ├── index.html            ← design direction hub (client-facing)
@@ -108,7 +109,7 @@ foxhue/
 Three design directions for internal review. Hub at `designs/index.html`. Design pages reference `../website/images/` for shared image assets.
 
 ### `docs/`
-SEO competitor report (`seo-competitor-report.html`) and client asset brief.
+SEO competitor report (`seo-competitor-report.html`), brand palette exploration (`brand-palette.html`), and client asset brief.
 
 ## Deployment
 - **Branch**: `main` (GitHub Pages source)

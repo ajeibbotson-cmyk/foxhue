@@ -17,6 +17,7 @@
     "website": "https://foxhue.com"
   },
   "brand": {
+    "mood": [],
     "colors": {
       "primary": "#1A1A2E",
       "accent": "#E94560",
@@ -31,9 +32,9 @@
     }
   },
   "designs": [
-    { "key": "a", "name": "Studio Minimal", "mood": "Clean, architectural white space with bold typography — confidence through restraint" },
-    { "key": "b", "name": "Editorial Motion", "mood": "Magazine-inspired layouts with cinematic transitions — creative energy meets polish" },
-    { "key": "c", "name": "Warm Craft", "mood": "Approachable, textured, and human — boutique studio feel with premium finish" }
+    { "key": "a", "name": "Studio Minimal", "mood": "Clean, architectural white space with bold typography — confidence through restraint", "palette": null },
+    { "key": "b", "name": "Editorial Motion", "mood": "Magazine-inspired layouts with cinematic transitions — creative energy meets polish", "palette": null },
+    { "key": "c", "name": "Warm Craft", "mood": "Approachable, textured, and human — boutique studio feel with premium finish", "palette": null }
   ],
   "pages": [
     { "key": "homepage", "title": "Homepage", "slug": "index" },

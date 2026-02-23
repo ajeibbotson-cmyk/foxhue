@@ -1,0 +1,1172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Foxhue — Brand Palette Exploration</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ═══════════════════════════════════════════════════
+       RESET & BASE
+       ═══════════════════════════════════════════════════ */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      font-size: 16px;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      color: #1a1a1a;
+      background: #ffffff;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* ═══════════════════════════════════════════════════
+       LAYOUT
+       ═══════════════════════════════════════════════════ */
+    .page-wrapper {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 2rem 4rem;
+    }
+
+    /* ═══════════════════════════════════════════════════
+       BACK LINK
+       ═══════════════════════════════════════════════════ */
+    .back-link {
+      display: inline-block;
+      padding: 1.25rem 0;
+      font-size: 0.8125rem;
+      color: #999;
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      transition: color 0.2s ease;
+    }
+
+    .back-link:hover {
+      color: #444;
+    }
+
+    /* ═══════════════════════════════════════════════════
+       HEADER
+       ═══════════════════════════════════════════════════ */
+    .report-header {
+      padding: 3rem 0 2.5rem;
+      border-bottom: 1px solid #e0e0e0;
+      margin-bottom: 3rem;
+    }
+
+    .report-header h1 {
+      font-size: 2.25rem;
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.75rem;
+    }
+
+    .report-meta {
+      font-size: 0.875rem;
+      color: #666;
+      line-height: 1.6;
+    }
+
+    .report-meta span {
+      display: inline-block;
+    }
+
+    .report-meta .sep {
+      margin: 0 0.5rem;
+      color: #ccc;
+    }
+
+    /* ═══════════════════════════════════════════════════
+       SECTIONS
+       ═══════════════════════════════════════════════════ */
+    .section {
+      margin-bottom: 3.5rem;
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid #1a1a1a;
+    }
+
+    .section-subtitle {
+      font-size: 1.125rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      margin-top: 1.5rem;
+    }
+
+    p {
+      margin-bottom: 1rem;
+    }
+
+    /* ═══════════════════════════════════════════════════
+       DIRECTION OVERVIEW CARDS
+       ═══════════════════════════════════════════════════ */
+    .direction-list {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+      margin-top: 1rem;
+    }
+
+    .direction-card {
+      background: #f5f5f5;
+      border-radius: 8px;
+      padding: 1.5rem;
+      border: 1px solid #e0e0e0;
+    }
+
+    .direction-card .label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #888;
+      margin-bottom: 0.25rem;
+    }
+
+    .direction-card h3 {
+      font-size: 1.125rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .direction-card .mood {
+      font-size: 0.875rem;
+      color: #555;
+      line-height: 1.6;
+      font-style: italic;
+    }
+
+    /* ═══════════════════════════════════════════════════
+       CONTEXT / RESEARCH SECTION
+       ═══════════════════════════════════════════════════ */
+    .context-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+
+    .context-box {
+      background: #f5f5f5;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      padding: 1.25rem 1.5rem;
+    }
+
+    .context-box h4 {
+      font-size: 0.9375rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .context-box p,
+    .context-box li {
+      font-size: 0.875rem;
+      color: #444;
+      line-height: 1.65;
+    }
+
+    .context-box ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .context-box ul li {
+      padding: 0.25rem 0;
+      padding-left: 1rem;
+      position: relative;
+    }
+
+    .context-box ul li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.7em;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: #bbb;
+    }
+
+    .context-full {
+      grid-column: 1 / -1;
+    }
+
+    .inline-swatch {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      border-radius: 3px;
+      vertical-align: middle;
+      margin-right: 3px;
+      border: 1px solid rgba(0,0,0,0.1);
+    }
+
+    /* ═══════════════════════════════════════════════════
+       PALETTE PROPOSALS
+       ═══════════════════════════════════════════════════ */
+    .palette-section {
+      margin-bottom: 3.5rem;
+      padding: 2.5rem;
+      background: #f5f5f5;
+      border-radius: 12px;
+      border: 1px solid #e0e0e0;
+    }
+
+    .palette-header {
+      margin-bottom: 2rem;
+    }
+
+    .palette-header .dir-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #888;
+      margin-bottom: 0.25rem;
+    }
+
+    .palette-header h3 {
+      font-size: 1.375rem;
+      font-weight: 700;
+      margin-bottom: 0.375rem;
+    }
+
+    .palette-header .mood-line {
+      font-size: 0.9375rem;
+      color: #555;
+      font-style: italic;
+    }
+
+    /* Swatch row */
+    .swatch-row {
+      display: flex;
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .swatch {
+      flex: 1;
+      min-width: 100px;
+      max-width: 180px;
+    }
+
+    .swatch-color {
+      width: 100%;
+      height: 80px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+      letter-spacing: 0.03em;
+      border: 1px solid rgba(0,0,0,0.08);
+    }
+
+    .swatch-label {
+      display: block;
+      text-align: center;
+      font-size: 0.75rem;
+      color: #888;
+      margin-top: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      font-weight: 500;
+    }
+
+    .swatch-name {
+      display: block;
+      text-align: center;
+      font-size: 0.8125rem;
+      color: #555;
+      margin-top: 0.125rem;
+      font-style: italic;
+    }
+
+    /* In-use preview */
+    .preview-wrapper {
+      margin-bottom: 2rem;
+    }
+
+    .preview-wrapper h4 {
+      font-size: 0.8125rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #888;
+      margin-bottom: 0.75rem;
+    }
+
+    .preview-stage {
+      padding: 2rem;
+      border-radius: 10px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .preview-card {
+      max-width: 400px;
+      width: 100%;
+      border-radius: 8px;
+      padding: 2rem;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    }
+
+    .preview-card h5 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.5rem;
+      font-weight: 400;
+      line-height: 1.3;
+      margin-bottom: 0.75rem;
+    }
+
+    .preview-card p {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9375rem;
+      line-height: 1.65;
+      margin-bottom: 1.25rem;
+    }
+
+    .preview-btn {
+      display: inline-block;
+      padding: 0.625rem 1.5rem;
+      border-radius: 6px;
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 600;
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+
+    /* WCAG table */
+    .wcag-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.875rem;
+      margin-bottom: 2rem;
+      background: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid #e0e0e0;
+    }
+
+    .wcag-table thead {
+      background: #fafafa;
+    }
+
+    .wcag-table th {
+      text-align: left;
+      padding: 0.75rem 1rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #888;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    .wcag-table td {
+      padding: 0.625rem 1rem;
+      border-bottom: 1px solid #f0f0f0;
+      vertical-align: middle;
+    }
+
+    .wcag-table tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 0.125rem 0.5rem;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+    }
+
+    .badge-aaa {
+      background: #ECFDF5;
+      color: #166534;
+    }
+
+    .badge-aa {
+      background: #FEF9C3;
+      color: #854D0E;
+    }
+
+    .badge-aa-large {
+      background: #FFF7ED;
+      color: #9A3412;
+    }
+
+    .badge-fail {
+      background: #FEF2F2;
+      color: #991B1B;
+    }
+
+    .badge-na {
+      background: #F3F4F6;
+      color: #6B7280;
+    }
+
+    /* Rationale and font pairing */
+    .rationale {
+      margin-bottom: 1rem;
+      font-size: 0.9375rem;
+      line-height: 1.7;
+      color: #333;
+    }
+
+    .font-note {
+      font-size: 0.875rem;
+      color: #666;
+      line-height: 1.65;
+      padding-left: 1rem;
+      border-left: 3px solid #e0e0e0;
+    }
+
+    .font-note strong {
+      color: #444;
+    }
+
+    /* ═══════════════════════════════════════════════════
+       COMPETITOR AUDIT TABLE
+       ═══════════════════════════════════════════════════ */
+    .audit-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.875rem;
+      background: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid #e0e0e0;
+      margin-top: 1rem;
+    }
+
+    .audit-table thead {
+      background: #fafafa;
+    }
+
+    .audit-table th {
+      text-align: left;
+      padding: 0.75rem 1rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #888;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    .audit-table td {
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid #f0f0f0;
+      vertical-align: top;
+      line-height: 1.55;
+    }
+
+    .audit-table tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    .color-chip {
+      display: inline-block;
+      width: 14px;
+      height: 14px;
+      border-radius: 3px;
+      vertical-align: middle;
+      margin-right: 4px;
+      border: 1px solid rgba(0,0,0,0.1);
+    }
+
+    .audit-table .notes-col {
+      color: #666;
+      font-size: 0.8125rem;
+    }
+
+    /* ═══════════════════════════════════════════════════
+       NEXT STEPS
+       ═══════════════════════════════════════════════════ */
+    .next-steps {
+      background: #f5f5f5;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      padding: 2rem;
+      margin-top: 1rem;
+    }
+
+    .next-steps ol {
+      padding-left: 1.25rem;
+      counter-reset: steps;
+      list-style: none;
+    }
+
+    .next-steps ol li {
+      padding: 0.5rem 0;
+      padding-left: 0.5rem;
+      font-size: 0.9375rem;
+      line-height: 1.6;
+      position: relative;
+      counter-increment: steps;
+    }
+
+    .next-steps ol li::before {
+      content: counter(steps);
+      position: absolute;
+      left: -1.25rem;
+      top: 0.5rem;
+      width: 1.25rem;
+      height: 1.25rem;
+      background: #1a1a1a;
+      color: #fff;
+      border-radius: 50%;
+      font-size: 0.6875rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
+    }
+
+    .next-steps code {
+      background: #e8e8e8;
+      padding: 0.125rem 0.375rem;
+      border-radius: 4px;
+      font-size: 0.8125rem;
+      font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+    }
+
+    /* ═══════════════════════════════════════════════════
+       FOOTER
+       ═══════════════════════════════════════════════════ */
+    .report-footer {
+      margin-top: 4rem;
+      padding: 1.5rem 0;
+      border-top: 1px solid #e0e0e0;
+      text-align: center;
+      font-size: 0.8125rem;
+      color: #999;
+    }
+
+    /* ═══════════════════════════════════════════════════
+       RESPONSIVE
+       ═══════════════════════════════════════════════════ */
+    @media (max-width: 768px) {
+      .page-wrapper {
+        padding: 0 1.25rem 3rem;
+      }
+
+      .report-header h1 {
+        font-size: 1.625rem;
+      }
+
+      .direction-list {
+        grid-template-columns: 1fr;
+      }
+
+      .context-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .palette-section {
+        padding: 1.5rem;
+      }
+
+      .swatch-row {
+        gap: 0.5rem;
+      }
+
+      .swatch {
+        min-width: 80px;
+      }
+
+      .swatch-color {
+        height: 64px;
+        font-size: 0.6875rem;
+      }
+
+      .preview-card {
+        padding: 1.5rem;
+      }
+
+      .preview-card h5 {
+        font-size: 1.25rem;
+      }
+
+      .audit-table {
+        display: block;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .section-title {
+        font-size: 1.25rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .swatch-row {
+        flex-direction: column;
+      }
+
+      .swatch {
+        max-width: 100%;
+      }
+
+      .report-meta span {
+        display: block;
+      }
+
+      .report-meta .sep {
+        display: none;
+      }
+    }
+
+    /* ═══════════════════════════════════════════════════
+       PRINT
+       ═══════════════════════════════════════════════════ */
+    @media print {
+      body {
+        font-size: 11pt;
+        color: #000;
+        background: #fff;
+      }
+
+      .page-wrapper {
+        max-width: 100%;
+        padding: 0;
+      }
+
+      .back-link {
+        display: none;
+      }
+
+      .section,
+      .palette-section {
+        page-break-inside: avoid;
+      }
+
+      .palette-section {
+        background: #fff;
+        border: 1px solid #ddd;
+        box-shadow: none;
+      }
+
+      .context-box,
+      .next-steps {
+        background: #fff;
+        border: 1px solid #ddd;
+      }
+
+      .direction-card {
+        background: #fff;
+        border: 1px solid #ddd;
+      }
+
+      .swatch-color {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .preview-stage {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .preview-btn {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .badge {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .color-chip,
+      .inline-swatch {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .report-footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="page-wrapper">
+
+    <!-- Back link -->
+    <a href="../index.html" class="back-link">&larr; Project Hub</a>
+
+    <!-- ═══════════════════════════════════════════════════
+         1. HEADER
+         ═══════════════════════════════════════════════════ -->
+    <header class="report-header">
+      <h1>Foxhue &mdash; Brand Palette Exploration</h1>
+      <div class="report-meta">
+        <span>20 February 2026</span>
+        <span class="sep">&middot;</span>
+        <span>Prepared by Foxhue Ltd</span>
+      </div>
+    </header>
+
+    <!-- ═══════════════════════════════════════════════════
+         2. DIRECTION OVERVIEW
+         ═══════════════════════════════════════════════════ -->
+    <section class="section">
+      <h2 class="section-title">Direction Overview</h2>
+      <p>Three design directions, each with a tailored colour palette built to reinforce its visual identity and strategic positioning.</p>
+
+      <div class="direction-list">
+        <div class="direction-card">
+          <div class="label">Direction A</div>
+          <h3>Studio Minimal</h3>
+          <p class="mood">Clean, architectural white space with bold typography &mdash; confidence through restraint</p>
+        </div>
+        <div class="direction-card">
+          <div class="label">Direction B</div>
+          <h3>Editorial Motion</h3>
+          <p class="mood">Magazine-inspired layouts with cinematic transitions &mdash; creative energy meets polish</p>
+        </div>
+        <div class="direction-card">
+          <div class="label">Direction C</div>
+          <h3>Warm Craft</h3>
+          <p class="mood">Approachable, textured, and human &mdash; boutique studio feel with premium finish</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════
+         3. INDUSTRY & COMPETITOR CONTEXT
+         ═══════════════════════════════════════════════════ -->
+    <section class="section">
+      <h2 class="section-title">Industry &amp; Competitor Context</h2>
+
+      <div class="context-grid">
+        <div class="context-box">
+          <h4>Foxhue Current Site</h4>
+          <p>foxhue.com uses a clean, modern design with bold messaging and an approachable tone. The current palette centres on <span class="inline-swatch" style="background:#1A1A2E;"></span> deep navy (#1A1A2E) as primary and <span class="inline-swatch" style="background:#E94560;"></span> coral (#E94560) as accent &mdash; already distinctive in the local market. The site emphasises personality and professionalism in equal measure.</p>
+        </div>
+
+        <div class="context-box">
+          <h4>UK Industry Patterns</h4>
+          <ul>
+            <li>Deep navy or charcoal primaries for authority, paired with a single vibrant accent for personality</li>
+            <li>Multi-colour approaches (e.g. Creative Haus) are common but risk looking unfocused</li>
+            <li>Monochromatic schemes with one bold accent are trending for studio and boutique agencies</li>
+            <li>Warm, earthy tones gaining popularity for brands positioning as "human" and "approachable"</li>
+            <li>The Oxfordshire market leans more conservative than London agencies</li>
+          </ul>
+        </div>
+
+        <div class="context-box">
+          <h4>Oxfordshire Competitor Landscape</h4>
+          <ul>
+            <li><strong>Creative Haus</strong> (Wallingford/Didcot) &mdash; Vibrant multi-colour identity: one colour per service. Playful, energetic, but diffuse brand recognition</li>
+            <li><strong>Amplitude</strong> &mdash; Orange as a single signature colour used consistently everywhere. Strong recognition through repetition</li>
+            <li><strong>Aspect Studio</strong> &mdash; Dark navy with teal/green accents. Professional, consultancy-feel, less playful</li>
+            <li><strong>JK Creative Co</strong> &mdash; Bold, expressive palettes per client kit. Portfolio-led; own brand takes a back seat</li>
+          </ul>
+        </div>
+
+        <div class="context-box">
+          <h4>Differentiation Opportunity</h4>
+          <p>Most Oxfordshire competitors lean into either multi-colour vibrancy (Creative Haus) or conventional blue/grey professionalism (Aspect Studio). There is a clear gap for a refined single-accent approach that feels premium without being corporate &mdash; exactly where all three Foxhue directions are positioned.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════
+         4. PALETTE PROPOSALS
+         ═══════════════════════════════════════════════════ -->
+
+    <!-- ——— Direction A: Studio Minimal ——— -->
+    <section class="section">
+      <h2 class="section-title">Palette Proposals</h2>
+
+      <div class="palette-section">
+        <div class="palette-header">
+          <div class="dir-label">Direction A</div>
+          <h3>Studio Minimal</h3>
+          <p class="mood-line">Clean, architectural white space with bold typography &mdash; confidence through restraint</p>
+        </div>
+
+        <!-- Swatches -->
+        <div class="swatch-row">
+          <div class="swatch">
+            <div class="swatch-color" style="background:#1A1B2E; color:#fff;">#1A1B2E</div>
+            <span class="swatch-label">Primary</span>
+            <span class="swatch-name">ink navy</span>
+          </div>
+          <div class="swatch">
+            <div class="swatch-color" style="background:#3D6294; color:#fff;">#3D6294</div>
+            <span class="swatch-label">Accent</span>
+            <span class="swatch-name">steel blue</span>
+          </div>
+          <div class="swatch">
+            <div class="swatch-color" style="background:#2F5080; color:#fff;">#2F5080</div>
+            <span class="swatch-label">Accent Hover</span>
+            <span class="swatch-name">deep steel</span>
+          </div>
+          <div class="swatch">
+            <div class="swatch-color" style="background:#FAFAFA; color:#444;">#FAFAFA</div>
+            <span class="swatch-label">Background</span>
+            <span class="swatch-name">near-white</span>
+          </div>
+          <div class="swatch">
+            <div class="swatch-color" style="background:#FFFFFF; color:#444; border-color:#ddd;">#FFFFFF</div>
+            <span class="swatch-label">Surface</span>
+            <span class="swatch-name">white</span>
+          </div>
+        </div>
+
+        <!-- In use preview -->
+        <div class="preview-wrapper">
+          <h4>In Use</h4>
+          <div class="preview-stage" style="background:#FAFAFA; border-radius:10px;">
+            <div class="preview-card" style="background:#FFFFFF;">
+              <h5 style="color:#1A1B2E; font-family:'DM Serif Display', serif;">Confidence through restraint</h5>
+              <p style="color:#1A1B2E; font-family:'Inter', sans-serif;">We design brands that earn trust through clarity and precision. Every element serves a purpose. Nothing is wasted.</p>
+              <span class="preview-btn" style="background:#3D6294;">Get in touch</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- WCAG table -->
+        <table class="wcag-table">
+          <thead>
+            <tr>
+              <th>Combination</th>
+              <th>Ratio</th>
+              <th>Rating</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Primary on Background</td>
+              <td>16.22 : 1</td>
+              <td><span class="badge badge-aaa">AAA</span></td>
+            </tr>
+            <tr>
+              <td>Primary on Surface</td>
+              <td>16.93 : 1</td>
+              <td><span class="badge badge-aaa">AAA</span></td>
+            </tr>
+            <tr>
+              <td>White on Accent</td>
+              <td>6.23 : 1</td>
+              <td><span class="badge badge-aa">AA</span></td>
+            </tr>
+            <tr>
+              <td>Primary on Accent</td>
+              <td>2.72 : 1</td>
+              <td><span class="badge badge-na">n/a &mdash; use white text on accent</span></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- Rationale -->
+        <p class="rationale">A restrained, monochromatic palette built around architectural contrast. The steel blue accent is deliberate and understated &mdash; it draws attention to CTAs without competing with the white space and bold typography that define this direction. Differentiates from Creative Haus's multi-colour approach by proving that one well-chosen accent can carry an entire brand.</p>
+
+        <p class="font-note"><strong>Font pairing note:</strong> The geometric precision of Inter pairs with steel blue's coolness, while DM Serif Display's editorial weight commands the white space &mdash; both fonts thrive in high-contrast, minimal environments.</p>
+      </div>
+
+      <!-- ——— Direction B: Editorial Motion ——— -->
+      <div class="palette-section">
+        <div class="palette-header">
+          <div class="dir-label">Direction B</div>
+          <h3>Editorial Motion</h3>
+          <p class="mood-line">Magazine-inspired layouts with cinematic transitions &mdash; creative energy meets polish</p>
+        </div>
+
+        <!-- Swatches -->
+        <div class="swatch-row">
+          <div class="swatch">
+            <div class="swatch-color" style="background:#0F1012; color:#fff;">#0F1012</div>
+            <span class="swatch-label">Primary</span>
+            <span class="swatch-name">rich black</span>
+          </div>
+          <div class="swatch">
+            <div class="swatch-color" style="background:#C44B2B; color:#fff;">#C44B2B</div>
+            <span class="swatch-label">Accent</span>
+            <span class="swatch-name">burnt vermillion</span>
+          </div>
+          <div class="swatch">
+            <div class="swatch-color" style="background:#A83D22; color:#fff;">#A83D22</div>
+            <span class="swatch-label">Accent Hover</span>
+            <span class="swatch-name">deep vermillion</span>
+          </div>
+          <div class="swatch">
+            <div class="swatch-color" style="background:#F5F0EB; color:#444;">#F5F0EB</div>
+            <span class="swatch-label">Background</span>
+            <span class="swatch-name">warm parchment</span>
+          </div>
+          <div class="swatch">
+            <div class="swatch-color" style="background:#FFFFFF; color:#444; border-color:#ddd;">#FFFFFF</div>
+            <span class="swatch-label">Surface</span>
+            <span class="swatch-name">white</span>
+          </div>
+        </div>
+
+        <!-- In use preview -->
+        <div class="preview-wrapper">
+          <h4>In Use</h4>
+          <div class="preview-stage" style="background:#F5F0EB; border-radius:10px;">
+            <div class="preview-card" style="background:#FFFFFF;">
+              <h5 style="color:#0F1012; font-family:'DM Serif Display', serif;">Creative energy meets polish</h5>
+              <p style="color:#0F1012; font-family:'Inter', sans-serif;">We craft brands with the drama of editorial print and the precision of modern design. Every spread tells a story.</p>
+              <span class="preview-btn" style="background:#C44B2B;">Start a project</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- WCAG table -->
+        <table class="wcag-table">
+          <thead>
+            <tr>
+              <th>Combination</th>
+              <th>Ratio</th>
+              <th>Rating</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Primary on Background</td>
+              <td>16.81 : 1</td>
+              <td><span class="badge badge-aaa">AAA</span></td>
+            </tr>
+            <tr>
+              <td>Primary on Surface</td>
+              <td>19.04 : 1</td>
+              <td><span class="badge badge-aaa">AAA</span></td>
+            </tr>
+            <tr>
+              <td>White on Accent</td>
+              <td>4.79 : 1</td>
+              <td><span class="badge badge-aa">AA</span></td>
+            </tr>
+            <tr>
+              <td>Primary on Accent</td>
+              <td>3.98 : 1</td>
+              <td><span class="badge badge-aa-large">AA Large</span></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- Rationale -->
+        <p class="rationale">A cinematic palette inspired by editorial print &mdash; the warm parchment background evokes premium magazine stock, while burnt vermillion brings the energy of a fashion editorial spread. The near-black primary creates dramatic contrast that suits bold headline typography. Shares DNA with Foxhue's current coral accent but shifts warmer and earthier for a more editorial feel.</p>
+
+        <p class="font-note"><strong>Font pairing note:</strong> DM Serif Display was born for editorial layouts &mdash; its high-contrast strokes sing against the warm parchment background. Inter's clean geometry provides the "polish" counterpoint, keeping body copy precise and modern.</p>
+      </div>
+
+      <!-- ——— Direction C: Warm Craft ——— -->
+      <div class="palette-section">
+        <div class="palette-header">
+          <div class="dir-label">Direction C</div>
+          <h3>Warm Craft</h3>
+          <p class="mood-line">Approachable, textured, and human &mdash; boutique studio feel with premium finish</p>
+        </div>
+
+        <!-- Swatches -->
+        <div class="swatch-row">
+          <div class="swatch">
+            <div class="swatch-color" style="background:#2D2926; color:#fff;">#2D2926</div>
+            <span class="swatch-label">Primary</span>
+            <span class="swatch-name">warm charcoal</span>
+          </div>
+          <div class="swatch">
+            <div class="swatch-color" style="background:#9E5E33; color:#fff;">#9E5E33</div>
+            <span class="swatch-label">Accent</span>
+            <span class="swatch-name">burnished copper</span>
+          </div>
+          <div class="swatch">
+            <div class="swatch-color" style="background:#845028; color:#fff;">#845028</div>
+            <span class="swatch-label">Accent Hover</span>
+            <span class="swatch-name">deep copper</span>
+          </div>
+          <div class="swatch">
+            <div class="swatch-color" style="background:#FAF6F2; color:#444;">#FAF6F2</div>
+            <span class="swatch-label">Background</span>
+            <span class="swatch-name">cream</span>
+          </div>
+          <div class="swatch">
+            <div class="swatch-color" style="background:#FFFFFF; color:#444; border-color:#ddd;">#FFFFFF</div>
+            <span class="swatch-label">Surface</span>
+            <span class="swatch-name">white</span>
+          </div>
+        </div>
+
+        <!-- In use preview -->
+        <div class="preview-wrapper">
+          <h4>In Use</h4>
+          <div class="preview-stage" style="background:#FAF6F2; border-radius:10px;">
+            <div class="preview-card" style="background:#FFFFFF;">
+              <h5 style="color:#2D2926; font-family:'DM Serif Display', serif;">Made by humans, for humans</h5>
+              <p style="color:#2D2926; font-family:'Inter', sans-serif;">We build brands with warmth and intention. Every detail is considered, every texture is deliberate, every outcome is personal.</p>
+              <span class="preview-btn" style="background:#9E5E33;">Let's talk</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- WCAG table -->
+        <table class="wcag-table">
+          <thead>
+            <tr>
+              <th>Combination</th>
+              <th>Ratio</th>
+              <th>Rating</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Primary on Background</td>
+              <td>13.41 : 1</td>
+              <td><span class="badge badge-aaa">AAA</span></td>
+            </tr>
+            <tr>
+              <td>Primary on Surface</td>
+              <td>14.42 : 1</td>
+              <td><span class="badge badge-aaa">AAA</span></td>
+            </tr>
+            <tr>
+              <td>White on Accent</td>
+              <td>5.12 : 1</td>
+              <td><span class="badge badge-aa">AA</span></td>
+            </tr>
+            <tr>
+              <td>Primary on Accent</td>
+              <td>2.82 : 1</td>
+              <td><span class="badge badge-na">n/a &mdash; use white text on accent</span></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- Rationale -->
+        <p class="rationale">Copper and cream create an artisanal warmth that immediately signals "human-made" and "premium craft." The warm charcoal primary avoids the coldness of pure black, supporting the approachable mood. This palette differentiates sharply from the tech-leaning blues and vibrant multi-colours used by Oxfordshire competitors, positioning Foxhue as a boutique studio rather than a corporate agency.</p>
+
+        <p class="font-note"><strong>Font pairing note:</strong> Burnished copper complements DM Serif Display's organic serif shapes &mdash; both feel handcrafted rather than engineered. The warm charcoal grounds Inter's clean lines, softening its geometric precision into something more inviting.</p>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════
+         5. COMPETITOR COLOUR AUDIT
+         ═══════════════════════════════════════════════════ -->
+    <section class="section">
+      <h2 class="section-title">Competitor Colour Audit</h2>
+      <p>A snapshot of how Oxfordshire creative agencies use colour, and where the opportunities sit for Foxhue.</p>
+
+      <table class="audit-table">
+        <thead>
+          <tr>
+            <th>Competitor</th>
+            <th>Primary</th>
+            <th>Accent</th>
+            <th>Background</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Creative Haus</strong></td>
+            <td>Multi-colour (no single primary)</td>
+            <td>
+              <span class="color-chip" style="background:#3B82F6;"></span>Blue,
+              <span class="color-chip" style="background:#EF4444;"></span>Red,
+              <span class="color-chip" style="background:#22C55E;"></span>Green,
+              <span class="color-chip" style="background:#EAB308;"></span>Yellow,
+              <span class="color-chip" style="background:#F97316;"></span>Orange,
+              <span class="color-chip" style="background:#EC4899;"></span>Pink
+            </td>
+            <td>White</td>
+            <td class="notes-col">Each service gets its own colour &mdash; vibrant but diffuse identity</td>
+          </tr>
+          <tr>
+            <td><strong>Amplitude</strong></td>
+            <td><span class="color-chip" style="background:#F76C2F;"></span>#F76C2F (approx)</td>
+            <td>Orange variants</td>
+            <td>White</td>
+            <td class="notes-col">Single bold accent used consistently everywhere &mdash; strong recognition</td>
+          </tr>
+          <tr>
+            <td><strong>Aspect Studio</strong></td>
+            <td>Dark navy</td>
+            <td>Teal / green accents</td>
+            <td>Light grey</td>
+            <td class="notes-col">Professional, consultancy-feel &mdash; less playful than studio agencies</td>
+          </tr>
+          <tr>
+            <td><strong>JK Creative Co</strong></td>
+            <td>Varies per kit</td>
+            <td>Bold, expressive palettes</td>
+            <td>White / cream</td>
+            <td class="notes-col">Showcases client palettes more than own brand &mdash; portfolio-led</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div style="margin-top:1.25rem;">
+        <p style="font-size:0.9375rem; color:#444;"><strong>Differentiation opportunities:</strong> Most Oxfordshire competitors lean into either multi-colour vibrancy (Creative Haus) or conventional blue/grey professionalism (Aspect Studio). There is a clear gap for a refined single-accent approach that feels premium without being corporate. All three Foxhue palettes occupy this gap from different angles &mdash; cool restraint, warm drama, or artisanal craft.</p>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════
+         6. NEXT STEPS
+         ═══════════════════════════════════════════════════ -->
+    <section class="section">
+      <h2 class="section-title">Next Steps</h2>
+
+      <div class="next-steps">
+        <ol>
+          <li>Review the three palettes above and select your preferred direction (A, B, or C).</li>
+          <li>Copy the chosen hex values into <code>project.json</code> under <code>brand.colors</code> &mdash; the keys are <code>primary</code>, <code>accent</code>, <code>accent_hover</code>, <code>background</code>, and <code>surface</code>.</li>
+          <li>Run <code>/scaffold</code> to generate design assets and component templates with the selected palette applied.</li>
+          <li>If adjustments are needed (e.g. a warmer accent, a different hover state), flag specific colours and we will iterate before scaffolding.</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════
+         FOOTER
+         ═══════════════════════════════════════════════════ -->
+    <footer class="report-footer">
+      Prepared by Foxhue Ltd &nbsp;|&nbsp; Confidential
+    </footer>
+
+  </div>
+
+</body>
+</html>
