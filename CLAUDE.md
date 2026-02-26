@@ -1,7 +1,7 @@
 # Foxhue — Creative Design & Marketing
 
 ## Overview
-Agency website for Foxhue Ltd, a creative design and marketing studio based in Bicester, Oxfordshire. Built from the foxhue-superclaude template.
+Agency website for Foxhue Ltd, a creative design and marketing studio based in Bicester, Oxfordshire. Built from the Foxhue Studio template.
 
 **GitHub Pages**: https://ajeibbotson-cmyk.github.io/foxhue/
 **Design Hub**: https://ajeibbotson-cmyk.github.io/foxhue/designs/
